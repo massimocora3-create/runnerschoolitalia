@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Runner’s School Italia – App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #020617;          /* sfondo pagina */
+      --bg-card: #0b1120;     /* sfondo card */
+      --bg-header: #020617;   /* header */
+      --accent: #f97316;      /* arancio RS */
+      --accent-soft: rgba(249,115,22,0.12);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .app-shell {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 18px 14px 32px;
+    }
+
+    /* HEADER */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 4px 18px;
+    }
+
+    .app-logo-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 20% 0, #1f2937 0, #020617 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      border: 1px solid rgba(148,163,184,0.2);
+      overflow: hidden;
+    }
+
+    .app-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .app-title-block {
+      flex: 1;
+    }
+
+    .app-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .app-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.25);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .app-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #facc15 0, #f97316 45%, #b45309 100%);
+      box-shadow: 0 0 12px rgba(249,115,22,0.9);
+    }
+
+    /* BLOCCO HERO */
+    .hero-card {
+      margin-top: 10px;
+      margin-bottom: 18px;
+      padding: 18px 16px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 90%;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .hero-pill span {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(249,115,22,0.45) 0, transparent 65%);
+      right: -60px;
+      top: -70px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* SEZIONI */
+    .section-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin: 18px 2px 8px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 14px 13px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out, background 0.12s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.16), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.12s ease-out;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      border-color: rgba(249,115,22,0.65);
+      background: #020617;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .card-footer {
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--accent);
+    }
+
+    .card-footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chevron {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* FOOTER */
+    .app-footer {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-shell">
+    
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="app-logo-wrap">
+        <!-- Sostituisci src con il nome del tuo file logo RS -->
+        <img src="logo-rs.svg" alt="Runner’s School Italia" class="app-logo" />
+      </div>
+      <div class="app-title-block">
+        <div class="app-title">Runner’s School Italia</div>
+        <div class="app-subtitle">App ufficiale – Programmi & servizi</div>
+        <div class="app-badge">
+          <span class="app-badge-dot"></span>
+          <span>Quadrimestre in corso</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-card">
+      <div class="hero-glow"></div>
+      <h1 class="hero-title">Il tuo allenamento, sempre in tasca.</h1>
+      <p class="hero-text">
+        Programmi settimanali, ritmi, esercizi di supporto e tutte le comunicazioni Runner’s School in un unico posto, sempre aggiornato.
+      </p>
+      <div class="hero-pill">
+        🎯 Prossimo obiettivo:
+        <span>chiudere il quadrimestre al meglio</span>
+      </div>
+    </section>
+
+    <!-- PROGRAMMI DI ALLENAMENTO -->
+    <div class="section-label">Programmi</div>
+    <div class="card-grid">
+      <!-- Programmi di allenamento -->
+      <a class="card-link" href="programmi.html">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">🏃‍♂️</div>
+            <div>
+              <div class="card-title">Programmi di allenamento</div>
+              <div class="card-subtitle">
+                Livello 1 · Livello 2 Sprint, Medio, Endurance e Trail
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>15 settimane / livello</span>
+            <span class="chevron">›</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Calcola i tuoi ritmi -->
+      <a class="card-link" href="https://www.runnerschoolitalia.com/calcola-istantaneamente-i-tuoi-ritmi-di-corsa/" target="_blank" rel="noopener">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">⏱️</div>
+            <div>
+              <div class="card-title">Calcola i tuoi ritmi</div>
+              <div class="card-subtitle">
+                Inserisci il tuo tempo e ottieni subito i ritmi ideali.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Strumento online RS</span>
+            <span class="chevron">↗</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <!-- SUPPORTO ALLENAMENTO -->
+    <div class="section-label">Supporto all’allenamento</div>
+    <div class="card-grid">
+      <!-- Per completare il tuo allenamento -->
+      <a class="card-link" href="completa.html">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">💪</div>
+            <div>
+              <div class="card-title">Per completare il tuo allenamento</div>
+              <div class="card-subtitle">
+                Andature tecniche, potenziamento e stretching spiegati bene.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>3 pilastri fondamentali</span>
+            <span class="chevron">›</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- RS Voice -->
+      <a class="card-link" href="rs-voice.html">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">🎙️</div>
+            <div>
+              <div class="card-title">RS Voice</div>
+              <div class="card-subtitle">
+                La voce ufficiale RS: indicazioni, mindset e motivazione.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Nuovi messaggi periodici</span>
+            <span class="chevron">›</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <!-- SERVIZI -->
+    <div class="section-label">Servizi</div>
+    <div class="card-grid">
+      <!-- Certificato medico -->
+      <a class="card-link" href="certificato.html">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">🩺</div>
+            <div>
+              <div class="card-title">Certificato medico</div>
+              <div class="card-subtitle">
+                Carica il certificato e controlla la data di scadenza.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Obbligatorio per allenarsi con RS</span>
+            <span class="chevron">›</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Modulo iscrizione RS -->
+      <a class="card-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeZIoMp7KhlS5yjiK4ulQuwEQUcpAowFEUSOnhe-fKaydaMbg/viewform?usp=preview" target="_blank" rel="noopener">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">📝</div>
+            <div>
+              <div class="card-title">Iscrizione Runner’s School</div>
+              <div class="card-subtitle">
+                Compila il modulo online e unisciti al gruppo.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Modulo ufficiale RS</span>
+            <span class="chevron">↗</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <!-- INFO -->
+    <div class="section-label">Organizzazione</div>
+    <div class="card-grid">
+      <!-- Comunicazioni importanti -->
+      <a class="card-link" href="comunicazioni.html">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">📢</div>
+            <div>
+              <div class="card-title">Comunicazioni importanti</div>
+              <div class="card-subtitle">
+                Avvisi, aggiornamenti e note organizzative da RS.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Consulta prima di ogni settimana</span>
+            <span class="chevron">›</span>
+          </div>
+        </article>
+      </a>
+
+      <!-- Sedi e orari -->
+      <a class="card-link" href="sedi-orari.html">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">📍</div>
+            <div>
+              <div class="card-title">Sedi & orari</div>
+              <div class="card-subtitle">
+                Tutte le sedi attive, punti di ritrovo e orari dei collettivi.
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>Aggiornato in base al quadrimestre</span>
+            <span class="chevron">›</span>
+          </div>
+        </article>
+      </a>
+    </div>
+
+    <footer class="app-footer">
+      Runner’s School Italia · Allenarsi bene, insieme.
+    </footer>
+  </div>
+</body>
+</html>
