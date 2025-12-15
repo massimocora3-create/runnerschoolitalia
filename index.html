@@ -63,7 +63,6 @@
       width: 44px;
       height: 44px;
       object-fit: contain;
-      display: block;
     }
 
     .app-title {
@@ -77,78 +76,13 @@
       color: var(--text-muted);
     }
 
-    /* HOME FIXED */
-    .hero-card {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      padding: 18px 16px;
-      border-radius: 24px;
-      background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
-      border: 1px solid rgba(148,163,184,0.2);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .hero-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      max-width: 90%;
-    }
-
-    .primary-action {
-      margin-top: 14px;
-    }
-
-    .primary-action .card {
-      border-color: rgba(249,115,22,0.5);
-    }
-
-    .quick-links {
-      margin-top: 12px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 13px;
-    }
-
-    .quick-links a {
-      text-decoration: none;
-      color: var(--accent);
-    }
-
-    /* SEZIONI */
-    .section-label {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin: 22px 2px 10px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-    }
-
+    /* CARD GENERICHE */
     .card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
       padding: 14px 13px;
       border: 1px solid var(--border);
       box-shadow: 0 10px 26px rgba(0,0,0,0.55);
-      display: flex;
-      flex-direction: column;
     }
 
     .card-header {
@@ -178,6 +112,48 @@
       color: var(--text-muted);
     }
 
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    /* SEZIONI */
+    .section-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin: 22px 2px 10px;
+    }
+
+    /* HERO SETTIMANA */
+    .hero-card {
+      margin-top: 10px;
+      margin-bottom: 18px;
+      padding: 18px 16px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
     footer {
       margin-top: 26px;
       text-align: center;
@@ -188,82 +164,156 @@
 </head>
 
 <body>
-  <div class="app-shell">
+<div class="app-shell">
 
-    <!-- HEADER -->
-    <header class="app-header">
-      <div class="app-logo-wrap">
-        <img src="Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo" />
-      </div>
-      <div>
-        <div class="app-title">Runner’s School Italia</div>
-        <div class="app-subtitle">App ufficiale – Programmi & servizi</div>
-      </div>
-    </header>
-
-    <!-- HOME FIXED -->
-    <section class="hero-card">
-      <h1 class="hero-title">Settimana 15 – Q1 2025/2026</h1>
-      <p class="hero-text">
-        Il tuo riferimento settimanale per allenamenti, comunicazioni e appuntamenti RS.
-      </p>
-
-      <div class="primary-action">
-        <a class="card-link" href="programmi.html">
-          <article class="card">
-            <div class="card-header">
-              <div class="card-icon">🏃‍♂️</div>
-              <div>
-                <div class="card-title">Vai agli allenamenti</div>
-                <div class="card-subtitle">Livello 1 · Livello 2 · Extra</div>
-              </div>
-            </div>
-          </article>
-        </a>
-      </div>
-
-      <div class="quick-links">
-        <a href="comunicazioni.html">📢 Avvisi</a>
-        <a href="eventi.html">📅 Eventi</a>
-        <a href="sedi-orari.html">ℹ️ Info utili</a>
-      </div>
-    </section>
-
-    <!-- NEWS IMPORTANTI -->
-    <div class="section-label">News importanti</div>
-    <div class="card-grid">
-
-      <a class="card-link" href="https://www.runnerschoolitalia.com/">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">📰</div>
-            <div>
-              <div class="card-title">Test finale di fine quadrimestre</div>
-              <div class="card-subtitle">Info e modalità di svolgimento</div>
-            </div>
-          </div>
-        </article>
-      </a>
-
-      <a class="card-link" href="https://www.runnerschoolitalia.com/">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">📝</div>
-            <div>
-              <div class="card-title">Apertura iscrizioni prossimo quadrimestre</div>
-              <div class="card-subtitle">Modulo ufficiale RS</div>
-            </div>
-          </div>
-        </article>
-      </a>
-
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="app-logo-wrap">
+      <img src="Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo" />
     </div>
+    <div>
+      <div class="app-title">Runner’s School Italia</div>
+      <div class="app-subtitle">App ufficiale – servizi per gli allievi</div>
+    </div>
+  </header>
 
-    <footer>
-      Runner’s School Italia · Allenarsi bene, insieme.
-    </footer>
+  <!-- SETTIMANA ATTUALE -->
+  <section class="hero-card">
+    <h1 class="hero-title">Settimana 15 – Q1 2025/2026</h1>
+    <p class="hero-text">
+      Qui trovi tutto ciò che ti serve per allenarti e gestire il tuo percorso RS.
+    </p>
+  </section>
+
+  <!-- MENU UTILITÀ -->
+  <div class="section-label">Strumenti utili</div>
+  <div class="card-grid">
+
+    <a class="card-link" href="programmi.html">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏃‍♂️</div>
+          <div>
+            <div class="card-title">Programma completo</div>
+            <div class="card-subtitle">Allenamenti settimanali RS</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="https://www.runnerschoolitalia.com/calcola-istantaneamente-i-tuoi-ritmi-di-corsa/" target="_blank">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">⏱️</div>
+          <div>
+            <div class="card-title">Calcola i tuoi ritmi di corsa</div>
+            <div class="card-subtitle">Strumento ufficiale RS</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="materiale.html">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📘</div>
+          <div>
+            <div class="card-title">Materiale didattico</div>
+            <div class="card-subtitle">Tecnica, esercizi, spiegazioni</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="certificato.html">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🩺</div>
+          <div>
+            <div class="card-title">Certificato medico</div>
+            <div class="card-subtitle">Carica o verifica la scadenza</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="rs-voice.html">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🎙️</div>
+          <div>
+            <div class="card-title">Runner’s Voice</div>
+            <div class="card-subtitle">Messaggi e mindset RS</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="sedi-orari.html">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📍</div>
+          <div>
+            <div class="card-title">Sedi e orari</div>
+            <div class="card-subtitle">Collettivi e punti di ritrovo</div>
+          </div>
+        </div>
+      </div>
+    </a>
 
   </div>
+
+  <!-- ISCRIZIONI -->
+  <div class="section-label">Iscrizioni</div>
+  <div class="card-grid">
+
+    <a class="card-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeZIoMp7KhlS5yjiK4ulQuwEQUcpAowFEUSOnhe-fKaydaMbg/viewform" target="_blank">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📝</div>
+          <div>
+            <div class="card-title">Iscrizione corso</div>
+            <div class="card-subtitle">Modulo ufficiale Runner’s School</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card-link" href="prova-gratuita.html">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">⭐</div>
+          <div>
+            <div class="card-title">Iscrizione prova gratuita</div>
+            <div class="card-subtitle">Vieni a provare Runner’s School</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- NEWS -->
+  <div class="section-label">News importanti</div>
+  <div class="card-grid">
+    <a class="card-link" href="https://www.runnerschoolitalia.com/">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📰</div>
+          <div>
+            <div class="card-title">Test finale di fine quadrimestre</div>
+            <div class="card-subtitle">Tutte le informazioni</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    Runner’s School Italia · Allenarsi bene, insieme.
+  </footer>
+
+</div>
 </body>
 </html>
 
