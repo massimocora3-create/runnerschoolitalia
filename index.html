@@ -297,21 +297,46 @@
 
   </div>
 
-  <!-- NEWS -->
-  <div class="section-label">News importanti</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">📰</div>
-          <div>
-            <div class="card-title">Test finale di fine quadrimestre</div>
-            <div class="card-subtitle">Tutte le informazioni</div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+  <section id="runners-voice-latest">
+  <h2>Ultimi articoli da Runner’s Voice</h2>
+  <div id="rv-articles"></div>
+</section>
+
+  <script>
+async function loadLatestArticles() {
+  const feedUrl = 'YOUR_FEED_URL_HERE'; // es. https://www.runnerschoolitalia.com/news/?feed=json
+  try {
+    // Fetch dell’endpoint (dev’essere JSON)
+    const response = await fetch(feedUrl);
+    const data = await response.json();
+
+    const container = document.getElementById('rv-articles');
+    container.innerHTML = ''; 
+
+    // Prendi i primi 5 articoli
+    const latest = data.items.slice(0,5);
+
+    latest.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'rv-article';
+
+      card.innerHTML = `
+        <a href="${item.url}">
+          <h3>${item.title}</h3>
+        </a>
+        <p>${item.description || ''}</p>
+      `;
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error('Errore caricamento Runner’s Voice:', err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadLatestArticles);
+</script>
+
+</div>
 
   <footer>
     Runner’s School Italia · Allenarsi bene, insieme.
