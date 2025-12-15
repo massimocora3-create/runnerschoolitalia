@@ -25,6 +25,51 @@
       box-sizing: border-box;
     }
 
+<script>
+const RSS_URL = "https://www.runnerschoolitalia.com/news/feed/";
+const container = document.getElementById("rs-news");
+
+fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_URL))
+  .then(res => res.json())
+  .then(data => {
+    container.innerHTML = "";
+
+    data.items.slice(0, 10).forEach(item => {
+      const card = document.createElement("a");
+      card.className = "card-link";
+      card.href = item.link;
+      card.target = "_blank";
+
+      card.innerHTML = `
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">🎙️</div>
+            <div>
+              <div class="card-title">${item.title}</div>
+              <div class="card-subtitle">Runner’s Voice</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  })
+  .catch(() => {
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">⚠️</div>
+          <div>
+            <div class="card-title">Impossibile caricare gli articoli</div>
+            <div class="card-subtitle">Controlla la connessione</div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+</script>
+    
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
@@ -303,21 +348,19 @@
 
   </div>
 
-  <!-- NEWS -->
-  <div class="section-label">News importanti</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">📰</div>
-          <div>
-            <div class="card-title">Test finale di fine quadrimestre</div>
-            <div class="card-subtitle">Tutte le informazioni</div>
-          </div>
-        </div>
+<!-- RUNNER'S VOICE -->
+<div class="section-label">Runner’s Voice</div>
+<div class="card-grid" id="rs-news">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📰</div>
+      <div>
+        <div class="card-title">Caricamento articoli…</div>
+        <div class="card-subtitle">Runner’s Voice</div>
       </div>
-    </a>
+    </div>
   </div>
+</div>
 
   <footer>
     Runner’s School Italia · Allenarsi bene, insieme.
