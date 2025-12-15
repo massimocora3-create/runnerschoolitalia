@@ -19,6 +19,27 @@
       --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
     }
 
+    <style>
+#runners-voice .rv-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#runners-voice .rv-item:last-child {
+  border-bottom: none;
+}
+
+#runners-voice a {
+  color: #f97316;
+  text-decoration: none;
+}
+
+#runners-voice p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+</style>
     * {
       margin: 0;
       padding: 0;
@@ -297,52 +318,57 @@
 
   </div>
 
-  <section id="runners-voice-latest">
-  <h2>Ultimi articoli da Runner’s Voice</h2>
-  <div id="rv-articles"></div>
+<section class="card">
+  <h2>📰 Runner’s Voice</h2>
+  <div id="runners-voice">
+    <p>Caricamento articoli…</p>
+  </div>
 </section>
 
   <script>
-async function loadLatestArticles() {
-  const feedUrl = 'YOUR_FEED_URL_HERE'; // es. https://www.runnerschoolitalia.com/news/?feed=json
+async function loadRunnersVoice() {
+  const FEED_URL = "https://api.rss2json.com/v1/api.json?rss_url=https://www.runnerschoolitalia.com/feed/";
+  const container = document.getElementById("runners-voice");
+
   try {
-    // Fetch dell’endpoint (dev’essere JSON)
-    const response = await fetch(feedUrl);
+    const response = await fetch(FEED_URL);
     const data = await response.json();
 
-    const container = document.getElementById('rv-articles');
-    container.innerHTML = ''; 
+    if (!data.items || data.items.length === 0) {
+      container.innerHTML = "<p>Nessun articolo disponibile.</p>";
+      return;
+    }
 
-    // Prendi i primi 5 articoli
-    const latest = data.items.slice(0,5);
+    // prendiamo SOLO articoli Runner’s Voice (url /news/)
+    const articles = data.items
+      .filter(item => item.link && item.link.includes("/news/"))
+      .slice(0, 5);
 
-    latest.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'rv-article';
+    container.innerHTML = "";
 
-      card.innerHTML = `
-        <a href="${item.url}">
-          <h3>${item.title}</h3>
+    articles.forEach(item => {
+      const text = item.description
+        .replace(/<[^>]*>/g, "")
+        .slice(0, 120);
+
+      const div = document.createElement("div");
+      div.className = "rv-item";
+
+      div.innerHTML = `
+        <a href="${item.link}" target="_blank" rel="noopener">
+          <strong>${item.title}</strong>
         </a>
-        <p>${item.description || ''}</p>
+        <p>${text}...</p>
       `;
-      container.appendChild(card);
+
+      container.appendChild(div);
     });
-  } catch (err) {
-    console.error('Errore caricamento Runner’s Voice:', err);
+
+  } catch (error) {
+    console.error("Errore Runner’s Voice:", error);
+    container.innerHTML = "<p>Errore nel caricamento articoli.</p>";
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadLatestArticles);
+document.addEventListener("DOMContentLoaded", loadRunnersVoice);
 </script>
-
-</div>
-
-  <footer>
-    Runner’s School Italia · Allenarsi bene, insieme.
-  </footer>
-
-</div>
-</body>
-</html>
-
