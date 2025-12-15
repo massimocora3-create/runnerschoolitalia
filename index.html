@@ -301,35 +301,53 @@
 
 </div>
 
-<!-- JS RUNNER'S VOICE -->
+<!-- JS RUNNER'S VOICE (WordPress REST API) -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const RSS_URL = "https://www.runnerschoolitalia.com/news/feed/";
-  const container = document.getElementById("rs-news");
 
-  fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_URL))
+  const container = document.getElementById("rs-news");
+  if (!container) return;
+
+  fetch("https://www.runnerschoolitalia.com/wp-json/wp/v2/posts?per_page=10")
     .then(res => res.json())
-    .then(data => {
+    .then(posts => {
       container.innerHTML = "";
-      data.items.slice(0, 10).forEach(item => {
+
+      posts.forEach(post => {
         const a = document.createElement("a");
         a.className = "card-link";
-        a.href = item.link;
+        a.href = post.link;
         a.target = "_blank";
+
         a.innerHTML = `
           <div class="card">
             <div class="card-header">
               <div class="card-icon">🎙️</div>
               <div>
-                <div class="card-title">${item.title}</div>
+                <div class="card-title">${post.title.rendered}</div>
                 <div class="card-subtitle">Runner’s Voice</div>
               </div>
             </div>
           </div>
         `;
+
         container.appendChild(a);
       });
+    })
+    .catch(() => {
+      container.innerHTML = `
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">⚠️</div>
+            <div>
+              <div class="card-title">Errore caricamento articoli</div>
+              <div class="card-subtitle">Runner’s Voice</div>
+            </div>
+          </div>
+        </div>
+      `;
     });
+
 });
 </script>
 
