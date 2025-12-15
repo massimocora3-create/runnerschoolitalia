@@ -77,17 +77,15 @@
       color: var(--text-muted);
     }
 
-    /* HERO */
+    /* HOME FIXED */
     .hero-card {
       margin-top: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       padding: 18px 16px;
       border-radius: 24px;
       background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
       border: 1px solid rgba(148,163,184,0.2);
       box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-title {
@@ -102,25 +100,40 @@
       max-width: 90%;
     }
 
+    .primary-action {
+      margin-top: 14px;
+    }
+
+    .primary-action .card {
+      border-color: rgba(249,115,22,0.5);
+    }
+
+    .quick-links {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+
     /* SEZIONI */
     .section-label {
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--text-muted);
-      margin: 18px 2px 8px;
+      margin: 22px 2px 10px;
     }
 
     .card-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 10px;
-    }
-
-    @media (min-width: 480px) {
-      .card-grid {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
     .card-link {
@@ -136,13 +149,6 @@
       box-shadow: 0 10px 26px rgba(0,0,0,0.55);
       display: flex;
       flex-direction: column;
-      transition: 0.12s ease-out;
-      position: relative;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(249,115,22,0.65);
     }
 
     .card-header {
@@ -172,16 +178,8 @@
       color: var(--text-muted);
     }
 
-    .card-footer {
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--accent);
-      display: flex;
-      justify-content: space-between;
-    }
-
     footer {
-      margin-top: 22px;
+      margin-top: 26px;
       text-align: center;
       font-size: 11px;
       color: var(--text-muted);
@@ -195,7 +193,6 @@
     <!-- HEADER -->
     <header class="app-header">
       <div class="app-logo-wrap">
-        <!-- Logo nella root del repo -->
         <img src="Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo" />
       </div>
       <div>
@@ -204,160 +201,58 @@
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HOME FIXED -->
     <section class="hero-card">
-      <h1 class="hero-title">Il tuo allenamento, sempre in tasca.</h1>
+      <h1 class="hero-title">Settimana 15 – Q1 2025/2026</h1>
       <p class="hero-text">
-        Programmi settimanali, ritmi, esercizi e comunicazioni RS sempre aggiornate.
+        Il tuo riferimento settimanale per allenamenti, comunicazioni e appuntamenti RS.
       </p>
+
+      <div class="primary-action">
+        <a class="card-link" href="programmi.html">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🏃‍♂️</div>
+              <div>
+                <div class="card-title">Vai agli allenamenti</div>
+                <div class="card-subtitle">Livello 1 · Livello 2 · Extra</div>
+              </div>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="quick-links">
+        <a href="comunicazioni.html">📢 Avvisi</a>
+        <a href="eventi.html">📅 Eventi</a>
+        <a href="sedi-orari.html">ℹ️ Info utili</a>
+      </div>
     </section>
 
-    <!-- PROGRAMMI DI ALLENAMENTO -->
-    <div class="section-label">Programmi</div>
+    <!-- NEWS IMPORTANTI -->
+    <div class="section-label">News importanti</div>
     <div class="card-grid">
 
-      <a class="card-link" href="programmi.html">
+      <a class="card-link" href="https://www.runnerschoolitalia.com/">
         <article class="card">
           <div class="card-header">
-            <div class="card-icon">🏃‍♂️</div>
+            <div class="card-icon">📰</div>
             <div>
-              <div class="card-title">Programmi di allenamento</div>
-              <div class="card-subtitle">Livello 1 · Livello 2 Sprint / Medio / Endurance / Trail</div>
+              <div class="card-title">Test finale di fine quadrimestre</div>
+              <div class="card-subtitle">Info e modalità di svolgimento</div>
             </div>
-          </div>
-          <div class="card-footer">
-            <span>15 settimane</span>
-            <span>›</span>
           </div>
         </article>
       </a>
 
-      <a class="card-link" href="https://www.runnerschoolitalia.com/calcola-istantaneamente-i-tuoi-ritmi-di-corsa/" target="_blank" rel="noopener">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">⏱️</div>
-            <div>
-              <div class="card-title">Calcola i tuoi ritmi</div>
-              <div class="card-subtitle">Strumento online RS</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span>Apri</span>
-            <span>↗</span>
-          </div>
-        </article>
-      </a>
-
-    </div>
-
-    <!-- SUPPORTO ALLENAMENTO -->
-    <div class="section-label">Supporto</div>
-    <div class="card-grid">
-
-      <a class="card-link" href="completa.html">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">💪</div>
-            <div>
-              <div class="card-title">Per completare l’allenamento</div>
-              <div class="card-subtitle">Andature · Potenziamento · Stretching</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span>Apri</span>
-            <span>›</span>
-          </div>
-        </article>
-      </a>
-
-      <a class="card-link" href="rs-voice.html">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">🎙️</div>
-            <div>
-              <div class="card-title">RS Voice</div>
-              <div class="card-subtitle">Messaggi, mindset e consigli RS</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span>Ascolta</span>
-            <span>›</span>
-          </div>
-        </article>
-      </a>
-
-    </div>
-
-    <!-- SERVIZI -->
-    <div class="section-label">Servizi</div>
-    <div class="card-grid">
-
-      <a class="card-link" href="certificato.html">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">🩺</div>
-            <div>
-              <div class="card-title">Certificato medico</div>
-              <div class="card-subtitle">Carica & controlla la scadenza</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span>Apri</span>
-            <span>›</span>
-          </div>
-        </article>
-      </a>
-
-      <a class="card-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeZIoMp7KhlS5yjiK4ulQuwEQUcpAowFEUSOnhe-fKaydaMbg/viewform?usp=preview" target="_blank" rel="noopener">
+      <a class="card-link" href="https://www.runnerschoolitalia.com/">
         <article class="card">
           <div class="card-header">
             <div class="card-icon">📝</div>
             <div>
-              <div class="card-title">Iscrizione RS</div>
-              <div class="card-subtitle">Modulo online ufficiale</div>
+              <div class="card-title">Apertura iscrizioni prossimo quadrimestre</div>
+              <div class="card-subtitle">Modulo ufficiale RS</div>
             </div>
-          </div>
-          <div class="card-footer">
-            <span>Apri</span>
-            <span>↗</span>
-          </div>
-        </article>
-      </a>
-
-    </div>
-
-    <!-- ORGANIZZAZIONE -->
-    <div class="section-label">Organizzazione</div>
-    <div class="card-grid">
-
-      <a class="card-link" href="comunicazioni.html">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">📢</div>
-            <div>
-              <div class="card-title">Comunicazioni importanti</div>
-              <div class="card-subtitle">Avvisi & aggiornamenti RS</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span>Apri</span>
-            <span>›</span>
-          </div>
-        </article>
-      </a>
-
-      <a class="card-link" href="sedi-orari.html">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">📍</div>
-            <div>
-              <div class="card-title">Sedi & orari</div>
-              <div class="card-subtitle">Punti di ritrovo e collettivi</div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <span>Apri</span>
-            <span>›</span>
           </div>
         </article>
       </a>
@@ -371,3 +266,4 @@
   </div>
 </body>
 </html>
+
