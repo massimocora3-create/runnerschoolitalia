@@ -25,51 +25,6 @@
       box-sizing: border-box;
     }
 
-<script>
-const RSS_URL = "https://www.runnerschoolitalia.com/news/feed/";
-const container = document.getElementById("rs-news");
-
-fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_URL))
-  .then(res => res.json())
-  .then(data => {
-    container.innerHTML = "";
-
-    data.items.slice(0, 10).forEach(item => {
-      const card = document.createElement("a");
-      card.className = "card-link";
-      card.href = item.link;
-      card.target = "_blank";
-
-      card.innerHTML = `
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">🎙️</div>
-            <div>
-              <div class="card-title">${item.title}</div>
-              <div class="card-subtitle">Runner’s Voice</div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      container.appendChild(card);
-    });
-  })
-  .catch(() => {
-    container.innerHTML = `
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">⚠️</div>
-          <div>
-            <div class="card-title">Impossibile caricare gli articoli</div>
-            <div class="card-subtitle">Controlla la connessione</div>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-</script>
-    
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
@@ -121,7 +76,7 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
       color: var(--text-muted);
     }
 
-    /* CARD GENERICHE */
+    /* CARD */
     .card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
@@ -168,7 +123,6 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
       gap: 10px;
     }
 
-    /* SEZIONI */
     .section-label {
       font-size: 13px;
       text-transform: uppercase;
@@ -177,7 +131,6 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
       margin: 22px 2px 10px;
     }
 
-    /* HERO SETTIMANA */
     .hero-card {
       margin-top: 10px;
       margin-bottom: 18px;
@@ -222,24 +175,21 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
     </div>
   </header>
 
-  <!-- SETTIMANA ATTUALE -->
- <a href="https://www.runnerschoolitalia.com/q1-25-26-settimana-15/" class="card-link">
-  <section class="hero-card">
-    <h1 class="hero-title">Allenamento della settimana</h1>
-    <p class="hero-text">
-      Qui trovi tutto ciò che ti serve per allenarti e gestire il tuo percorso RS.
-    </p>
-  </section>
-</a>
+  <!-- SETTIMANA -->
+  <a href="https://www.runnerschoolitalia.com/q1-25-26-settimana-15/" class="card-link">
+    <section class="hero-card">
+      <h1 class="hero-title">Allenamento della settimana</h1>
+      <p class="hero-text">
+        Qui trovi tutto ciò che ti serve per allenarti e gestire il tuo percorso RS.
+      </p>
+    </section>
+  </a>
 
-  <!-- MENU UTILITÀ -->
+  <!-- STRUMENTI -->
   <div class="section-label">Strumenti utili</div>
   <div class="card-grid">
 
-    <a class="card-link" href="programmi.html">
-    <a class="card-link"
-   href="https://docs.google.com/spreadsheets/d/1B5FzyiUpQFkC0GL5L1TZA2UUclLlfhTdWJiaNq-yTcw/edit?usp=sharing"
-   target="_blank">
+    <a class="card-link" href="https://docs.google.com/spreadsheets/d/1B5FzyiUpQFkC0GL5L1TZA2UUclLlfhTdWJiaNq-yTcw/edit?usp=sharing" target="_blank">
       <div class="card">
         <div class="card-header">
           <div class="card-icon">🏃‍♂️</div>
@@ -256,60 +206,44 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
         <div class="card-header">
           <div class="card-icon">⏱️</div>
           <div>
-            <div class="card-title">Calcola i tuoi ritmi di corsa</div>
+            <div class="card-title">Calcola i tuoi ritmi</div>
             <div class="card-subtitle">Strumento ufficiale RS</div>
           </div>
         </div>
       </div>
     </a>
 
-    <a class="card-link" href="materiale.html">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/materiale-didattico-per-allievi/">
+    <a class="card-link" href="https://www.runnerschoolitalia.com/materiale-didattico-per-allievi/" target="_blank">
       <div class="card">
         <div class="card-header">
           <div class="card-icon">📘</div>
           <div>
             <div class="card-title">Materiale didattico</div>
-            <div class="card-subtitle">Tecnica, esercizi, spiegazioni</div>
+            <div class="card-subtitle">Tecnica ed esercizi</div>
           </div>
         </div>
       </div>
     </a>
 
-    <a class="card-link" href="certificato.html">
-    <a class="card-link" href="https://atleticacorriferrara.blogspot.com/p/certificati-medici.html">
+    <a class="card-link" href="https://atleticacorriferrara.blogspot.com/p/certificati-medici.html" target="_blank">
       <div class="card">
         <div class="card-header">
           <div class="card-icon">🩺</div>
           <div>
             <div class="card-title">Certificato medico</div>
-            <div class="card-subtitle">Carica o verifica la scadenza</div>
+            <div class="card-subtitle">Verifica scadenza</div>
           </div>
         </div>
       </div>
     </a>
 
-    <a class="card-link" href="rs-voice.html">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/news/">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🎙️</div>
-          <div>
-            <div class="card-title">Runner’s Voice</div>
-            <div class="card-subtitle">Messaggi e mindset RS</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card-link" href="sedi-orari.html">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/le-nostre-sedi-runners-school-italia/">
+    <a class="card-link" href="https://www.runnerschoolitalia.com/le-nostre-sedi-runners-school-italia/" target="_blank">
       <div class="card">
         <div class="card-header">
           <div class="card-icon">📍</div>
           <div>
             <div class="card-title">Sedi e orari</div>
-            <div class="card-subtitle">Collettivi e punti di ritrovo</div>
+            <div class="card-subtitle">Collettivi RS</div>
           </div>
         </div>
       </div>
@@ -327,20 +261,19 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
           <div class="card-icon">📝</div>
           <div>
             <div class="card-title">Iscrizione corso</div>
-            <div class="card-subtitle">Modulo ufficiale Runner’s School</div>
+            <div class="card-subtitle">Modulo ufficiale</div>
           </div>
         </div>
       </div>
     </a>
 
-    <a class="card-link" href="prova-gratuita.html">
-    <a class="card-link" href="https://docs.google.com/forms/d/e/1FAIpQLSevFqfYB73r7jEjLj67CTaevUuZk_S2-dCSFJSEqP6wKt-5dA/viewform">
+    <a class="card-link" href="https://docs.google.com/forms/d/e/1FAIpQLSevFqfYB73r7jEjLj67CTaevUuZk_S2-dCSFJSEqP6wKt-5dA/viewform" target="_blank">
       <div class="card">
         <div class="card-header">
           <div class="card-icon">⭐</div>
           <div>
-            <div class="card-title">Iscrizione prova gratuita</div>
-            <div class="card-subtitle">Vieni a provare Runner’s School</div>
+            <div class="card-title">Prova gratuita</div>
+            <div class="card-subtitle">Vieni a provare RS</div>
           </div>
         </div>
       </div>
@@ -348,25 +281,57 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_U
 
   </div>
 
-<!-- RUNNER'S VOICE -->
-<div class="section-label">Runner’s Voice</div>
-<div class="card-grid" id="rs-news">
-  <div class="card">
-    <div class="card-header">
-      <div class="card-icon">📰</div>
-      <div>
-        <div class="card-title">Caricamento articoli…</div>
-        <div class="card-subtitle">Runner’s Voice</div>
+  <!-- RUNNER'S VOICE -->
+  <div class="section-label">Runner’s Voice</div>
+  <div class="card-grid" id="rs-news">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">📰</div>
+        <div>
+          <div class="card-title">Caricamento articoli…</div>
+          <div class="card-subtitle">Runner’s Voice</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <footer>
     Runner’s School Italia · Allenarsi bene, insieme.
   </footer>
 
 </div>
+
+<!-- JS RUNNER'S VOICE -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const RSS_URL = "https://www.runnerschoolitalia.com/news/feed/";
+  const container = document.getElementById("rs-news");
+
+  fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(RSS_URL))
+    .then(res => res.json())
+    .then(data => {
+      container.innerHTML = "";
+      data.items.slice(0, 10).forEach(item => {
+        const a = document.createElement("a");
+        a.className = "card-link";
+        a.href = item.link;
+        a.target = "_blank";
+        a.innerHTML = `
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon">🎙️</div>
+              <div>
+                <div class="card-title">${item.title}</div>
+                <div class="card-subtitle">Runner’s Voice</div>
+              </div>
+            </div>
+          </div>
+        `;
+        container.appendChild(a);
+      });
+    });
+});
+</script>
+
 </body>
 </html>
-~
