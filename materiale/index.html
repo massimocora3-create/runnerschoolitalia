@@ -1,340 +1,3 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <title>Materiale Didattico – Runner’s School Italia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-card: #0b1120;
-      --accent: #f97316;
-      --accent-soft: rgba(249,115,22,0.12);
-      --text: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border: #1f2937;
-      --radius-lg: 20px;
-      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    .app-shell {
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 18px 14px 32px;
-    }
-
-    /* HEADER */
-    .app-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 10px 4px 18px;
-    }
-
-    .app-logo-wrap {
-      width: 54px;
-      height: 54px;
-      border-radius: 24px;
-      background: radial-gradient(circle at 20% 0, #1f2937 0, #020617 60%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      border: 1px solid rgba(148,163,184,0.2);
-    }
-
-    .app-logo {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-    }
-
-    .app-title {
-      font-size: 20px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .app-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* HERO */
-    .hero-card {
-      margin-top: 10px;
-      margin-bottom: 18px;
-      padding: 18px 16px;
-      border-radius: 24px;
-      background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
-      border: 1px solid rgba(148,163,184,0.2);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .hero-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* SEZIONI */
-    .section-label {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin: 22px 2px 10px;
-    }
-
-    /* CARD */
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 14px 13px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 14px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .card-subtitle {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    footer {
-      margin-top: 26px;
-      text-align: center;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="app-shell">
-
-  <!-- HEADER -->
-  <header class="app-header">
-    <div class="app-logo-wrap">
-      <img src="../Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo" />
-    </div>
-    <div>
-      <div class="app-title">Materiale Didattico</div>
-      <div class="app-subtitle">Metodo · tecnica · strumenti RS</div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero-card">
-    <h1 class="hero-title">Correre bene si impara</h1>
-    <p class="hero-text">
-      Qui trovi tutto il materiale ufficiale Runner’s School Italia per
-      <strong>capire il nostro metodo</strong>, allenarti in modo consapevole
-      e migliorare nel tempo, senza improvvisare.
-    </p>
-  </section>
-
-  <!-- METODO -->
-  <div class="section-label">Il metodo Runner’s School</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/14204-2/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🧭</div>
-          <div>
-            <div class="card-title">Chi siamo e come funzionano i corsi</div>
-            <div class="card-subtitle">La filosofia Runner’s School</div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- PERCORSI -->
-  <div class="section-label">Percorsi di allenamento</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/%f0%9f%8f%81-livello-1-il-punto-di-partenza-della-runners-school/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">👣</div>
-          <div>
-            <div class="card-title">Livello 1</div>
-            <div class="card-subtitle">Il punto di partenza</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://www.runnerschoolitalia.com/per-chi-gia-corre/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">📈</div>
-          <div>
-            <div class="card-title">Livello 2</div>
-            <div class="card-subtitle">Continuità e crescita</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://www.runnerschoolitalia.com/come-adattare-il-programma-endurance-se-il-tuo-obiettivo-e-fare-trail-da-20-30-km/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">⛰️</div>
-          <div>
-            <div class="card-title">Trail Running</div>
-            <div class="card-subtitle">Adattare il metodo RS</div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- STRUMENTI -->
-  <div class="section-label">Strumenti di allenamento</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/calcola-istantaneamente-i-tuoi-ritmi-di-corsa/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">⏱️</div>
-          <div>
-            <div class="card-title">Calcolo ritmi di corsa</div>
-            <div class="card-subtitle">Base di ogni allenamento</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://www.runnerschoolitalia.com/il-test-dei-3000-metri-come-svolgerlo-perche-e-importante-e-come-usarlo-per-i-tuoi-ritmi-di-corsa/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🧪</div>
-          <div>
-            <div class="card-title">Test dei 3000 metri</div>
-            <div class="card-subtitle">Il tuo riferimento reale</div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- GUIDE -->
-  <div class="section-label">Guide tecniche</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/concetti-tecnici-fondamentali-per-i-runners/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">📘</div>
-          <div>
-            <div class="card-title">Concetti tecnici fondamentali</div>
-            <div class="card-subtitle">Il linguaggio RS</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://www.runnerschoolitalia.com/tipologie-di-allenamento-per-chi-gia-corre/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🔄</div>
-          <div>
-            <div class="card-title">Tipologie di allenamento</div>
-            <div class="card-subtitle">CL · CM · RG · RL · RM</div>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://www.runnerschoolitalia.com/allenamento-di-potenziamento-fondamenta-solide-per-il-runner/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">💪</div>
-          <div>
-            <div class="card-title">Potenziamento</div>
-            <div class="card-subtitle">Fondamenta solide</div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <!-- EXTRA -->
-  <div class="section-label">Discipline extra</div>
-  <div class="card-grid">
-    <a class="card-link" href="https://www.runnerschoolitalia.com/hyrox-cose-e-come-allenarsi-nella-nuova-disciplina-che-unisce-corsa-e-forza/" target="_blank">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">🔥</div>
-          <div>
-            <div class="card-title">Hyrox</div>
-            <div class="card-subtitle">Corsa + forza</div>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <footer>
-    Runner’s School Italia · Il metodo prima dei chilometri
-  </footer>
-
-</div>
-
-</body>
-</html>
 <!-- EXTRA STYLE per Accordion RS -->
 <style>
   .rs-acc details {
@@ -533,6 +196,121 @@
     </div>
   </details>
 
+  <!-- 6) FAQ -->
+<details>
+  <summary>
+    <div class="sum-icon">❓</div>
+    <div>
+      <div class="sum-title">FAQ – Dubbi comuni</div>
+      <div class="sum-sub">Le domande che fanno tutti (e va bene così)</div>
+    </div>
+  </summary>
+
+  <div class="content">
+
+    <details>
+      <summary>
+        <div class="sum-icon">🧩</div>
+        <div>
+          <div class="sum-title">Se salto un allenamento, ho rovinato la settimana?</div>
+          <div class="sum-sub">Continuità > perfezione</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          No. In Runner’s School conta la <strong>continuità nel tempo</strong>, non la singola seduta perfetta.
+          Se salti un allenamento, riprendi con serenità dal prossimo senza “recuperare tutto” in fretta.
+          Meglio fare meno, ma farlo bene e con regolarità.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">😮‍💨</div>
+        <div>
+          <div class="sum-title">Se faccio tanta fatica, sto sbagliando ritmo?</div>
+          <div class="sum-sub">Ascolto del corpo</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Dipende. Un po’ di fatica è normale, ma se ti sembra “troppa” o ti blocca, probabilmente stai spingendo oltre il tuo obiettivo di giornata.
+          Regola base: <strong>meglio leggermente più piano</strong> e chiudere bene l’allenamento, che forzare e trascinarsi.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">⏱️</div>
+        <div>
+          <div class="sum-title">Devo rispettare i ritmi al secondo?</div>
+          <div class="sum-sub">Garmin è un aiuto, non un giudice</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          No. I ritmi sono un <strong>riferimento</strong>, non un vincolo rigido.
+          Vento, salita, stanchezza e temperatura cambiano la giornata.
+          Punta a stare “nel range” e soprattutto a rispettare la sensazione richiesta (facile / sostenuta / impegnativa).
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">📅</div>
+        <div>
+          <div class="sum-title">Posso spostare i giorni di allenamento?</div>
+          <div class="sum-sub">Il programma deve adattarsi alla vita reale</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Sì. L’importante è mantenere la logica: alternare giorni più facili e giorni più impegnativi.
+          Se sposti una seduta “di qualità”, evita di metterla attaccata a un altro allenamento duro.
+          Se hai dubbi, chiedi al tuo istruttore: <strong>meglio una piccola modifica fatta bene</strong>.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">📈</div>
+        <div>
+          <div class="sum-title">Quando capisco che posso passare a Livello 2?</div>
+          <div class="sum-sub">Non è una promozione, è una maturazione</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Quando riesci a sostenere la settimana con buona regolarità, recuperi bene e hai basi solide (ritmi facili davvero facili).
+          Il passaggio non è “sono forte”, ma <strong>sono pronto</strong>: più continuità, più consapevolezza e meno forzature.
+          Parlane con il tuo istruttore: è la scelta migliore per farlo al momento giusto.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">🛌</div>
+        <div>
+          <div class="sum-title">È normale sentirsi spesso stanchi?</div>
+          <div class="sum-sub">Carico e recupero vanno insieme</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Un po’ di stanchezza può essere normale, ma se è costante o peggiora, va ascoltata.
+          Spesso la soluzione è semplice: dormire meglio, rallentare i facili, non saltare il recupero e curare potenziamento/mobilità.
+          Obiettivo RS: <strong>migliorare senza consumarsi</strong>.
+        </p>
+      </div>
+    </details>
+
+  </div>
+</details>
 </div>
 
 <footer>
