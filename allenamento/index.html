@@ -40,19 +40,48 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 18px 16px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
-
 .header h1 {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
 }
-
 .header p {
   margin: 6px 0 0;
   font-size: 13px;
   color: var(--text-muted);
+}
+
+/* LEVEL SWITCH */
+.level-switch {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.level-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+.level-btn small {
+  display: block;
+  font-weight: 600;
+  opacity: .75;
+  margin-top: 2px;
+}
+.level-btn.active {
+  background: var(--accent);
+  color: #000;
+  border-color: rgba(0,0,0,.25);
 }
 
 /* WEEK CARD */
@@ -63,7 +92,6 @@ details.week {
   box-shadow: var(--shadow-soft);
   overflow: hidden;
 }
-
 details.week > summary {
   list-style: none;
   padding: 14px 16px;
@@ -71,20 +99,13 @@ details.week > summary {
   justify-content: space-between;
   align-items: center;
 }
+details.week > summary::-webkit-details-marker { display: none; }
 
-details.week > summary::-webkit-details-marker {
-  display: none;
-}
-
-.week-title {
-  font-weight: 700;
-}
-
+.week-title { font-weight: 700; }
 .week-dates {
   font-size: 12px;
   color: var(--text-muted);
 }
-
 .week-content {
   padding: 12px 16px 16px;
   font-size: 14px;
@@ -110,9 +131,7 @@ details.week > summary::-webkit-details-marker {
   box-shadow: 0 10px 25px rgba(0,0,0,.5);
   z-index: 999;
 }
-.back-home:hover {
-  transform: scale(1.08);
-}
+.back-home:hover { transform: scale(1.08); }
 </style>
 </head>
 
@@ -130,6 +149,14 @@ details.week > summary::-webkit-details-marker {
     <p>Programma aggiornato automaticamente</p>
   </div>
 
+  <!-- BOTTONI LIVELLI -->
+  <div class="level-switch" id="level-switch">
+    <a class="level-btn" href="./?level=L1"  data-level="L1">L1<small>Base</small></a>
+    <a class="level-btn" href="./?level=L2S" data-level="L2S">L2<small>Sprint</small></a>
+    <a class="level-btn" href="./?level=L2M" data-level="L2M">L2<small>Medio</small></a>
+    <a class="level-btn" href="./?level=L2E" data-level="L2E">L2<small>Endurance</small></a>
+  </div>
+
   <div id="week-container"></div>
 
 </div>
@@ -137,23 +164,25 @@ details.week > summary::-webkit-details-marker {
 <script>
 (async function () {
 
-  // Livelli supportati: L1 | L2S | L2M | L2E
   const params = new URLSearchParams(location.search);
   const levelParam = (params.get("level") || "L1").toUpperCase();
 
-  // Data odierna ISO
+  // evidenzia bottone attivo
+  document.querySelectorAll('#level-switch .level-btn').forEach(btn => {
+    if (btn.dataset.level === levelParam) {
+      btn.classList.add('active');
+    }
+  });
+
+  // data odierna ISO
   const today = new Date();
   const todayISO =
     today.getFullYear() + "-" +
     String(today.getMonth()+1).padStart(2,"0") + "-" +
     String(today.getDate()).padStart(2,"0");
 
-  // ⚠️ PERCORSO AL FILE DEL PROGRAMMA COMPLETO
-  // Se non funziona, è l'unica riga da correggere
+  // percorso programma completo
   const programURL = "../programma/index.html";
-  // esempi alternativi:
-  // const programURL = "../programma.html";
-  // const programURL = "/runnerschoolitalia/programma/index.html";
 
   let html = "";
   try {
@@ -169,7 +198,6 @@ details.week > summary::-webkit-details-marker {
   const temp = document.createElement("div");
   temp.innerHTML = html;
 
-  // Trova il livello tramite data-level
   const levelBlock = temp.querySelector(
     `details.level[data-level="${levelParam}"]`
   );
@@ -180,7 +208,6 @@ details.week > summary::-webkit-details-marker {
     return;
   }
 
-  // Trova la settimana corrente
   const weeks = [...levelBlock.querySelectorAll("details.week[data-start][data-end]")];
 
   const currentWeek = weeks.find(w => {
@@ -195,10 +222,8 @@ details.week > summary::-webkit-details-marker {
     return;
   }
 
-  // Forza apertura
   currentWeek.open = true;
 
-  // Inserisci nella pagina
   document.getElementById("week-container")
     .appendChild(currentWeek.cloneNode(true));
 
