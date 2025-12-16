@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runner’s School Italia – Programma completo</title>
+
+<style>
+:root {
+  --bg: #020617;
+  --bg-card: #0b1120;
+  --accent: #f97316;
+  --accent-soft: rgba(249,115,22,0.12);
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border: #1f2937;
+  --radius-lg: 20px;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 18px 14px 32px;
+}
+
+/* Header */
+.header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 16px;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.header p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Sezioni livello */
+.level {
+  margin-top: 22px;
+}
+
+.level-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 4px 10px;
+}
+
+/* Accordion settimane */
+details.week {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+details.week > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details.week > summary::-webkit-details-marker {
+  display: none;
+}
+
+.week-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.week-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.chev {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: .2s ease;
+}
+
+details[open] .chev {
+  transform: rotate(225deg);
+}
+
+/* Placeholder contenuti */
+.week-content {
+  padding: 12px 16px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+</style>
+</head>
+
+<body>
+<div class="app-shell">
+
+  <div class="header">
+    <h1>📅 Programma completo</h1>
+    <p>Periodo natalizio – 4 settimane</p>
+  </div>
+
+  <!-- =========================
+       LIVELLO 1
+  ========================= -->
+  <section class="level">
+    <h2 class="level-title">🟧 Livello 1</h2>
+
+    <details class="week">
+      <summary>
+        <div class="week-title">Settimana 15 <span class="week-sub">15–21 dicembre</span></div>
+        <div class="chev"></div>
+      </summary>
+      <div class="week-content">Contenuti Livello 1 – Settimana 15</div>
+    </details>
+
+    <details class="week">
+      <summary>
+        <div class="week-title">Pausa 1 <span class="week-sub">22–28 dicembre</span></div>
+        <div class="chev"></div>
+      </summary>
+      <div class="week-content">Contenuti Livello 1 – Pausa 1</div>
+    </details>
+
+    <details class="week">
+      <summary>
+        <div class="week-title">Pausa 2 <span class="week-sub">29 dicembre – 4 gennaio</span></div>
+        <div class="chev"></div>
+      </summary>
+      <div class="week-content">Contenuti Livello 1 – Pausa 2</div>
+    </details>
+
+    <details class="week">
+      <summary>
+        <div class="week-title">Pausa 3 <span class="week-sub">5–11 gennaio</span></div>
+        <div class="chev"></div>
+      </summary>
+      <div class="week-content">Contenuti Livello 1 – Pausa 3</div>
+    </details>
+  </section>
+
+  <!-- =========================
+       LIVELLO 2 – SPRINT
+  ========================= -->
+  <section class="level">
+    <h2 class="level-title">🟦 Livello 2 – Sprint</h2>
+
+    <details class="week"><summary><div class="week-title">Settimana 15</div><div class="chev"></div></summary><div class="week-content">Sprint – Settimana 15</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 1</div><div class="chev"></div></summary><div class="week-content">Sprint – Pausa 1</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 2</div><div class="chev"></div></summary><div class="week-content">Sprint – Pausa 2</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 3</div><div class="chev"></div></summary><div class="week-content">Sprint – Pausa 3</div></details>
+  </section>
+
+  <!-- =========================
+       LIVELLO 2 – MEDIO
+  ========================= -->
+  <section class="level">
+    <h2 class="level-title">🟦 Livello 2 – Medio</h2>
+
+    <details class="week"><summary><div class="week-title">Settimana 15</div><div class="chev"></div></summary><div class="week-content">Medio – Settimana 15</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 1</div><div class="chev"></div></summary><div class="week-content">Medio – Pausa 1</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 2</div><div class="chev"></div></summary><div class="week-content">Medio – Pausa 2</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 3</div><div class="chev"></div></summary><div class="week-content">Medio – Pausa 3</div></details>
+  </section>
+
+  <!-- =========================
+       LIVELLO 2 – ENDURANCE
+  ========================= -->
+  <section class="level">
+    <h2 class="level-title">🟦 Livello 2 – Endurance</h2>
+
+    <details class="week"><summary><div class="week-title">Settimana 15</div><div class="chev"></div></summary><div class="week-content">Endurance – Settimana 15</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 1</div><div class="chev"></div></summary><div class="week-content">Endurance – Pausa 1</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 2</div><div class="chev"></div></summary><div class="week-content">Endurance – Pausa 2</div></details>
+    <details class="week"><summary><div class="week-title">Pausa 3</div><div class="chev"></div></summary><div class="week-content">Endurance – Pausa 3</div></details>
+  </section>
+
+</div>
+</body>
+</html>
