@@ -7,272 +7,218 @@
 
 <style>
 :root {
-  --bg: #020617;
-  --bg-card: #0b1120;
-  --accent: #f97316;
-  --accent-soft: rgba(249,115,22,0.12);
-  --text: #e5e7eb;
-  --text-muted: #9ca3af;
-  --border: #1f2937;
-  --radius-lg: 20px;
-  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-  color: var(--text);
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
 }
 
-.app-shell {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 18px 14px 32px;
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 14px 32px;
 }
 
 /* HEADER */
-.header {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 18px 16px;
-  margin-bottom: 18px;
+.header{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  margin-bottom:18px;
 }
-.header h1 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-}
-.header p {
-  margin: 6px 0 0;
-  font-size: 13px;
-  color: var(--text-muted);
+.header h1{margin:0;font-size:18px}
+.header p{margin:6px 0 0;font-size:13px;color:var(--text-muted)}
+
+/* LIVELLI */
+.level-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
-/* LEVEL HEADER (stile programma) */
-.level-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 18px;
+.level{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:14px 16px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.level-header {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 14px 16px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.level.active{
+  border-color:rgba(249,115,22,.6);
+  background:rgba(249,115,22,.08);
 }
 
-.level-header.active {
-  border-color: rgba(249,115,22,.6);
-  background: rgba(249,115,22,.08);
+.level-title{
+  font-weight:800;
+  font-size:14px;
+  color:var(--accent);
+}
+.level-sub{
+  font-size:12px;
+  color:var(--text-muted);
 }
 
-.level-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.arrow{
+  width:10px;
+  height:10px;
+  border-right:2px solid var(--text-muted);
+  border-bottom:2px solid var(--text-muted);
+  transform:rotate(-45deg);
 }
 
-.level-title {
-  font-weight: 800;
-  font-size: 14px;
-  color: var(--accent);
+/* WEEK */
+details.week{
+  margin-top:16px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
 }
-
-.level-sub {
-  font-size: 12px;
-  color: var(--text-muted);
+details.week summary{
+  list-style:none;
+  padding:14px 16px;
+  cursor:pointer;
+  font-weight:700;
 }
-
-.level-arrow {
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
-  transform: rotate(-45deg);
-}
-
-/* WEEK CARD */
-details.week {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
-  margin-top: 14px;
-}
-
-details.week > summary {
-  list-style: none;
-  padding: 14px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-details.week > summary::-webkit-details-marker { display: none; }
-
-.week-title { font-weight: 700; }
-.week-dates { font-size: 12px; color: var(--text-muted); }
-.week-content { padding: 12px 16px 16px; font-size: 14px; line-height: 1.45; }
+details.week summary::-webkit-details-marker{display:none}
+.week-content{padding:0 16px 16px}
 
 /* BACK HOME */
-.back-home {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  width: 48px;
-  height: 48px;
-  background: var(--accent);
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,.5);
-  z-index: 999;
+.back{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:48px;
+  height:48px;
+  background:var(--accent);
+  color:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,.5);
 }
-.back-home:hover { transform: scale(1.08); }
 </style>
 </head>
 
 <body>
 
-<a href="https://massimocora3-create.github.io/runnerschoolitalia/"
-   class="back-home"
-   title="Torna alla Home App RS">←</a>
+<a class="back" href="https://massimocora3-create.github.io/runnerschoolitalia/">←</a>
 
-<div class="app-shell">
+<div class="app">
 
   <div class="header">
     <h1>🔥 Allenamento della settimana</h1>
-    <p>Seleziona il livello per visualizzare la settimana corrente</p>
+    <p>Seleziona il tuo livello</p>
   </div>
 
-  <div class="level-list" id="level-list">
-
-    <div class="level-header" data-level="L1">
-      <div class="level-info">
+  <div class="level-list" id="levels">
+    <div class="level" data-level="L1">
+      <div>
         <div class="level-title">🟧 Livello 1</div>
         <div class="level-sub">Base</div>
       </div>
-      <div class="level-arrow"></div>
+      <div class="arrow"></div>
     </div>
 
-    <div class="level-header" data-level="L2S">
-      <div class="level-info">
+    <div class="level" data-level="L2S">
+      <div>
         <div class="level-title">🟦 Livello 2 – Sprint</div>
-        <div class="level-sub">Velocità e reattività</div>
+        <div class="level-sub">Velocità</div>
       </div>
-      <div class="level-arrow"></div>
+      <div class="arrow"></div>
     </div>
 
-    <div class="level-header" data-level="L2M">
-      <div class="level-info">
+    <div class="level" data-level="L2M">
+      <div>
         <div class="level-title">🟦 Livello 2 – Medio</div>
-        <div class="level-sub">Equilibrio tra ritmo e resistenza</div>
+        <div class="level-sub">Ritmo</div>
       </div>
-      <div class="level-arrow"></div>
+      <div class="arrow"></div>
     </div>
 
-    <div class="level-header" data-level="L2E">
-      <div class="level-info">
+    <div class="level" data-level="L2E">
+      <div>
         <div class="level-title">🟦 Livello 2 – Endurance</div>
-        <div class="level-sub">Resistenza e volumi</div>
+        <div class="level-sub">Resistenza</div>
       </div>
-      <div class="level-arrow"></div>
+      <div class="arrow"></div>
     </div>
-
   </div>
 
-  <div id="week-container"></div>
+  <div id="week"></div>
 
 </div>
 
 <script>
-(async function () {
+(async () => {
 
-  // CLICK LIVELLI → aggiorna URL
-  document.querySelectorAll('#level-list .level-header').forEach(el => {
-    el.addEventListener('click', () => {
-      const lvl = el.dataset.level;
+  const weekBox = document.getElementById("week");
+  weekBox.innerHTML = "";
+
+  // click livelli → reload con parametro
+  document.querySelectorAll(".level").forEach(l => {
+    l.onclick = () => {
       const url = new URL(location.href);
-      url.searchParams.set('level', lvl);
+      url.searchParams.set("level", l.dataset.level);
       location.href = url.toString();
-    });
+    };
   });
 
-  // Se non c’è livello → tutto chiuso
-  const params = new URLSearchParams(location.search);
-  const levelParam = (params.get("level") || "").toUpperCase();
-  if (!levelParam) return;
+  const level = new URLSearchParams(location.search).get("level");
+  if (!level) return;
 
-  // Evidenzio livello selezionato
-  document.querySelectorAll('#level-list .level-header').forEach(el => {
-    if (el.dataset.level === levelParam) el.classList.add('active');
+  document.querySelectorAll(".level").forEach(l=>{
+    if(l.dataset.level===level) l.classList.add("active");
   });
 
-  // Data odierna
-  const today = new Date();
-  const todayISO =
-    today.getFullYear() + "-" +
-    String(today.getMonth()+1).padStart(2,"0") + "-" +
-    String(today.getDate()).padStart(2,"0");
+  const today = new Date().toISOString().slice(0,10);
 
-  // Carico programma completo
-  const programURL = "../programma/index.html";
-  let html = "";
-
-  try {
-    const res = await fetch(programURL, { cache: "no-store" });
-    if (!res.ok) throw new Error();
-    html = await res.text();
-  } catch {
-    document.getElementById("week-container").innerHTML =
-      "<p>❌ Errore nel caricamento del programma</p>";
-    return;
-  }
+  const res = await fetch("../programma/index.html",{cache:"no-store"});
+  const html = await res.text();
 
   const temp = document.createElement("div");
   temp.innerHTML = html;
 
-  // Trovo livello
-  const levelBlock = temp.querySelector(`details.level[data-level="${levelParam}"]`);
-  if (!levelBlock) {
-    document.getElementById("week-container").innerHTML =
-      `<p>❌ Livello ${levelParam} non trovato</p>`;
+  const block = temp.querySelector(`details.level[data-level="${level}"]`);
+  if(!block){
+    weekBox.innerHTML="<p>Livello non trovato</p>";
     return;
   }
 
-  // Trovo settimana corrente
-  const weeks = [...levelBlock.querySelectorAll("details.week[data-start][data-end]")];
-  const currentWeek = weeks.find(w =>
-    todayISO >= w.dataset.start && todayISO <= w.dataset.end
-  );
+  const week = [...block.querySelectorAll("details.week")]
+    .find(w=>today>=w.dataset.start && today<=w.dataset.end);
 
-  if (!currentWeek) {
-    document.getElementById("week-container").innerHTML =
-      "<p>⏸ Nessuna settimana attiva</p>";
+  if(!week){
+    weekBox.innerHTML="<p>Nessuna settimana attiva</p>";
     return;
   }
 
-  currentWeek.open = false;
-  document.getElementById("week-container")
-    .appendChild(currentWeek.cloneNode(true));
+  week.open = false;
+  weekBox.appendChild(week.cloneNode(true));
 
 })();
 </script>
