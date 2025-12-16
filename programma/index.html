@@ -18,6 +18,110 @@
   --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+  color: var(--text);
+}
+
+.app-shell {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 18px 14px 90px;
+}
+
+/* HEADER */
+.header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 16px;
+  margin-bottom: 18px;
+}
+.header h1 {
+  margin: 0;
+  font-size: 18px;
+}
+.header p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ACCORDION */
+details.level {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+details.level > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+details.level > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.week {
+  border-top: 1px dashed var(--border);
+}
+details.week > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+details.week > summary::-webkit-details-marker {
+  display: none;
+}
+
+.week-title {
+  font-weight: 600;
+}
+.week-dates {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.week-content {
+  padding: 10px 16px 16px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* CHEVRON */
+.chev {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  transition: transform .2s ease;
+}
+details[open] > summary .chev {
+  transform: rotate(225deg);
+}
+
+/* BACK HOME */
 .back-home {
   position: fixed;
   bottom: 18px;
@@ -36,90 +140,18 @@
   box-shadow: 0 10px 25px rgba(0,0,0,.5);
   z-index: 999;
 }
-</style>
-
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-  color: var(--text);
+.back-home:hover {
+  transform: scale(1.08);
 }
-.app-shell {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 18px 14px 32px;
-}
-.header {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 18px 16px;
-  margin-bottom: 18px;
-}
-.header h1 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-}
-.header p {
-  margin: 6px 0 0;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-details.level {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-details.level > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 16px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--accent);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-details.week {
-  border-top: 1px dashed var(--border);
-}
-details.week > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 12px 16px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.week-title { font-weight: 600; }
-.week-dates { font-size: 12px; color: var(--text-muted); }
-.week-content {
-  padding: 10px 16px 16px;
-  font-size: 13px;
-  line-height: 1.45;
-}
-.chev {
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
-  transform: rotate(45deg);
-}
-details[open] > summary .chev { transform: rotate(225deg); }
 </style>
 </head>
+
+<body>
+
 <a href="https://massimocora3-create.github.io/runnerschoolitalia"
    class="back-home"
    title="Torna alla Home App RS">←</a>
-<body>
+
 <div class="app-shell">
 
 <div class="header">
