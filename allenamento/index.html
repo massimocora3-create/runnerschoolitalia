@@ -38,49 +38,51 @@ body{
 }
 .header h1{margin:0;font-size:18px}
 .header p{margin:6px 0 0;font-size:13px;color:var(--text-muted)}
-.level-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.level{
+
+details.level{
   background:var(--bg-card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:14px 16px;
+  margin-bottom:14px;
+  overflow:hidden;
+}
+details.level>summary{
+  list-style:none;
   cursor:pointer;
+  padding:16px;
+  font-size:15px;
+  font-weight:700;
+  color:var(--accent);
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-.level.active{
-  border-color:rgba(249,115,22,.6);
-  background:rgba(249,115,22,.08);
+details.level>summary::-webkit-details-marker{display:none}
+
+details.week{border-top:1px dashed var(--border)}
+details.week>summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px 16px;
+  font-size:14px;
+  font-weight:600;
 }
-.level-title{font-weight:800;font-size:14px;color:var(--accent)}
-.level-sub{font-size:12px;color:var(--text-muted)}
-.arrow{
+details.week>summary::-webkit-details-marker{display:none}
+.week-content{
+  padding:10px 16px 16px;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.chev{
   width:10px;height:10px;
   border-right:2px solid var(--text-muted);
   border-bottom:2px solid var(--text-muted);
-  transform:rotate(-45deg);
+  transform:rotate(45deg);
 }
-details.week{
-  margin-top:16px;
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-}
-details.week summary{
-  list-style:none;
-  padding:14px 16px;
-  cursor:pointer;
-  font-weight:700;
-}
-details.week summary::-webkit-details-marker{display:none}
-.week-content{padding:0 16px 16px;font-size:13px;line-height:1.45}
+details[open]>summary .chev{transform:rotate(225deg)}
+
 .back{
   position:fixed;
   bottom:18px;
@@ -107,100 +109,83 @@ details.week summary::-webkit-details-marker{display:none}
 
 <div class="app">
 
-  <div class="header">
-    <h1>🔥 Allenamento della settimana</h1>
-    <p>Seleziona il tuo livello</p>
-  </div>
+<div class="header">
+  <h1>🔥 Allenamento della settimana</h1>
+  <p>Seleziona il tuo livello</p>
+</div>
 
-  <div class="level-list">
-    <div class="level" data-level="L1"><div><div class="level-title">🟧 Livello 1</div><div class="level-sub">Base</div></div><div class="arrow"></div></div>
-    <div class="level" data-level="L2S"><div><div class="level-title">🟦 Livello 2 – Sprint</div><div class="level-sub">Velocità</div></div><div class="arrow"></div></div>
-    <div class="level" data-level="L2M"><div><div class="level-title">🟦 Livello 2 – Medio</div><div class="level-sub">Ritmo</div></div><div class="arrow"></div></div>
-    <div class="level" data-level="L2E"><div><div class="level-title">🟦 Livello 2 – Endurance</div><div class="level-sub">Resistenza</div></div><div class="arrow"></div></div>
-  </div>
+<details class="level" data-level="L1">
+  <summary>🟧 Livello 1<div class="chev"></div></summary>
+</details>
 
-  <div id="week">
-    <p style="margin-top:16px;color:var(--text-muted)">
-      Seleziona un livello per vedere l’allenamento della settimana.
-    </p>
-  </div>
+<details class="level" data-level="L2S">
+  <summary>🟦 Livello 2 – Sprint<div class="chev"></div></summary>
+</details>
+
+<details class="level" data-level="L2M">
+  <summary>🟦 Livello 2 – Medio<div class="chev"></div></summary>
+</details>
+
+<details class="level" data-level="L2E">
+  <summary>🟦 Livello 2 – Endurance<div class="chev"></div></summary>
+</details>
 
 </div>
 
 <script>
-/* VERSIONE ANTI-SCHERMATA-BIANCA */
 (function(){
 
-  try {
+  const today = new Date().toISOString().slice(0,10);
+  const params = new URLSearchParams(location.search);
+  const selectedLevel = params.get("level");
 
-    const weekBox = document.getElementById("week");
-    const levels = document.querySelectorAll(".level");
+  const levels = document.querySelectorAll("details.level");
 
-    levels.forEach(btn=>{
-      btn.addEventListener("click",()=>{
+  levels.forEach(l=>{
+    l.open = false;
+    l.addEventListener("toggle",()=>{
+      if(l.open){
         const u = new URL(location.href);
-        u.searchParams.set("level", btn.dataset.level);
+        u.searchParams.set("level", l.dataset.level);
         location.href = u.toString();
-      });
+      }
     });
+  });
 
-    const params = new URLSearchParams(location.search);
-    const level = params.get("level");
-    if(!level) return;
+  if(!selectedLevel) return;
 
-    levels.forEach(l=>{
-      if(l.dataset.level === level) l.classList.add("active");
+  fetch("/runnerschoolitalia/programma/index.html",{cache:"no-store"})
+    .then(r=>r.text())
+    .then(html=>{
+      const temp=document.createElement("div");
+      temp.innerHTML=html;
+
+      const srcLevel=temp.querySelector(
+        `details.level[data-level="${selectedLevel}"]`
+      );
+      if(!srcLevel) return;
+
+      const week=[...srcLevel.querySelectorAll("details.week")]
+        .find(w=>today>=w.dataset.start && today<=w.dataset.end);
+      if(!week) return;
+
+      const title=week.querySelector(".week-title");
+      const dates=week.querySelector(".week-dates");
+      if(title && dates){
+        title.textContent =
+          title.textContent.trim()+"–"+dates.textContent.trim();
+        dates.remove();
+      }
+
+      const target=document.querySelector(
+        `details.level[data-level="${selectedLevel}"]`
+      );
+      if(!target) return;
+
+      target.querySelectorAll("details.week").forEach(w=>w.remove());
+      target.appendChild(week.cloneNode(true));
+      target.open=true;
     });
-
-    const today = new Date().toISOString().slice(0,10);
-
-    fetch("/runnerschoolitalia/programma/index.html",{cache:"no-store"})
-      .then(r=>r.text())
-      .then(html=>{
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-
-        const levelBlock = temp.querySelector(
-          'details.level[data-level="'+level+'"]'
-        );
-
-        if(!levelBlock){
-          weekBox.innerHTML="<p>Livello non trovato</p>";
-          return;
-        }
-
-        const weeks = levelBlock.querySelectorAll("details.week");
-        let found = null;
-
-        weeks.forEach(w=>{
-          if(today >= w.dataset.start && today <= w.dataset.end){
-            found = w;
-          }
-        });
-
-        if(!found){
-          weekBox.innerHTML="<p>Nessuna settimana attiva</p>";
-          return;
-        }
-
-        const clone = found.cloneNode(true);
-        clone.removeAttribute("open");
-
-        const t = clone.querySelector(".week-title");
-        const d = clone.querySelector(".week-dates");
-        if(t && d) t.textContent = t.textContent.trim()+" – ";
-
-        weekBox.innerHTML="";
-        weekBox.appendChild(clone);
-      })
-      .catch(()=>{
-        weekBox.innerHTML="<p>Errore nel caricamento del programma</p>";
-      });
-
-  } catch(e){
-    document.body.innerHTML =
-      "<p style='padding:20px'>Errore grave JS</p>";
-  }
 
 })();
 </script>
