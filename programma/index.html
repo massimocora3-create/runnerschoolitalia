@@ -33,7 +33,7 @@ body {
   padding: 18px 14px 32px;
 }
 
-/* Header */
+/* HEADER */
 .header {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -55,7 +55,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Livelli */
+/* LIVELLI */
 details.level {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -79,7 +79,7 @@ details.level > summary {
 
 details.level > summary::-webkit-details-marker { display: none; }
 
-/* Settimane */
+/* SETTIMANE */
 details.week {
   border-top: 1px dashed var(--border);
 }
@@ -105,14 +105,14 @@ details.week > summary::-webkit-details-marker { display: none; }
   color: var(--text-muted);
 }
 
-/* Contenuto settimana (placeholder) */
+/* CONTENUTO (placeholder) */
 .week-content {
   padding: 10px 16px 16px;
   font-size: 13px;
   color: var(--text-muted);
 }
 
-/* Chevron */
+/* CHEVRON */
 .chev {
   width: 10px;
   height: 10px;
@@ -140,40 +140,25 @@ details[open] > summary .chev {
        LIVELLO 1
   ========================= -->
   <details class="level">
-    <summary>
-      🟧 Livello 1
-      <div class="chev"></div>
-    </summary>
+    <summary>🟧 Livello 1<div class="chev"></div></summary>
 
     <details class="week">
-      <summary>
-        <span class="week-title">Settimana 15</span>
-        <span class="week-dates">15–21 dicembre</span>
-      </summary>
+      <summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary>
       <div class="week-content">Contenuti Livello 1 – Settimana 15</div>
     </details>
 
     <details class="week">
-      <summary>
-        <span class="week-title">Pausa 1</span>
-        <span class="week-dates">22–28 dicembre</span>
-      </summary>
+      <summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary>
       <div class="week-content">Contenuti Livello 1 – Pausa 1</div>
     </details>
 
     <details class="week">
-      <summary>
-        <span class="week-title">Pausa 2</span>
-        <span class="week-dates">29 dic – 4 gen</span>
-      </summary>
+      <summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dic – 4 gen</span></summary>
       <div class="week-content">Contenuti Livello 1 – Pausa 2</div>
     </details>
 
     <details class="week">
-      <summary>
-        <span class="week-title">Pausa 3</span>
-        <span class="week-dates">5–11 gennaio</span>
-      </summary>
+      <summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary>
       <div class="week-content">Contenuti Livello 1 – Pausa 3</div>
     </details>
   </details>
@@ -182,10 +167,7 @@ details[open] > summary .chev {
        LIVELLO 2 – SPRINT
   ========================= -->
   <details class="level">
-    <summary>
-      🟦 Livello 2 – Sprint
-      <div class="chev"></div>
-    </summary>
+    <summary>🟦 Livello 2 – Sprint<div class="chev"></div></summary>
 
     <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary><div class="week-content">Sprint – Settimana 15</div></details>
     <details class="week"><summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary><div class="week-content">Sprint – Pausa 1</div></details>
@@ -197,10 +179,7 @@ details[open] > summary .chev {
        LIVELLO 2 – MEDIO
   ========================= -->
   <details class="level">
-    <summary>
-      🟦 Livello 2 – Medio
-      <div class="chev"></div>
-    </summary>
+    <summary>🟦 Livello 2 – Medio<div class="chev"></div></summary>
 
     <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary><div class="week-content">Medio – Settimana 15</div></details>
     <details class="week"><summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary><div class="week-content">Medio – Pausa 1</div></details>
@@ -212,10 +191,7 @@ details[open] > summary .chev {
        LIVELLO 2 – ENDURANCE
   ========================= -->
   <details class="level">
-    <summary>
-      🟦 Livello 2 – Endurance
-      <div class="chev"></div>
-    </summary>
+    <summary>🟦 Livello 2 – Endurance<div class="chev"></div></summary>
 
     <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary><div class="week-content">Endurance – Settimana 15</div></details>
     <details class="week"><summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary><div class="week-content">Endurance – Pausa 1</div></details>
@@ -224,6 +200,15 @@ details[open] > summary .chev {
   </details>
 
 </div>
+
+<!-- RESET STATO (PWA-SAFE) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("details").forEach(d => d.open = false);
+});
+</script>
+
 </body>
 </html>
+
 
