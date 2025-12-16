@@ -335,4 +335,207 @@
 
 </body>
 </html>
+<!-- EXTRA STYLE per Accordion RS -->
+<style>
+  .rs-acc details {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+    margin: 10px 0;
+  }
+  .rs-acc summary {
+    cursor: pointer;
+    padding: 14px 13px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .rs-acc summary::-webkit-details-marker { display: none; }
+  .rs-acc .sum-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 14px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex: 0 0 auto;
+  }
+  .rs-acc .sum-title { font-size: 14px; font-weight: 700; }
+  .rs-acc .sum-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .rs-acc .content {
+    padding: 0 13px 14px;
+    color: var(--text);
+  }
+  .rs-acc .content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .rs-acc .mini-actions {
+    margin-top: 10px;
+    display: grid;
+    gap: 8px;
+  }
+  .rs-acc .mini-link {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid rgba(249,115,22,.25);
+    background: rgba(249,115,22,.10);
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .rs-acc .mini-link span { color: var(--text-muted); font-weight: 500; display:block; font-size:12px; margin-top:2px; }
+</style>
+
+<!-- HEADER -->
+<header class="app-header">
+  <div class="app-logo-wrap">
+    <img src="../Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo" />
+  </div>
+  <div>
+    <div class="app-title">Materiale Didattico</div>
+    <div class="app-subtitle">Metodo · tecnica · strumenti RS</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-card">
+  <h1 class="hero-title">Manuale di bordo RS</h1>
+  <p class="hero-text">
+    Qui trovi le spiegazioni essenziali per <strong>capire cosa stai facendo</strong> e
+    allenarti con criterio. Apri solo ciò che ti serve, quando ti serve.
+  </p>
+</section>
+
+<!-- ACCORDION PRINCIPALE -->
+<div class="rs-acc">
+
+  <!-- 1) DA QUI SI PARTE (COMPILATA OGGI) -->
+  <details>
+    <summary>
+      <div class="sum-icon">🧭</div>
+      <div>
+        <div class="sum-title">Da qui si parte</div>
+        <div class="sum-sub">Cos’è RS e come usare il percorso</div>
+      </div>
+    </summary>
+
+    <div class="content">
+
+      <details>
+        <summary>
+          <div class="sum-icon">✅</div>
+          <div>
+            <div class="sum-title">Come funziona il metodo RS</div>
+            <div class="sum-sub">La logica dietro ai programmi</div>
+          </div>
+        </summary>
+        <div class="content">
+          <p>
+            In Runner’s School non “improvvisiamo allenamenti”.
+            Segui un percorso progressivo: costruisci base, migliori qualità,
+            impari a gestire ritmi e recupero. L’obiettivo è <strong>correre meglio e più a lungo</strong>,
+            non solo “fare chilometri”.
+          </p>
+          <div class="mini-actions">
+            <a class="mini-link" href="https://www.runnerschoolitalia.com/14204-2/" target="_blank">
+              Vai alla pagina completa
+              <span>Chi siamo · come funzionano i corsi</span>
+            </a>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <div class="sum-icon">🧠</div>
+          <div>
+            <div class="sum-title">Come usare il materiale didattico</div>
+            <div class="sum-sub">Quando leggere cosa</div>
+          </div>
+        </summary>
+        <div class="content">
+          <p>
+            Usa questa pagina come riferimento rapido:
+            <strong>1)</strong> quando non capisci un termine,
+            <strong>2)</strong> quando non sei sicuro dell’intensità,
+            <strong>3)</strong> quando vuoi capire il “perché” di un allenamento.
+            Se hai poco tempo, leggi le schede brevi. Se vuoi approfondire, apri i link.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </details>
+
+  <!-- 2) LINGUAGGIO RS (placeholder, lo compiliamo dopo) -->
+  <details>
+    <summary>
+      <div class="sum-icon">📘</div>
+      <div>
+        <div class="sum-title">Il linguaggio RS</div>
+        <div class="sum-sub">CL · CM · RG · RL · RM e concetti base</div>
+      </div>
+    </summary>
+    <div class="content">
+      <p>In costruzione: qui metteremo 2–3 schede brevi + link agli articoli.</p>
+    </div>
+  </details>
+
+  <!-- 3) INTENSITÀ (placeholder) -->
+  <details>
+    <summary>
+      <div class="sum-icon">⏱️</div>
+      <div>
+        <div class="sum-title">Allenarsi alla giusta intensità</div>
+        <div class="sum-sub">Test, ritmi e “quanto spingere”</div>
+      </div>
+    </summary>
+    <div class="content">
+      <p>In costruzione.</p>
+    </div>
+  </details>
+
+  <!-- 4) PERCORSO (placeholder) -->
+  <details>
+    <summary>
+      <div class="sum-icon">📈</div>
+      <div>
+        <div class="sum-title">Il tuo percorso di crescita</div>
+        <div class="sum-sub">L1 → L2 e come orientarti</div>
+      </div>
+    </summary>
+    <div class="content">
+      <p>In costruzione.</p>
+    </div>
+  </details>
+
+  <!-- 5) PROTEGGERE IL CORPO (placeholder) -->
+  <details>
+    <summary>
+      <div class="sum-icon">💪</div>
+      <div>
+        <div class="sum-title">Proteggere il corpo</div>
+        <div class="sum-sub">Potenziamento · prevenzione · recupero</div>
+      </div>
+    </summary>
+    <div class="content">
+      <p>In costruzione.</p>
+    </div>
+  </details>
+
+</div>
+
+<footer>
+  Runner’s School Italia · Manuale di bordo
+</footer>
 
