@@ -25,7 +25,6 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
   color: var(--text);
-  min-height: 100vh;
 }
 
 .app-shell {
@@ -41,7 +40,7 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 18px 16px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .header h1 {
@@ -56,52 +55,64 @@ body {
   color: var(--text-muted);
 }
 
-/* Sezioni livello */
-.level {
-  margin-top: 22px;
-}
-
-.level-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent);
-  margin: 0 4px 10px;
-}
-
-/* Accordion settimane */
-details.week {
+/* Livelli */
+details.level {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   overflow: hidden;
 }
 
-details.week > summary {
+details.level > summary {
   list-style: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-details.week > summary::-webkit-details-marker {
-  display: none;
+details.level > summary::-webkit-details-marker { display: none; }
+
+/* Settimane */
+details.week {
+  border-top: 1px dashed var(--border);
 }
+
+details.week > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details.week > summary::-webkit-details-marker { display: none; }
 
 .week-title {
   font-weight: 600;
-  font-size: 14px;
 }
 
-.week-sub {
+.week-dates {
   font-size: 12px;
   color: var(--text-muted);
-  margin-left: 8px;
 }
 
+/* Contenuto settimana (placeholder) */
+.week-content {
+  padding: 10px 16px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Chevron */
 .chev {
   width: 10px;
   height: 10px;
@@ -111,15 +122,8 @@ details.week > summary::-webkit-details-marker {
   transition: .2s ease;
 }
 
-details[open] .chev {
+details[open] > summary .chev {
   transform: rotate(225deg);
-}
-
-/* Placeholder contenuti */
-.week-content {
-  padding: 12px 16px 16px;
-  font-size: 13px;
-  color: var(--text-muted);
 }
 </style>
 </head>
@@ -135,78 +139,91 @@ details[open] .chev {
   <!-- =========================
        LIVELLO 1
   ========================= -->
-  <section class="level">
-    <h2 class="level-title">🟧 Livello 1</h2>
+  <details class="level">
+    <summary>
+      🟧 Livello 1
+      <div class="chev"></div>
+    </summary>
 
     <details class="week">
       <summary>
-        <div class="week-title">Settimana 15 <span class="week-sub">15–21 dicembre</span></div>
-        <div class="chev"></div>
+        <span class="week-title">Settimana 15</span>
+        <span class="week-dates">15–21 dicembre</span>
       </summary>
       <div class="week-content">Contenuti Livello 1 – Settimana 15</div>
     </details>
 
     <details class="week">
       <summary>
-        <div class="week-title">Pausa 1 <span class="week-sub">22–28 dicembre</span></div>
-        <div class="chev"></div>
+        <span class="week-title">Pausa 1</span>
+        <span class="week-dates">22–28 dicembre</span>
       </summary>
       <div class="week-content">Contenuti Livello 1 – Pausa 1</div>
     </details>
 
     <details class="week">
       <summary>
-        <div class="week-title">Pausa 2 <span class="week-sub">29 dicembre – 4 gennaio</span></div>
-        <div class="chev"></div>
+        <span class="week-title">Pausa 2</span>
+        <span class="week-dates">29 dic – 4 gen</span>
       </summary>
       <div class="week-content">Contenuti Livello 1 – Pausa 2</div>
     </details>
 
     <details class="week">
       <summary>
-        <div class="week-title">Pausa 3 <span class="week-sub">5–11 gennaio</span></div>
-        <div class="chev"></div>
+        <span class="week-title">Pausa 3</span>
+        <span class="week-dates">5–11 gennaio</span>
       </summary>
       <div class="week-content">Contenuti Livello 1 – Pausa 3</div>
     </details>
-  </section>
+  </details>
 
   <!-- =========================
        LIVELLO 2 – SPRINT
   ========================= -->
-  <section class="level">
-    <h2 class="level-title">🟦 Livello 2 – Sprint</h2>
+  <details class="level">
+    <summary>
+      🟦 Livello 2 – Sprint
+      <div class="chev"></div>
+    </summary>
 
-    <details class="week"><summary><div class="week-title">Settimana 15</div><div class="chev"></div></summary><div class="week-content">Sprint – Settimana 15</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 1</div><div class="chev"></div></summary><div class="week-content">Sprint – Pausa 1</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 2</div><div class="chev"></div></summary><div class="week-content">Sprint – Pausa 2</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 3</div><div class="chev"></div></summary><div class="week-content">Sprint – Pausa 3</div></details>
-  </section>
+    <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary><div class="week-content">Sprint – Settimana 15</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary><div class="week-content">Sprint – Pausa 1</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dic – 4 gen</span></summary><div class="week-content">Sprint – Pausa 2</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary><div class="week-content">Sprint – Pausa 3</div></details>
+  </details>
 
   <!-- =========================
        LIVELLO 2 – MEDIO
   ========================= -->
-  <section class="level">
-    <h2 class="level-title">🟦 Livello 2 – Medio</h2>
+  <details class="level">
+    <summary>
+      🟦 Livello 2 – Medio
+      <div class="chev"></div>
+    </summary>
 
-    <details class="week"><summary><div class="week-title">Settimana 15</div><div class="chev"></div></summary><div class="week-content">Medio – Settimana 15</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 1</div><div class="chev"></div></summary><div class="week-content">Medio – Pausa 1</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 2</div><div class="chev"></div></summary><div class="week-content">Medio – Pausa 2</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 3</div><div class="chev"></div></summary><div class="week-content">Medio – Pausa 3</div></details>
-  </section>
+    <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary><div class="week-content">Medio – Settimana 15</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary><div class="week-content">Medio – Pausa 1</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dic – 4 gen</span></summary><div class="week-content">Medio – Pausa 2</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary><div class="week-content">Medio – Pausa 3</div></details>
+  </details>
 
   <!-- =========================
        LIVELLO 2 – ENDURANCE
   ========================= -->
-  <section class="level">
-    <h2 class="level-title">🟦 Livello 2 – Endurance</h2>
+  <details class="level">
+    <summary>
+      🟦 Livello 2 – Endurance
+      <div class="chev"></div>
+    </summary>
 
-    <details class="week"><summary><div class="week-title">Settimana 15</div><div class="chev"></div></summary><div class="week-content">Endurance – Settimana 15</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 1</div><div class="chev"></div></summary><div class="week-content">Endurance – Pausa 1</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 2</div><div class="chev"></div></summary><div class="week-content">Endurance – Pausa 2</div></details>
-    <details class="week"><summary><div class="week-title">Pausa 3</div><div class="chev"></div></summary><div class="week-content">Endurance – Pausa 3</div></details>
-  </section>
+    <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary><div class="week-content">Endurance – Settimana 15</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary><div class="week-content">Endurance – Pausa 1</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dic – 4 gen</span></summary><div class="week-content">Endurance – Pausa 2</div></details>
+    <details class="week"><summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary><div class="week-content">Endurance – Pausa 3</div></details>
+  </details>
 
 </div>
 </body>
 </html>
+
