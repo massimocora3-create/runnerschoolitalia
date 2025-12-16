@@ -39,7 +39,7 @@ body{
 .header h1{margin:0;font-size:18px}
 .header p{margin:6px 0 0;font-size:13px;color:var(--text-muted)}
 
-details.level{
+.level{
   background:var(--bg-card);
   border:1px solid var(--border);
   border-radius:var(--radius);
@@ -47,8 +47,7 @@ details.level{
   margin-bottom:14px;
   overflow:hidden;
 }
-details.level > summary{
-  list-style:none;
+.level-header{
   cursor:pointer;
   padding:16px;
   font-size:15px;
@@ -58,7 +57,13 @@ details.level > summary{
   justify-content:space-between;
   align-items:center;
 }
-details.level > summary::-webkit-details-marker{display:none}
+.chev{
+  width:10px;height:10px;
+  border-right:2px solid var(--text-muted);
+  border-bottom:2px solid var(--text-muted);
+  transform:rotate(45deg);
+}
+.level.open .chev{transform:rotate(225deg)}
 
 .week-box{
   border-top:1px dashed var(--border);
@@ -72,14 +77,6 @@ details.level > summary::-webkit-details-marker{display:none}
   font-size:13px;
   line-height:1.45;
 }
-
-.chev{
-  width:10px;height:10px;
-  border-right:2px solid var(--text-muted);
-  border-bottom:2px solid var(--text-muted);
-  transform:rotate(45deg);
-}
-details[open] > summary .chev{transform:rotate(225deg)}
 
 .back{
   position:fixed;
@@ -112,68 +109,79 @@ details[open] > summary .chev{transform:rotate(225deg)}
   <p>Seleziona il tuo livello</p>
 </div>
 
-<details class="level" data-level="L1"><summary>🟧 Livello 1<div class="chev"></div></summary></details>
-<details class="level" data-level="L2S"><summary>🟦 Livello 2 – Sprint<div class="chev"></div></summary></details>
-<details class="level" data-level="L2M"><summary>🟦 Livello 2 – Medio<div class="chev"></div></summary></details>
-<details class="level" data-level="L2E"><summary>🟦 Livello 2 – Endurance<div class="chev"></div></summary></details>
+<div class="level" data-level="L1">
+  <div class="level-header">🟧 Livello 1<div class="chev"></div></div>
+</div>
+
+<div class="level" data-level="L2S">
+  <div class="level-header">🟦 Livello 2 – Sprint<div class="chev"></div></div>
+</div>
+
+<div class="level" data-level="L2M">
+  <div class="level-header">🟦 Livello 2 – Medio<div class="chev"></div></div>
+</div>
+
+<div class="level" data-level="L2E">
+  <div class="level-header">🟦 Livello 2 – Endurance<div class="chev"></div></div>
+</div>
 
 </div>
 
 <script>
-(function(){
+(async function(){
 
   const today = new Date().toISOString().slice(0,10);
-  const params = new URLSearchParams(location.search);
-  const selectedLevel = params.get("level");
-  const levels = document.querySelectorAll("details.level");
 
-  levels.forEach(l=>{
-    l.open = false;
-    l.querySelector("summary").addEventListener("click",e=>{
-      e.preventDefault();
-      const u=new URL(location.href);
-      u.searchParams.set("level",l.dataset.level);
-      location.href=u.toString();
-    });
-  });
+  const res = await fetch("/runnerschoolitalia/programma/index.html",{cache:"no-store"});
+  const html = await res.text();
+  const temp = document.createElement("div");
+  temp.innerHTML = html;
 
-  if(!selectedLevel) return;
+  document.querySelectorAll(".level").forEach(level => {
 
-  fetch("/runnerschoolitalia/programma/index.html",{cache:"no-store"})
-    .then(r=>r.text())
-    .then(html=>{
-      const temp=document.createElement("div");
-      temp.innerHTML=html;
+    const header = level.querySelector(".level-header");
+    const code = level.dataset.level;
 
-      const src=temp.querySelector(
-        `details.level[data-level="${selectedLevel}"]`
-      );
+    header.addEventListener("click", () => {
+
+      // chiudi gli altri
+      document.querySelectorAll(".level").forEach(l=>{
+        if(l !== level){
+          l.classList.remove("open");
+          l.querySelectorAll(".week-box").forEach(b=>b.remove());
+        }
+      });
+
+      // toggle questo
+      if(level.classList.contains("open")){
+        level.classList.remove("open");
+        level.querySelectorAll(".week-box").forEach(b=>b.remove());
+        return;
+      }
+
+      const src = temp.querySelector(`details.level[data-level="${code}"]`);
       if(!src) return;
 
-      const week=[...src.querySelectorAll("details.week")]
-        .find(w=>today>=w.dataset.start && today<=w.dataset.end);
+      const week = [...src.querySelectorAll("details.week")]
+        .find(w => today >= w.dataset.start && today <= w.dataset.end);
       if(!week) return;
 
-      const title=week.querySelector(".week-title")?.textContent || "";
-      const dates=week.querySelector(".week-dates")?.textContent || "";
-      const content=week.querySelector(".week-content")?.innerHTML || "";
+      const title = week.querySelector(".week-title")?.textContent || "";
+      const dates = week.querySelector(".week-dates")?.textContent || "";
+      const content = week.querySelector(".week-content")?.innerHTML || "";
 
-      const box=document.createElement("div");
-      box.className="week-box";
-      box.innerHTML=`
+      const box = document.createElement("div");
+      box.className = "week-box";
+      box.innerHTML = `
         <div class="week-title">${title}–${dates}</div>
         <div class="week-content">${content}</div>
       `;
 
-      const target=document.querySelector(
-        `details.level[data-level="${selectedLevel}"]`
-      );
-      if(!target) return;
-
-      target.querySelectorAll(".week-box").forEach(b=>b.remove());
-      target.appendChild(box);
-      target.open=true;
+      level.appendChild(box);
+      level.classList.add("open");
     });
+
+  });
 
 })();
 </script>
