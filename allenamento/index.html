@@ -47,8 +47,6 @@ details.level{
   margin-bottom:14px;
   overflow:hidden;
 }
-
-/* 🔒 disattiviamo il toggle nativo */
 details.level > summary{
   list-style:none;
   cursor:pointer;
@@ -62,18 +60,15 @@ details.level > summary{
 }
 details.level > summary::-webkit-details-marker{display:none}
 
-details.week{border-top:1px dashed var(--border)}
-details.week > summary{
-  list-style:none;
-  cursor:pointer;
-  padding:12px 16px;
-  font-size:14px;
-  font-weight:600;
+.week-box{
+  border-top:1px dashed var(--border);
+  padding:14px 16px 16px;
 }
-details.week > summary::-webkit-details-marker{display:none}
-
+.week-title{
+  font-weight:700;
+  margin-bottom:10px;
+}
 .week-content{
-  padding:10px 16px 16px;
   font-size:13px;
   line-height:1.45;
 }
@@ -84,9 +79,7 @@ details.week > summary::-webkit-details-marker{display:none}
   border-bottom:2px solid var(--text-muted);
   transform:rotate(45deg);
 }
-details.level[open] > summary .chev{
-  transform:rotate(225deg);
-}
+details[open] > summary .chev{transform:rotate(225deg)}
 
 .back{
   position:fixed;
@@ -119,21 +112,10 @@ details.level[open] > summary .chev{
   <p>Seleziona il tuo livello</p>
 </div>
 
-<details class="level" data-level="L1">
-  <summary>🟧 Livello 1<div class="chev"></div></summary>
-</details>
-
-<details class="level" data-level="L2S">
-  <summary>🟦 Livello 2 – Sprint<div class="chev"></div></summary>
-</details>
-
-<details class="level" data-level="L2M">
-  <summary>🟦 Livello 2 – Medio<div class="chev"></div></summary>
-</details>
-
-<details class="level" data-level="L2E">
-  <summary>🟦 Livello 2 – Endurance<div class="chev"></div></summary>
-</details>
+<details class="level" data-level="L1"><summary>🟧 Livello 1<div class="chev"></div></summary></details>
+<details class="level" data-level="L2S"><summary>🟦 Livello 2 – Sprint<div class="chev"></div></summary></details>
+<details class="level" data-level="L2M"><summary>🟦 Livello 2 – Medio<div class="chev"></div></summary></details>
+<details class="level" data-level="L2E"><summary>🟦 Livello 2 – Endurance<div class="chev"></div></summary></details>
 
 </div>
 
@@ -143,17 +125,15 @@ details.level[open] > summary .chev{
   const today = new Date().toISOString().slice(0,10);
   const params = new URLSearchParams(location.search);
   const selectedLevel = params.get("level");
-
   const levels = document.querySelectorAll("details.level");
 
-  /* CLICK MANUALE – NO TOGGLE NATIVO */
   levels.forEach(l=>{
     l.open = false;
-    l.querySelector("summary").addEventListener("click", e=>{
-      e.preventDefault(); // 🔒 blocca comportamento nativo
-      const u = new URL(location.href);
-      u.searchParams.set("level", l.dataset.level);
-      location.href = u.toString();
+    l.querySelector("summary").addEventListener("click",e=>{
+      e.preventDefault();
+      const u=new URL(location.href);
+      u.searchParams.set("level",l.dataset.level);
+      location.href=u.toString();
     });
   });
 
@@ -165,32 +145,34 @@ details.level[open] > summary .chev{
       const temp=document.createElement("div");
       temp.innerHTML=html;
 
-      const srcLevel=temp.querySelector(
+      const src=temp.querySelector(
         `details.level[data-level="${selectedLevel}"]`
       );
-      if(!srcLevel) return;
+      if(!src) return;
 
-      const week=[...srcLevel.querySelectorAll("details.week")]
+      const week=[...src.querySelectorAll("details.week")]
         .find(w=>today>=w.dataset.start && today<=w.dataset.end);
       if(!week) return;
 
-      /* titolo corretto */
-      const title=week.querySelector(".week-title");
-      const dates=week.querySelector(".week-dates");
-      if(title && dates){
-        title.textContent =
-          title.textContent.trim()+"–"+dates.textContent.trim();
-        dates.remove();
-      }
+      const title=week.querySelector(".week-title")?.textContent || "";
+      const dates=week.querySelector(".week-dates")?.textContent || "";
+      const content=week.querySelector(".week-content")?.innerHTML || "";
+
+      const box=document.createElement("div");
+      box.className="week-box";
+      box.innerHTML=`
+        <div class="week-title">${title}–${dates}</div>
+        <div class="week-content">${content}</div>
+      `;
 
       const target=document.querySelector(
         `details.level[data-level="${selectedLevel}"]`
       );
       if(!target) return;
 
-      target.querySelectorAll("details.week").forEach(w=>w.remove());
-      target.appendChild(week.cloneNode(true));
-      target.open = true;
+      target.querySelectorAll(".week-box").forEach(b=>b.remove());
+      target.appendChild(box);
+      target.open=true;
     });
 
 })();
