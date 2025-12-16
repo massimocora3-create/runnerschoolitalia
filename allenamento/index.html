@@ -40,7 +40,7 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 18px 16px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 .header h1 {
   margin: 0;
@@ -53,43 +53,62 @@ body {
   color: var(--text-muted);
 }
 
-/* LEVEL SWITCH – VERTICALE */
-.level-switch {
+/* BOTTONI LIVELLI (UNO SOTTO L'ALTRO, STILE RS) */
+.level-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
 .level-btn {
   display: block;
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
   background: var(--bg-card);
-  color: var(--text);
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--text);
 }
 
-.level-btn small {
-  display: block;
-  font-weight: 500;
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 4px;
+.level-btn .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.level-btn.active {
-  background: var(--accent-soft);
-  border-color: var(--accent);
+.level-btn .title {
+  font-weight: 800;
+  font-size: 14px;
   color: var(--accent);
 }
 
-/* WEEK CARD */
+.level-btn .sub {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* piccolo chevron come nei dettagli */
+.level-btn .chev {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(-45deg);
+  flex: 0 0 auto;
+}
+
+/* Stato attivo SOLO dopo click */
+.level-btn.active {
+  border-color: rgba(249,115,22,0.5);
+  background: rgba(249,115,22,0.08);
+}
+
+/* WEEK CARD (come prima) */
 details.week {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -97,25 +116,20 @@ details.week {
   box-shadow: var(--shadow-soft);
   overflow: hidden;
 }
+
 details.week > summary {
   list-style: none;
   padding: 14px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 details.week > summary::-webkit-details-marker { display: none; }
 
 .week-title { font-weight: 700; }
-.week-dates {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.week-content {
-  padding: 12px 16px 16px;
-  font-size: 14px;
-  line-height: 1.45;
-}
+.week-dates { font-size: 12px; color: var(--text-muted); }
+.week-content { padding: 12px 16px 16px; font-size: 14px; line-height: 1.45; }
 
 /* BACK HOME */
 .back-home {
@@ -150,15 +164,42 @@ details.week > summary::-webkit-details-marker { display: none; }
 
   <div class="header">
     <h1>🔥 Allenamento della settimana</h1>
-    <p>Seleziona il tuo livello</p>
+    <p>Seleziona il livello per visualizzare la settimana corrente</p>
   </div>
 
-  <!-- BOTTONI LIVELLI (CHIUSI ALL'AVVIO) -->
-  <div class="level-switch" id="level-switch">
-    <a class="level-btn" href="./?level=L1"  data-level="L1">Livello 1<small>Base</small></a>
-    <a class="level-btn" href="./?level=L2S" data-level="L2S">Livello 2<small>Sprint</small></a>
-    <a class="level-btn" href="./?level=L2M" data-level="L2M">Livello 2<small>Medio</small></a>
-    <a class="level-btn" href="./?level=L2E" data-level="L2E">Livello 2<small>Endurance</small></a>
+  <!-- BOTTONI UNO SOTTO L'ALTRO -->
+  <div class="level-list" id="level-list">
+    <a class="level-btn" href="./" data-level="L1">
+      <div class="top">
+        <div class="title">🟧 Livello 1</div>
+        <div class="chev"></div>
+      </div>
+      <div class="sub">Base</div>
+    </a>
+
+    <a class="level-btn" href="./" data-level="L2S">
+      <div class="top">
+        <div class="title">🟦 Livello 2 – Sprint</div>
+        <div class="chev"></div>
+      </div>
+      <div class="sub">Velocità e reattività</div>
+    </a>
+
+    <a class="level-btn" href="./" data-level="L2M">
+      <div class="top">
+        <div class="title">🟦 Livello 2 – Medio</div>
+        <div class="chev"></div>
+      </div>
+      <div class="sub">Equilibrio tra ritmo e resistenza</div>
+    </a>
+
+    <a class="level-btn" href="./" data-level="L2E">
+      <div class="top">
+        <div class="title">🟦 Livello 2 – Endurance</div>
+        <div class="chev"></div>
+      </div>
+      <div class="sub">Resistenza e volumi</div>
+    </a>
   </div>
 
   <div id="week-container"></div>
@@ -168,51 +209,77 @@ details.week > summary::-webkit-details-marker { display: none; }
 <script>
 (async function () {
 
-  const params = new URLSearchParams(location.search);
-  const levelParam = params.get("level");
-
-  // evidenzia bottone SOLO se level è presente
-  if (levelParam) {
-    document.querySelectorAll('#level-switch .level-btn').forEach(btn => {
-      if (btn.dataset.level === levelParam.toUpperCase()) {
-        btn.classList.add('active');
-      }
+  // 1) Click sui bottoni: aggiorno l’URL con ?level=...
+  document.querySelectorAll('#level-list .level-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lvl = btn.dataset.level;
+      const url = new URL(location.href);
+      url.searchParams.set('level', lvl);
+      location.href = url.toString();
     });
-  }
+  });
 
+  // 2) All’avvio: se NON c’è level → "tutti chiusi" = non carico nulla
+  const params = new URLSearchParams(location.search);
+  const levelParam = (params.get("level") || "").toUpperCase();
   if (!levelParam) return;
 
+  // 3) Evidenzio SOLO il livello scelto (dopo click)
+  document.querySelectorAll('#level-list .level-btn').forEach(btn => {
+    if (btn.dataset.level === levelParam) btn.classList.add('active');
+  });
+
+  // 4) Data odierna ISO
   const today = new Date();
   const todayISO =
     today.getFullYear() + "-" +
     String(today.getMonth()+1).padStart(2,"0") + "-" +
     String(today.getDate()).padStart(2,"0");
 
+  // 5) Carico il programma completo
   const programURL = "../programma/index.html";
 
-  const res = await fetch(programURL, { cache: "no-store" });
-  const html = await res.text();
+  let html = "";
+  try {
+    const res = await fetch(programURL, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    html = await res.text();
+  } catch (e) {
+    document.getElementById("week-container").innerHTML =
+      "<p>❌ Errore nel caricamento del programma</p>";
+    return;
+  }
 
   const temp = document.createElement("div");
   temp.innerHTML = html;
 
-  const levelBlock = temp.querySelector(
-    `details.level[data-level="${levelParam.toUpperCase()}"]`
-  );
-  if (!levelBlock) return;
+  // 6) Trovo il livello (data-level)
+  const levelBlock = temp.querySelector(`details.level[data-level="${levelParam}"]`);
+  if (!levelBlock) {
+    document.getElementById("week-container").innerHTML =
+      `<p>❌ Livello <strong>${levelParam}</strong> non trovato</p>`;
+    return;
+  }
 
+  // 7) Trovo la settimana corrente (data-start/data-end)
   const weeks = [...levelBlock.querySelectorAll("details.week[data-start][data-end]")];
   const currentWeek = weeks.find(w => {
-    const start = w.dataset.start;
-    const end = w.dataset.end;
+    const start = w.getAttribute("data-start");
+    const end = w.getAttribute("data-end");
     return todayISO >= start && todayISO <= end;
   });
 
-  if (!currentWeek) return;
+  if (!currentWeek) {
+    document.getElementById("week-container").innerHTML =
+      "<p>⏸ Nessuna settimana attiva per la data odierna</p>";
+    return;
+  }
 
-  currentWeek.open = true;
-  document.getElementById("week-container")
-    .appendChild(currentWeek.cloneNode(true));
+  // 8) IMPORTANTISSIMO: NON apro la settimana → resta CHIUSA (come richiesto)
+  currentWeek.open = false;
+
+  document.getElementById("week-container").appendChild(currentWeek.cloneNode(true));
 
 })();
 </script>
