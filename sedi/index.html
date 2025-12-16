@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runner’s School Italia – Sedi e Orari</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,.12);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 60%,#000 100%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+.app-shell{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 14px 36px;
+}
+
+/* HEADER */
+.app-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:10px 4px 22px;
+}
+.app-logo-wrap{
+  width:52px;
+  height:52px;
+  border-radius:22px;
+  background:radial-gradient(circle at 20% 0,#1f2937 0,#020617 60%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(148,163,184,.2);
+  box-shadow:0 10px 25px rgba(0,0,0,.6);
+}
+.app-logo{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
+.app-title{
+  font-size:20px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.app-subtitle{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* SECTION */
+.section-label{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--muted);
+  margin:18px 4px 10px;
+}
+
+/* ACCORDION */
+details{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  margin-bottom:10px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+summary{
+  list-style:none;
+  cursor:pointer;
+  padding:15px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-weight:700;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{
+  background:rgba(249,115,22,.05);
+}
+
+.badge{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid rgba(249,115,22,.25);
+  white-space:nowrap;
+}
+
+.content{
+  padding:0 16px 16px;
+  font-size:14px;
+  line-height:1.45;
+  color:var(--text);
+}
+.content p{margin-top:10px}
+.content strong{color:#fff}
+
+hr{
+  border:0;
+  border-top:1px solid var(--border);
+  margin:14px 0;
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+}
+
+footer{
+  margin-top:28px;
+  text-align:center;
+  font-size:11px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+<div class="app-shell">
+
+<!-- HEADER -->
+<header class="app-header">
+  <div class="app-logo-wrap">
+    <img src="/runnerschoolitalia/Logopit_1764687878535.png" class="app-logo" alt="Runner’s School Italia">
+  </div>
+  <div>
+    <div class="app-title">Runner’s School Italia</div>
+    <div class="app-subtitle">Sedi, giorni e orari</div>
+  </div>
+</header>
+
+<div class="section-label">Apri la tua scuola</div>
+
+<!-- FERRARA -->
+<details>
+  <summary>Ferrara <span class="badge">Running · Fitwalking · Trekking</span></summary>
+  <div class="content">
+    <p><strong>Running Adulti</strong><br>
+    Lun · Mar · Mer · Gio · 19:00<br>
+    Ven · 13:15</p>
+
+    <hr>
+
+    <p><strong>Running Young</strong><br>
+    Venerdì · 17:45</p>
+
+    <hr>
+
+    <p><strong>Fitwalking</strong><br>
+    Martedì · 19:00</p>
+
+    <hr>
+
+    <p><strong>Trekking Sportivo</strong><br>
+    Giovedì · 19:00</p>
+
+    <hr>
+
+    <p><strong>Ritrovo</strong><br>
+    Corriferrara Home – Ferrara</p>
+
+    <p><a href="https://www.runnerschoolitalia.com/scuole/ferrara-runners-school/" target="_blank">Vai alla pagina scuola →</a></p>
+  </div>
+</details>
+
+<!-- BOLOGNA -->
+<details>
+  <summary>Bologna <span class="badge">Running</span></summary>
+  <div class="content">
+    <p><strong>Allenamenti</strong><br>
+    Mercoledì · 19:00</p>
+
+    <p><strong>Ritrovo</strong><br>
+    Giardini Margherita – Bologna</p>
+
+    <p><a href="https://www.runnerschoolitalia.com/scuole/bologna-runners-school/" target="_blank">Vai alla pagina scuola →</a></p>
+  </div>
+</details>
+
+<!-- TREVISO -->
+<details>
+  <summary>Treviso <span class="badge">Running</span></summary>
+  <div class="content">
+    <p><strong>Allenamenti</strong><br>
+    Martedì · 19:00<br>
+    Sabato · 10:30</p>
+
+    <p><strong>Ritrovo</strong><br>
+    La Ghirarda – Città dello Sport</p>
+
+    <p><a href="https://www.runnerschoolitalia.com/scuole/treviso-runners-school/" target="_blank">Vai alla pagina scuola →</a></p>
+  </div>
+</details>
+
+<!-- PADOVA -->
+<details>
+  <summary>Padova <span class="badge">Running</span></summary>
+  <div class="content">
+    <p><strong>Allenamenti</strong><br>
+    Mercoledì · 19:00</p>
+
+    <p><strong>Ritrovo</strong><br>
+    Viale dell’Internato Ignoto – Padova</p>
+
+    <p><a href="https://www.runnerschoolitalia.com/scuole/padova-runners-school/" target="_blank">Vai alla pagina scuola →</a></p>
+  </div>
+</details>
+
+<!-- RAVENNA -->
+<details>
+  <summary>Ravenna <span class="badge">Running</span></summary>
+  <div class="content">
+    <p><strong>Allenamenti</strong><br>
+    Mar · Gio · 19:00</p>
+
+    <p><strong>Ritrovo</strong><br>
+    Ravenna</p>
+
+    <p><a href="https://www.runnerschoolitalia.com/scuole/ravenna-runners-school/" target="_blank">Vai alla pagina scuola →</a></p>
+  </div>
+</details>
+
+<!-- ALTRE SEDI -->
+<!-- (stesso pattern: pulito, RS, coerente) -->
+
+<footer>
+Runner’s School Italia · Allenarsi bene, insieme.
+</footer>
+
+</div>
+</body>
+</html>
