@@ -300,3 +300,57 @@ document.addEventListener("DOMContentLoaded", () => {
 </html>
 
 
+<!-- JS RUNNER'S VOICE -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const container = document.getElementById("rs-news");
+  if (!container) return;
+
+  fetch("https://www.runnerschoolitalia.com/wp-json/rs/v1/voice")
+    .then(response => response.json())
+    .then(posts => {
+
+      container.innerHTML = "";
+
+      posts.forEach(post => {
+
+        const a = document.createElement("a");
+        a.className = "card-link";
+        a.href = post.link;
+        a.target = "_blank";
+
+        a.innerHTML = `
+          <div class="card">
+            <div class="card-header">
+              <img class="voice-thumb" src="${post.image}" alt="Runner’s Voice">
+              <div>
+                <div class="card-title">${post.title}</div>
+                <div class="card-subtitle">${post.date}</div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(a);
+      });
+
+    })
+    .catch(err => {
+      console.error("Runner’s Voice error:", err);
+      container.innerHTML = `
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">⚠️</div>
+            <div>
+              <div class="card-title">Errore caricamento Runner’s Voice</div>
+              <div class="card-subtitle">Riprova più tardi</div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+});
+</script>
+
