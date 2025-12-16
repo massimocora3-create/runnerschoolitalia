@@ -1,220 +1,63 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Runner’s School Italia – Allenamento della settimana</title>
-
-<style>
-:root{
-  --bg:#020617;
-  --bg-card:#0b1120;
-  --accent:#f97316;
-  --text:#e5e7eb;
-  --text-muted:#9ca3af;
-  --border:#1f2937;
-  --radius:20px;
-  --shadow:0 18px 45px rgba(0,0,0,.55);
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
-  color:var(--text);
-}
-.app{
-  max-width:520px;
-  margin:0 auto;
-  padding:18px 14px 90px;
-}
-
-/* HEADER */
-.header{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:16px;
-  margin-bottom:18px;
-}
-.header h1{margin:0;font-size:18px}
-.header p{margin:6px 0 0;font-size:13px;color:var(--text-muted)}
-
-/* LIVELLI */
-.level-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.level{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:14px 16px;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.level.active{
-  border-color:rgba(249,115,22,.6);
-  background:rgba(249,115,22,.08);
-}
-.level-title{
-  font-weight:800;
-  font-size:14px;
-  color:var(--accent);
-}
-.level-sub{
-  font-size:12px;
-  color:var(--text-muted);
-}
-.arrow{
-  width:10px;
-  height:10px;
-  border-right:2px solid var(--text-muted);
-  border-bottom:2px solid var(--text-muted);
-  transform:rotate(-45deg);
-}
-
-/* WEEK */
-details.week{
-  margin-top:16px;
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-}
-details.week summary{
-  list-style:none;
-  padding:14px 16px;
-  cursor:pointer;
-  font-weight:700;
-}
-details.week summary::-webkit-details-marker{display:none}
-.week-content{padding:0 16px 16px;font-size:13px;line-height:1.45}
-
-/* BACK HOME */
-.back{
-  position:fixed;
-  bottom:18px;
-  right:18px;
-  width:48px;
-  height:48px;
-  background:var(--accent);
-  color:#000;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 10px 25px rgba(0,0,0,.5);
-}
-</style>
-</head>
-
-<body>
-
-<a class="back" href="https://massimocora3-create.github.io/runnerschoolitalia/">←</a>
-
-<div class="app">
-
-  <div class="header">
-    <h1>🔥 Allenamento della settimana</h1>
-    <p>Seleziona il tuo livello</p>
-  </div>
-
-  <div class="level-list">
-    <div class="level" data-level="L1">
-      <div>
-        <div class="level-title">🟧 Livello 1</div>
-        <div class="level-sub">Base</div>
-      </div>
-      <div class="arrow"></div>
-    </div>
-
-    <div class="level" data-level="L2S">
-      <div>
-        <div class="level-title">🟦 Livello 2 – Sprint</div>
-        <div class="level-sub">Velocità</div>
-      </div>
-      <div class="arrow"></div>
-    </div>
-
-    <div class="level" data-level="L2M">
-      <div>
-        <div class="level-title">🟦 Livello 2 – Medio</div>
-        <div class="level-sub">Ritmo</div>
-      </div>
-      <div class="arrow"></div>
-    </div>
-
-    <div class="level" data-level="L2E">
-      <div>
-        <div class="level-title">🟦 Livello 2 – Endurance</div>
-        <div class="level-sub">Resistenza</div>
-      </div>
-      <div class="arrow"></div>
-    </div>
-  </div>
-
-  <div id="week"></div>
-
-</div>
-
 <script>
 (async () => {
 
   const weekBox = document.getElementById("week");
 
-  document.querySelectorAll(".level").forEach(btn=>{
-    btn.onclick=()=>{
-      const u=new URL(location.href);
-      u.searchParams.set("level",btn.dataset.level);
-      location.href=u.toString();
+  document.querySelectorAll(".level").forEach(btn => {
+    btn.onclick = () => {
+      const u = new URL(location.href);
+      u.searchParams.set("level", btn.dataset.level);
+      location.href = u.toString();
     };
   });
 
-  const level=new URLSearchParams(location.search).get("level");
-  if(!level) return;
+  const level = new URLSearchParams(location.search).get("level");
+  if (!level) return;
 
-  document.querySelectorAll(".level").forEach(l=>{
-    if(l.dataset.level===level) l.classList.add("active");
+  document.querySelectorAll(".level").forEach(l => {
+    if (l.dataset.level === level) l.classList.add("active");
   });
 
-  const today=new Date().toISOString().slice(0,10);
+  const today = new Date().toISOString().slice(0, 10);
 
-  const res=await fetch("/runnerschoolitalia/programma/index.html",{cache:"no-store"});
-  const html=await res.text();
+  const res = await fetch("/runnerschoolitalia/programma/index.html", {
+    cache: "no-store"
+  });
+  const html = await res.text();
 
-  const temp=document.createElement("div");
-  temp.innerHTML=html;
+  const temp = document.createElement("div");
+  temp.innerHTML = html;
 
-  const levelBlock=temp.querySelector(`details.level[data-level="${level}"]`);
-  if(!levelBlock){
-    weekBox.innerHTML="<p>Livello non trovato</p>";
+  const levelBlock = temp.querySelector(
+    `details.level[data-level="${level}"]`
+  );
+  if (!levelBlock) {
+    weekBox.innerHTML = "<p>Livello non trovato</p>";
     return;
   }
 
-  const week=[...levelBlock.querySelectorAll("details.week")]
-    .find(w=>today>=w.dataset.start && today<=w.dataset.end);
+  const week = [...levelBlock.querySelectorAll("details.week")]
+    .find(w => today >= w.dataset.start && today <= w.dataset.end);
 
-  if(!week){
-    weekBox.innerHTML="<p>Nessuna settimana attiva</p>";
+  if (!week) {
+    weekBox.innerHTML = "<p>Nessuna settimana attiva</p>";
     return;
   }
 
-  const clone=week.cloneNode(true);
-  clone.open=true;
+  const clone = week.cloneNode(true);
+
+  /* 🔒 CHIUSA DI DEFAULT */
+  clone.removeAttribute("open");
+
+  /* 🧼 SISTEMA TITOLO */
+  const title = clone.querySelector(".week-title");
+  const dates = clone.querySelector(".week-dates");
+  if (title && dates) {
+    title.innerHTML = title.textContent.trim() + " – ";
+  }
+
   weekBox.appendChild(clone);
 
 })();
 </script>
-
-</body>
-</html>
 
