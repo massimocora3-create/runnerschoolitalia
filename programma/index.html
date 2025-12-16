@@ -17,25 +17,18 @@
   --radius-lg: 20px;
   --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
 }
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
   color: var(--text);
 }
-
 .app-shell {
   max-width: 520px;
   margin: 0 auto;
   padding: 18px 14px 90px;
 }
-
-/* HEADER */
 .header {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -44,17 +37,8 @@ body {
   padding: 18px 16px;
   margin-bottom: 18px;
 }
-.header h1 {
-  margin: 0;
-  font-size: 18px;
-}
-.header p {
-  margin: 6px 0 0;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-/* ACCORDION */
+.header h1 { margin: 0; font-size: 18px; }
+.header p { margin: 6px 0 0; font-size: 13px; color: var(--text-muted); }
 details.level {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -63,7 +47,6 @@ details.level {
   margin-bottom: 14px;
   overflow: hidden;
 }
-
 details.level > summary {
   list-style: none;
   cursor: pointer;
@@ -75,13 +58,8 @@ details.level > summary {
   justify-content: space-between;
   align-items: center;
 }
-details.level > summary::-webkit-details-marker {
-  display: none;
-}
-
-details.week {
-  border-top: 1px dashed var(--border);
-}
+details.level > summary::-webkit-details-marker { display: none; }
+details.week { border-top: 1px dashed var(--border); }
 details.week > summary {
   list-style: none;
   cursor: pointer;
@@ -91,37 +69,18 @@ details.week > summary {
   justify-content: space-between;
   align-items: center;
 }
-details.week > summary::-webkit-details-marker {
-  display: none;
-}
-
-.week-title {
-  font-weight: 600;
-}
-.week-dates {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.week-content {
-  padding: 10px 16px 16px;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-/* CHEVRON */
+details.week > summary::-webkit-details-marker { display: none; }
+.week-title { font-weight: 600; }
+.week-dates { font-size: 12px; color: var(--text-muted); }
+.week-content { padding: 10px 16px 16px; font-size: 13px; line-height: 1.45; }
 .chev {
   width: 10px;
   height: 10px;
   border-right: 2px solid var(--text-muted);
   border-bottom: 2px solid var(--text-muted);
   transform: rotate(45deg);
-  transition: transform .2s ease;
 }
-details[open] > summary .chev {
-  transform: rotate(225deg);
-}
-
-/* BACK HOME */
+details[open] > summary .chev { transform: rotate(225deg); }
 .back-home {
   position: fixed;
   bottom: 18px;
@@ -140,9 +99,6 @@ details[open] > summary .chev {
   box-shadow: 0 10px 25px rgba(0,0,0,.5);
   z-index: 999;
 }
-.back-home:hover {
-  transform: scale(1.08);
-}
 </style>
 </head>
 
@@ -160,10 +116,10 @@ details[open] > summary .chev {
 </div>
 
 <!-- ================= LIVELLO 1 ================= -->
-<details class="level">
+<details class="level" data-level="L1">
 <summary>🟧 Livello 1<div class="chev"></div></summary>
 
-<details class="week">
+<details class="week" data-start="2025-12-15" data-end="2025-12-21">
 <summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>10’ andature e allunghi + 3 km al meglio + allungamento muscolare</p>
@@ -173,7 +129,7 @@ details[open] > summary .chev {
 </div>
 </details>
 
-<details class="week">
+<details class="week" data-start="2025-12-22" data-end="2025-12-28">
 <summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>15’ CL + 10× (1’ ritmo test + 1’ CL) + 5’ CL</p>
@@ -183,7 +139,7 @@ details[open] > summary .chev {
 </div>
 </details>
 
-<details class="week">
+<details class="week" data-start="2025-12-29" data-end="2026-01-04">
 <summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dicembre – 4 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>15’ CL + 5× (2’ ritmo test + 1’ CL) + 10’ CL</p>
@@ -193,7 +149,7 @@ details[open] > summary .chev {
 </div>
 </details>
 
-<details class="week">
+<details class="week" data-start="2026-01-05" data-end="2026-01-11">
 <summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>15’ CL + 15’ medio/veloce + 10’ CL</p>
@@ -205,11 +161,10 @@ details[open] > summary .chev {
 </details>
 
 <!-- ================= LIVELLO 2 – SPRINT ================= -->
-<details class="level">
+<details class="level" data-level="L2S">
 <summary>🟦 Livello 2 – Sprint<div class="chev"></div></summary>
 
-<!-- Settimana 15 -->
-<details class="week">
+<details class="week" data-start="2025-12-15" data-end="2025-12-21">
 <summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
@@ -220,8 +175,7 @@ details[open] > summary .chev {
 </div>
 </details>
 
-<!-- Pausa 1 -->
-<details class="week">
+<details class="week" data-start="2025-12-22" data-end="2025-12-28">
 <summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
@@ -232,8 +186,7 @@ details[open] > summary .chev {
 </div>
 </details>
 
-<!-- Pausa 2 -->
-<details class="week">
+<details class="week" data-start="2025-12-29" data-end="2026-01-04">
 <summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dicembre – 4 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
@@ -244,8 +197,7 @@ details[open] > summary .chev {
 </div>
 </details>
 
-<!-- Pausa 3 -->
-<details class="week">
+<details class="week" data-start="2026-01-05" data-end="2026-01-11">
 <summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
@@ -256,13 +208,12 @@ details[open] > summary .chev {
 </div>
 </details>
 </details>
-  
+
 <!-- ================= LIVELLO 2 – MEDIO ================= -->
-<details class="level">
+<details class="level" data-level="L2M">
 <summary>🟦 Livello 2 – Medio<div class="chev"></div></summary>
 
-<!-- SETTIMANA 15 -->
-<details class="week">
+<details class="week" data-start="2025-12-15" data-end="2025-12-21">
 <summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
@@ -281,8 +232,7 @@ Tecnica–potenziamento:
 </div>
 </details>
 
-<!-- PAUSA 1 -->
-<details class="week">
+<details class="week" data-start="2025-12-22" data-end="2025-12-28">
 <summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
@@ -297,8 +247,7 @@ Tecnica–potenziamento:
 </div>
 </details>
 
-<!-- PAUSA 2 -->
-<details class="week">
+<details class="week" data-start="2025-12-29" data-end="2026-01-04">
 <summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dicembre – 4 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
@@ -314,8 +263,7 @@ Collinare 12 km <em>oppure</em><br>
 </div>
 </details>
 
-<!-- PAUSA 3 -->
-<details class="week">
+<details class="week" data-start="2026-01-05" data-end="2026-01-11">
 <summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
@@ -330,12 +278,12 @@ Collinare 12 km <em>oppure</em><br>
 </div>
 </details>
 </details>
+
 <!-- ================= LIVELLO 2 – ENDURANCE ================= -->
-<details class="level">
+<details class="level" data-level="L2E">
 <summary>🟦 Livello 2 – Endurance<div class="chev"></div></summary>
 
-<!-- SETTIMANA 15 -->
-<details class="week">
+<details class="week" data-start="2025-12-15" data-end="2025-12-21">
 <summary><span class="week-title">Settimana 15</span><span class="week-dates">15–21 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
@@ -354,8 +302,7 @@ Tecnica–potenziamento:
 </div>
 </details>
 
-<!-- PAUSA 1 -->
-<details class="week">
+<details class="week" data-start="2025-12-22" data-end="2025-12-28">
 <summary><span class="week-title">Pausa 1</span><span class="week-dates">22–28 dicembre</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
@@ -370,8 +317,7 @@ Tecnica–potenziamento:
 </div>
 </details>
 
-<!-- PAUSA 2 -->
-<details class="week">
+<details class="week" data-start="2025-12-29" data-end="2026-01-04">
 <summary><span class="week-title">Pausa 2</span><span class="week-dates">29 dicembre – 4 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
@@ -387,8 +333,7 @@ Collinare 16 km <em>oppure</em><br>
 </div>
 </details>
 
-<!-- PAUSA 3 -->
-<details class="week">
+<details class="week" data-start="2026-01-05" data-end="2026-01-11">
 <summary><span class="week-title">Pausa 3</span><span class="week-dates">5–11 gennaio</span></summary>
 <div class="week-content">
 <p><strong>👥 Collettivo</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
@@ -403,4 +348,8 @@ Collinare 16 km <em>oppure</em><br>
 </div>
 </details>
 </details>
+
+</div>
+</body>
+</html>
 
