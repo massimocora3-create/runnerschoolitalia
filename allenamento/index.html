@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -23,24 +23,24 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: var(--bg);
+  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
   color: var(--text);
 }
 
-.wrap {
-  max-width: 900px;
+.app-shell {
+  max-width: 520px;
   margin: 0 auto;
-  padding: 16px 14px 40px;
+  padding: 18px 14px 32px;
 }
 
-/* Header APP RS */
+/* HEADER */
 .header {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 18px 16px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .header h1 {
@@ -55,170 +55,110 @@ body {
   color: var(--text-muted);
 }
 
-/* Settimana */
-details.rs-week {
+/* riuso stile programma */
+details.week {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
-  margin-bottom: 14px;
   overflow: hidden;
 }
 
-details.rs-week > summary {
+details.week > summary {
   list-style: none;
-  cursor: pointer;
   padding: 14px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: default;
 }
 
-details.rs-week > summary::-webkit-details-marker {
-  display: none;
-}
+details.week > summary::-webkit-details-marker { display: none; }
 
 .week-title {
   font-weight: 700;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-.week-title span {
+.week-dates {
   font-size: 12px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border);
   color: var(--text-muted);
 }
 
-.chev {
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
-  transform: rotate(45deg);
-  transition: .2s ease;
-}
-
-details[open] .chev {
-  transform: rotate(225deg);
-}
-
-/* Contenuto */
-.content {
-  padding: 0 16px 16px;
-}
-
-.block {
-  padding: 12px 0;
-  border-bottom: 1px dashed var(--border);
-}
-
-.block:last-child {
-  border-bottom: none;
-}
-
-.block h3 {
-  margin: 0 0 4px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.block p {
-  margin: 0;
+.week-content {
+  padding: 12px 16px 16px;
   font-size: 14px;
   line-height: 1.45;
-}
-
-/* Collettivo */
-.collettivo {
-  background: var(--accent-soft);
-  border-left: 4px solid var(--accent);
-  padding-left: 12px;
-  border-radius: 10px;
-}
-
-/* Badge settimana corrente */
-.badge-now {
-  font-size: 11px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.hidden {
-  display: none !important;
 }
 </style>
 </head>
 
 <body>
-<div class="wrap">
+<div class="app-shell">
 
   <div class="header">
-    <h1>🏃 Allenamento della settimana</h1>
-    <p>Runner’s School Italia</p>
+    <h1>🔥 Allenamento della settimana</h1>
+    <p>Programma aggiornato automaticamente</p>
   </div>
 
-  <!-- =========================
-       LIVELLO 1
-  ========================= -->
-
-  <details class="rs-week" data-level="L1" data-start="2025-12-15" data-end="2025-12-21">
-    <summary>
-      <div class="week-title">
-        15–21 dicembre
-        <span>Settimana 15</span>
-        <span class="badge-now">🔥 In corso</span>
-      </div>
-      <div class="chev"></div>
-    </summary>
-    <div class="content">
-      <div class="block collettivo">
-        <h3>👥 Collettivo</h3>
-        <p>10’ andature e allunghi + 3 km al meglio + allungamento muscolare</p>
-      </div>
-      <div class="block"><h3>🅰️ Allenamento 1</h3><p>5' camminata + 30' corsa lenta + 5' camminata</p></div>
-      <div class="block"><h3>🅱️ Allenamento 2</h3><p>5' camminata + 40' corsa lenta + 5' camminata</p></div>
-      <div class="block"><h3>🆎 Allenamento 3</h3><p>5' camminata + 45' corsa lenta + 5' camminata</p></div>
-    </div>
-  </details>
+  <div id="week-container"></div>
 
 </div>
 
 <script>
-(function(){
+(async function () {
+
+  const params = new URLSearchParams(location.search);
+  const levelParam = params.get("level") || "L1";
+
   const today = new Date();
   const todayISO =
     today.getFullYear() + "-" +
     String(today.getMonth()+1).padStart(2,"0") + "-" +
     String(today.getDate()).padStart(2,"0");
 
-  const weeks = document.querySelectorAll(".rs-week");
-  let found = false;
+  // carichiamo il programma completo
+  const res = await fetch("../programma/");
+  const html = await res.text();
+
+  const temp = document.createElement("div");
+  temp.innerHTML = html;
+
+  // selezioniamo il livello corretto
+  const levels = [...temp.querySelectorAll("details.level")];
+  const levelBlock = levels.find(l => l.textContent.includes(levelParam));
+
+  if (!levelBlock) {
+    document.getElementById("week-container").innerHTML =
+      "<p>Livello non trovato</p>";
+    return;
+  }
+
+  // troviamo la settimana corrente
+  const weeks = levelBlock.querySelectorAll("details.week");
+  let currentWeek = null;
 
   weeks.forEach(w => {
     const start = w.dataset.start;
     const end = w.dataset.end;
-
-    if(todayISO >= start && todayISO <= end){
-      w.open = true;
-      found = true;
-    } else {
-      w.classList.add("hidden");
+    if (todayISO >= start && todayISO <= end) {
+      currentWeek = w;
     }
   });
 
-  if(!found){
-    weeks.forEach(w => w.classList.remove("hidden"));
+  if (!currentWeek) {
+    document.getElementById("week-container").innerHTML =
+      "<p>Nessuna settimana attiva per la data odierna</p>";
+    return;
   }
+
+  // forziamo apertura e pulizia
+  currentWeek.open = true;
+  currentWeek.querySelectorAll("details").forEach(d => d.open = true);
+
+  // inseriamo nella pagina
+  document.getElementById("week-container")
+    .appendChild(currentWeek.cloneNode(true));
+
 })();
 </script>
 
