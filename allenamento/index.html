@@ -132,7 +132,7 @@ body{
 
   const today = new Date().toISOString().slice(0,10);
 
-  const res = await fetch("/runnerschoolitalia/programma/index.html",{cache:"no-store"});
+  const res = await fetch("/runnerschoolitalia/programma/dati.html",{cache:"no-store"});
   const html = await res.text();
   const temp = document.createElement("div");
   temp.innerHTML = html;
