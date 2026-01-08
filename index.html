@@ -300,33 +300,77 @@ document.addEventListener("DOMContentLoaded", () => {
 </html>
 
 
-<!-- JS RUNNER'S VOICE -->
+<!-- JS RUNNER'S VOICE (solo categoria Runner’s Voice) -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("rs-news");
   if (!container) return;
 
-  fetch("https://www.runnerschoolitalia.com/wp-json/rs/v1/voice")
-    .then(response => response.json())
-    .then(posts => {
+  const PLACEHOLDER =
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(`
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+        <rect width='100' height='100' rx='20' fill='#0b1120'/>
+        <text x='50' y='62' font-size='48' text-anchor='middle'>🎙️</text>
+      </svg>
+    `);
 
+  // 🔥 SOLO articoli Runner’s Voice (categoria ID = 245)
+  const URL = "https://www.runnerschoolitalia.com/wp-json/wp/v2/posts?categories=245&per_page=5&_embed";
+
+  const stripHtml = (s) => String(s || "").replace(/<[^>]*>/g, "").trim();
+
+  function getFeaturedImage(post) {
+    try {
+      const media = post?._embedded?.["wp:featuredmedia"]?.[0];
+      return (
+        media?.media_details?.sizes?.medium?.source_url ||
+        media?.media_details?.sizes?.large?.source_url ||
+        media?.source_url ||
+        null
+      );
+    } catch {
+      return null;
+    }
+  }
+
+  fetch(URL, { cache: "no-store" })
+    .then(r => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(posts => {
       container.innerHTML = "";
 
       posts.forEach(post => {
-
         const a = document.createElement("a");
         a.className = "card-link";
         a.href = post.link;
         a.target = "_blank";
+        a.rel = "noopener";
+
+        const title = stripHtml(post?.title?.rendered || "Runner’s Voice");
+        const date = post?.date
+          ? new Date(post.date).toLocaleDateString("it-IT", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric"
+            })
+          : "";
+
+        const imgSrc = getFeaturedImage(post) || PLACEHOLDER;
 
         a.innerHTML = `
           <div class="card">
             <div class="card-header">
-              <img class="voice-thumb" src="${post.image}" alt="Runner’s Voice">
+              <img class="voice-thumb"
+                   src="${imgSrc}"
+                   alt="Runner’s Voice"
+                   loading="lazy"
+                   onerror="this.onerror=null;this.src='${PLACEHOLDER}'">
               <div>
-                <div class="card-title">${post.title}</div>
-                <div class="card-subtitle">${post.date}</div>
+                <div class="card-title">${title}</div>
+                <div class="card-subtitle">${date}</div>
               </div>
             </div>
           </div>
@@ -335,6 +379,19 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(a);
       });
 
+      if (!posts || posts.length === 0) {
+        container.innerHTML = `
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon">🎙️</div>
+              <div>
+                <div class="card-title">Nessun articolo Runner’s Voice</div>
+                <div class="card-subtitle">Al momento non ci sono contenuti</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
     })
     .catch(err => {
       console.error("Runner’s Voice error:", err);
@@ -343,14 +400,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="card-header">
             <div class="card-icon">⚠️</div>
             <div>
-              <div class="card-title">Errore caricamento Runner’s Voice</div>
-              <div class="card-subtitle">Riprova più tardi</div>
+              <div class="card-title">Runner’s Voice non disponibile</div>
+              <div class="card-subtitle">Errore di caricamento</div>
             </div>
           </div>
         </div>
       `;
     });
-
 });
 </script>
+
 
