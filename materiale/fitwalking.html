@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Materiale Didattico Fitwalking – Runner’s School Italia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0b1120;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 20px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .app-shell { max-width: 520px; margin: 0 auto; padding: 18px 14px 32px; }
+
+    .app-header { display: flex; align-items: center; gap: 14px; padding: 10px 4px 18px; }
+    .app-logo-wrap {
+      width: 54px; height: 54px; border-radius: 24px;
+      background: radial-gradient(circle at 20% 0, #1f2937 0, #020617 60%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      border: 1px solid rgba(148,163,184,0.2);
+    }
+    .app-logo { width: 44px; height: 44px; object-fit: contain; }
+    .app-title { font-size: 20px; font-weight: 700; text-transform: uppercase; }
+    .app-subtitle { font-size: 13px; color: var(--text-muted); }
+
+    .hero-card {
+      margin: 10px 0 18px;
+      padding: 18px 16px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .hero-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px; border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.22);
+      background: rgba(2,6,23,0.35);
+      color: var(--text);
+      text-decoration:none;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{
+      background: rgba(249,115,22,0.14);
+      border-color: rgba(249,115,22,0.38);
+    }
+
+    .rs-acc details {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+      margin: 10px 0;
+    }
+    .rs-acc summary {
+      cursor: pointer;
+      padding: 14px 13px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rs-acc summary::-webkit-details-marker { display: none; }
+
+    .sum-icon {
+      width: 32px; height: 32px; border-radius: 14px;
+      background: var(--accent-soft);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex: 0 0 auto;
+    }
+    .sum-title { font-size: 14px; font-weight: 700; }
+    .sum-sub { font-size: 12px; color: var(--text-muted); }
+
+    .content { padding: 0 13px 14px; color: var(--text); }
+    .content p, .content li {
+      font-size: 13px; color: var(--text-muted);
+      line-height: 1.6; margin-top: 8px;
+    }
+    .content ul { padding-left: 18px; margin-top: 6px; }
+
+    .mini-actions{ margin-top: 12px; display: grid; gap: 10px; }
+    .mini-link{
+      display:block; text-decoration:none;
+      border:1px solid rgba(148,163,184,0.2);
+      background: rgba(2,6,23,0.35);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .mini-link span{
+      display:block; margin-top:4px;
+      font-size: 12px; font-weight: 500; color: var(--text-muted);
+    }
+
+    footer { margin-top: 28px; text-align: center; font-size: 11px; color: var(--text-muted); }
+  </style>
+</head>
+
+<body>
+<div class="app-shell">
+
+  <header class="app-header">
+    <div class="app-logo-wrap">
+      <img src="../Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo">
+    </div>
+    <div>
+      <div class="app-title">Materiale Didattico</div>
+      <div class="app-subtitle">Fitwalking · Runner’s School</div>
+    </div>
+  </header>
+
+  <section class="hero-card">
+    <h1 class="hero-title">Manuale di bordo Fitwalking RS</h1>
+    <p class="hero-text">
+      Qui trovi i concetti essenziali per <strong>capire il Fitwalking Runner’s School</strong>:
+      livelli, struttura della settimana e soprattutto le <strong>andature (CL · CM · CV · CVV)</strong>.
+      Usa questa pagina quando hai un dubbio: l’App ti guida, il sito approfondisce.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="https://www.runnerschoolitalia.com/manuale-per-il-perfetto-fitwalking/" target="_blank" rel="noopener">
+        📘 Apri manuale completo
+      </a>
+      <a class="btn" href="https://www.runnerschoolitalia.com/manuale-per-il-perfetto-fitwalking/" target="_blank" rel="noopener">
+        📥 Scarica manuale (PDF)
+      </a>
+    </div>
+  </section>
+
+  <div class="rs-acc">
+
+    <details>
+      <summary>
+        <div class="sum-icon">🧭</div>
+        <div>
+          <div class="sum-title">Da qui si parte</div>
+          <div class="sum-sub">Obiettivi del corso e logica Runner’s School</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>Obiettivi del corso Fitwalking RS</strong></p>
+        <ul>
+          <li>Imparare la tecnica del Fitwalking in modo <strong>graduale e sicuro</strong>.</li>
+          <li>Migliorare <strong>salute, resistenza e benessere</strong>.</li>
+          <li>Offrire un percorso adatto a chi inizia da zero (L1) e a chi è già avviato (L2).</li>
+          <li>Creare continuità e motivazione alternando <strong>collettivo</strong> e <strong>autonomia</strong>.</li>
+        </ul>
+
+        <div class="mini-actions">
+          <a class="mini-link" href="https://www.runnerschoolitalia.com/manuale-per-il-perfetto-fitwalking/" target="_blank" rel="noopener">
+            Vai al manuale completo Fitwalking
+            <span>Postura · Piede · Braccia · Ritmi · Respirazione</span>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">🧩</div>
+        <div>
+          <div class="sum-title">I livelli del corso</div>
+          <div class="sum-sub">15 settimane · 2 livelli</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>LIVELLO 1 – Neofiti assoluti</strong></p>
+        <p>
+          Progressione lenta e graduale, con molto focus sulla tecnica di base.
+          Si lavora per passare da <strong>Camminata Lenta (CL)</strong> a <strong>Camminata Media (CM)</strong> e <strong>Veloce (CV)</strong>.
+          Obiettivo: arrivare a sostenere <strong>60’ di camminata continuata</strong> con buona tecnica e buon ritmo.
+        </p>
+
+        <p><strong>LIVELLO 2 – Praticanti già avviati</strong></p>
+        <p>
+          Per chi ha già esperienza: si inseriscono tratti a <strong>CM</strong>, <strong>CV</strong> e anche <strong>CVV</strong>.
+          Obiettivo: consolidare la tecnica, aumentare resistenza e migliorare la velocità.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">🗓️</div>
+        <div>
+          <div class="sum-title">Come funziona la settimana</div>
+          <div class="sum-sub">Collettivo + allenamenti individuali</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>Allenamento collettivo</strong> (1 volta a settimana)</p>
+        <ul>
+          <li><strong>Mobilità articolare</strong> (5’) per piedi e caviglie</li>
+          <li><strong>Riscaldamento</strong>: 10–15’ in <strong>CL</strong></li>
+          <li><strong>Parte centrale</strong>: esercizi tecnici + andature (diverse per L1 e L2)</li>
+          <li><strong>Defaticamento</strong>: 5–10’ in <strong>CL</strong></li>
+        </ul>
+
+        <p><strong>Allenamenti individuali (in autonomia)</strong></p>
+        <p>Ogni settimana vengono proposte 4 tipologie (con varianti L1/L2):</p>
+        <ul>
+          <li><strong>Scarico</strong>: uscita facile rigenerante</li>
+          <li><strong>Interval</strong>: alternanza di fasi a passo veloce e passo normale</li>
+          <li><strong>Circuito a casa</strong>: potenziamento indoor</li>
+          <li><strong>Fine settimana</strong>: il “lungo” della settimana</li>
+        </ul>
+      </div>
+    </details>
+
+    <details open>
+      <summary>
+        <div class="sum-icon">⚡</div>
+        <div>
+          <div class="sum-title">Le andature del Fitwalking</div>
+          <div class="sum-sub">CL · CM · CV · CVV</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>Camminata Lenta (CL)</strong> · 50–60% FC max</p>
+        <p>Usata per riscaldamento e defaticamento. Passo rilassato, ritmo naturale.</p>
+
+        <p><strong>Camminata a ritmo Medio (CM)</strong> · 60–70% FC max</p>
+        <p>Tecnica base, respiro regolare: si riesce a parlare.</p>
+
+        <p><strong>Camminata Veloce (CV)</strong> · 70–80% FC max</p>
+        <p>
+          Passo impegnativo, si inizia ad avere fiatone: richiede concentrazione tecnica.
+          Meglio usarla in tratti brevi e alternarla a CL.
+        </p>
+
+        <p><strong>Camminata Molto Veloce (CVV)</strong> · 80–85% FC max</p>
+        <p>
+          Vicino alla soglia: respiro veloce, si parla solo a frasi brevi.
+          Massima cura della tecnica: postura eretta, spinta completa, braccia attive.
+        </p>
+
+        <div class="mini-actions">
+          <a class="mini-link" href="https://www.runnerschoolitalia.com/manuale-per-il-perfetto-fitwalking/" target="_blank" rel="noopener">
+            Approfondisci tecnica completa
+            <span>Postura · Piede · Braccia · Ritmi · Respirazione</span>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>
+        <div class="sum-icon">❓</div>
+        <div>
+          <div class="sum-title">FAQ – Dubbi comuni</div>
+          <div class="sum-sub">Le domande che fanno tutti</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>Se salto un allenamento, ho rovinato la settimana?</strong></p>
+        <p>No: conta la continuità nel tempo. Riparti dalla seduta successiva senza “fare doppio”.</p>
+
+        <p><strong>Devo rispettare l’intensità al 100%?</strong></p>
+        <p>
+          No: CL/CM/CV/CVV sono riferimenti.
+          Stanchezza, sonno, stress, caldo e percorso contano. L’obiettivo è restare nel range giusto e curare la tecnica.
+        </p>
+
+        <p><strong>Quando passo da L1 a L2?</strong></p>
+        <p>
+          Quando hai continuità, recuperi bene e riesci a gestire CM/CV con tecnica stabile.
+          Non è una promozione: è una maturazione (e non è obbligatorio).
+        </p>
+
+        <p><strong>Se non capisco un allenamento?</strong></p>
+        <p>Chiedere è parte del metodo. Fermati e confrontati con l’istruttore.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    Runner’s School Italia · Il metodo prima dei chilometri
+  </footer>
+
+</div>
+</body>
+</html>
