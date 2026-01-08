@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Materiale Didattico Trekking Sportivo – Runner’s School Italia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0b1120;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 20px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .app-shell { max-width: 520px; margin: 0 auto; padding: 18px 14px 32px; }
+
+    .app-header { display: flex; align-items: center; gap: 14px; padding: 10px 4px 18px; }
+    .app-logo-wrap {
+      width: 54px; height: 54px; border-radius: 24px;
+      background: radial-gradient(circle at 20% 0, #1f2937 0, #020617 60%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      border: 1px solid rgba(148,163,184,0.2);
+    }
+    .app-logo { width: 44px; height: 44px; object-fit: contain; }
+    .app-title { font-size: 20px; font-weight: 700; text-transform: uppercase; }
+    .app-subtitle { font-size: 13px; color: var(--text-muted); }
+
+    .hero-card {
+      margin: 10px 0 18px;
+      padding: 18px 16px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.22) 0, #020617 60%);
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .hero-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px; border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.22);
+      background: rgba(2,6,23,0.35);
+      color: var(--text);
+      text-decoration:none;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{
+      background: rgba(249,115,22,0.14);
+      border-color: rgba(249,115,22,0.38);
+    }
+
+    .rs-acc details {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+      margin: 10px 0;
+    }
+    .rs-acc summary {
+      cursor: pointer;
+      padding: 14px 13px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rs-acc summary::-webkit-details-marker { display: none; }
+
+    .sum-icon {
+      width: 32px; height: 32px; border-radius: 14px;
+      background: var(--accent-soft);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex: 0 0 auto;
+    }
+    .sum-title { font-size: 14px; font-weight: 700; }
+    .sum-sub { font-size: 12px; color: var(--text-muted); }
+
+    .content { padding: 0 13px 14px; color: var(--text); }
+    .content p, .content li {
+      font-size: 13px; color: var(--text-muted);
+      line-height: 1.6; margin-top: 8px;
+    }
+    .content ul { padding-left: 18px; margin-top: 6px; }
+
+    .mini-actions{ margin-top: 12px; display: grid; gap: 10px; }
+    .mini-link{
+      display:block; text-decoration:none;
+      border:1px solid rgba(148,163,184,0.2);
+      background: rgba(2,6,23,0.35);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .mini-link span{
+      display:block; margin-top:4px;
+      font-size: 12px; font-weight: 500; color: var(--text-muted);
+    }
+
+    footer { margin-top: 28px; text-align: center; font-size: 11px; color: var(--text-muted); }
+  </style>
+</head>
+
+<body>
+<div class="app-shell">
+
+  <header class="app-header">
+    <div class="app-logo-wrap">
+      <img src="../Logopit_1764687878535.png" alt="Runner’s School Italia" class="app-logo">
+    </div>
+    <div>
+      <div class="app-title">Materiale Didattico</div>
+      <div class="app-subtitle">Trekking Sportivo · Runner’s School</div>
+    </div>
+  </header>
+
+  <section class="hero-card">
+    <h1 class="hero-title">🥾 Introduzione al corso di Trekking Sportivo</h1>
+    <p class="hero-text">
+      Benvenuto nella sezione dedicata al Trekking Sportivo di Runner’s School Italia!<br>
+      Questo corso è pensato per chi vuole sviluppare <strong>forza, resistenza</strong> e
+      <strong>tecnica di camminata su terreni variabili</strong>, imparando a percepire
+      il corpo e il terreno come farebbe in montagna, anche se ci troviamo in pianura.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="https://www.runnerschoolitalia.com/trekking-sportivo-muoversi-in-natura-in-modo-dinamico-e-funzionale/" target="_blank" rel="noopener">
+        🌿 Cos’è il Trekking Sportivo
+      </a>
+      <a class="btn" href="https://www.runnerschoolitalia.com/%f0%9f%a5%be-trekking-sportivo-abbigliamento-e-accessori-utili/" target="_blank" rel="noopener">
+        🎒 Abbigliamento & accessori
+      </a>
+    </div>
+  </section>
+
+  <div class="rs-acc">
+
+    <!-- 1) DA QUI SI PARTE -->
+    <details>
+      <summary>
+        <div class="sum-icon">🧭</div>
+        <div>
+          <div class="sum-title">Da qui si parte</div>
+          <div class="sum-sub">Cos’è il Trekking Sportivo e cosa alleni</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Il Trekking Sportivo è un’attività che unisce il piacere del cammino
+          con un approccio <strong>dinamico e funzionale</strong>: ritmo variabile,
+          tratti pianeggianti, salite e discese per allenare <strong>resistenza, equilibrio e forza</strong>.
+        </p>
+
+        <p><strong>Obiettivi principali</strong></p>
+        <ul>
+          <li>Migliorare la resistenza muscolare di <strong>gambe, glutei e core</strong>.</li>
+          <li>Rendere il corpo più “pronto” su terreni variabili (anche partendo dalla pianura).</li>
+          <li>Allenare coordinazione, equilibrio e controllo del passo.</li>
+          <li>Muoversi all’aperto in modo sostenibile e costante.</li>
+        </ul>
+
+        <div class="mini-actions">
+          <a class="mini-link" href="https://www.runnerschoolitalia.com/trekking-sportivo-muoversi-in-natura-in-modo-dinamico-e-funzionale/" target="_blank" rel="noopener">
+            Approfondisci: dinamico e funzionale
+            <span>Ritmo variabile · forza · equilibrio · uscite brevi/medie</span>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2) COME SI SVOLGE -->
+    <details>
+      <summary>
+        <div class="sum-icon">🗓️</div>
+        <div>
+          <div class="sum-title">Come si svolge l’allenamento</div>
+          <div class="sum-sub">Cammino + potenziamento mirato</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Nel Trekking Sportivo non ci si limita a “camminare”:
+          si lavora con un movimento strutturato e con esercizi mirati.
+        </p>
+
+        <p><strong>Cosa trovi nelle uscite</strong></p>
+        <ul>
+          <li><strong>Cammino a ritmo variabile</strong> (gestione di piano, salite e discese).</li>
+          <li>Esercizi di <strong>potenziamento</strong> per gambe, glutei, core e caviglie.</li>
+          <li>Focus su <strong>percezione del corpo</strong> e adattamento al terreno.</li>
+        </ul>
+
+        <p>
+          Nel metodo RS le uscite tendono a essere <strong>brevi o medie</strong>:
+          l’idea è restare “attivi” e dinamici senza trasformare ogni uscita in una maratona.
+        </p>
+      </div>
+    </details>
+
+    <!-- 3) SCARPE -->
+    <details>
+      <summary>
+        <div class="sum-icon">👟</div>
+        <div>
+          <div class="sum-title">Scarpe</div>
+          <div class="sum-sub">Perché spesso scegliamo scarpe da trail</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p>
+          Nel Trekking Sportivo RS spesso consigliamo <strong>scarpe da trail running</strong>:
+          sono più leggere e permettono un passo più fluido e naturale su terreni variabili.
+        </p>
+
+        <p><strong>In sintesi</strong></p>
+        <ul>
+          <li><strong>Scarponi</strong>: più protettivi, ma più pesanti e meno agili.</li>
+          <li><strong>Trail</strong>: più dinamiche e comode “da subito”, ottime per uscite leggere/allenanti.</li>
+        </ul>
+
+        <div class="mini-actions">
+          <a class="mini-link" href="https://www.runnerschoolitalia.com/trekking-sportivo-perche-le-scarpe-da-trail-sono-la-scelta-giusta/" target="_blank" rel="noopener">
+            Approfondisci: scarponi vs trail
+            <span>Pro/contro e quando scegliere cosa</span>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 4) ABBIGLIAMENTO & ACCESSORI -->
+    <details>
+      <summary>
+        <div class="sum-icon">🎒</div>
+        <div>
+          <div class="sum-title">Abbigliamento & accessori</div>
+          <div class="sum-sub">Essenziale per allenamenti, completo per colline/montagna</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>Allenamenti (pianura, parchi, percorsi brevi)</strong></p>
+        <ul>
+          <li>Scelta “minimal”: capi tecnici, traspiranti e libertà di movimento.</li>
+          <li>Scarpe con buon grip (spesso trail).</li>
+          <li>Idratazione leggera (borraccia/cintura).</li>
+        </ul>
+
+        <p><strong>Uscite in collina e montagna (più lunghe, con dislivello)</strong></p>
+        <ul>
+          <li>Più attenzione a <strong>sicurezza</strong> e gestione meteo.</li>
+          <li>Zaino leggero con acqua, antivento/antipioggia, snack e “basic safety”.</li>
+          <li>Accessori utili: bastoncini (se previsti), frontale in inverno/giornate corte.</li>
+        </ul>
+
+        <div class="mini-actions">
+          <a class="mini-link" href="https://www.runnerschoolitalia.com/%f0%9f%a5%be-trekking-sportivo-abbigliamento-e-accessori-utili/" target="_blank" rel="noopener">
+            Lista completa: estate/inverno + pianura/montagna
+            <span>Abbigliamento tecnico · zaino · accessori</span>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 5) FAQ -->
+    <details>
+      <summary>
+        <div class="sum-icon">❓</div>
+        <div>
+          <div class="sum-title">FAQ – Dubbi comuni</div>
+          <div class="sum-sub">Due dritte pratiche</div>
+        </div>
+      </summary>
+      <div class="content">
+        <p><strong>Devo per forza andare in montagna?</strong></p>
+        <p>No: l’obiettivo è allenare corpo e tecnica anche in pianura, imparando ad adattarti al terreno quando serve.</p>
+
+        <p><strong>Meglio uscire tantissime ore o fare uscite più “vive”?</strong></p>
+        <p>Nel trekking sportivo RS spesso meglio uscite brevi/medie ma dinamiche, curando ritmo e qualità del movimento.</p>
+
+        <p><strong>Se non capisco cosa portare?</strong></p>
+        <p>Regola pratica: allenamenti brevi = essenziale; colline/montagna = più attenzione a meteo e sicurezza.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>
+    Runner’s School Italia · Il metodo prima dei chilometri
+  </footer>
+
+</div>
+</body>
+</html>
