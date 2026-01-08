@@ -109,6 +109,45 @@ details[open] > summary .chev { transform: rotate(225deg); }
 }
 .box h2{ margin:0 0 6px; font-size:15px; color: var(--text); }
 .box p{ margin:0; font-size:13px; color: var(--text-muted); }
+  .section-title{
+  margin: 18px 2px 10px;
+  font-size: 14px;
+  letter-spacing: .4px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.guide-actions{
+  margin: 10px 0 14px;
+}
+.guide-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(249,115,22,0.18), rgba(249,115,22,0.06));
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: var(--shadow-soft);
+}
+.guide-btn:active{ transform: translateY(1px); }
+.guide-btn small{
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.section-card{
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 14px;
+  margin: 12px 0 14px;
+}
 </style>
 </head>
 <script>
@@ -165,6 +204,14 @@ PAUSA 3 (settimana attuale) + CICLO GENNAIO-APRILE
 </details>
 
 <hr>
+<h2 class="section-title">Running</h2>
+<div class="section-card">
+  <div class="guide-actions">
+    <a class="guide-btn" href="https://www.runnerschoolitalia.com/programmi-di-allenamento-guida-per-allievi/" target="_blank" rel="noopener">
+      GUIDA AI PROGRAMMI RUNNING
+    </a>
+  </div>
+</div>
 
 <!-- ================= LIVELLO 1 (NUOVO CICLO) ================= -->
 <details class="level" data-level="L1_NEW">
@@ -834,7 +881,16 @@ PAUSA 3 (settimana attuale) + CICLO GENNAIO-APRILE
   </details>
 
 </details>
-
+  
+<h2 class="section-title">Fitwalking</h2>
+<div class="section-card">
+  <div class="guide-actions">
+    <a class="guide-btn" href="https://www.runnerschoolitalia.com/guida-ai-programmi-fw/" target="_blank" rel="noopener">
+      GUIDA AI PROGRAMMI FITWALKING
+    </a>
+  </div>
+</div>
+  
 <!-- ================= FITWALKING – LIVELLO 1 ================= -->
 <details class="level" data-level="FW_L1">
   <summary>🟩 Fitwalking – Livello 1<div class="chev"></div></summary>
