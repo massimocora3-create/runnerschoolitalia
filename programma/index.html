@@ -118,14 +118,14 @@ details[open] > summary .chev { transform: rotate(225deg); }
     return buf2hex(digest);
   }
 
-  if (sessionStorage.getItem(KEY) === "1") return;
+  if (localStorage.getItem(KEY) === "1") return;
 
   const pwd = prompt("Area riservata Runner’s School. Inserisci la password:");
   if (!pwd) { location.href = "../"; return; }
 
   const h = await sha256Hex(pwd);
   if (h.toLowerCase() === PASSWORD_HASH_HEX.toLowerCase()) {
-    sessionStorage.setItem(KEY, "1");
+    localStorage.setItem(KEY, "1");
     return;
   }
 
