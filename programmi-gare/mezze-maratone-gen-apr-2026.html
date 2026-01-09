@@ -141,18 +141,53 @@ code.k{padding:2px 6px;border:1px solid var(--border);border-radius:10px;backgro
 
 <body>
 
-<div id="gate" aria-hidden="false">
-  <div class="card">
-    <h3>🔒 Area riservata</h3>
-    <p>Inserisci la password per visualizzare i <strong>Programmi Gare</strong>.</p>
-    <div class="row">
-      <input id="pwd" type="password" placeholder="Password" autocomplete="current-password">
-      <button class="btn primary" id="go" type="button">Entra</button>
-    </div>
-    <div class="err" id="err">Password errata. Riprova.</div>
-    <div class="smallnote">Suggerimento: se vuoi rimanere loggato finché non chiudi il browser, usiamo <code class="k">sessionStorage</code>.</div>
-  </div>
-</div>
+<script>
+(function(){
+  const PASS = "RS01042026";
+  const KEY  = "rs_programmi_gare_ok";
+
+  const gate = document.getElementById("gate");
+  const app  = document.getElementById("app");
+  const pwd  = document.getElementById("pwd");
+  const go   = document.getElementById("go");
+  const err  = document.getElementById("err");
+
+  function unlock(){
+    gate.style.display = "none";
+    app.style.display  = "block";
+    gate.setAttribute("aria-hidden","true");
+  }
+
+  function fail(){
+    err.style.display = "block";
+    pwd.value = "";
+    pwd.focus();
+  }
+
+  function check(){
+    err.style.display = "none";
+    if ((pwd.value || "").trim() === PASS){
+      localStorage.setItem(KEY, "1"); // 👈 QUI la differenza
+      unlock();
+    } else {
+      fail();
+    }
+  }
+
+  // ✅ Se ha già inserito la password in passato
+  if (localStorage.getItem(KEY) === "1"){
+    unlock();
+  } else {
+    gate.style.display = "flex";
+    app.style.display  = "none";
+    pwd.focus();
+  }
+
+  go.addEventListener("click", check);
+  pwd.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
+})();
+</script>
+
 
 <div class="app" id="app" style="display:none">
   <div class="header">
