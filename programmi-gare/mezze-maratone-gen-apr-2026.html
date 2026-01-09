@@ -1,706 +1,914 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Runner’s School Italia – Tabelle Mezze Maratone</title>
+<title>Runner’s School Italia – Programmi Gare (Gen–Apr 2026)</title>
+
 <style>
 :root {
-  --bg: #020617;
-  --bg-card: #0b1120;
-  --accent: #f97316;
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
   --accent-soft: rgba(249,115,22,0.12);
-  --text: #e5e7eb;
-  --text-muted: #9ca3af;
-  --border: #1f2937;
-  --radius-lg: 20px;
-  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-  color: var(--text);
+  color:var(--text);
 }
-.app-shell {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 18px 14px 90px;
+.app{max-width:520px;margin:0 auto;padding:18px 14px 40px}
+.header{
+  background:linear-gradient(180deg, rgba(249,115,22,.22), rgba(0,0,0,0));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
 }
-.header {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 18px 16px;
-  margin-bottom: 18px;
+.header h1{margin:0 0 6px;font-size:20px}
+.header p{margin:0;color:var(--text-muted);font-size:14px;line-height:1.35}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:10px; padding:8px 10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--text-muted);
+  font-size:13px;
 }
-.header h1 { margin: 0; font-size: 18px; }
-.header p { margin: 8px 0 0; font-size: 13px; color: var(--text-muted); line-height: 1.45; }
-
-details.level {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 14px;
-  overflow: hidden;
+.actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
 }
-details.level > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 16px;
-  font-size: 15px;
-  font-weight: 800;
-  color: var(--accent);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-details.level > summary::-webkit-details-marker { display: none; }
-
-details.week { border-top: 1px dashed var(--border); }
-details.week > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 12px 16px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-details.week > summary::-webkit-details-marker { display: none; }
-
-.week-title { font-weight: 650; }
-.week-dates { font-size: 12px; color: var(--text-muted); margin-left: 10px; text-align: right; }
-.week-content { padding: 10px 16px 16px; font-size: 13px; line-height: 1.45; }
-.week-content p { margin: 0 0 10px; }
-.week-content p:last-child { margin-bottom: 0; }
-
-.chev {
-  width: 10px; height: 10px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
-  transform: rotate(45deg);
-}
-details[open] > summary .chev { transform: rotate(225deg); }
-
-.back-home {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  width: 48px;
-  height: 48px;
-  background: var(--accent);
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,.5);
-  z-index: 999;
-}
-
+.btn:active{transform:translateY(1px)}
+.btn.primary{border-color:rgba(249,115,22,.6); background:rgba(249,115,22,.12)}
 .box{
-  background: rgba(2,6,23,.35);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  margin: 0 16px 14px;
-  padding: 12px 12px;
+  margin-top:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
+  border-radius:var(--radius);
+  padding:14px;
 }
-.box h2{ margin:0 0 6px; font-size:14px; color: var(--text); }
-.box p{ margin:0; font-size:13px; color: var(--text-muted); line-height: 1.45; }
+.box h2{margin:0 0 8px;font-size:15px}
+.box p{margin:0;color:var(--text-muted);font-size:13px;line-height:1.45}
+.level{
+  margin-top:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.02);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.level > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  font-weight:900;
+}
+.level > summary::-webkit-details-marker{display:none}
+.chev{width:10px;height:10px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:rotate(45deg);transition:.15s}
+details[open] > summary .chev{transform:rotate(-135deg)}
+.week{
+  margin:12px 14px 14px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(0,0,0,.25);
+  overflow:hidden;
+}
+.week > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+}
+.week > summary::-webkit-details-marker{display:none}
+.week-title{font-weight:900}
+.week-dates{color:var(--text-muted);font-size:12px;white-space:nowrap}
+.week-content{padding:0 12px 12px}
+.week-content p{margin:10px 0 0;color:var(--text-muted);font-size:13px;line-height:1.45}
+.week-content p strong{color:var(--text)}
 
-.note{
-  background: linear-gradient(180deg, rgba(249,115,22,0.16), rgba(249,115,22,0.05));
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 12px 12px;
-  margin-top: 10px;
+/* Password gate */
+#gate{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.72);
+  padding:18px;
+  z-index:9999;
 }
-.note strong{ color: var(--text); }
+#gate .card{
+  width:min(520px, 100%);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.35));
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+#gate h3{margin:0 0 6px;font-size:18px}
+#gate p{margin:0 0 12px;color:var(--text-muted);font-size:13px;line-height:1.45}
+#gate .row{display:flex; gap:10px}
+#gate input{
+  flex:1;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,.35);
+  color:var(--text);
+  outline:none;
+  font-size:14px;
+}
+#gate .err{margin-top:10px;color:#fca5a5;font-size:13px;display:none}
+.smallnote{margin-top:10px;color:var(--text-muted);font-size:12px;line-height:1.35}
+code.k{padding:2px 6px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.04);color:var(--text)}
 </style>
-
-<!-- PASSWORD GATE (RS01042026) -->
-<script>
-(async function () {
-  const VERSION = "v1";
-  const KEY = "rs_auth_" + VERSION;
-  const PASSWORD_HASH_HEX = "f38b79995ca186d9f5ffeb87efb645b30db55da511f202e124f6ae740977f148"; // RS01042026
-
-  function buf2hex(buffer) {
-    return [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, "0")).join("");
-  }
-  async function sha256Hex(text) {
-    const enc = new TextEncoder().encode(text);
-    const digest = await crypto.subtle.digest("SHA-256", enc);
-    return buf2hex(digest);
-  }
-
-  if (localStorage.getItem(KEY) === "1") return;
-
-  const pwd = prompt("Area riservata Runner’s School. Inserisci la password:");
-  if (!pwd) { location.href = "../"; return; }
-
-  const h = await sha256Hex(pwd);
-  if (h.toLowerCase() === PASSWORD_HASH_HEX.toLowerCase()) {
-    localStorage.setItem(KEY, "1");
-    return;
-  }
-
-  alert("Password errata.");
-  location.href = "../";
-})();
-</script>
 </head>
 
 <body>
-<a href="https://massimocora3-create.github.io/runnerschoolitalia" class="back-home" title="Torna alla Home App RS">←</a>
 
-<div class="app-shell">
-  <div class="header">
-    <h1>🏁 Tabelle Mezze Maratone – Gennaio/Aprile 2026</h1>
-    <p>Pagina completa con le tabelle gara-per-gara. Apri la tua mezza e scorri le settimane.</p>
-
-    <div class="note">
-      <p><strong>Nota importante (gare multiple):</strong> se partecipi a più gare di questo calendario (o vuoi preparare diverse mezze in primavera), scegli e fissa <strong>una “gara obiettivo”</strong>. Usa la tabella di quella gara come base e inserisci le altre mezze come <strong>allenamenti/test</strong>, senza snaturare la struttura della preparazione della tua gara obiettivo.</p>
+<div id="gate" aria-hidden="false">
+  <div class="card">
+    <h3>🔒 Area riservata</h3>
+    <p>Inserisci la password per visualizzare i <strong>Programmi Gare</strong>.</p>
+    <div class="row">
+      <input id="pwd" type="password" placeholder="Password" autocomplete="current-password">
+      <button class="btn primary" id="go" type="button">Entra</button>
     </div>
+    <div class="err" id="err">Password errata. Riprova.</div>
+    <div class="smallnote">Suggerimento: se vuoi rimanere loggato finché non chiudi il browser, usiamo <code class="k">sessionStorage</code>.</div>
+  </div>
+</div>
 
-    <div class="note">
-      <p><strong>Avvertenze:</strong> queste tabelle sono una guida. <strong>Adatta sempre i ritmi al tuo livello</strong> e, in caso di dubbi o fastidi, confrontati con il tuo istruttore.
-      Se svolgi <strong>3 allenamenti a settimana</strong>, il carico è “basso” per una mezza: va benissimo per chi ha poco tempo o deve gestire recupero/infortuni.
-      Se riesci a fare <strong>4 allenamenti</strong>, aumenta progressivamente i km nelle uscite di scarico/collettivo e nelle uscite del weekend (senza esagerare), con l’obiettivo di arrivare nelle settimane migliori ad una lunga da circa <strong>18–20 km</strong> (oppure <strong>1h45–2h</strong>), rispettando sempre sensazioni e recupero.<br><br>
-      <strong>Attenzione al freddo:</strong> in queste giornate non forzare nei lavori di qualità, rispetta i ritmi indicati e cura bene riscaldamento e defaticamento: il rischio di farsi male aumenta.</p>
+<div class="app" id="app" style="display:none">
+  <div class="header">
+    <h1>🏁 Programmi Gare – Gennaio / Aprile 2026</h1>
+    <p>Tabelle specifiche per preparare <strong>mezze maratone</strong> tra febbraio e aprile.</p>
+    <div class="badge">📌 Scegli 1 gara obiettivo • ✅ costanza • ❄️ nelle giornate fredde non esagerare • 🧠 ascolta sempre il corpo</div>
+    <div class="actions">
+      <a class="btn" href="/runnerschoolitalia/">⬅️ Home App</a>
+      <a class="btn primary" href="/runnerschoolitalia/programmi-completi/">📅 Programmi completi</a>
     </div>
   </div>
 
-  <!-- =========================
-       LE GARE (DAL PDF)
-       ========================= -->
+  <div class="box">
+    <h2>Come usarli</h2>
+    <p>
+      <strong>Non serve fare tutto.</strong> Scegli la gara più adatta al tuo periodo e segui la tabella relativa.<br>
+      Se salti un allenamento per malessere/infortunio, <strong>non recuperare</strong> il lavoro perso: riparti dal programma.<br>
+      In caso di dubbi su adattamenti o ritmi, chiedi ai tuoi istruttori.
+    </p>
+  </div>
 
-  <!-- 1) VENICE HALF MARATHON -->
+  <!-- ========================= ROVIGO HM ========================= -->
   <details class="level">
-    <summary>🏁 VENICE HALF MARATHON 12 gennaio 2026<div class="chev"></div></summary>
+    <summary>🏁 Rovigo Half Marathon – 8 Febbraio 2026 (4W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Allungare le uscite in di scarico e collettivo a circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il lavoro alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
+
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL + core stability</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 8×200 m (rec 200 m CL) + defaticamento</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 10×(1’ forte + 1’ piano)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km CL</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 6 x (1000m RG + 500m RL) + 3 km RA + 2km RD (17 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL + mobilità</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 3×(1 km a ritmo gara) rec 3’ CL + defaticamento</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 8 km (da CL a ritmo medio)</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA: Venice Half Marathon</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>19 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 3 km RG + 3 km RA + 2 km RD (19 km)</p>
+      </div>
+    </details>
+
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+      </div>
+    </details>
+
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-10") + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 RG + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RA + 2 km RD (8 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>Rovigo Half Marathon</p>
       </div>
     </details>
   </details>
 
-  <!-- 2) MARATONA DI BOLOGNA 1–2 FEBBRAIO 2026 -->
+  <!-- ========================= NAPOLI HM ========================= -->
   <details class="level">
-    <summary>🏁 Maratona di Bologna 1-2 febbraio 2026<div class="chev"></div></summary>
+    <summary>🏁 Napoli Half Marathon – 22 Febbraio 2026 (6W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Allungare le uscite in di scarico e collettivo a circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il lavoro alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
+
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL + core</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 10×(1’ veloce / 1’ piano) + defaticamento</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>6–8 km progressivo</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 6 x (1000m RG + 500m RL) + 3 km RL (15 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 4×1 km (rec 3’) + defaticamento</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’ forte + 1’ piano)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>17 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 1 km RG + 3 km RA + 2 km RD (17 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL + tecnica</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 3×2 km (rec 4’) + defaticamento</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 5 km RL + 3 km RD (17 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 6×800 (rec 2’) + defaticamento</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) 1 x (3000m RG + 1000m RL) + 3 km RM + 1 km RD (19 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 5</span><span class="week-dates">9 febbraio - 15 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>25–30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Richiami 6×200 sciolti + stretching</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>25–35’ CL + 4 allunghi</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA: Bologna (mezza/maratona/evento)</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+      </div>
+    </details>
+
+    <details class="week"><summary><span class="week-title">Settimana 6</span><span class="week-dates">16 febbraio - 22 febbraio</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG+10" + 500m RA) + 2 x (500m RG + 500m RL) + 10' RL (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Ci sarebbe il lavoro di POTENZIAMENTO, se la vostra scuola propone questo lavoro saltatelo e fate un autonomia il COLLETTIVO STANDARD</p>
+        <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>NAPOLI HALF MARATHON</p>
       </div>
     </details>
   </details>
 
-  <!-- 3) BOLOGNA - ROMA/OSTIA -->
+  <!-- ========================= BOLOGNA - ROMA/OSTIA ========================= -->
   <details class="level">
-    <summary>🏁 Bologna - Roma/Ostia<div class="chev"></div></summary>
+    <summary>🏁 Bologna – Roma/Ostia (7W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Allungare le uscite in di scarico e collettivo a circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il lavoro alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
+
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 6 x (1000m RG + 500m RL) + 3 km RL (15 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>17 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 1 km RG + 3 km RA + 2 km RD (17 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
-        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 5 km RL + 4 km RD (18 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) 1 x (3000m RG + 1000m RL) + 1 km RD (16 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 5</span><span class="week-dates">9 febbraio - 15 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km tra RA e RL-10" + 5 km tra RM e RA-10" + 5 km tra RG e RM-10" + 1 km RD (19 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 6</span><span class="week-dates">3 – 9 feb</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 6</span><span class="week-dates">16 febbraio - 22 febbraio</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
       </div>
     </details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 7</span><span class="week-dates">10 – 16 feb</span></summary>
+    <details class="week"><summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio - 1 marzo</span></summary>
       <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA TEST / Roma-Ostia (se scelta come obiettivo)</p>
+        <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG+10" + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+        <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>BOLOGNA - ROMA/OSTIA HALF MARATHON</p>
       </div>
     </details>
   </details>
 
-  <!-- 4) RIMINI HALF MARATHON 22 FEBBRAIO 2026 -->
+  <!-- ========================= DOGI REGGIO HM ========================= -->
   <details class="level">
-    <summary>🏁 Rimini Half Marathon 22 febbraio 2026<div class="chev"></div></summary>
+    <summary>🏁 Dogi – Reggio Emilia Half Marathon – 22 Marzo 2026 (10W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
-      </div>
-    </details>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Allungare le uscite in di scarico e collettivo a circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il lavoro alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (1000m RG + 500m RL) + 3 km RL (13,5 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
-        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 1 km RG + 2 km RL + 2 km RD (16 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 3 km RL + 2 km RD (14 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) 1 x (3000m RG + 1000m RL) + 2 km RD (17 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 6</span><span class="week-dates">3 – 9 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 5</span><span class="week-dates">9 febbraio - 15 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 7</span><span class="week-dates">10 – 16 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA: Rimini Half Marathon</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 6</span><span class="week-dates">16 febbraio - 22 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>18 km collinari oppure 3 km RD + 3 km RL + 3 km RA + 3 km RM + 3 km RG+10" + 3 km RD (18 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio - 1 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4000m tra RM e RG+10" + 1000m RL) + 3 km RA +1 km RD (17 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 8</span><span class="week-dates">2 marzo - 8 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4500m RM + 500m RG + 1000m RL) + 3 km RA + 1 km RD (19 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 9</span><span class="week-dates">9 marzo - 15 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 10</span><span class="week-dates">16 marzo - 22 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 x (200-400-600-400-200m RG con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>Ci sarebbe il lavoro di POTENZIAMENTO, se la vostra scuola propone questo lavoro saltatelo e fate un autonomia il COLLETTIVO STANDARD</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 1 km RD (8 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>DOGI - REGGIO HALF MARATHON</p>
+    </div></details>
   </details>
 
-  <!-- 5) PADOVA HALF MARATHON 12 APRILE 2026 -->
+  <!-- ========================= MARANELLO HM ========================= -->
   <details class="level">
-    <summary>🏁 Padova Half Marathon 12 aprile 2026<div class="chev"></div></summary>
+    <summary>🏁 Maranello Half Marathon – 29 Marzo 2026 (11W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">24 feb – 1 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
-      </div>
-    </details>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Allungare le uscite in di scarico e collettivo a circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il lavoro alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">2 – 8 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (1000m RG + 500m RL) + 3 km RL (13,5 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 3</span><span class="week-dates">9 – 15 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
-        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>15 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 1 km RG + 3 km RD (15 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 4</span><span class="week-dates">16 – 22 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 4 km RD (13 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 5</span><span class="week-dates">23 – 29 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) 1 x (3000m RG + 1000m RL) + 1 km RD (16 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 6</span><span class="week-dates">30 mar – 5 apr</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 5</span><span class="week-dates">9 febbraio - 15 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 7</span><span class="week-dates">6 – 12 apr</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA: Padova Half Marathon</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 6</span><span class="week-dates">16 febbraio - 22 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>18 km collinari oppure 3 km RD + 3 km RL + 3 km RA + 3 km RM + 3 km RG+10" + 3 km RD (18 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio - 1 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4000m tra RM e RG+10" + 1000m RL) + 3 km RA +1 km RD (17 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 8</span><span class="week-dates">2 marzo - 8 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4500m RM + 500m RG + 1000m RL) + 3 km RA +1 km RD (16 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 9</span><span class="week-dates">9 marzo - 15 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km tra RA e RL-10" + 5 km tra RM e RA-10" + 5 km tra RG e RM-10" + 1 km RD (19 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 10</span><span class="week-dates">16 marzo - 22 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 11</span><span class="week-dates">23 marzo - 29 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4 x (1000m RG+10" + 500m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (300m RG + 1'30" recupero in souplesse) + 1 km in progressione da RL a RG-20" + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 1 km RD (8 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>Maranello Half Marathon</p>
+    </div></details>
   </details>
 
-  <!-- 6) MILANO CITY MARATHON 12 APRILE 2026 (tabella mezza nel PDF) -->
+  <!-- ========================= RIMINI - IBIZA HM ========================= -->
   <details class="level">
-    <summary>🏁 Milano City Marathon 12 aprile 2026<div class="chev"></div></summary>
+    <summary>🏁 Rimini – Ibiza Half Marathon – 18/19 Aprile 2026 (14W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">24 feb – 1 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
-      </div>
-    </details>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Allungare le uscite in di scarico e collettivo a circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il lavoro alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">2 – 8 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <!-- Settimane 1-12 identiche come struttura alle tabelle (come Padova), poi chiusura a week 14 -->
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (1000m RG + 500m RL) + 3 km RL (13,5 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 3</span><span class="week-dates">9 – 15 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
-        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>15 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 1 km RG + 3 km RD (15 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 4</span><span class="week-dates">16 – 22 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 4 km RD (13 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 5</span><span class="week-dates">23 – 29 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) 1 x (3000m RG + 1000m RL) + 1 km RD (16 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 6</span><span class="week-dates">30 mar – 5 apr</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 5</span><span class="week-dates">9 febbraio - 15 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 7</span><span class="week-dates">6 – 12 apr</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA: Milano (se scelta come obiettivo)</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 6</span><span class="week-dates">16 febbraio - 22 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 3 km RL + 3 km RA + 3 km RM + 3 km RG+10" + 1 km RD (16 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio - 1 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4000m tra RM e RG+10" + 1000m RL) +1 km RD (14 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 8</span><span class="week-dates">2 marzo - 8 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4500m RM + 500m RG + 1000m RL) + 2 km RD (17 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 9</span><span class="week-dates">9 marzo - 15 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (400m RA + 400m RL) + 5 x (400m RM + 400m RL) + 1 km RD (12 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 10</span><span class="week-dates">16 marzo - 22 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>18 km collinari oppure 3 km RD + 4 x (2000m RM + 1000m RL) + 3 km RD (17 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 11</span><span class="week-dates">23 marzo - 29 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4 x (1000m RG + 500m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (300m tra RG-20" e RG-40" + 1'30" recupero in souplesse) + 1 km in progressione da RL a RG-20" + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 5 x (100m allungo facile + 100m RL) + 10 km al meglio + 1 km RD (14 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo - 5 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (300m RG-20" + 200m RG + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (100m RM + 100m RG + 100m RG-20" + 100m souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km tra RA e RL-10" + 5 km tra RM e RA-10" + 5 km tra RG e RM-10" + 1 km RD (19 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 13</span><span class="week-dates">6 aprile - 12 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 14</span><span class="week-dates">13 aprile - 19 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 10 x (300m RG+10" + 200m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG+10" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 1 km RD (8 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>RIMINI - IBIZA HALF MARATHON</p>
+    </div></details>
   </details>
 
-  <!-- 7) MARATONA DI ROMA 22 MARZO 2026 -->
+  <!-- ========================= PADOVA HM ========================= -->
   <details class="level">
-    <summary>🏁 Maratona di Roma 22 marzo 2026<div class="chev"></div></summary>
+    <summary>🏁 Padova Half Marathon – 26 Aprile 2026 (15W)<div class="chev"></div></summary>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL + core</p>
-        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
-      </div>
-    </details>
+    <div class="box">
+      <h2>Avvertenze</h2>
+      <p>
+        3 ALLENAMENTI A SETTIMANA (carico basso per una mezza maratona, almeno 4 uscite consigliate): Collettivo Standard • Scarico • Fine settimana. Fare uscite in tra settimana di circa 14 km<br>
+        4 ALLENAMENTI A SETTIMANA (carico buono): Collettivo Standard • Scarico • Mantenimento • Fine settimana. Se riuscite aggiungete 1-2 km alle uscite di scarico e mantenimento<br>
+        5 ALLENAMENTI A SETTIMANA (carico ottimale): Collettivo Standard • Scarico • Mantenimento • Scarico • Fine settimana<br>
+        Se al collettivo della RS fate il collettivo alternativo, valutate se riuscite a reggere un secondo lavoro in tra settimana (collettivo standard). In tal caso sostituite il mantenimento con uno scarico.<br>
+        Cercate di gestire gli allenamenti e le distanze per arrivare almeno a 40-45 km settimanali.
+      </p>
+    </div>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 1</span><span class="week-dates">12 gennaio - 18 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (1000m RG + 500m RL) + 3 km RL (13,5 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
-        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 2</span><span class="week-dates">19 gennaio - 25 gennaio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>15 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 1 km RG + 3 km RD (15 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio - 1 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 4 km RD (13 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 4</span><span class="week-dates">2 febbraio - 8 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) 1 x (3000m RG + 1000m RL) + 1 km RD (16 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 6</span><span class="week-dates">3 – 9 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 5</span><span class="week-dates">9 febbraio - 15 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 7</span><span class="week-dates">10 – 16 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>3×3 km a ritmo medio (rec 4’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12–14 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 6</span><span class="week-dates">16 febbraio - 22 febbraio</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 3 km RL + 3 km RA + 3 km RM + 3 km RG+10" + 1 km RD (16 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 8</span><span class="week-dates">17 – 23 feb</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
-        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio - 1 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4000m tra RM e RG+10" + 1000m RL) +1 km RD (14 km)</p>
+    </div></details>
 
-    <details class="week">
-      <summary><span class="week-title">Settimana 9</span><span class="week-dates">24 feb – 1 mar</span></summary>
-      <div class="week-content">
-        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
-        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
-        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
-        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
-        <p><strong>🏁 Fine settimana</strong><br>GARA: Maratona di Roma (se scelta come obiettivo)</p>
-      </div>
-    </details>
+    <details class="week"><summary><span class="week-title">Settimana 8</span><span class="week-dates">2 marzo - 8 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4500m RM + 500m RG + 1000m RL) + 2 km RD (17 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 9</span><span class="week-dates">9 marzo - 15 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (400m RA + 400m RL) + 5 x (400m RM + 400m RL) + 1 km RD (12 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 10</span><span class="week-dates">16 marzo - 22 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL oppure Allenamento salite (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>18 km collinari oppure 3 km RD + 4 x (2000m RM + 1000m RL) + 3 km RD (17 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 11</span><span class="week-dates">23 marzo - 29 marzo</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4 x (1000m RG + 500m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (300m tra RG-20" e RG-40" + 1'30" recupero in souplesse) + 1 km in progressione da RL a RG-20" + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 5 x (100m allungo facile + 100m RL) + 10 km al meglio + 1 km RD (14 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo - 5 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (300m RG-20" + 200m RG + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (100m RM + 100m RG + 100m RG-20" + 100m souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km tra RA e RL-10" + 5 km tra RM e RA-10" + 5 km tra RG e RM-10" + 1 km RD (19 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 13</span><span class="week-dates">6 aprile - 12 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 10 km RA + 2 km RD (15 km)</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 14</span><span class="week-dates">13 aprile - 19 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 10 x (300m RG-10" + 200m RL) + 10' RD (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RL + 5 km RG + 2 km RL</p>
+    </div></details>
+
+    <details class="week"><summary><span class="week-title">Settimana 15</span><span class="week-dates">20 aprile - 26 aprile</span></summary><div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>Test dei 3000m (La festa della RS) (9 km circa) – Partecipa all'allenamento ma fallo con calma accompagnando qualche amico</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 10 x (200m tra RG-20" e RG + 1' recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>PADOVA HALF MARATHON</p>
+    </div></details>
   </details>
+
+  <div class="box" style="margin-top:18px">
+    <h2>Nota importante</h2>
+    <p>
+      Queste tabelle sono pensate per una <strong>gara obiettivo</strong>. Se vuoi cambiare gara in corsa, chiedi agli istruttori come adattare i carichi.
+    </p>
+  </div>
 
 </div>
+
+<script>
+(function(){
+  const PASS = "RS01042026";
+  const gate = document.getElementById("gate");
+  const app  = document.getElementById("app");
+  const pwd  = document.getElementById("pwd");
+  const go   = document.getElementById("go");
+  const err  = document.getElementById("err");
+
+  function unlock(){
+    gate.style.display = "none";
+    app.style.display  = "block";
+    gate.setAttribute("aria-hidden","true");
+  }
+  function fail(){
+    err.style.display = "block";
+    pwd.value = "";
+    pwd.focus();
+  }
+  function check(){
+    err.style.display = "none";
+    if ((pwd.value || "").trim() === PASS){
+      sessionStorage.setItem("rs_prog_gare_ok","1");
+      unlock();
+    } else {
+      fail();
+    }
+  }
+
+  // already unlocked this session
+  if (sessionStorage.getItem("rs_prog_gare_ok") === "1"){
+    unlock();
+  } else {
+    gate.style.display = "flex";
+    app.style.display  = "none";
+    pwd.focus();
+  }
+
+  go.addEventListener("click", check);
+  pwd.addEventListener("keydown", (e)=>{ if(e.key==="Enter") check(); });
+})();
+</script>
+
 </body>
 </html>
+  
