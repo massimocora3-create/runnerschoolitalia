@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runner’s School Italia – Tabelle Mezze Maratone</title>
+<style>
+:root {
+  --bg: #020617;
+  --bg-card: #0b1120;
+  --accent: #f97316;
+  --accent-soft: rgba(249,115,22,0.12);
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border: #1f2937;
+  --radius-lg: 20px;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+  color: var(--text);
+}
+.app-shell {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 18px 14px 90px;
+}
+.header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 16px;
+  margin-bottom: 18px;
+}
+.header h1 { margin: 0; font-size: 18px; }
+.header p { margin: 8px 0 0; font-size: 13px; color: var(--text-muted); line-height: 1.45; }
+
+details.level {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+details.level > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+details.level > summary::-webkit-details-marker { display: none; }
+
+details.week { border-top: 1px dashed var(--border); }
+details.week > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+details.week > summary::-webkit-details-marker { display: none; }
+
+.week-title { font-weight: 650; }
+.week-dates { font-size: 12px; color: var(--text-muted); margin-left: 10px; text-align: right; }
+.week-content { padding: 10px 16px 16px; font-size: 13px; line-height: 1.45; }
+.week-content p { margin: 0 0 10px; }
+.week-content p:last-child { margin-bottom: 0; }
+
+.chev {
+  width: 10px; height: 10px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+}
+details[open] > summary .chev { transform: rotate(225deg); }
+
+.back-home {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5);
+  z-index: 999;
+}
+
+.box{
+  background: rgba(2,6,23,.35);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin: 0 16px 14px;
+  padding: 12px 12px;
+}
+.box h2{ margin:0 0 6px; font-size:14px; color: var(--text); }
+.box p{ margin:0; font-size:13px; color: var(--text-muted); line-height: 1.45; }
+
+.note{
+  background: linear-gradient(180deg, rgba(249,115,22,0.16), rgba(249,115,22,0.05));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 12px;
+  margin-top: 10px;
+}
+.note strong{ color: var(--text); }
+</style>
+
+<!-- PASSWORD GATE (RS01042026) -->
+<script>
+(async function () {
+  const VERSION = "v1";
+  const KEY = "rs_auth_" + VERSION;
+  const PASSWORD_HASH_HEX = "f38b79995ca186d9f5ffeb87efb645b30db55da511f202e124f6ae740977f148"; // RS01042026
+
+  function buf2hex(buffer) {
+    return [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+  async function sha256Hex(text) {
+    const enc = new TextEncoder().encode(text);
+    const digest = await crypto.subtle.digest("SHA-256", enc);
+    return buf2hex(digest);
+  }
+
+  if (localStorage.getItem(KEY) === "1") return;
+
+  const pwd = prompt("Area riservata Runner’s School. Inserisci la password:");
+  if (!pwd) { location.href = "../"; return; }
+
+  const h = await sha256Hex(pwd);
+  if (h.toLowerCase() === PASSWORD_HASH_HEX.toLowerCase()) {
+    localStorage.setItem(KEY, "1");
+    return;
+  }
+
+  alert("Password errata.");
+  location.href = "../";
+})();
+</script>
+</head>
+
+<body>
+<a href="https://massimocora3-create.github.io/runnerschoolitalia" class="back-home" title="Torna alla Home App RS">←</a>
+
+<div class="app-shell">
+  <div class="header">
+    <h1>🏁 Tabelle Mezze Maratone – Gennaio/Aprile 2026</h1>
+    <p>Pagina completa con le tabelle gara-per-gara. Apri la tua mezza e scorri le settimane.</p>
+
+    <div class="note">
+      <p><strong>Nota importante (gare multiple):</strong> se partecipi a più gare di questo calendario (o vuoi preparare diverse mezze in primavera), scegli e fissa <strong>una “gara obiettivo”</strong>. Usa la tabella di quella gara come base e inserisci le altre mezze come <strong>allenamenti/test</strong>, senza snaturare la struttura della preparazione della tua gara obiettivo.</p>
+    </div>
+
+    <div class="note">
+      <p><strong>Avvertenze:</strong> queste tabelle sono una guida. <strong>Adatta sempre i ritmi al tuo livello</strong> e, in caso di dubbi o fastidi, confrontati con il tuo istruttore.
+      Se svolgi <strong>3 allenamenti a settimana</strong>, il carico è “basso” per una mezza: va benissimo per chi ha poco tempo o deve gestire recupero/infortuni.
+      Se riesci a fare <strong>4 allenamenti</strong>, aumenta progressivamente i km nelle uscite di scarico/collettivo e nelle uscite del weekend (senza esagerare), con l’obiettivo di arrivare nelle settimane migliori ad una lunga da circa <strong>18–20 km</strong> (oppure <strong>1h45–2h</strong>), rispettando sempre sensazioni e recupero.<br><br>
+      <strong>Attenzione al freddo:</strong> in queste giornate non forzare nei lavori di qualità, rispetta i ritmi indicati e cura bene riscaldamento e defaticamento: il rischio di farsi male aumenta.</p>
+    </div>
+  </div>
+
+  <!-- =========================
+       LE GARE (DAL PDF)
+       ========================= -->
+
+  <!-- 1) VENICE HALF MARATHON -->
+  <details class="level">
+    <summary>🏁 VENICE HALF MARATHON 12 gennaio 2026<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL + core stability</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 8×200 m (rec 200 m CL) + defaticamento</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 10×(1’ forte + 1’ piano)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km CL</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL + mobilità</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 3×(1 km a ritmo gara) rec 3’ CL + defaticamento</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 8 km (da CL a ritmo medio)</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA: Venice Half Marathon</p>
+      </div>
+    </details>
+  </details>
+
+  <!-- 2) MARATONA DI BOLOGNA 1–2 FEBBRAIO 2026 -->
+  <details class="level">
+    <summary>🏁 Maratona di Bologna 1-2 febbraio 2026<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL + core</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 10×(1’ veloce / 1’ piano) + defaticamento</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>6–8 km progressivo</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 4×1 km (rec 3’) + defaticamento</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’ forte + 1’ piano)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL + tecnica</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 3×2 km (rec 4’) + defaticamento</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Riscaldamento + 6×800 (rec 2’) + defaticamento</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>25–30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Richiami 6×200 sciolti + stretching</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>25–35’ CL + 4 allunghi</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA: Bologna (mezza/maratona/evento)</p>
+      </div>
+    </details>
+  </details>
+
+  <!-- 3) BOLOGNA - ROMA/OSTIA -->
+  <details class="level">
+    <summary>🏁 Bologna - Roma/Ostia<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
+        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 6</span><span class="week-dates">3 – 9 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 7</span><span class="week-dates">10 – 16 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA TEST / Roma-Ostia (se scelta come obiettivo)</p>
+      </div>
+    </details>
+  </details>
+
+  <!-- 4) RIMINI HALF MARATHON 22 FEBBRAIO 2026 -->
+  <details class="level">
+    <summary>🏁 Rimini Half Marathon 22 febbraio 2026<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
+        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 6</span><span class="week-dates">3 – 9 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 7</span><span class="week-dates">10 – 16 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA: Rimini Half Marathon</p>
+      </div>
+    </details>
+  </details>
+
+  <!-- 5) PADOVA HALF MARATHON 12 APRILE 2026 -->
+  <details class="level">
+    <summary>🏁 Padova Half Marathon 12 aprile 2026<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">24 feb – 1 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">2 – 8 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">9 – 15 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
+        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">16 – 22 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">23 – 29 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 6</span><span class="week-dates">30 mar – 5 apr</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 7</span><span class="week-dates">6 – 12 apr</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA: Padova Half Marathon</p>
+      </div>
+    </details>
+  </details>
+
+  <!-- 6) MILANO CITY MARATHON 12 APRILE 2026 (tabella mezza nel PDF) -->
+  <details class="level">
+    <summary>🏁 Milano City Marathon 12 aprile 2026<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">24 feb – 1 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">2 – 8 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">9 – 15 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
+        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">16 – 22 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">23 – 29 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 6</span><span class="week-dates">30 mar – 5 apr</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 7</span><span class="week-dates">6 – 12 apr</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA: Milano (se scelta come obiettivo)</p>
+      </div>
+    </details>
+  </details>
+
+  <!-- 7) MARATONA DI ROMA 22 MARZO 2026 -->
+  <details class="level">
+    <summary>🏁 Maratona di Roma 22 marzo 2026<div class="chev"></div></summary>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">30 dic – 5 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL + core</p>
+        <p><strong>👥 Collettivo Standard</strong><br>10×(1’/1’) fartlek</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>8 km progressivo</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 14–16 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">6 – 12 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>4×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45–50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">13 – 19 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL + mobilità</p>
+        <p><strong>👥 Collettivo Standard</strong><br>3×2 km (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">20 – 26 gen</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Fartlek 12×(1’/1’)</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">27 gen – 2 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>2×3 km a RM (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 6</span><span class="week-dates">3 – 9 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>5×1 km (rec 3’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 7</span><span class="week-dates">10 – 16 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>3×3 km a ritmo medio (rec 4’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Medio 12–14 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>50’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 18–20 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 8</span><span class="week-dates">17 – 23 feb</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30–35’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>6×800 (rec 2’)</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>Progressivo 10–12 km</p>
+        <p><strong>🆎 Mantenimento</strong><br>45’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>Lungo 16–18 km</p>
+      </div>
+    </details>
+
+    <details class="week">
+      <summary><span class="week-title">Settimana 9</span><span class="week-dates">24 feb – 1 mar</span></summary>
+      <div class="week-content">
+        <p><strong>🅰️ Scarico</strong><br>30’ CL</p>
+        <p><strong>👥 Collettivo Standard</strong><br>Richiami 8×200 sciolti</p>
+        <p><strong>👥 Collettivo Alternativo</strong><br>30–35’ CL + 4 allunghi</p>
+        <p><strong>🆎 Mantenimento</strong><br>35–40’ CL</p>
+        <p><strong>🏁 Fine settimana</strong><br>GARA: Maratona di Roma (se scelta come obiettivo)</p>
+      </div>
+    </details>
+  </details>
+
+</div>
+</body>
+</html>
