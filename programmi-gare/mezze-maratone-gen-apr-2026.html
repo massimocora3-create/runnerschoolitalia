@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -141,54 +140,21 @@ code.k{padding:2px 6px;border:1px solid var(--border);border-radius:10px;backgro
 
 <body>
 
-<script>
-(function(){
-  const PASS = "RS01042026";
-  const KEY  = "rs_programmi_gare_ok";
+<!-- ✅ GATE PRESENTE (mancava) -->
+<div id="gate" aria-hidden="false">
+  <div class="card">
+    <h3>🔒 Area riservata</h3>
+    <p>Inserisci la password per visualizzare i <strong>Programmi Gare</strong>.</p>
+    <div class="row">
+      <input id="pwd" type="password" placeholder="Password" autocomplete="current-password">
+      <button class="btn primary" id="go" type="button">Entra</button>
+    </div>
+    <div class="err" id="err">Password errata. Riprova.</div>
+    <div class="smallnote">La password viene richiesta solo la prima volta su questo dispositivo.</div>
+  </div>
+</div>
 
-  const gate = document.getElementById("gate");
-  const app  = document.getElementById("app");
-  const pwd  = document.getElementById("pwd");
-  const go   = document.getElementById("go");
-  const err  = document.getElementById("err");
-
-  function unlock(){
-    gate.style.display = "none";
-    app.style.display  = "block";
-    gate.setAttribute("aria-hidden","true");
-  }
-
-  function fail(){
-    err.style.display = "block";
-    pwd.value = "";
-    pwd.focus();
-  }
-
-  function check(){
-    err.style.display = "none";
-    if ((pwd.value || "").trim() === PASS){
-      localStorage.setItem(KEY, "1"); // 👈 QUI la differenza
-      unlock();
-    } else {
-      fail();
-    }
-  }
-
-  // ✅ Se ha già inserito la password in passato
-  if (localStorage.getItem(KEY) === "1"){
-    unlock();
-  } else {
-    gate.style.display = "flex";
-    app.style.display  = "none";
-    pwd.focus();
-  }
-
-  go.addEventListener("click", check);
-  pwd.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
-})();
-</script>
-
-
+<!-- ✅ CONTENUTO APP -->
 <div class="app" id="app" style="display:none">
   <div class="header">
     <h1>🏁 Programmi Gare – Gennaio / Aprile 2026</h1>
@@ -892,18 +858,18 @@ code.k{padding:2px 6px;border:1px solid var(--border);border-radius:10px;backgro
     </div></details>
   </details>
 
-  <div class="box" style="margin-top:18px">
+<div class="box" style="margin-top:18px">
     <h2>Nota importante</h2>
-    <p>
-      Queste tabelle sono pensate per una <strong>gara obiettivo</strong>. Se vuoi cambiare gara in corsa, chiedi agli istruttori come adattare i carichi.
-    </p>
+    <p>Queste tabelle sono pensate per una <strong>gara obiettivo</strong>. Se vuoi cambiare gara in corsa, chiedi agli istruttori come adattare i carichi.</p>
   </div>
-
 </div>
 
+<!-- ✅ UNICO SCRIPT (alla fine) + localStorage -->
 <script>
 (function(){
   const PASS = "RS01042026";
+  const KEY  = "rs_programmi_gare_ok";
+
   const gate = document.getElementById("gate");
   const app  = document.getElementById("app");
   const pwd  = document.getElementById("pwd");
@@ -915,23 +881,25 @@ code.k{padding:2px 6px;border:1px solid var(--border);border-radius:10px;backgro
     app.style.display  = "block";
     gate.setAttribute("aria-hidden","true");
   }
+
   function fail(){
     err.style.display = "block";
     pwd.value = "";
     pwd.focus();
   }
+
   function check(){
     err.style.display = "none";
     if ((pwd.value || "").trim() === PASS){
-      sessionStorage.setItem("rs_prog_gare_ok","1");
+      localStorage.setItem(KEY, "1");   // ✅ una volta sola
       unlock();
     } else {
       fail();
     }
   }
 
-  // already unlocked this session
-  if (sessionStorage.getItem("rs_prog_gare_ok") === "1"){
+  // ✅ già sbloccato in passato
+  if (localStorage.getItem(KEY) === "1"){
     unlock();
   } else {
     gate.style.display = "flex";
@@ -940,7 +908,7 @@ code.k{padding:2px 6px;border:1px solid var(--border);border-radius:10px;backgro
   }
 
   go.addEventListener("click", check);
-  pwd.addEventListener("keydown", (e)=>{ if(e.key==="Enter") check(); });
+  pwd.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 })();
 </script>
 
