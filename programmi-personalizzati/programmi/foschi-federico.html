@@ -101,28 +101,7 @@
     }
     .mini .v{font-size:14px; line-height:1.35}
 
-    /* accordion generic */
-    details.block{
-      border:1px solid var(--border);
-      border-radius:16px;
-      background:#050b18;
-      overflow:hidden;
-      margin-top:10px;
-    }
-    details.block summary{
-      list-style:none;
-      cursor:pointer;
-      padding:12px 12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-    }
-    details.block summary::-webkit-details-marker{display:none}
-    .chev{width:10px;height:10px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:rotate(-45deg);transition:.2s}
-    details[open] .chev{transform:rotate(45deg)}
-    .block-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
+    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
 
     /* ✅ SETTIMANE */
     details.week{
@@ -153,8 +132,6 @@
     }
     .week-content p{margin:10px 0}
 
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-
     /* LOCK overlay */
     .lock{
       position:fixed; inset:0; display:none;
@@ -177,6 +154,27 @@
       border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08);
       display:none; font-size:13px;
     }
+
+    /* ritmi input + table */
+    .ritmi-input{
+      width:100%;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#050b18;
+      color:var(--text);
+      margin:8px 0 12px;
+      font-size:14px;
+      outline:none;
+    }
+    .ritmi-input:focus{
+      border-color: rgba(249,115,22,0.55);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.14);
+    }
+    .ritmi-table{width:100%;border-collapse:collapse;font-size:14px}
+    .ritmi-table th{color:var(--text-muted);text-align:left;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 0}
+    .ritmi-table td{padding:8px 0;border-top:1px solid rgba(31,41,55,.7)}
+    .ritmi-table td:last-child{font-weight:900}
   </style>
 </head>
 
@@ -228,93 +226,79 @@
       </div>
     </div>
 
-    <!-- ===================== SCHEDA ATLETA (SINTESI) ===================== -->
+    <!-- ===================== SCHEDA ATLETA (ESSENZIALE) ===================== -->
     <div class="section-label">Scheda atleta</div>
     <div class="card">
       <div class="grid">
         <div class="mini">
           <div class="k">Dati</div>
-          <div class="v">Anno: 1972<br>Altezza: 180 cm · Peso: 67 kg</div>
+          <div class="v">1972 · 180 cm · 67 kg</div>
         </div>
 
         <div class="mini">
-          <div class="k">Livello di partenza</div>
-          <div class="v">Percorso: Basic<br>Allenamento attuale: 3 uscite running</div>
+          <div class="k">Allenamenti</div>
+          <div class="v">3 uscite running / settimana</div>
         </div>
 
         <div class="mini">
-          <div class="k">Disponibilità</div>
-          <div class="v">Giorni/sett: 3 (corsa)<br>Uscite running: 3</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Lungo abituale</div>
-          <div class="v">Km uscita più lunga: 5–7 km<br>Tempo medio: …</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Background (ultimi anni)</div>
-          <div class="v">HIIT / Yoga 5 gg settimanali</div>
+          <div class="k">Livello</div>
+          <div class="v">Percorso Basic</div>
         </div>
 
         <div class="mini">
           <div class="k">Altri sport</div>
-          <div class="v">Yoga stile Vinyasa</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Salute / infortuni</div>
-          <div class="v">Nessun problema attuale segnalato</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Dati prestativi</div>
-          <div class="v">5 km migliore: ND</div>
+          <div class="v">Yoga (Vinyasa)</div>
         </div>
       </div>
     </div>
 
-    <!-- ===================== OBIETTIVI ===================== -->
-    <div class="section-label">Obiettivi del quadrimestre</div>
+    <!-- ===================== OBIETTIVI (CHIARI) ===================== -->
+    <div class="section-label">Obiettivi</div>
     <div class="card content">
       <p><strong>🎯 Obiettivo principale</strong><br>
-        Correre per stare bene e dimagrire, imparando un metodo di allenamento duraturo.
+        Correre con costanza per stare bene e dimagrire, imparando un metodo corretto.
       </p>
 
-      <p><strong>✅ Obiettivi secondari (max 3)</strong><br>
-        • Costanza: mantenere 3 uscite a settimana.<br>
-        • Aumentare gradualmente tenuta su 5–7 km.<br>
-        • Iniziare a velocizzarsi su queste distanze (senza forzare).
+      <p><strong>📌 Obiettivi del periodo</strong><br>
+        • Correre 3 volte a settimana<br>
+        • Migliorare la tenuta su 5–7 km<br>
+        • Iniziare a controllare i ritmi senza forzare
       </p>
 
-      <p><strong>🏁 Gara target (se presente)</strong><br>
-        Gara: … · Data: … · Distanza: … · Target: …
-      </p>
-
-      <p><strong>📌 Priorità del coach</strong><br>
-        Progressione graduale e gestione dei carichi (compatibile con yoga/HIIT).
-      </p>
-
-      <p><strong>📊 Come lo misuriamo</strong><br>
-        • Costanza (n. sedute/sett)<br>
-        • Rispetto intensità/recuperi<br>
-        • Test / sensazioni
+      <p><strong>⚠️ Regola base</strong><br>
+        Meglio un allenamento in meno che uno di troppo.
       </p>
     </div>
 
-    <!-- ===================== NOTE COACH (PRIVATE) ===================== -->
-    <div class="section-label">Note coach</div>
-    <div class="card">
-      <details class="block">
-        <summary>📝 Note coach (riservate) <span class="chev"></span></summary>
-        <div class="block-content">
-          <p><strong>Punti forti</strong><br>Costanza nello sport (HIIT/Yoga), buona base generale.</p>
-          <p><strong>Punti deboli / attenzione</strong><br>Volume corsa basso: attenzione a sovraccarichi (polpacci/tendini).</p>
-          <p><strong>Cose da evitare</strong><br>Troppa intensità ravvicinata o incremento km troppo rapido.</p>
-          <p><strong>Indicazioni chiave per il quadrimestre</strong><br>CL facile, qualità controllata, recuperi rispettati.</p>
-        </div>
-      </details>
-      <p class="footnote">(Questa sezione è utile per te: la puoi usare come promemoria tecnico durante gli aggiornamenti.)</p>
+    <!-- ===================== RITMI DI RIFERIMENTO ===================== -->
+    <div class="section-label">Ritmi di riferimento</div>
+    <div class="card content">
+      <p>
+        Inserisci il tuo <strong>miglior ritmo sui 5 km</strong> (min/km), ad esempio <strong>5:30</strong>.
+      </p>
+
+      <input id="ritmo5k" class="ritmi-input" type="text" placeholder="es. 5:30" inputmode="numeric" />
+
+      <table class="ritmi-table" aria-label="Ritmi di riferimento">
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Significato</th>
+            <th>Ritmo</th>
+          </tr>
+        </thead>
+        <tbody id="ritmiTable">
+          <tr><td>RG</td><td>Ritmo gara</td><td>—</td></tr>
+          <tr><td>RM</td><td>Ritmo medio</td><td>—</td></tr>
+          <tr><td>RA</td><td>Ritmo allenante</td><td>—</td></tr>
+          <tr><td>RL</td><td>Ritmo lento</td><td>—</td></tr>
+          <tr><td>RD</td><td>Ritmo defaticante</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <p class="footnote">
+        Calcolo: RG = 5 km + 8″ · RM = RG + 20″ · RA = RG + 40″ · RL = RG + 1’00″ · RD = RG + 1’20″.
+      </p>
     </div>
 
     <!-- ===================== SETTIMANE ===================== -->
