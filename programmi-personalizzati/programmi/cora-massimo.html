@@ -3,52 +3,331 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Programma personalizzato – Corà Massimo</title>
+  <title>Runner’s School Italia – Programma personalizzato</title>
+
   <style>
     :root{
-      --bg:#020617; --bg-card:#0b1120; --accent:#f97316;
-      --text:#e5e7eb; --text-muted:#9ca3af; --border:#1f2937;
-      --radius:20px; --shadow:0 18px 45px rgba(0,0,0,.55);
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --accent:#f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
       color:var(--text);
     }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 26px;}
-    .card{
-      background:var(--bg-card); border:1px solid var(--border);
-      border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;
+    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
+
+    /* top */
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:12px;
     }
-    h1{font-size:18px;margin:0 0 6px}
-    .muted{color:var(--text-muted); font-size:13px; margin:0 0 12px}
-    .box{
-      border:1px solid var(--border); border-radius:16px; padding:12px; margin-top:10px;
-      background: rgba(249,115,22,0.06);
-      line-height:1.45;
+    .back{
+      display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none; color:var(--text);
+      opacity:.9; font-size:13px;
+    }
+    .back:hover{opacity:1}
+    .pill{
+      font-size:12px; padding:8px 10px; border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid rgba(249,115,22,.28);
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    /* cards */
+    .card{
+      background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
+    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
+
+    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#050b18;
+      color:var(--text);
+      font-size:13px;
+      opacity:.95;
+    }
+    .btn:hover{opacity:1}
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75));
+      border:0;
+      color:#0b1120;
+      font-weight:900;
+    }
+
+    /* label stile home */
+    .section-label{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--text-muted);
+      margin:22px 2px 10px;
+    }
+
+    /* weeks - stessa logica accordion dei programmi */
+    details.week{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#050b18;
+      overflow:hidden;
+      margin-bottom:10px;
+    }
+    details.week summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+    }
+    details.week summary::-webkit-details-marker{display:none}
+
+    .week-title{font-size:14px}
+    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
+
+    .week-content{
+      padding:0 12px 12px;
+      color:var(--text);
       font-size:14px;
+      line-height:1.45;
+    }
+    .week-content p{margin:10px 0}
+    .week-content strong{font-weight:900}
+
+    /* LOCK overlay */
+    .lock{
+      position:fixed; inset:0; display:none;
+      background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%);
+      padding:18px 16px;
+      z-index:999;
+    }
+    .lock .wrap{max-width:520px;margin:0 auto;}
+    .lock input{
+      width:100%; margin-top:10px;
+      background:#050b18; border:1px solid var(--border);
+      border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;
+    }
+    .lock input:focus{
+      border-color: rgba(249,115,22,0.55);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.14);
+    }
+    .lock .msg{
+      margin-top:10px; padding:10px 12px; border-radius:14px;
+      border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08);
+      display:none; font-size:13px;
     }
   </style>
 </head>
+
 <body>
-  <div class="app">
-    <div class="card">
-      <h1>📄 Programma personalizzato</h1>
-      <p class="muted">Allievo: Corà Massimo · Aggiornato: 10/01/2026</p>
-
-      <div class="box">
-        <strong>Settimana 1</strong><br>
-        Lun: …<br>
-        Mer: …<br>
-        Sab/Dom: …
-      </div>
-
-      <div class="box">
-        <strong>Note</strong><br>
-        …
+  <!-- 🔒 LOCK: chiede password se aprono il link diretto -->
+  <div class="lock" id="lock">
+    <div class="wrap">
+      <div class="card">
+        <div class="pill">🔒 Area riservata allievo</div>
+        <h1 style="margin-top:10px">Inserisci la password</h1>
+        <p class="meta">Prima volta: ti verrà chiesta qui anche se sei entrato dalla pagina principale. Poi non te la chiede più su questo dispositivo.</p>
+        <input id="pw" type="password" placeholder="Password…" autocomplete="current-password" />
+        <div class="btnrow">
+          <a class="btn primary" href="#" id="unlock">Entra</a>
+          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">Torna indietro</a>
+        </div>
+        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
       </div>
     </div>
   </div>
+
+  <!-- APP -->
+  <div class="app" id="app">
+    <div class="top">
+      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+      <div class="pill">🟧 Runner’s School Italia</div>
+    </div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Corà Massimo</span></h1>
+      <p class="meta">
+        Aggiornato: <b id="aggiornatoIl">10/01/2026</b><br>
+        Nota: rispetta recuperi e intensità. Se c’è dolore “strano”, stop e scrivimi.
+      </p>
+
+      <div class="btnrow">
+        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+        <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">🔒 Cambia utente</a>
+      </div>
+    </div>
+
+    <div class="section-label" id="settimane">Settimane (15)</div>
+
+    <!-- ================= SETTIMANE (COPIA LA TUA STRUTTURA) ================= -->
+
+    <details class="week" data-start="2026-01-12" data-end="2026-01-18" open>
+      <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
+      <div class="week-content">
+        <p><strong>👥 Collettivo</strong><br>…</p>
+        <p><strong>🅰️ A1</strong><br>…</p>
+        <p><strong>🅱️ A2</strong><br>…</p>
+        <p><strong>🆎 A3</strong><br>…</p>
+      </div>
+    </details>
+
+    <details class="week" data-start="2026-01-19" data-end="2026-01-25">
+      <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
+      <div class="week-content">
+        <p><strong>👥 Collettivo</strong><br>…</p>
+        <p><strong>🅰️ A1</strong><br>…</p>
+        <p><strong>🅱️ A2</strong><br>…</p>
+        <p><strong>🆎 A3</strong><br>…</p>
+      </div>
+    </details>
+
+    <details class="week" data-start="2026-01-26" data-end="2026-02-01">
+      <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio–1 febbraio</span></summary>
+      <div class="week-content">
+        <p><strong>👥 Collettivo</strong><br>…</p>
+        <p><strong>🅰️ A1</strong><br>…</p>
+        <p><strong>🅱️ A2</strong><br>…</p>
+        <p><strong>🆎 A3</strong><br>…</p>
+      </div>
+    </details>
+
+    <!-- ... continua fino a 15 -->
+    <!-- Ti lascio già gli scheletri pronti -->
+
+    <details class="week" data-start="2026-02-02" data-end="2026-02-08">
+      <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-02-09" data-end="2026-02-15">
+      <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-02-16" data-end="2026-02-22">
+      <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-02-23" data-end="2026-03-01">
+      <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio–1 marzo</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-03-02" data-end="2026-03-08">
+      <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-03-09" data-end="2026-03-15">
+      <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-03-16" data-end="2026-03-22">
+      <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-03-23" data-end="2026-03-29">
+      <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-03-30" data-end="2026-04-05">
+      <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo–5 aprile</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-04-06" data-end="2026-04-12">
+      <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-04-13" data-end="2026-04-19">
+      <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+    <details class="week" data-start="2026-04-20" data-end="2026-04-26">
+      <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
+    </details>
+
+  </div>
+
+  <script>
+    // 🔒 LOCK: incolla qui l'hash SHA-256 della password di questo allievo
+    // Deve essere IDENTICO a quello messo in data.js per questo allievo.
+    const PAGE_HASH = "INCOLLA_QUI_HASH_ALLIEVO";
+
+    const lock = document.getElementById("lock");
+    const app = document.getElementById("app");
+    const key = "rs_pp_ok_" + (PAGE_HASH || "").slice(0,12);
+
+    async function sha256hex(text){
+      const enc = new TextEncoder();
+      const data = enc.encode(text);
+      const hash = await crypto.subtle.digest("SHA-256", data);
+      return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2,"0")).join("");
+    }
+    function showApp(){ lock.style.display="none"; app.style.display="block"; }
+    function showLock(){ lock.style.display="block"; app.style.display="none"; }
+
+    // se hash non impostato, non blocchiamo (evita rogne mentre costruisci)
+    if(!PAGE_HASH || PAGE_HASH === "INCOLLA_QUI_HASH_ALLIEVO"){
+      showApp();
+    } else if(localStorage.getItem(key) === "1"){
+      showApp();
+    } else {
+      showLock();
+    }
+
+    document.getElementById("unlock").addEventListener("click", async (e) => {
+      e.preventDefault();
+      const pw = (document.getElementById("pw").value || "").trim();
+      const msg = document.getElementById("lockMsg");
+      msg.style.display = "none";
+
+      if(!pw){ msg.textContent="Inserisci la password."; msg.style.display="block"; return; }
+
+      const h = await sha256hex(pw);
+      if(h === PAGE_HASH){
+        localStorage.setItem(key, "1");
+        showApp();
+      } else {
+        msg.textContent="Password errata. Riprova.";
+        msg.style.display="block";
+      }
+    });
+
+    document.getElementById("pw").addEventListener("keydown", (e) => {
+      if(e.key === "Enter") document.getElementById("unlock").click();
+    });
+  </script>
 </body>
 </html>
+
