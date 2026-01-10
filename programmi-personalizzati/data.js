@@ -9,3 +9,7 @@ window.RS_PROGRAMMI = {
 window.RS_PROGRAMMI = {
   "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad": "programmi/gilli-costanza.html"
 };
+
+window.RS_PROGRAMMI = {
+  "eff35831955948096a516ccc85b19d5e603673be01355e7df329ca445ce25a9d": "programmi/pasetti-luca.html"
+};
