@@ -5,3 +5,7 @@ window.RS_PROGRAMMI = {
 window.RS_PROGRAMMI = {
   "875d308906bc766b5e0eab6f844940ef8ddd36b2754df8b084d23be8416a8bfe": "programmi/foschi-federico.html"
 };
+
+window.RS_PROGRAMMI = {
+  "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad": "programmi/gilli-costanza.html"
+};
