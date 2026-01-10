@@ -26,16 +26,8 @@
     }
     .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
 
-    /* top */
-    .top{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      margin-bottom:12px;
-    }
-    .back{
-      display:inline-flex; align-items:center; gap:8px;
-      text-decoration:none; color:var(--text);
-      opacity:.9; font-size:13px;
-    }
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
+    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
     .back:hover{opacity:1}
     .pill{
       font-size:12px; padding:8px 10px; border-radius:999px;
@@ -45,7 +37,6 @@
       white-space:nowrap;
     }
 
-    /* cards */
     .card{
       background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card);
       border:1px solid var(--border);
@@ -77,7 +68,6 @@
       font-weight:900;
     }
 
-    /* label stile home */
     .section-label{
       font-size:13px;
       text-transform:uppercase;
@@ -86,36 +76,42 @@
       margin:22px 2px 10px;
     }
 
-    /* content typography (riuso) */
-    .content{
-      font-size:14px;
-      line-height:1.45;
-    }
+    .content{font-size:14px; line-height:1.45;}
     .content p{margin:10px 0}
     .content strong{font-weight:900}
 
-    /* scheda allievo grid */
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
     .mini{
       border:1px solid var(--border);
       border-radius:16px;
       background:#050b18;
       padding:12px;
     }
-    .mini .k{
-      font-size:11px;
-      color:var(--text-muted);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
+    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
     .mini .v{font-size:14px; line-height:1.35}
 
-    /* weeks - stessa logica accordion dei programmi */
+    details.block{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#050b18;
+      overflow:hidden;
+      margin-top:10px;
+    }
+    details.block summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+    }
+    details.block summary::-webkit-details-marker{display:none}
+    .chev{width:10px;height:10px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:rotate(-45deg);transition:.2s}
+    details[open] .chev{transform:rotate(45deg)}
+    .block-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
+
     details.week{
       border:1px solid var(--border);
       border-radius:16px;
@@ -136,14 +132,11 @@
     details.week summary::-webkit-details-marker{display:none}
     .week-title{font-size:14px}
     .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
-    .week-content{
-      padding:0 12px 12px;
-      color:var(--text);
-      font-size:14px;
-      line-height:1.45;
-    }
+    .week-content{padding:0 12px 12px; color:var(--text); font-size:14px; line-height:1.45;}
     .week-content p{margin:10px 0}
     .week-content strong{font-weight:900}
+
+    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
 
     /* LOCK overlay */
     .lock{
@@ -167,20 +160,11 @@
       border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08);
       display:none; font-size:13px;
     }
-
-    /* small footer note */
-    .footnote{
-      margin-top:14px;
-      color:var(--text-muted);
-      font-size:11px;
-      line-height:1.35;
-      opacity:.95;
-    }
   </style>
 </head>
 
 <body>
-  <!-- 🔒 LOCK: chiede password se aprono il link diretto -->
+  <!-- 🔒 LOCK -->
   <div class="lock" id="lock">
     <div class="wrap">
       <div class="card">
@@ -203,14 +187,13 @@
     </div>
   </div>
 
-  <!-- APP -->
   <div class="app" id="app">
     <div class="top">
       <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
       <div class="pill">🟧 Runner’s School Italia</div>
     </div>
 
-    <!-- HEADER ALLIEVO -->
+    <!-- HEADER -->
     <div class="card">
       <h1>📄 Programma personalizzato · <span id="nomeAllievo">Corà Massimo</span></h1>
       <p class="meta">
@@ -227,63 +210,110 @@
       </div>
     </div>
 
-    <!-- OBIETTIVI -->
-    <div class="section-label">Obiettivi del quadrimestre</div>
-    <div class="card content">
-      <p><strong>🎯 Obiettivo principale</strong><br>…</p>
+    <!-- ===================== SCHEDA ALLIEVO (DOMANDE MODULO) ===================== -->
+    <div class="section-label">Scheda allievo (questionario BASIC)</div>
 
-      <p><strong>✅ Obiettivi secondari</strong><br>
-        • …<br>
-        • …<br>
-        • …
-      </p>
-
-      <p><strong>📌 Focus tecnico</strong><br>…</p>
-
-      <p><strong>📊 Come lo misuriamo</strong><br>
-        • Costanza (n. sedute/settimana)<br>
-        • Qualità (ritmi / RPE / recuperi rispettati)<br>
-        • Test / gara / feedback sensazioni
-      </p>
-    </div>
-
-    <!-- SCHEDA ALLIEVO -->
-    <div class="section-label">Scheda allievo</div>
+    <!-- RIASSUNTO VELOCE -->
     <div class="card">
       <div class="grid">
         <div class="mini">
-          <div class="k">Dati</div>
-          <div class="v">Età: …<br>Altezza: … · Peso: …</div>
+          <div class="k">Cognome e nome</div>
+          <div class="v">Corà Massimo</div>
         </div>
-
         <div class="mini">
-          <div class="k">Livello</div>
-          <div class="v">Running/FW: …<br>Storico: …</div>
+          <div class="k">Anno di nascita</div>
+          <div class="v">…</div>
         </div>
-
         <div class="mini">
-          <div class="k">Obiettivo gara</div>
-          <div class="v">Gara: …<br>Data: … · Target: …</div>
+          <div class="k">Peso</div>
+          <div class="v">… kg</div>
         </div>
-
         <div class="mini">
-          <div class="k">Disponibilità</div>
-          <div class="v">Giorni: …<br>Tempo seduta: …</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Note fisiche</div>
-          <div class="v">Infortuni: …<br>Zone delicate: …</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Scarpe</div>
-          <div class="v">Lungo: …<br>Qualità: …</div>
+          <div class="k">Altezza</div>
+          <div class="v">… cm</div>
         </div>
       </div>
+
+      <details class="block">
+        <summary>🏃‍♂️ Altri sport oltre la corsa? <span class="chev"></span></summary>
+        <div class="block-content">
+          <p><strong>Fai altri sport oltre la corsa?</strong><br>…</p>
+          <p><strong>Dimmi cosa</strong><br>…</p>
+        </div>
+      </details>
+
+      <details class="block">
+        <summary>🧭 Vita sportiva ultimi 2 anni <span class="chev"></span></summary>
+        <div class="block-content">
+          <p><strong>Descrivi brevemente la tua vita sportiva negli ultimi 2 anni</strong><br>…</p>
+        </div>
+      </details>
+
+      <details class="block">
+        <summary>🩺 Salute / infortuni <span class="chev"></span></summary>
+        <div class="block-content">
+          <p><strong>Hai qualche problema di salute o infortunio importante da segnalare?</strong><br>…</p>
+          <p><strong>Altre cose che vuoi segnalarci</strong><br>…</p>
+        </div>
+      </details>
+
+      <details class="block">
+        <summary>🚦 Da dove vuoi partire? <span class="chev"></span></summary>
+        <div class="block-content">
+          <p><strong>Da dove vuoi partire?</strong><br>…</p>
+          <p><strong>Grado di allenamento attuale</strong><br>…</p>
+        </div>
+      </details>
+
+      <details class="block">
+        <summary>📆 Disponibilità settimanale <span class="chev"></span></summary>
+        <div class="block-content">
+          <p><strong>Quanti giorni a settimana sei disposto a allenarti nella corsa?</strong><br>…</p>
+          <p><strong>Quante uscite a settimana riesci a fare come allenamento running?</strong><br>…</p>
+          <p><strong>Quanti km fai nelle tue uscite più lunghe abituali?</strong><br>…</p>
+        </div>
+      </details>
     </div>
 
-    <!-- SETTIMANE -->
+    <!-- ===================== OBIETTIVI (DOMANDE MODULO) ===================== -->
+    <div class="section-label">Obiettivi del quadrimestre</div>
+    <div class="card content">
+      <p><strong>🎯 Qual è il tuo obiettivo per questo quadrimestre?</strong><br>…</p>
+
+      <p><strong>🏁 Se sai già quale gara vuoi come obiettivo</strong><br>
+        • Nome gara: …<br>
+        • Data: …<br>
+        • Distanza: …
+      </p>
+
+      <p><strong>🧠 Che obiettivo vuoi darti in questo percorso?</strong><br>
+        (es. imparare un metodo, costanza, migliorare ritmo, arrivare a 10 km continui…)<br>
+        …
+      </p>
+
+      <p><strong>📌 Eri già seguito con il pacchetto Basic o è il primo quadrimestre?</strong><br>…</p>
+
+      <p><strong>🗒️ Com’è andata nello scorso quadrimestre?</strong><br>
+        (se hai già seguito: cosa ha funzionato / difficoltà / costanza…)<br>
+        …
+      </p>
+    </div>
+
+    <!-- ===================== PARAMETRI PRESTATIVI (DOMANDE MODULO) ===================== -->
+    <div class="section-label">Dati prestativi</div>
+    <div class="card content">
+      <p><strong>⏱️ Ritmo migliore sui 5 km</strong><br>
+        (ritmo al km oppure tempo totale, se non sai scrivi “NON SO”)<br>
+        …
+      </p>
+
+      <p><strong>📈 Nota coach</strong><br>
+        (qui ci metti tu: punti forti / punti deboli / cosa tenere d’occhio)<br>
+        …
+      </p>
+    </div>
+
+    <!-- ===================== SETTIMANE ===================== -->
     <div class="section-label" id="settimane">Settimane (15)</div>
 
     <!-- Settimana 1 (CHIUSA) -->
@@ -307,14 +337,10 @@
       </div>
     </details>
 
+    <!-- ... continua fino a 15 (uguale a prima, stessi blocchi) -->
     <details class="week" data-start="2026-01-26" data-end="2026-02-01">
       <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio–1 febbraio</span></summary>
-      <div class="week-content">
-        <p><strong>👥 Collettivo</strong><br>…</p>
-        <p><strong>🅰️ A1</strong><br>…</p>
-        <p><strong>🅱️ A2</strong><br>…</p>
-        <p><strong>🆎 A3</strong><br>…</p>
-      </div>
+      <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
     </details>
 
     <details class="week" data-start="2026-02-02" data-end="2026-02-08">
@@ -397,7 +423,6 @@
     function showApp(){ lock.style.display="none"; app.style.display="block"; }
     function showLock(){ lock.style.display="block"; app.style.display="none"; }
 
-    // se hash non impostato, non blocchiamo (utile mentre stai costruendo)
     if(!PAGE_HASH || PAGE_HASH === "INCOLLA_QUI_HASH_ALLIEVO"){
       showApp();
     } else if(localStorage.getItem(key) === "1"){
@@ -430,5 +455,4 @@
   </script>
 </body>
 </html>
-
 
