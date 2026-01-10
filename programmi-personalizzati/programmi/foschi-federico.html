@@ -155,26 +155,21 @@
       display:none; font-size:13px;
     }
 
-    /* ritmi input + table */
-    .ritmi-input{
-      width:100%;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#050b18;
-      color:var(--text);
-      margin:8px 0 12px;
-      font-size:14px;
-      outline:none;
-    }
-    .ritmi-input:focus{
-      border-color: rgba(249,115,22,0.55);
-      box-shadow: 0 0 0 3px rgba(249,115,22,0.14);
-    }
+    /* ritmi table */
     .ritmi-table{width:100%;border-collapse:collapse;font-size:14px}
     .ritmi-table th{color:var(--text-muted);text-align:left;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 0}
     .ritmi-table td{padding:8px 0;border-top:1px solid rgba(31,41,55,.7)}
     .ritmi-table td:last-child{font-weight:900}
+    .note-box{
+      margin-top:10px;
+      border:1px solid rgba(249,115,22,.28);
+      background: rgba(249,115,22,.08);
+      padding:10px 12px;
+      border-radius:14px;
+      color: var(--text);
+      font-size:13px;
+      line-height:1.35;
+    }
   </style>
 </head>
 
@@ -226,7 +221,7 @@
       </div>
     </div>
 
-    <!-- ===================== SCHEDA ATLETA (ESSENZIALE) ===================== -->
+    <!-- ===================== SCHEDA ATLETA (ESSENZIALE + 5K) ===================== -->
     <div class="section-label">Scheda atleta</div>
     <div class="card">
       <div class="grid">
@@ -249,10 +244,16 @@
           <div class="k">Altri sport</div>
           <div class="v">Yoga (Vinyasa)</div>
         </div>
+
+        <!-- ✅ DATO CHIAVE: RITMO 5 KM (se non c’è, lascia ND) -->
+        <div class="mini" style="grid-column:1 / -1;">
+          <div class="k">Ritmo migliore 5 km (min/km)</div>
+          <div class="v"><span id="pace5k">ND</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- ===================== OBIETTIVI (CHIARI) ===================== -->
+    <!-- ===================== OBIETTIVI ===================== -->
     <div class="section-label">Obiettivi</div>
     <div class="card content">
       <p><strong>🎯 Obiettivo principale</strong><br>
@@ -270,16 +271,9 @@
       </p>
     </div>
 
-    <!-- ===================== RITMI DI RIFERIMENTO (AUTO) ===================== -->
+    <!-- ===================== RITMI DI RIFERIMENTO (SOLO VISUALIZZATI, NON EDITABILI) ===================== -->
     <div class="section-label">Ritmi di riferimento</div>
     <div class="card content">
-      <p>
-        <strong>Ritmo 5 km di riferimento</strong> (impostato dal coach).<br>
-        Se vuoi, puoi modificarlo al volo (formati accettati: <strong>5:30</strong>, <strong>5'30</strong>, <strong>5,30</strong>, <strong>5:30/km</strong>).
-      </p>
-
-      <input id="ritmo5k" class="ritmi-input" type="text" placeholder="es. 5:30" inputmode="numeric" />
-
       <table class="ritmi-table" aria-label="Ritmi di riferimento">
         <thead>
           <tr>
@@ -289,16 +283,21 @@
           </tr>
         </thead>
         <tbody id="ritmiTable">
-          <tr><td>RG</td><td>Ritmo gara</td><td>—</td></tr>
-          <tr><td>RM</td><td>Ritmo medio</td><td>—</td></tr>
-          <tr><td>RA</td><td>Ritmo allenante</td><td>—</td></tr>
-          <tr><td>RL</td><td>Ritmo lento</td><td>—</td></tr>
-          <tr><td>RD</td><td>Ritmo defaticante</td><td>—</td></tr>
+          <tr><td>RG</td><td>Ritmo gara</td><td id="rg">—</td></tr>
+          <tr><td>RM</td><td>Ritmo medio</td><td id="rm">—</td></tr>
+          <tr><td>RA</td><td>Ritmo allenante</td><td id="ra">—</td></tr>
+          <tr><td>RL</td><td>Ritmo lento</td><td id="rl">—</td></tr>
+          <tr><td>RD</td><td>Ritmo defaticante</td><td id="rd">—</td></tr>
         </tbody>
       </table>
 
+      <div class="note-box" id="ritmiNote">
+        I ritmi verranno mostrati quando avremo un riferimento sui 5 km.
+        Per ora: usa “facile” (riesci a parlare) nelle uscite lente e qualità controllata.
+      </div>
+
       <p class="footnote">
-        Calcolo: RG = 5 km + 8″ · RM = RG + 20″ · RA = RG + 40″ · RL = RG + 1’00″ · RD = RG + 1’20″.
+        Regola di calcolo (quando disponibile il 5 km): RG = 5 km + 8″ · RM = RG + 20″ · RA = RG + 40″ · RL = RG + 1’00″ · RD = RG + 1’20″.
       </p>
     </div>
 
@@ -366,44 +365,41 @@
       }
     }
 
-    // init lock
     if(localStorage.getItem(LOCK_KEY) === "1"){
       hideLock();
     }else{
       showLock();
     }
-
     unlockBtn.addEventListener("click", (e) => { e.preventDefault(); tryUnlock(); });
     pwEl.addEventListener("keydown", (e) => {
       if(e.key === "Enter"){ e.preventDefault(); tryUnlock(); }
     });
 
     /* =========================
-       RITMI DI RIFERIMENTO (AUTO)
+       RITMI (SOLO DA RIFERIMENTO 5K IN SCHEDA)
        ========================= */
 
-    // ======= IMPOSTAZIONE COACH (compila tu) =======
-    const PACE_5K_DEFAULT = "5:30"; // <-- QUI metti il suo ritmo 5km (es. "5:12", "4:58", "6:05")
-    // ===============================================
+    // ✅ QUI INSERISCI IL RITMO 5 KM DELL’ATLETA (min/km).
+    // Se non c’è, lascia "ND".
+    const PACE_5K = "ND"; // es: "5:12"  |  "4:58"  |  "6:05"  |  "ND"
 
-    function parsePaceToSeconds(t) {
-      const raw = (t || "").trim();
-      if (!raw) return null;
+    function parsePaceToSeconds(input) {
+      let s = (input || "").toString().trim();
+      if (!s || s.toUpperCase() === "ND") return null;
 
-      // accetta: 5:30 | 5.30 | 5,30 | 5'30 | 5’30 | 5:30/km | 5 30
-      const cleaned = raw
-        .toLowerCase()
-        .replace("/km", "")
-        .replace("min/km", "")
-        .replace(/\s+/g, "")
-        .replace("’", "'");
+      s = s.toLowerCase()
+        .replace("min/km","")
+        .replace("/km","")
+        .replace(/\s+/g,"")
+        .replace("’","'")
+        .replace("″","");
 
-      const m = cleaned.match(/^(\d{1,2})[:\.,'](\d{1,2})$/);
+      // accetta 5:30 | 5.30 | 5,30 | 5'30
+      const m = s.match(/^(\d{1,2})[:\.,'](\d{1,2})$/);
       if (!m) return null;
 
       const min = parseInt(m[1], 10);
       const sec = parseInt(m[2], 10);
-
       if (Number.isNaN(min) || Number.isNaN(sec)) return null;
       if (sec < 0 || sec > 59 || min < 0) return null;
 
@@ -416,53 +412,35 @@
       return m + ":" + (s < 10 ? "0" : "") + s;
     }
 
-    function updateRitmiFrom5k(pace5kSec) {
-      // RG = 5km + 8"
-      const RG = pace5kSec + 8;
-
-      const ritmi = [
-        ["RG", RG],
-        ["RM", RG + 20],
-        ["RA", RG + 40],
-        ["RL", RG + 60],
-        ["RD", RG + 80],
-      ];
-
-      const rows = document.querySelectorAll("#ritmiTable tr");
-      for (let i = 0; i < ritmi.length; i++) {
-        rows[i].children[2].innerText = secondsToPace(ritmi[i][1]);
-      }
+    function setText(id, value){
+      const el = document.getElementById(id);
+      if(el) el.textContent = value;
     }
 
-    // Auto-calcolo all'apertura pagina (da valore coach)
     window.addEventListener("DOMContentLoaded", () => {
-      const secDefault = parsePaceToSeconds(PACE_5K_DEFAULT);
-      const input = document.getElementById("ritmo5k");
+      // mostra sempre il dato in scheda
+      setText("pace5k", PACE_5K);
 
-      if (input) {
-        // Mostro sempre il valore (così lo vedi sempre)
-        input.value = PACE_5K_DEFAULT;
+      const base = parsePaceToSeconds(PACE_5K);
+      if(base === null){
+        // nessun riferimento: lascia trattini e nota
+        return;
       }
 
-      if (secDefault !== null) {
-        updateRitmiFrom5k(secDefault);
+      // RG = 5k + 8"
+      const RG = base + 8;
+      setText("rg", secondsToPace(RG));
+      setText("rm", secondsToPace(RG + 20));
+      setText("ra", secondsToPace(RG + 40));
+      setText("rl", secondsToPace(RG + 60));
+      setText("rd", secondsToPace(RG + 80));
+
+      // aggiorna nota
+      const note = document.getElementById("ritmiNote");
+      if(note){
+        note.textContent = "Ritmi calcolati dal riferimento 5 km (" + secondsToPace(base) + " /km).";
       }
     });
-
-    // Se vuoi modificarlo al volo (facoltativo)
-    const ritmoInput = document.getElementById("ritmo5k");
-    if (ritmoInput) {
-      ritmoInput.addEventListener("input", function () {
-        const sec = parsePaceToSeconds(this.value);
-        if (sec === null) return;
-        updateRitmiFrom5k(sec);
-      });
-      ritmoInput.addEventListener("change", function () {
-        const sec = parsePaceToSeconds(this.value);
-        if (sec === null) return;
-        updateRitmiFrom5k(sec);
-      });
-    }
   </script>
 </body>
 </html>
