@@ -1,5 +1,212 @@
-programmi-personalizzati/
-  index.html
-  data.js
-  programmi/
-    (qui dentro metterai i file dei singoli allievi)
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programmi personalizzati</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --accent:#f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color:var(--text);
+    }
+    .app{
+      max-width:520px;
+      margin:0 auto;
+      padding:18px 16px 26px;
+    }
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    h1{
+      font-size:20px;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:6px 0 0;
+      color:var(--text-muted);
+      font-size:13px;
+      line-height:1.35;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid rgba(249,115,22,0.28);
+      color:var(--text);
+      font-size:12px;
+      margin-bottom:12px;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:stretch;
+      margin-top:10px;
+    }
+    input{
+      flex:1;
+      background:#050b18;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px 12px;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    input:focus{
+      border-color: rgba(249,115,22,0.55);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.14);
+    }
+    button{
+      background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75));
+      border:0;
+      color:#0b1120;
+      font-weight:800;
+      border-radius:14px;
+      padding:12px 14px;
+      cursor:pointer;
+      min-width:110px;
+    }
+    button:active{transform:translateY(1px)}
+    .hint{
+      margin-top:10px;
+      color:var(--text-muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+    .msg{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#050b18;
+      color:var(--text);
+      font-size:13px;
+      display:none;
+    }
+    .msg.error{
+      display:block;
+      border-color: rgba(239,68,68,0.5);
+      background: rgba(239,68,68,0.08);
+    }
+    .msg.ok{
+      display:block;
+      border-color: rgba(34,197,94,0.5);
+      background: rgba(34,197,94,0.08);
+    }
+    .footer{
+      margin-top:14px;
+      color:var(--text-muted);
+      font-size:11px;
+      line-height:1.35;
+    }
+    .small{
+      opacity:.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div>
+        <h1>🔒 Programmi personalizzati</h1>
+        <p class="subtitle">Inserisci la password che ti è stata fornita per aprire il tuo programma.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge">🟧 Runner’s School Italia · Area riservata allievi</div>
+
+      <label for="pw" class="small">Password</label>
+      <div class="row">
+        <input id="pw" type="password" placeholder="Inserisci password…" autocomplete="current-password" />
+        <button id="btn">Entra</button>
+      </div>
+
+      <div id="msg" class="msg"></div>
+
+      <div class="hint">
+        Se non ricordi la password, contatta il tuo istruttore di riferimento.
+      </div>
+
+      <div class="footer">
+        ⚠️ Nota: questa è una protezione “da App” (come la pagina Programma Completo). Non condividere la tua password con altri.
+      </div>
+    </div>
+  </div>
+
+  <script src="./data.js"></script>
+  <script>
+    // SHA-256 -> hex
+    async function sha256hex(text){
+      const enc = new TextEncoder();
+      const data = enc.encode(text);
+      const hash = await crypto.subtle.digest("SHA-256", data);
+      return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2,"0")).join("");
+    }
+
+    function showMsg(type, text){
+      const el = document.getElementById("msg");
+      el.className = "msg " + type;
+      el.textContent = text;
+    }
+
+    async function login(){
+      const pw = (document.getElementById("pw").value || "").trim();
+
+      if(!pw){
+        showMsg("error", "Inserisci la password.");
+        return;
+      }
+
+      const h = await sha256hex(pw);
+      const map = window.RS_PROGRAMMI || {};
+      const target = map[h];
+
+      if(!target){
+        showMsg("error", "Password non valida. Ricontrolla e riprova.");
+        return;
+      }
+
+      showMsg("ok", "Accesso riuscito. Apertura programma…");
+      // apre la pagina del programma dell'allievo
+      window.location.href = "./" + target;
+    }
+
+    document.getElementById("btn").addEventListener("click", login);
+    document.getElementById("pw").addEventListener("keydown", (e) => {
+      if(e.key === "Enter") login();
+    });
+  </script>
+</body>
+</html>
