@@ -1,10 +1,4 @@
-/* programmi-personalizzati/data.js
-   Mappa: HASH_PASSWORD -> pagina programma allievo
-   (non mettere qui password in chiaro)
-*/
-
 window.RS_PROGRAMMI = {
-  // ESEMPIO (poi li sostituiamo con i tuoi hash reali)
-  // "hash_sha256_in_esadecimale": "programmi/nome-cognome.html"
-  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": "programmi/esempio-allievo.html"
+  "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3": "programmi/cora-massimo.html"
 };
+
