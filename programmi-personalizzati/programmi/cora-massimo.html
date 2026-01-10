@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -26,6 +27,7 @@
     }
     .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
 
+    /* top */
     .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
     .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
     .back:hover{opacity:1}
@@ -37,6 +39,7 @@
       white-space:nowrap;
     }
 
+    /* cards */
     .card{
       background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card);
       border:1px solid var(--border);
@@ -68,6 +71,7 @@
       font-weight:900;
     }
 
+    /* label stile home */
     .section-label{
       font-size:13px;
       text-transform:uppercase;
@@ -76,10 +80,12 @@
       margin:22px 2px 10px;
     }
 
+    /* generic content */
     .content{font-size:14px; line-height:1.45;}
     .content p{margin:10px 0}
     .content strong{font-weight:900}
 
+    /* scheda atleta grid */
     .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
     .mini{
       border:1px solid var(--border);
@@ -87,9 +93,16 @@
       background:#050b18;
       padding:12px;
     }
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
+    .mini .k{
+      font-size:11px;
+      color:var(--text-muted);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
     .mini .v{font-size:14px; line-height:1.35}
 
+    /* accordion generic */
     details.block{
       border:1px solid var(--border);
       border-radius:16px;
@@ -112,6 +125,7 @@
     details[open] .chev{transform:rotate(45deg)}
     .block-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
 
+    /* weeks - stessa struttura programmi standard */
     details.week{
       border:1px solid var(--border);
       border-radius:16px;
@@ -164,7 +178,7 @@
 </head>
 
 <body>
-  <!-- 🔒 LOCK -->
+  <!-- 🔒 LOCK: protegge anche il link diretto -->
   <div class="lock" id="lock">
     <div class="wrap">
       <div class="card">
@@ -187,13 +201,14 @@
     </div>
   </div>
 
+  <!-- APP -->
   <div class="app" id="app">
     <div class="top">
       <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
       <div class="pill">🟧 Runner’s School Italia</div>
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER ALLIEVO -->
     <div class="card">
       <h1>📄 Programma personalizzato · <span id="nomeAllievo">Corà Massimo</span></h1>
       <p class="meta">
@@ -210,113 +225,96 @@
       </div>
     </div>
 
-    <!-- ===================== SCHEDA ALLIEVO (DOMANDE MODULO) ===================== -->
-    <div class="section-label">Scheda allievo (questionario BASIC)</div>
-
-    <!-- RIASSUNTO VELOCE -->
+    <!-- ===================== SCHEDA ATLETA (SINTESI) ===================== -->
+    <div class="section-label">Scheda atleta</div>
     <div class="card">
       <div class="grid">
         <div class="mini">
-          <div class="k">Cognome e nome</div>
-          <div class="v">Corà Massimo</div>
+          <div class="k">Dati</div>
+          <div class="v">Anno: …<br>Altezza: … cm · Peso: … kg</div>
         </div>
+
         <div class="mini">
-          <div class="k">Anno di nascita</div>
+          <div class="k">Livello di partenza</div>
+          <div class="v">Percorso: …<br>Allenamento attuale: …</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Disponibilità</div>
+          <div class="v">Giorni/sett: …<br>Uscite running: …</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Lungo abituale</div>
+          <div class="v">Km uscita più lunga: …<br>Tempo medio: …</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Background (ultimi 2 anni)</div>
           <div class="v">…</div>
         </div>
+
         <div class="mini">
-          <div class="k">Peso</div>
-          <div class="v">… kg</div>
+          <div class="k">Altri sport</div>
+          <div class="v">…</div>
         </div>
+
         <div class="mini">
-          <div class="k">Altezza</div>
-          <div class="v">… cm</div>
+          <div class="k">Salute / infortuni</div>
+          <div class="v">…</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Dati prestativi</div>
+          <div class="v">5 km migliore: … (ND se non sa)</div>
         </div>
       </div>
-
-      <details class="block">
-        <summary>🏃‍♂️ Altri sport oltre la corsa? <span class="chev"></span></summary>
-        <div class="block-content">
-          <p><strong>Fai altri sport oltre la corsa?</strong><br>…</p>
-          <p><strong>Dimmi cosa</strong><br>…</p>
-        </div>
-      </details>
-
-      <details class="block">
-        <summary>🧭 Vita sportiva ultimi 2 anni <span class="chev"></span></summary>
-        <div class="block-content">
-          <p><strong>Descrivi brevemente la tua vita sportiva negli ultimi 2 anni</strong><br>…</p>
-        </div>
-      </details>
-
-      <details class="block">
-        <summary>🩺 Salute / infortuni <span class="chev"></span></summary>
-        <div class="block-content">
-          <p><strong>Hai qualche problema di salute o infortunio importante da segnalare?</strong><br>…</p>
-          <p><strong>Altre cose che vuoi segnalarci</strong><br>…</p>
-        </div>
-      </details>
-
-      <details class="block">
-        <summary>🚦 Da dove vuoi partire? <span class="chev"></span></summary>
-        <div class="block-content">
-          <p><strong>Da dove vuoi partire?</strong><br>…</p>
-          <p><strong>Grado di allenamento attuale</strong><br>…</p>
-        </div>
-      </details>
-
-      <details class="block">
-        <summary>📆 Disponibilità settimanale <span class="chev"></span></summary>
-        <div class="block-content">
-          <p><strong>Quanti giorni a settimana sei disposto a allenarti nella corsa?</strong><br>…</p>
-          <p><strong>Quante uscite a settimana riesci a fare come allenamento running?</strong><br>…</p>
-          <p><strong>Quanti km fai nelle tue uscite più lunghe abituali?</strong><br>…</p>
-        </div>
-      </details>
     </div>
 
-    <!-- ===================== OBIETTIVI (DOMANDE MODULO) ===================== -->
+    <!-- ===================== OBIETTIVI ===================== -->
     <div class="section-label">Obiettivi del quadrimestre</div>
     <div class="card content">
-      <p><strong>🎯 Qual è il tuo obiettivo per questo quadrimestre?</strong><br>…</p>
+      <p><strong>🎯 Obiettivo principale</strong><br>…</p>
 
-      <p><strong>🏁 Se sai già quale gara vuoi come obiettivo</strong><br>
-        • Nome gara: …<br>
-        • Data: …<br>
-        • Distanza: …
+      <p><strong>✅ Obiettivi secondari (max 3)</strong><br>
+        • …<br>
+        • …<br>
+        • …
       </p>
 
-      <p><strong>🧠 Che obiettivo vuoi darti in questo percorso?</strong><br>
-        (es. imparare un metodo, costanza, migliorare ritmo, arrivare a 10 km continui…)<br>
-        …
+      <p><strong>🏁 Gara target (se presente)</strong><br>
+        Gara: … · Data: … · Distanza: … · Target: …
       </p>
 
-      <p><strong>📌 Eri già seguito con il pacchetto Basic o è il primo quadrimestre?</strong><br>…</p>
+      <p><strong>📌 Priorità del coach</strong><br>…</p>
 
-      <p><strong>🗒️ Com’è andata nello scorso quadrimestre?</strong><br>
-        (se hai già seguito: cosa ha funzionato / difficoltà / costanza…)<br>
-        …
+      <p><strong>📊 Come lo misuriamo</strong><br>
+        • Costanza (n. sedute/sett)<br>
+        • Rispetto intensità/recuperi<br>
+        • Test / gara / sensazioni
       </p>
     </div>
 
-    <!-- ===================== PARAMETRI PRESTATIVI (DOMANDE MODULO) ===================== -->
-    <div class="section-label">Dati prestativi</div>
-    <div class="card content">
-      <p><strong>⏱️ Ritmo migliore sui 5 km</strong><br>
-        (ritmo al km oppure tempo totale, se non sai scrivi “NON SO”)<br>
-        …
-      </p>
-
-      <p><strong>📈 Nota coach</strong><br>
-        (qui ci metti tu: punti forti / punti deboli / cosa tenere d’occhio)<br>
-        …
+    <!-- ===================== NOTE COACH (PRIVATE) ===================== -->
+    <div class="section-label">Note coach</div>
+    <div class="card">
+      <details class="block">
+        <summary>📝 Note coach (riservate) <span class="chev"></span></summary>
+        <div class="block-content">
+          <p><strong>Punti forti</strong><br>…</p>
+          <p><strong>Punti deboli / attenzione</strong><br>…</p>
+          <p><strong>Cose da evitare</strong><br>…</p>
+          <p><strong>Indicazioni chiave per il quadrimestre</strong><br>…</p>
+        </div>
+      </details>
+      <p class="footnote">
+        (Questa sezione è utile per te: la puoi usare come promemoria tecnico durante gli aggiornamenti.)
       </p>
     </div>
 
     <!-- ===================== SETTIMANE ===================== -->
     <div class="section-label" id="settimane">Settimane (15)</div>
 
-    <!-- Settimana 1 (CHIUSA) -->
     <details class="week" data-start="2026-01-12" data-end="2026-01-18">
       <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
       <div class="week-content">
@@ -337,7 +335,6 @@
       </div>
     </details>
 
-    <!-- ... continua fino a 15 (uguale a prima, stessi blocchi) -->
     <details class="week" data-start="2026-01-26" data-end="2026-02-01">
       <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio–1 febbraio</span></summary>
       <div class="week-content"><p><strong>👥 Collettivo</strong><br>…</p><p><strong>🅰️ A1</strong><br>…</p><p><strong>🅱️ A2</strong><br>…</p><p><strong>🆎 A3</strong><br>…</p></div>
@@ -423,6 +420,7 @@
     function showApp(){ lock.style.display="none"; app.style.display="block"; }
     function showLock(){ lock.style.display="block"; app.style.display="none"; }
 
+    // se hash non impostato, non blocchiamo (utile mentre stai costruendo)
     if(!PAGE_HASH || PAGE_HASH === "INCOLLA_QUI_HASH_ALLIEVO"){
       showApp();
     } else if(localStorage.getItem(key) === "1"){
@@ -455,4 +453,3 @@
   </script>
 </body>
 </html>
-
