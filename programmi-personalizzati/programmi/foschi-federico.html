@@ -270,11 +270,12 @@
       </p>
     </div>
 
-    <!-- ===================== RITMI DI RIFERIMENTO ===================== -->
+    <!-- ===================== RITMI DI RIFERIMENTO (AUTO) ===================== -->
     <div class="section-label">Ritmi di riferimento</div>
     <div class="card content">
       <p>
-        Inserisci il tuo <strong>miglior ritmo sui 5 km</strong> (min/km), ad esempio <strong>5:30</strong>.
+        <strong>Ritmo 5 km di riferimento</strong> (impostato dal coach).<br>
+        Se vuoi, puoi modificarlo al volo (formati accettati: <strong>5:30</strong>, <strong>5'30</strong>, <strong>5,30</strong>, <strong>5:30/km</strong>).
       </p>
 
       <input id="ritmo5k" class="ritmi-input" type="text" placeholder="es. 5:30" inputmode="numeric" />
@@ -300,6 +301,171 @@
         Calcolo: RG = 5 km + 8″ · RM = RG + 20″ · RA = RG + 40″ · RL = RG + 1’00″ · RD = RG + 1’20″.
       </p>
     </div>
+
+    <!-- ===================== SETTIMANE (INC0LLA QUI LE TUE 15 SETTIMANE) ===================== -->
+    <div class="section-label" id="settimane">Settimane</div>
+    <div class="card content">
+      <p>Qui sotto trovi il programma settimanale. Segui l’ordine delle sedute e rispetta i recuperi.</p>
+      <p class="footnote">👇 Incolla qui le 15 settimane dal tuo PDF/programma standard adattato.</p>
+
+      <!-- ESEMPIO (puoi cancellare quando incolli le tue settimane) -->
+      <details class="week">
+        <summary>
+          <span class="week-title">Settimana 1</span>
+          <span class="week-dates">12–18 gennaio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>Allenamento 1</strong><br>…</p>
+          <p><strong>Allenamento 2</strong><br>…</p>
+          <p><strong>Allenamento 3</strong><br>…</p>
+        </div>
+      </details>
+      <!-- /ESEMPIO -->
+    </div>
+  </div>
+
+  <script>
+    /* =========================
+       PASSWORD / LOCK
+       ========================= */
+    const LOCK_KEY = "rs_lock_ok_programma_personalizzato";
+    const HASH_OK = "875d308906bc766b5e0eab6f844940ef8ddd36b2754df8b084d23be8416a8bfe"; // FosFed.2026
+
+    const lockEl = document.getElementById("lock");
+    const appEl = document.getElementById("app");
+    const pwEl = document.getElementById("pw");
+    const unlockBtn = document.getElementById("unlock");
+    const msgEl = document.getElementById("lockMsg");
+
+    function showLock(){
+      lockEl.style.display = "block";
+      appEl.style.display = "none";
+      setTimeout(() => pwEl && pwEl.focus(), 50);
+    }
+    function hideLock(){
+      lockEl.style.display = "none";
+      appEl.style.display = "block";
+    }
+
+    async function sha256(text){
+      const enc = new TextEncoder().encode(text);
+      const buf = await crypto.subtle.digest("SHA-256", enc);
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+    }
+
+    async function tryUnlock(){
+      const pw = (pwEl.value || "").trim();
+      if(!pw) return;
+      const h = await sha256(pw);
+      if(h === HASH_OK){
+        localStorage.setItem(LOCK_KEY, "1");
+        msgEl.style.display = "none";
+        hideLock();
+      }else{
+        msgEl.style.display = "block";
+      }
+    }
+
+    // init lock
+    if(localStorage.getItem(LOCK_KEY) === "1"){
+      hideLock();
+    }else{
+      showLock();
+    }
+
+    unlockBtn.addEventListener("click", (e) => { e.preventDefault(); tryUnlock(); });
+    pwEl.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){ e.preventDefault(); tryUnlock(); }
+    });
+
+    /* =========================
+       RITMI DI RIFERIMENTO (AUTO)
+       ========================= */
+
+    // ======= IMPOSTAZIONE COACH (compila tu) =======
+    const PACE_5K_DEFAULT = "5:30"; // <-- QUI metti il suo ritmo 5km (es. "5:12", "4:58", "6:05")
+    // ===============================================
+
+    function parsePaceToSeconds(t) {
+      const raw = (t || "").trim();
+      if (!raw) return null;
+
+      // accetta: 5:30 | 5.30 | 5,30 | 5'30 | 5’30 | 5:30/km | 5 30
+      const cleaned = raw
+        .toLowerCase()
+        .replace("/km", "")
+        .replace("min/km", "")
+        .replace(/\s+/g, "")
+        .replace("’", "'");
+
+      const m = cleaned.match(/^(\d{1,2})[:\.,'](\d{1,2})$/);
+      if (!m) return null;
+
+      const min = parseInt(m[1], 10);
+      const sec = parseInt(m[2], 10);
+
+      if (Number.isNaN(min) || Number.isNaN(sec)) return null;
+      if (sec < 0 || sec > 59 || min < 0) return null;
+
+      return min * 60 + sec;
+    }
+
+    function secondsToPace(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return m + ":" + (s < 10 ? "0" : "") + s;
+    }
+
+    function updateRitmiFrom5k(pace5kSec) {
+      // RG = 5km + 8"
+      const RG = pace5kSec + 8;
+
+      const ritmi = [
+        ["RG", RG],
+        ["RM", RG + 20],
+        ["RA", RG + 40],
+        ["RL", RG + 60],
+        ["RD", RG + 80],
+      ];
+
+      const rows = document.querySelectorAll("#ritmiTable tr");
+      for (let i = 0; i < ritmi.length; i++) {
+        rows[i].children[2].innerText = secondsToPace(ritmi[i][1]);
+      }
+    }
+
+    // Auto-calcolo all'apertura pagina (da valore coach)
+    window.addEventListener("DOMContentLoaded", () => {
+      const secDefault = parsePaceToSeconds(PACE_5K_DEFAULT);
+      const input = document.getElementById("ritmo5k");
+
+      if (input) {
+        // Mostro sempre il valore (così lo vedi sempre)
+        input.value = PACE_5K_DEFAULT;
+      }
+
+      if (secDefault !== null) {
+        updateRitmiFrom5k(secDefault);
+      }
+    });
+
+    // Se vuoi modificarlo al volo (facoltativo)
+    const ritmoInput = document.getElementById("ritmo5k");
+    if (ritmoInput) {
+      ritmoInput.addEventListener("input", function () {
+        const sec = parsePaceToSeconds(this.value);
+        if (sec === null) return;
+        updateRitmiFrom5k(sec);
+      });
+      ritmoInput.addEventListener("change", function () {
+        const sec = parsePaceToSeconds(this.value);
+        if (sec === null) return;
+        updateRitmiFrom5k(sec);
+      });
+    }
+  </script>
+</body>
+</html>
 
     <!-- ===================== SETTIMANE ===================== -->
     <div class="section-label" id="settimane">Settimane (15)</div>
