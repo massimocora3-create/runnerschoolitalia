@@ -13,3 +13,6 @@ window.RS_PROGRAMMI = {
 window.RS_PROGRAMMI = {
   "eff35831955948096a516ccc85b19d5e603673be01355e7df329ca445ce25a9d": "programmi/pasetti-luca.html"
 };
+window.RS_PROGRAMMI = {
+  "eff35831955948096a516ccc85b19d5e603673be01355e7df329ca445ce25a9d": "programmi/brugnara-ilenia.html"
+};
