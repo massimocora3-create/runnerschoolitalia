@@ -14,5 +14,8 @@ window.RS_PROGRAMMI = {
   "eff35831955948096a516ccc85b19d5e603673be01355e7df329ca445ce25a9d": "programmi/pasetti-luca.html"
 };
 window.RS_PROGRAMMI = {
-  "eff35831955948096a516ccc85b19d5e603673be01355e7df329ca445ce25a9d": "programmi/brugnara-ilenia.html"
+  "0a11b3ff42c12c6e8da895b49512b459cde6322b35d572ecfae0b3e91007f658": "programmi/brugnara-ilenia.html"
+};
+window.RS_PROGRAMMI = {
+  "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b": "programmi/mazzini-mauro.html"
 };
