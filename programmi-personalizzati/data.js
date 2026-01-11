@@ -6,4 +6,5 @@ window.RS_PROGRAMMI = {
   "0a11b3ff42c12c6e8da895b49512b459cde6322b35d572ecfae0b3e91007f658": "programmi/brugnara-ilenia.html",
   "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b": "programmi/mazzini-mauro.html" ,
   "61f793834b9901590637cb81fec93511f2660a676dc4c9857fe6e2b317ae970b": "programmi/travasoni-beatrice.html" ,
+  "df125b3e38594a57bf855890ddff6c24d5297e1afb47e9936cff69c0642bcf18": "programmi/siglieri-martina.html" ,
 };
