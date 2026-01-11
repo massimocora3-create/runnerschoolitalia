@@ -8,4 +8,5 @@ window.RS_PROGRAMMI = {
   "61f793834b9901590637cb81fec93511f2660a676dc4c9857fe6e2b317ae970b": "programmi/travasoni-beatrice.html" ,
   "df125b3e38594a57bf855890ddff6c24d5297e1afb47e9936cff69c0642bcf18": "programmi/siglieri-martina.html" ,
   "5a61fc82e272c9ad3264163aaafbc4dc3a91b4acbeaa49d040f48e7e83b937c1": "programmi/valastro-simone.html",
+  "28ee45c27114887b4ba738ab3824c46ae142e7c006de1c2bf72d661f1555f6f3": "programmi/rossi-stefano.html",
 };
