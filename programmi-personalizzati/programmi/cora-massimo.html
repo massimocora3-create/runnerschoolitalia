@@ -402,54 +402,73 @@
 
   </div>
 
-  <script>
-    // 🔒 LOCK: incolla qui l'hash SHA-256 della password di questo allievo
-    // Deve essere IDENTICO a quello messo in data.js per questo allievo.
-    const PAGE_HASH = "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3";
+<script>
+  // 🔒 LOCK: incolla qui l'hash SHA-256 della password di questo allievo
+  // Deve essere IDENTICO a quello messo in data.js per questo allievo.
+  const PAGE_HASH = "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3"; // Esempio di hash
 
-    const lock = document.getElementById("lock");
-    const app = document.getElementById("app");
-    const key = "rs_pp_ok_" + (PAGE_HASH || "").slice(0,12);
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const key = "rs_pp_ok_" + (PAGE_HASH || "").slice(0,12);
 
-    async function sha256hex(text){
-      const enc = new TextEncoder();
-      const data = enc.encode(text);
-      const hash = await crypto.subtle.digest("SHA-256", data);
-      return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2,"0")).join("");
+  async function sha256hex(text){
+    const enc = new TextEncoder();
+    const data = enc.encode(text);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+    return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2,"0")).join("");
+  }
+
+  function showApp(){ 
+    lock.style.display="none"; 
+    app.style.display="block"; 
+  }
+
+  function showLock(){ 
+    lock.style.display="block"; 
+    app.style.display="none"; 
+  }
+
+  // se hash non impostato, non blocchiamo (utile mentre stai costruendo)
+  if(!PAGE_HASH || PAGE_HASH === "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3"){
+    showApp();
+  } else if(localStorage.getItem(key) === "1"){
+    showApp();
+  } else {
+    showLock();
+  }
+
+  document.getElementById("unlock").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const pw = (document.getElementById("pw").value || "").trim();
+    const msg = document.getElementById("lockMsg");
+    msg.style.display = "none";
+
+    if(!pw){ 
+      msg.textContent="Inserisci la password."; 
+      msg.style.display="block"; 
+      return; 
     }
-    function showApp(){ lock.style.display="none"; app.style.display="block"; }
-    function showLock(){ lock.style.display="block"; app.style.display="none"; }
 
-    // se hash non impostato, non blocchiamo (utile mentre stai costruendo)
-    if(!PAGE_HASH || PAGE_HASH === "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3"){
-      showApp();
-    } else if(localStorage.getItem(key) === "1"){
+    // Calcola l'hash della password inserita
+    const h = await sha256hex(pw);
+    
+    // Debug: Visualizza l'hash calcolato nella console
+    console.log("Hash calcolato: ", h);
+    
+    // Confronta l'hash della password con quello registrato
+    if(h === PAGE_HASH){
+      localStorage.setItem(key, "1");
       showApp();
     } else {
-      showLock();
+      msg.textContent="Password errata. Riprova.";
+      msg.style.display="block";
     }
+  });
 
-    document.getElementById("unlock").addEventListener("click", async (e) => {
-      e.preventDefault();
-      const pw = (document.getElementById("pw").value || "").trim();
-      const msg = document.getElementById("lockMsg");
-      msg.style.display = "none";
+  document.getElementById("pw").addEventListener("keydown", (e) => {
+    if(e.key === "Enter") document.getElementById("unlock").click();
+  });
+</script>
 
-      if(!pw){ msg.textContent="Inserisci la password."; msg.style.display="block"; return; }
-
-      const h = await sha256hex(pw);
-      if(h === PAGE_HASH){
-        localStorage.setItem(key, "1");
-        showApp();
-      } else {
-        msg.textContent="Password errata. Riprova.";
-        msg.style.display="block";
-      }
-    });
-
-    document.getElementById("pw").addEventListener("keydown", (e) => {
-      if(e.key === "Enter") document.getElementById("unlock").click();
-    });
-  </script>
 </body>
 </html>
