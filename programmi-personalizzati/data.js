@@ -10,4 +10,5 @@ window.RS_PROGRAMMI = {
   "5a61fc82e272c9ad3264163aaafbc4dc3a91b4acbeaa49d040f48e7e83b937c1": "programmi/valastro-simone.html",
   "28ee45c27114887b4ba738ab3824c46ae142e7c006de1c2bf72d661f1555f6f3": "programmi/rossi-stefano.html",
   "a773ec9a8d2f65293346e8cf66156070225237b9721b438153286cf2da0a5948": "programmi/nocerino-giovanna.html",
-};
+  "ceeff88c9e89f863ba080c11d14bbae59d8fda6a9a99b452d297df1a7baed514": "programmi/castellimarialucia.html
+    };
