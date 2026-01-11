@@ -24,4 +24,5 @@ window.RS_PROGRAMMI = {
   "b72d959af4c68859b65250bfa591c4f630fd0df678c07ff5c20e4ad202b242a5": "programmi/fortini-annalisa.html",
   "d2ca2196226f18178fc94956d5e2851b5a0bd2752c280c129f5cd59a13cd61c3": "programmi/pagliarin-nicole.html",
   "70e327ff7f9fbc5d05d7b6b1bd7e832486ce07628b9c3eb367f0be6cb7b226f2": "programmi/maroni-elisa.html",
-    };
+  "f0c06b2437ffaee2de11ca2e35f405ce352809e7cdf53b78b7548c11554e5262": "programmi/ghelli-roberto.html",
+};
