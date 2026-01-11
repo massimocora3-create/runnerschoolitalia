@@ -4,12 +4,13 @@ window.RS_PROGRAMMI = {
   "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad": "programmi/gilli-costanza.html",
   "eff35831955948096a516ccc85b19d5e603673be01355e7df329ca445ce25a9d": "programmi/pasetti-luca.html",
   "0a11b3ff42c12c6e8da895b49512b459cde6322b35d572ecfae0b3e91007f658": "programmi/brugnara-ilenia.html",
-  "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b": "programmi/mazzini-mauro.html" ,
-  "61f793834b9901590637cb81fec93511f2660a676dc4c9857fe6e2b317ae970b": "programmi/travasoni-beatrice.html" ,
-  "df125b3e38594a57bf855890ddff6c24d5297e1afb47e9936cff69c0642bcf18": "programmi/siglieri-martina.html" ,
+  "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b": "programmi/mazzini-mauro.html",
+  "61f793834b9901590637cb81fec93511f2660a676dc4c9857fe6e2b317ae970b": "programmi/travasoni-beatrice.html",
+  "df125b3e38594a57bf855890ddff6c24d5297e1afb47e9936cff69c0642bcf18": "programmi/siglieri-martina.html",
   "5a61fc82e272c9ad3264163aaafbc4dc3a91b4acbeaa49d040f48e7e83b937c1": "programmi/valastro-simone.html",
   "28ee45c27114887b4ba738ab3824c46ae142e7c006de1c2bf72d661f1555f6f3": "programmi/rossi-stefano.html",
   "a773ec9a8d2f65293346e8cf66156070225237b9721b438153286cf2da0a5948": "programmi/nocerino-giovanna.html",
-  "ceeff88c9e89f863ba080c11d14bbae59d8fda6a9a99b452d297df1a7baed514": "programmi/castelli-marialucia.html ,
-  "1abce5b15020142dc2a088f54bb20fa60eb9368afcaa220e97e48159a931e8a4": "programmi/gamberoni-davide.html ,    
-  };
+  "ceeff88c9e89f863ba080c11d14bbae59d8fda6a9a99b452d297df1a7baed514": "programmi/castelli-marialucia.html",
+  "1abce5b15020142dc2a088f54bb20fa60eb9368afcaa220e97e48159a931e8a4": "programmi/gamberoni-davide.html"
+};
+
