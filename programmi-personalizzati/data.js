@@ -11,17 +11,17 @@ window.RS_PROGRAMMI = {
   "28ee45c27114887b4ba738ab3824c46ae142e7c006de1c2bf72d661f1555f6f3": "programmi/rossi-stefano.html",
   "a773ec9a8d2f65293346e8cf66156070225237b9721b438153286cf2da0a5948": "programmi/nocerino-giovanna.html",
   "ceeff88c9e89f863ba080c11d14bbae59d8fda6a9a99b452d297df1a7baed514": "programmi/castelli-marialucia.html",
-  "1abce5b15020142dc2a088f54bb20fa60eb9368afcaa220e97e48159a931e8a4": "programmi/gamberoni-davide.html"
-  "228e903fef534d59a64623d8af22ce448434f2d7eb55167c364ecc7eadf15ab1": "programmi/marchesini-simone.html"
-  "6616b87f73ff7456b3870de4e1269c3ebf462f021922bd0b2fc48c315c328270": "programmi/tavolari-christophe.html"
-  "b7032f5b96f97912fd1ef2a14f6bfd24c7911c102e0dccb7a8a889ccc3b15048": "programmi/viazzi-umberto.html"
-  "2651e2bd8ff6c24d01d0bb06f65523ecc363baa90767ff100572822f8ee2a123": "programmi/bertelli-gionata.html"
-  "95fc03c3c513512a0a977eecbbf4599d18d21686316ade6084a62abec7838cf1": "programmi/mazzette-cristina.html"
-  "3defe799173a45e7ef9d9483cc84ad44730f9e7a892a90e5c886c8e1c56da31d": "programmi/boscolo-simone.html"
-  "9579068c9955a032b561aa0aefa0820133ec4d40a9e40decbdd7ad29aad9c171": "programmi/uccellatori-lisa.html"
-  "d10367ceb589d17e528b75fbd13f9af93413c3555bf77cd242f11c5604639ec4": "programmi/fezzi-maddalena.html"
-  "51343dbed57943f8236b82abd051566bb4438ac8605674ad6c4d117dd0dcdc52": "programmi/gabriele-nadia.html"
-  "b72d959af4c68859b65250bfa591c4f630fd0df678c07ff5c20e4ad202b242a5": "programmi/fortini-annalisa.html"
-  "d2ca2196226f18178fc94956d5e2851b5a0bd2752c280c129f5cd59a13cd61c3": "programmi/pagliarin-nicole.html"
-  "70e327ff7f9fbc5d05d7b6b1bd7e832486ce07628b9c3eb367f0be6cb7b226f2": "programmi/maroni-elisa.html"
+  "1abce5b15020142dc2a088f54bb20fa60eb9368afcaa220e97e48159a931e8a4": "programmi/gamberoni-davide.html",
+  "228e903fef534d59a64623d8af22ce448434f2d7eb55167c364ecc7eadf15ab1": "programmi/marchesini-simone.html",
+  "6616b87f73ff7456b3870de4e1269c3ebf462f021922bd0b2fc48c315c328270": "programmi/tavolari-christophe.html",
+  "b7032f5b96f97912fd1ef2a14f6bfd24c7911c102e0dccb7a8a889ccc3b15048": "programmi/viazzi-umberto.html",
+  "2651e2bd8ff6c24d01d0bb06f65523ecc363baa90767ff100572822f8ee2a123": "programmi/bertelli-gionata.html",
+  "95fc03c3c513512a0a977eecbbf4599d18d21686316ade6084a62abec7838cf1": "programmi/mazzette-cristina.html",
+  "3defe799173a45e7ef9d9483cc84ad44730f9e7a892a90e5c886c8e1c56da31d": "programmi/boscolo-simone.html",
+  "9579068c9955a032b561aa0aefa0820133ec4d40a9e40decbdd7ad29aad9c171": "programmi/uccellatori-lisa.html",
+  "d10367ceb589d17e528b75fbd13f9af93413c3555bf77cd242f11c5604639ec4": "programmi/fezzi-maddalena.html",
+  "51343dbed57943f8236b82abd051566bb4438ac8605674ad6c4d117dd0dcdc52": "programmi/gabriele-nadia.html",
+  "b72d959af4c68859b65250bfa591c4f630fd0df678c07ff5c20e4ad202b242a5": "programmi/fortini-annalisa.html",
+  "d2ca2196226f18178fc94956d5e2851b5a0bd2752c280c129f5cd59a13cd61c3": "programmi/pagliarin-nicole.html",
+  "70e327ff7f9fbc5d05d7b6b1bd7e832486ce07628b9c3eb367f0be6cb7b226f2": "programmi/maroni-elisa.html",
     };
