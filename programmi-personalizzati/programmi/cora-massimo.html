@@ -405,7 +405,7 @@
   <script>
     // 🔒 LOCK: incolla qui l'hash SHA-256 della password di questo allievo
     // Deve essere IDENTICO a quello messo in data.js per questo allievo.
-    const PAGE_HASH = "INCOLLA_QUI_HASH_ALLIEVO";
+    const PAGE_HASH = "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3";
 
     const lock = document.getElementById("lock");
     const app = document.getElementById("app");
@@ -421,7 +421,7 @@
     function showLock(){ lock.style.display="block"; app.style.display="none"; }
 
     // se hash non impostato, non blocchiamo (utile mentre stai costruendo)
-    if(!PAGE_HASH || PAGE_HASH === "INCOLLA_QUI_HASH_ALLIEVO"){
+    if(!PAGE_HASH || PAGE_HASH === "c2100c63b2bf36cff60fd5c6ccbf6dcfb128400896d4722d67c9c4bddb5182e3"){
       showApp();
     } else if(localStorage.getItem(key) === "1"){
       showApp();
