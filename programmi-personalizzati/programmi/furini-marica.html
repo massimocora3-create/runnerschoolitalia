@@ -70,25 +70,30 @@
 </head>
 
 <body>
-  <!-- 🔒 LOCK -->
-  <div class="lock" id="lock">
-    <div class="wrap">
-      <div class="card">
-        <div class="pill">🔒 Area riservata allievo</div>
-        <h1 style="margin-top:10px">Inserisci la password</h1>
-        <p class="meta">
-          Prima volta: può essere richiesta anche se sei entrato dalla pagina principale.
-          Poi non verrà più chiesta su questo dispositivo.
-        </p>
-        <input id="pw" type="password" placeholder="Password…" autocomplete="current-password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">Entra</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">Torna indietro</a>
-        </div>
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-      </div>
-    </div>
-  </div>
+  <script>
+    const PAGE_HASH = "18762998b8f1116c1372d32813e1bcedc1b7fa1ea17d3a52dc893081a7799f4f";
+    const lock = document.getElementById("lock");
+    const app = document.getElementById("app");
+    const key = "FurMar.2026";
+
+    // Mostra il lock all'avvio
+    lock.style.display = "block";
+    app.style.display = "none";
+
+    document.getElementById("unlock").addEventListener("click", function(e){
+      e.preventDefault();
+      const inputPassword = document.getElementById("pw").value.trim();
+      if (inputPassword === key) {
+        lock.style.display = "none";
+        app.style.display = "block";
+        document.getElementById("lockMsg").style.display = "none";
+      } else {
+        document.getElementById("lockMsg").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
 
   <!-- APP -->
   <div class="app" id="app">
