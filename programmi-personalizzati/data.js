@@ -26,6 +26,6 @@ window.RS_PROGRAMMI = {
   "70e327ff7f9fbc5d05d7b6b1bd7e832486ce07628b9c3eb367f0be6cb7b226f2": "programmi/maroni-elisa.html",
   "f0c06b2437ffaee2de11ca2e35f405ce352809e7cdf53b78b7548c11554e5262": "programmi/ghelli-roberto.html",
   "18762998b8f1116c1372d32813e1bcedc1b7fa1ea17d3a52dc893081a7799f4f": "programmi/furini-marica.html",
-  "b0015d087ad65be81b9ffa081ddb9ec24c73910a736b1d3fc86b2153c1f9d6eb": "programmi/gamberoni-enrico.html"
-  "4dd382a5837d325093cfe2ee301f0e9786e58dd8f5db330e05d848032c8e1719": "programmi/favaron-vittorio.html"
+  "b0015d087ad65be81b9ffa081ddb9ec24c73910a736b1d3fc86b2153c1f9d6eb": "programmi/gamberoni-enrico.html",
+  "4dd382a5837d325093cfe2ee301f0e9786e58dd8f5db330e05d848032c8e1719": "programmi/favaron-vittorio.html",
 };
