@@ -539,12 +539,15 @@ if (inputPassword === key) {
     localStorage.setItem(STORAGE_KEY, "ok");
   } catch (e) {}
 
-  // 🔁 REDIRECT AL FILE CORRETTO (.html)
-  const correctFile = "trentini-diego.html";
-  if (!window.location.pathname.endsWith(correctFile)) {
-    window.location.replace(correctFile);
-    return;
-  }
+// 🔁 REDIRECT AL FILE CORRETTO (.html)
+const correctFile = "trentini-diego.html";
+if (!window.location.pathname.endsWith(correctFile)) {
+  window.location.replace(
+    "/runnerschoolitalia/programmi-personalizzati/programmi/" + correctFile
+  );
+  return;
+}
+
 
   lock.style.display = "none";
   lock.setAttribute("aria-hidden", "true");
