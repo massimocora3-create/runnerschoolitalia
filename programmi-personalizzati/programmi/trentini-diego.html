@@ -534,25 +534,25 @@
       app.style.display = "none";
     }
 
-    function tryUnlock(){
-      const inputPassword = (pwInput.value || "").trim();
-      if (inputPassword === key) {
-        // Salvo lo sblocco per i prossimi accessi
-        try {
-          localStorage.setItem(STORAGE_KEY, "ok");
-        } catch (e) {
-          // se localStorage non è disponibile, semplicemente non salvo
-        }
+if (inputPassword === key) {
+  try {
+    localStorage.setItem(STORAGE_KEY, "ok");
+  } catch (e) {}
 
-        lock.style.display = "none";
-        lock.setAttribute("aria-hidden", "true");
-        app.style.display = "block";
-        lockMsg.style.display = "none";
-        pwInput.value = "";
-      } else {
-        lockMsg.style.display = "block";
-      }
-    }
+  // 🔁 REDIRECT AL FILE CORRETTO (.html)
+  const correctFile = "trentini-diego.html";
+  if (!window.location.pathname.endsWith(correctFile)) {
+    window.location.replace(correctFile);
+    return;
+  }
+
+  lock.style.display = "none";
+  lock.setAttribute("aria-hidden", "true");
+  app.style.display = "block";
+  lockMsg.style.display = "none";
+  pwInput.value = "";
+}
+
 
     unlockBtn.addEventListener("click", function(e){
       e.preventDefault();
