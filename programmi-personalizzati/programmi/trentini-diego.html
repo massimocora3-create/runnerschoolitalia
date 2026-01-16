@@ -514,6 +514,10 @@
   const pwInput = document.getElementById("pw");
   const lockMsg = document.getElementById("lockMsg");
 
+  // 🔁 FILE CORRETTO DOPO LO SBLOCCO
+  const CORRECT_FILE = "trentini-diego.html";
+  const CORRECT_PATH = "/runnerschoolitalia/programmi-personalizzati/programmi/" + CORRECT_FILE;
+
   // Funzione di utilità: mostra l'app e nasconde il lock
   function showApp() {
     lock.style.display = "none";
@@ -532,8 +536,13 @@
   }
 
   if (alreadyUnlocked) {
-    // Mostro direttamente l'app
-    showApp();
+    // Se siamo già sulla pagina giusta → mostro l'app
+    if (window.location.pathname === CORRECT_PATH) {
+      showApp();
+    } else {
+      // Se per qualche motivo siamo su un path sbagliato, porto alla pagina giusta
+      window.location.replace(CORRECT_PATH);
+    }
   } else {
     // Mostro la schermata di lock
     lock.style.display = "block";
@@ -551,17 +560,13 @@
         localStorage.setItem(STORAGE_KEY, "ok");
       } catch (e) {}
 
-      // 🔁 REDIRECT AL FILE CORRETTO (.html)
-      const correctFile = "trentini-diego.html"; // ✅ NIENTE "trentino" e con .html
-      const correctPath = "/runnerschoolitalia/programmi-personalizzati/programmi/" + correctFile;
-
-      // Se non siamo già sulla versione corretta, ci andiamo
-      if (window.location.pathname !== correctPath) {
-        window.location.replace(correctPath);
+      // Dopo lo sblocco vado SEMPRE al file corretto .html
+      if (window.location.pathname !== CORRECT_PATH) {
+        window.location.replace(CORRECT_PATH);
         return;
       }
 
-      // Se siamo già sulla pagina corretta, mostriamo semplicemente l'app
+      // Se sono già sulla pagina giusta, mostro semplicemente l'app
       showApp();
     } else {
       // Password errata
@@ -579,6 +584,7 @@
     if (e.key === "Enter") tryUnlock();
   });
 </script>
+
 
 
 </body>
