@@ -445,18 +445,33 @@
     showLocked();
   }
 
+  // Click sul pulsante "Sblocca"
   unlockBtn.addEventListener("click", function(e){
-    // anche senza preventDefault non navighi da nessuna parte, è un <button>
+    // Blocca QUALSIASI azione predefinita o gestione globale
+    e.preventDefault();
+    e.stopPropagation();
     tryUnlock();
   });
 
+  // Invio da tastiera nel campo password
   pwInput.addEventListener("keydown", function(e){
     if (e.key === "Enter") {
-      e.preventDefault(); // evita eventuali submit strani se il builder mette un <form> intorno
+      e.preventDefault(); // evita submit di eventuali <form> intorno
+      e.stopPropagation();
+      tryUnlock();
+    }
+  });
+
+  // Ulteriore sicurezza: se il builder ti ha messo dentro un <form>, blocchiamo il submit
+  document.addEventListener("submit", function(e){
+    if (e.target && e.target.contains(pwInput)) {
+      e.preventDefault();
+      e.stopPropagation();
       tryUnlock();
     }
   });
 </script>
+
 
 
 
