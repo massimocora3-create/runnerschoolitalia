@@ -501,7 +501,6 @@
 
 <script>
   // --- CONFIG ---
-  // Hash della pagina (usato per la chiave di salvataggio "sbloccato")
   const PAGE_HASH = "c4be2fe50b1d217c042086d4e36b9958e953580cc070ab60d8834d62e55000a2";
   const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
 
@@ -514,11 +513,7 @@
   const pwInput = document.getElementById("pw");
   const lockMsg = document.getElementById("lockMsg");
 
-  // 🔁 FILE CORRETTO DOPO LO SBLOCCO
-  const CORRECT_FILE = "trentini-diego.html";
-  const CORRECT_PATH = "/runnerschoolitalia/programmi-personalizzati/programmi/" + CORRECT_FILE;
-
-  // Funzione di utilità: mostra l'app e nasconde il lock
+  // Mostra contenuto e nasconde il lock
   function showApp() {
     lock.style.display = "none";
     lock.setAttribute("aria-hidden", "true");
@@ -527,7 +522,7 @@
     pwInput.value = "";
   }
 
-  // Controllo iniziale: se già sbloccato in passato, niente richiesta password
+  // Controllo iniziale: se già sbloccato, niente password
   let alreadyUnlocked = false;
   try {
     alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
@@ -536,54 +531,39 @@
   }
 
   if (alreadyUnlocked) {
-    // Se siamo già sulla pagina giusta → mostro l'app
-    if (window.location.pathname === CORRECT_PATH) {
-      showApp();
-    } else {
-      // Se per qualche motivo siamo su un path sbagliato, porto alla pagina giusta
-      window.location.replace(CORRECT_PATH);
-    }
+    showApp();
   } else {
-    // Mostro la schermata di lock
     lock.style.display = "block";
     lock.setAttribute("aria-hidden", "false");
     app.style.display = "none";
   }
 
-  // Funzione che verifica la password
+  // Verifica password
   function tryUnlock() {
     const inputPassword = pwInput.value.trim();
 
     if (inputPassword === key) {
-      // Salvo lo sblocco in localStorage
       try {
         localStorage.setItem(STORAGE_KEY, "ok");
       } catch (e) {}
 
-      // Dopo lo sblocco vado SEMPRE al file corretto .html
-      if (window.location.pathname !== CORRECT_PATH) {
-        window.location.replace(CORRECT_PATH);
-        return;
-      }
-
-      // Se sono già sulla pagina giusta, mostro semplicemente l'app
-      showApp();
+      showApp(); // ✅ NESSUN redirect, resti sulla stessa pagina
     } else {
-      // Password errata
       lockMsg.style.display = "block";
     }
   }
 
   // Eventi sui controlli
-  unlockBtn.addEventListener("click", function (e) {
+  unlockBtn.addEventListener("click", function(e){
     e.preventDefault();
     tryUnlock();
   });
 
-  pwInput.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") tryUnlock();
+  pwInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter") tryUnlock();
   });
 </script>
+
 
 
 
