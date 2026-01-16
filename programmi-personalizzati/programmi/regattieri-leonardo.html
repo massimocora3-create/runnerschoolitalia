@@ -79,7 +79,8 @@
 
         <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
         <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+          <!-- IMPORTANTE: button, NON <a href="#"> -->
+          <button class="btn primary" type="button" id="unlock">🔓 Sblocca</button>
           <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
         </div>
 
@@ -400,8 +401,9 @@
 
 <script>
   // --- CONFIG ---
-  const key = "FavVit.2026";                       // password in chiaro
-  const STORAGE_KEY = "rs_unlock_FavVit_2026";     // chiave per localStorage
+  // Password giusta per Leonardo:
+  const key = "RegLeo.2026";                       // password in chiaro
+  const STORAGE_KEY = "rs_unlock_RegLeo_2026";     // chiave per localStorage
 
   const lock = document.getElementById("lock");
   const app = document.getElementById("app");
@@ -444,14 +446,18 @@
   }
 
   unlockBtn.addEventListener("click", function(e){
-    e.preventDefault();
+    // anche senza preventDefault non navighi da nessuna parte, è un <button>
     tryUnlock();
   });
 
   pwInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter") tryUnlock();
+    if (e.key === "Enter") {
+      e.preventDefault(); // evita eventuali submit strani se il builder mette un <form> intorno
+      tryUnlock();
+    }
   });
 </script>
+
 
 
 </body>
