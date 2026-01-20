@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programma personalizzato</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --accent:#f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color:var(--text);
+    }
+    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
+    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
+    .back:hover{opacity:1}
+    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
+    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
+    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
+    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
+    .meta b{color:var(--text)}
+    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
+    .btn:hover{opacity:1}
+    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
+    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
+    .content{font-size:14px; line-height:1.45;}
+    .content p{margin:10px 0}
+    .content strong{font-weight:900}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
+    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
+    .mini .v{font-size:14px; line-height:1.35}
+    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
+    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
+    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
+    details.week summary::-webkit-details-marker{display:none}
+    .week-title{font-weight:900}
+    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
+    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
+    .week-content p{margin:10px 0}
+
+    /* LOCK */
+    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
+    .lock .wrap{max-width:520px;margin:0 auto;}
+    .lock .card{padding:16px}
+    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
+    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
+    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
+
+    /* Ritmi */
+    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
+    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
+    .ritmi-table tbody td{color:var(--text-muted);}
+    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
+    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
+    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
+  </style>
+</head>
+
+<body>
+
+  <!-- LOCK OVERLAY -->
+  <div class="lock" id="lock" aria-hidden="false">
+    <div class="wrap">
+      <div class="card">
+        <h1>🔒 Area riservata</h1>
+        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+
+        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
+        <div class="btnrow">
+          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+        </div>
+
+        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div class="app" id="app">
+    <div class="top">
+      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+      <div class="pill">🟧 Runner’s School Italia</div>
+    </div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Scagliarini Lucia</span></h1>
+      <p class="meta">
+        Aggiornato: <b id="aggiornatoIl">20/01/2026</b><br>
+        Preparazione per la <b>Maratona di Rimini – 19 aprile 2026</b>.<br>
+        Base di lavoro su <b>5 uscite settimanali</b>:<br>
+        • Lunedì: collettivo RS (come allieva), da fare a <b>ritmi tranquilli</b> + km extra lenti come in tabella<br>
+        • Martedì: mantenimento<br>
+        • Mercoledì: riposo<br>
+        • Giovedì: qualità<br>
+        • Venerdì: scarico<br>
+        • Domenica: lungo / lavoro di fine settimana.
+      </p>
+
+      <div class="btnrow">
+        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+      </div>
+
+      <div class="footnote">
+        Nota: questo programma è personale. Non condividere password o link con altre persone.
+      </div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card">
+      <div class="grid">
+        <div class="mini">
+          <div class="k">Nome</div>
+          <div class="v">Scagliarini Lucia<br><span style="font-size:12px;opacity:.8;">Nata il 06/03/1982</span></div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Profilo</div>
+          <div class="v">
+            Runner esperta, obiettivo maratona gestita con criterio, con la prospettiva di
+            <b>avvicinarci alle 3h30’</b> in base a come rispondi ai carichi.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Allenamenti</div>
+          <div class="v"><strong>5 uscite running / settimana</strong><br>
+            con eventuale lieve incremento chilometrico dopo le prime settimane.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Struttura settimana</div>
+          <div class="v">
+            Lunedì collettivo tecnico a ritmi tranquilli · Martedì mantenimento · Giovedì qualità ·
+            Venerdì scarico · Domenica lungo.
+          </div>
+        </div>
+
+        <div class="mini" style="grid-column:1 / -1;">
+          <div class="k">Riferimento corsa</div>
+          <div class="v">
+            RG attuale sui 10 km: <strong translate="no">4’30”–4’35”/km</strong>.<br>
+            Ripartiamo da questi ritmi per lavorare in sicurezza e costruire bene il fondo.
+          </div>
+        </div>
+
+        <div class="mini warn" style="grid-column:1 / -1;">
+          <div class="k">Obiettivo realistico</div>
+          <div class="v">
+            Obiettivo maratona attuale: <strong>avvicinarci alle 3h30’</strong>, che corrispondono a un
+            passo indicativo intorno a <strong>4'55&quot;–5'00&quot;/km</strong>.<br>
+            Il target verrà confermato o aggiustato in base alla risposta ai carichi nelle prossime settimane.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Eventi e obiettivi</div>
+    <div class="card content">
+      <p><strong>📍 Evento principale</strong><br>
+        • <strong>Rimini Marathon</strong> – 19 aprile 2026 (42,195 km)
+      </p>
+
+      <p><strong>🎯 Obiettivo di lavoro</strong><br>
+        Arrivare al via con:
+        <br>• una buona base di chilometraggio sui lunghi
+        <br>• lavori di qualità mirati sui ritmi da 10 km / medio
+        <br>• capacità di <strong>gestire il passo gara maratona</strong> senza andare fuori giri nei primi 20–25 km.
+      </p>
+
+      <p><strong>🧱 Logica del programma</strong><br>
+        Ogni settimana segue questo schema:
+        <br>• Lunedì: collettivo tecnico / salite / potenziamento, che per te va corso a <b>ritmi tranquilli</b> con km extra lenti
+        <br>• Martedì: mantenimento con progressioni e allunghi
+        <br>• Giovedì: qualità strutturata (ripetute, progressioni lunghe, combinazioni di ritmi)
+        <br>• Venerdì: scarico facile
+        <br>• Domenica: lungo (pianeggiante o collinare) o lungo con parti di qualità.
+      </p>
+    </div>
+
+    <div class="section-label">Ritmi di riferimento</div>
+    <div class="card content">
+      <p>
+        Partiamo dal tuo <strong>RG 10 km ≈ 4’30”–4’35”/km</strong>. I ritmi sotto sono indicativi e possono essere
+        leggermente adattati in base alle sensazioni e agli allenamenti.
+      </p>
+
+      <table class="ritmi-table" aria-label="Ritmi di riferimento">
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Significato</th>
+            <th>Indicazione (circa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RG</td>
+            <td>Ritmo gara (10 km)</td>
+            <td>4'30&quot;–4'35&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RM</td>
+            <td>Ritmo medio</td>
+            <td>4'50&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RA</td>
+            <td>Ritmo allegro</td>
+            <td>5'00&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RL</td>
+            <td>Ritmo lento</td>
+            <td>5'10&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RD</td>
+            <td>Riscaldamento / Defaticamento</td>
+            <td>5'20&quot;/km</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-box">
+        In gara maratona, con questi riferimenti, il passo obiettivo realistico sarà intorno a
+        <strong>4'55&quot;–5'00&quot;/km</strong> (circa 3h30').<br>
+        I ritmi RG / RM / RA / RL qui sopra servono per costruire la tenuta, la resistenza e la capacità
+        di sostenere questo passo sulla lunga distanza, non per “fare le eroine” in allenamento.
+        Verranno rivisti e rivalutati tra qualche settimana in base a come ti senti.
+      </div>
+    </div>
+
+    <div class="section-label">Note e regole del gioco</div>
+    <div class="card content">
+      <p><strong>📌 Regole operative</strong><br>
+        • Il <b>lunedì collettivo</b>, per te, va corso a <b>ritmi tranquilli</b>, usando i km extra come lavoro di fondo lento.<br>
+        • Se dopo il lungo della domenica il lunedì ti sembra troppo pesante, <b>sostituiscilo con uno scarico</b>
+          (8–10 km RL/RD) invece di forzare.<br>
+        • Se salti un allenamento, non sommarlo a caso: rientra nel flusso dalla settimana successiva.<br>
+        • I lunghi domenicali (soprattutto i 25–30–34 km) sono da <strong>proteggere</strong> con cura.<br>
+        • Dopo qualche settimana valuteremo se <strong>aumentare leggermente i km</strong> delle uscite centrali.<br>
+        • Se la qualità risulta troppo dura, <strong>rallenta i tratti veloci o allunga i recuperi</strong>.
+      </p>
+
+      <div class="note-box warn">
+        <strong>Campanelli d’allarme</strong><br>
+        Dolori che aumentano correndo, affaticamento che non passa, sonno sempre disturbato, gambe sempre vuote:
+        sono segnali per <b>tagliare un po’ il carico</b> e parlarne subito.<br><br>
+        Se senti che le <b>energie fisiche e mentali vengono meno</b>, dimmelo subito: meglio abbassare un po’ il
+        livello qualitativo del programma che arrivare scarica alla gara.
+      </div>
+
+      <p class="footnote">
+        Programma costruito sulle 13 settimane che portano a Rimini. Dopo la maratona si potrà impostare un
+        nuovo ciclo in base a come ti sentirai fisicamente e mentalmente.
+      </p>
+    </div>
+
+    <div class="section-label" id="settimane">Settimane</div>
+    <div class="card content">
+      <p>
+        Ogni settimana è strutturata su <strong>Lunedì collettivo – Martedì mantenimento – Giovedì qualità – Venerdì scarico – Domenica lungo</strong>.<br>
+        Mercoledì riposo completo (o mobilità leggera).
+        La struttura del programma è impostata su microcicli di 3 settimane di carico + 1 settimana di scarico.
+      </p>
+
+      <!-- Settimana 1 -->
+      <details class="week" data-start="2026-01-19" data-end="2026-01-25">
+        <summary>
+          <span class="week-title">Settimana 1</span>
+          <span class="week-dates">19–25 gennaio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico / salite</strong><br>
+            ALLENAMENTO TECNICA–POTENZIAMENTO (da fare a <b>ritmi tranquilli</b>):<br>
+            10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità
+            + 1 km in progressione da RL a RG-20" + 5' RL<br>
+            oppure allenamento salite (circa 7 km) + 5 km tra andata e ritorno a RD/RL.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento</strong><br>
+            2 km RD + 6 km progressione da RD a RA + 5 × (100 m allunghi + 100 m recupero RL)
+            + 2 km RL + 1 km RD (12 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità</strong><br>
+            2 km RD + 2 km RL + 7 × (200 m RG + 200 m RM) + 7 × (200 m RG-20" + 200 m RL)
+            + 3,4 km RD (circa 13 km).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Lungo</strong><br>
+            17 km collinari.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 2 -->
+      <details class="week" data-start="2026-01-26" data-end="2026-02-01">
+        <summary>
+          <span class="week-title">Settimana 2</span>
+          <span class="week-dates">26 gennaio – 1 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico</strong><br>
+            10' RD + 15' preatletici e allunghi + 8 × (400 m tra RG-10" e RG-30" + 100 m
+            recupero in souplesse) + 5' RD (circa 7 km) + 5 km tra andata e ritorno a RD/RL,
+            sempre a <b>ritmi tranquilli</b>.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento</strong><br>
+            2 km RD + 4 km RL + 10 × (200 m allungo facile + 200 m RL) + 2 km RD (12 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità</strong><br>
+            2 km RD + 2 km RL + 3 × (2000 m RG+10" + 500 m RL) + 1,5 km RD (circa 13 km).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Lungo</strong><br>
+            3 km RD + 5 × (100 m allungo facile + 100 m RL)
+            + 5 km al meglio + 3 km RL + 3 km RD (15 km).
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 3 -->
+      <details class="week" data-start="2026-02-02" data-end="2026-02-08">
+        <summary>
+          <span class="week-title">Settimana 3</span>
+          <span class="week-dates">2–8 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico</strong><br>
+            10' RD + 15' preatletici e allunghi + piramide 2 × (100–200–400–200–100
+            + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (circa 7 km)
+            + 5 km tra andata e ritorno a RD/RL a <b>ritmi tranquilli</b>.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento / forza</strong><br>
+            2 km RD + 3 × (1000 m RA + 1000 m RL) + 5 × (150 m allunghi
+            possibilmente in salita + 150 m recupero in discesa o RD) + 1 km RD (12 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità</strong><br>
+            2 km RD + 2 km RL + 6 × (250 m RL + 250 m RM + 250 m RG + 250 m RG-20")
+            + 3 km RD (circa 13 km).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Gara / lungo</strong><br>
+            <strong>Rovigo Half Marathon</strong> + riscaldamento (circa 23 km totali).
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 4 -->
+      <details class="week" data-start="2026-02-09" data-end="2026-02-15">
+        <summary>
+          <span class="week-title">Settimana 4</span>
+          <span class="week-dates">9–15 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico</strong><br>
+            10' RD + 15' preatletici e allunghi + 20 × (100 m tra RG-20" e RG-40"
+            + 100 m recupero in souplesse) + 5' RD (circa 7 km)
+            + 5 km tra andata e ritorno a RD/RL a <b>ritmi tranquilli</b>.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento</strong><br>
+            3 km RD + 5 km RL + 2 km RD (10 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità</strong><br>
+            2 km RD + 2 km RL + RD + 6 km progressione da RL a RG + 2 km RD (circa 12 km).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Lungo</strong><br>
+            3 km RD + 12 km RA + 2 km RD (17 km).
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 5 -->
+      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
+        <summary>
+          <span class="week-title">Settimana 5</span>
+          <span class="week-dates">16–22 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico / salite</strong><br>
+            ALLENAMENTO TECNICA–POTENZIAMENTO (sempre a <b>ritmi tranquilli</b>):<br>
+            10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità
+            + 1 km in progressione da RL a RG-20" + 5' RL<br>
+            oppure allenamento salite (7 km circa) + 5 km tra andata e ritorno a RD/RL.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento</strong><br>
+            2 km RD + 4 km RL + 10 × (200 m allungo facile + 200 m RL) + 2 km RD (12 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità</strong><br>
+            2 km RD + 2 km RL + 3 × (500 m RG + 500 m RA) + 3 × (500 m RG-20" + 500 m RL)
+            + 3 km RL (13 km circa).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Lungo</strong><br>
+            25 km collinari.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 6 -->
+      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
+        <summary>
+          <span class="week-title">Settimana 6</span>
+          <span class="week-dates">23 febbraio – 1 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico</strong><br>
+            10' RD + 15' preatletici e allunghi + 12 × (200 m tra RG-20" e RG-40"
+            + 100 m recupero in souplesse) + 5' RD (circa 7 km)
+            + 5 km tra andata e ritorno a RD/RL a <b>ritmi tranquilli</b>.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento</strong><br>
+            2 km RD + 6 km progressione da RD a RA + 5 × (100 m allunghi + 100 m recupero RL)
+            + 2 km RL + 1 km RD (12 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità</strong><br>
+            2 km RD + 2 km RL + (500–1000–1500–1000–500 m RG + 500 m RL tra le parti veloci)
+            + 2 km RD (circa 13 km).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Lungo</strong><br>
+            3 km RD + 3 × (4000 m tra RM e RG+10" + 1000 m RL) + 2 km RD (20 km).
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 7 -->
+      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
+        <summary>
+          <span class="week-title">Settimana 7</span>
+          <span class="week-dates">2–8 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico</strong><br>
+            10' RD + 15' preatletici e allunghi + 4 × (1000 m in progressione da RL a RG-20"
+            + 3' recupero souplesse) + 5' RD (circa 7 km)
+            + 5 km tra andata e ritorno a RD/RL a <b>ritmi tranquilli</b>.
+          </p>
+          <p><strong>🟦 Martedì – Mantenimento / forza</strong><br>
+            2 km RD + 3 × (1000 m RA + 1000 m RL) + 5 × (150 m allunghi
+            possibilmente in salita + 150 m recupero in discesa o RD) + 1 km RD (12 km).
+          </p>
+          <p><strong>🔥 Giovedì – Qualità lunga</strong><br>
+            2 km RD + 2 km RL + 1000 m RM + 1000 m RL + 1000 m RG+10" + 1000 m RM
+            + 1000 m RG + 1 km RM + 3 km RD (circa 13 km).
+          </p>
+          <p><strong>🌱 Venerdì – Scarico</strong><br>
+            2 km RD + 8 km RL + 1 km RD (11 km).
+          </p>
+          <p><strong>🏁 Domenica – Lungo</strong><br>
+            3 km RD + 3 × (4500 m RM + 500 m RG + 1000 m RL)
+            + 3 km RA + 2 km RL + 2 km RD (28 km).
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 8 -->
+      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
+        <summary>
+          <span class="week-title">Settimana 8</span>
+          <span class="week-dates">9–15 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>⚙️ Lunedì – Collettivo tecnico</strong><br>
+            10' RD + 15' preatletici e allunghi +
