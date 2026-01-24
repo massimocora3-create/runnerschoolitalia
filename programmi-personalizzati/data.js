@@ -32,5 +32,6 @@ window.RS_PROGRAMMI = {
   "c4be2fe50b1d217c042086d4e36b9958e953580cc070ab60d8834d62e55000a2": "programmi/trentini-diego.html",
   "b35a74875d2974d7577cd030a828479eb23c808a5a77d56ccc6e8f20b16ef181": "programmi/bergamini-andrea.html",
   "72ca6dba65390ca84089a88ec36177bb6858175cd225cb4a4dfec96b09bbafa6": "programmi/scagliarini-lucia.html",
-  "ba0b8371aa51472aee1d077eecede58b57b0ea439500c6a80ef60a19442ffb03": "programmi/serafini-riccardo.html"
-};
+  "ba0b8371aa51472aee1d077eecede58b57b0ea439500c6a80ef60a19442ffb03": "programmi/serafini-riccardo.html",
+  "8a7739302ccb9ff44e6a3ff77487439bfeb94830c797faeefe58de0ea01365d5": "programmi/de-vito-giulia.html",
+  };
