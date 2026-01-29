@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programma personalizzato</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --accent:#f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color:var(--text);
+    }
+    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
+    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
+    .back:hover{opacity:1}
+    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
+    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
+    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
+    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
+    .meta b{color:var(--text)}
+    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
+    .btn:hover{opacity:1}
+    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
+    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
+    .content{font-size:14px; line-height:1.45;}
+    .content p{margin:10px 0}
+    .content strong{font-weight:900}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
+    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
+    .mini .v{font-size:14px; line-height:1.35}
+    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
+    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
+    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
+    details.week summary::-webkit-details-marker{display:none}
+    .week-title{font-weight:900}
+    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
+    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
+    .week-content p{margin:10px 0}
+
+    /* LOCK */
+    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
+    .lock .wrap{max-width:520px;margin:0 auto;}
+    .lock .card{padding:16px}
+    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
+    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
+    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
+
+    /* Ritmi */
+    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
+    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
+    .ritmi-table tbody td{color:var(--text-muted);}
+    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
+    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
+    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
+  </style>
+</head>
+
+<body>
+
+  <!-- LOCK OVERLAY -->
+  <div class="lock" id="lock" aria-hidden="false">
+    <div class="wrap">
+      <div class="card">
+        <h1>🔒 Area riservata</h1>
+        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+
+        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
+        <div class="btnrow">
+          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+        </div>
+
+        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div class="app" id="app">
+    <div class="top">
+      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+      <div class="pill">🟧 Runner’s School Italia</div>
+    </div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Bernaroli Mirko</span></h1>
+      <p class="meta">
+        Aggiornato: <b id="aggiornatoIl">29/01/2026</b><br>
+        Programmazione gennaio–aprile su <b>3 uscite settimanali</b>:
+        <br>• 1 allenamento di scarico / fondo facile
+        <br>• 1 allenamento di qualità (lavori su ritmi e progressioni)
+        <br>• 1 lavoro di fine settimana (lungo, lavori combinati o collinari).
+        <br><br>
+        Obiettivo: <b>imparare un metodo di allenamento duraturo</b> e
+        <b>velocizzarsi sulle distanze medie da 10-12 km</b>.
+      </p>
+
+      <div class="btnrow">
+        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+      </div>
+
+      <div class="footnote">
+        Nota: questo programma è personale. Non condividere password o link con altre persone.
+      </div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card">
+      <div class="grid">
+        <div class="mini">
+          <div class="k">Nome</div>
+          <div class="v">Bernaroli Mirko</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Anno di nascita</div>
+          <div class="v">1980</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Dati fisici</div>
+          <div class="v">73 kg · 175 cm</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Profilo</div>
+          <div class="v">
+            Runner amatore con buona base, 6 mezze maratone negli ultimi 2 anni,
+            obiettivo migliorare il ritmo su 5–10 km.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Allenamenti</div>
+          <div class="v">
+            <strong>3 uscite running / settimana</strong><br>
+            Solitamente tra 8 e 12 km a seduta.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Abitudini attuali</div>
+          <div class="v">
+            Solo corsa; ginnastica funzionale in casa in modo sporadico.
+            Possibile inserimento graduale di rinforzo strutturale.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Riferimenti cronometrici</div>
+          <div class="v">
+            PB mezza maratona: <strong>1h48&apos;</strong> (≈ 5&apos;08&quot;/km)<br>
+            Miglior ritmo su 5 km: <strong translate="no">4&apos;55&quot;/km</strong>.
+          </div>
+        </div>
+
+        <div class="mini" style="grid-column:1 / -1;">
+          <div class="k">Distanze di lavoro</div>
+          <div class="v">
+            Focus principale su <strong>5 km</strong>, <strong>10 km</strong> e <strong>mezza maratona</strong>:
+            costruzione di un ritmo gestibile e ripetibile, non solo il “tempo in gara”.
+          </div>
+        </div>
+
+        <div class="mini warn" style="grid-column:1 / -1;">
+          <div class="k">Logica del percorso</div>
+          <div class="v">
+            Il programma è pensato per creare un <strong>metodo stabile</strong>:
+            progressione graduale, 3 uscite ben distinte tra loro (scarico – qualità – lungo),
+            lavori di qualità mirati ma sostenibili, attenzione alle sensazioni.
+            L’obiettivo non è solo “finire le sedute”, ma
+            <strong>costruire abitudini</strong> che Mirko possa portare avanti nel tempo.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Eventi e obiettivi</div>
+    <div class="card content">
+      <p><strong>📍 Distanze di riferimento</strong><br>
+        • <strong>5 km</strong> – lavoro su brillantezza e ritmo<br>
+        • <strong>10 km</strong> – gestione del passo gara in continuità<br>
+        • <strong>Mezza maratona</strong> – consolidare e migliorare il PB di 1h48&apos;
+      </p>
+
+      <p><strong>🎯 Obiettivi di lavoro</strong><br>
+        • Imparare un <b>metodo di allenamento duraturo</b>, chiaro e ripetibile<br>
+        • Rendere più facile un passo intorno a <b>5&apos;00&quot;/km</b> sulle distanze intermedie<br>
+        • Migliorare il ritmo medio in mezza maratona nel medio periodo<br>
+        • Inserire in modo intelligente qualità e lunghi senza aumentare il numero di uscite
+      </p>
+
+      <p><strong>🧩 Struttura settimanale</strong><br>
+        Ogni settimana segue la logica:
+        <br>1️⃣ <b>Scarico</b>: fondo facile per recupero e volume
+        <br>2️⃣ <b>Qualità</b>: lavori su ritmi (RM/RG), progressioni e ripetute gestibili
+        <br>3️⃣ <b>Fine settimana</b>: lungo, combinati o collinari per costruire resistenza e tenuta.
+      </p>
+    </div>
+
+    <div class="section-label">Ritmi di riferimento (Zone RS)</div>
+    <div class="card content">
+      <p>
+        In questo programma utilizziamo le <strong>Zone RS</strong> per dare indicazioni di passo.
+        I valori sotto sono indicativi e definiscono un <b>intervallo</b>, non un singolo numero fisso:
+        vanno adattati alle sensazioni del giorno e al tipo di percorso (pianura / collinare).
+      </p>
+
+      <table class="ritmi-table" aria-label="Ritmi di riferimento">
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Significato</th>
+            <th>Indicazione (circa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RG</td>
+            <td>Ritmo gara (zona 10 km)</td>
+            <td>≈ 5&apos;05&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RM</td>
+            <td>Ritmo medio</td>
+            <td>≈ 5&apos;25&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RA</td>
+            <td>Ritmo allegro</td>
+            <td>≈ 5&apos;45&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RL</td>
+            <td>Ritmo lento</td>
+            <td>≈ 5&apos;55&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RD</td>
+            <td>Riscaldamento / Defaticamento</td>
+            <td>≈ 6&apos;05&quot;/km (o anche più lento se serve)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-box">
+        L’obiettivo è far sì che i ritmi <strong>non siano rigidi</strong> ma una guida.
+        Se il giorno è stanco, si resta nella parte più lenta del corridoio; se le gambe girano,
+        ci si può avvicinare alla parte più veloce mantenendo sempre controllo e buona tecnica.
+      </div>
+    </div>
+
+    <div class="section-label">Note e regole del gioco</div>
+    <div class="card content">
+      <p><strong>📌 Regole operative</strong><br>
+        • Rispetta la logica della settimana: <b>scarico → qualità → fine settimana</b>.<br>
+        • Se salti un allenamento, non spostare tutto in avanti: riprendi dal successivo e torna nel flusso.<br>
+        • I lavori di qualità vanno corsi <b>in controllo</b>, non a tutta: l’obiettivo è diventare costante, non distrutto.<br>
+        • Lo scarico deve essere davvero facile: serve a <b>recuperare e assimilare</b>, non a fare ritmo nascosto.<br>
+        • In caso di stanchezza: puoi allungare un po&apos; i recuperi o togliere una ripetuta, ma mantieni la struttura generale.
+      </p>
+
+      <div class="note-box warn">
+        <strong>Campanelli d’allarme</strong><br>
+        Dolori che aumentano durante la corsa, stanchezza che non passa, sonno disturbato,
+        gambe sempre pesanti: sono segnali per <b>ridurre il carico</b> e confrontarsi con il coach.
+      </div>
+
+      <p class="footnote">
+        Le sedute sono riportate dalla programmazione ufficiale gennaio–aprile compilata per Mirko.
+        Eventuali modifiche (ritmi, chilometraggi, scelta tra opzioni “oppure”) vanno valutate in base
+        alle sensazioni e agli impegni settimanali.
+      </p>
+    </div>
+
+    <div class="section-label" id="settimane">Settimane</div>
+    <div class="card content">
+      <p>
+        Ogni settimana è strutturata su <strong>3 allenamenti</strong>:
+        <br>1️⃣ <b>Scarico</b> · 2️⃣ <b>Qualità</b> · 3️⃣ <b>Lavoro di fine settimana</b>.
+      </p>
+
+      <!-- Settimana 4 -->
+      <details class="week" data-start="2026-02-02" data-end="2026-02-08">
+        <summary>
+          <span class="week-title">Settimana 4</span>
+          <span class="week-dates">2–8 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 5 km RL + 1 km RD (8 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            2 km RD + 2 km RL + 5 × (250 m RL + 250 m RM + 250 m RG + 250 m RG-20&quot;) + 1 km RD (10 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 1 × (3000 m RM + 1000 m RL) + 1 × (3000 m RG + 1000 m RL) + 1 km RD (12 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 5 -->
+      <details class="week" data-start="2026-02-09" data-end="2026-02-15">
+        <summary>
+          <span class="week-title">Settimana 5</span>
+          <span class="week-dates">9–15 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 5 km RL + 1 km RD (8 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità (progressione)</strong><br>
+            3 km RD + 5 km progressione da RL a RG + 2 km RD (10 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 5 km RM + 2 km RD (10 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 6 -->
+      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
+        <summary>
+          <span class="week-title">Settimana 6</span>
+          <span class="week-dates">16–22 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            2 km RD + 2 km RL + 3 × (500 m RM + 500 m RA) + 2 × (500 m RG + 500 m RL) + 1 km RL (10 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            13 km collinari<br>
+            <em>oppure</em><br>
+            2 km RD + 2 km RL + 2 km RA + 2 km RM + 2 km RG + 3 km RD (13 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 7 -->
+      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
+        <summary>
+          <span class="week-title">Settimana 7</span>
+          <span class="week-dates">23 febbraio – 1 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità (piramide)</strong><br>
+            2 km RD + 1 km RL + (500–1000–1500–1000–500 m RG+10&quot; con 500 m RL tra le parti veloci) (10 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 5 × (100 m allunghi + 100 m RD) + 3 km al meglio + 3 km RD
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 8 -->
+      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
+        <summary>
+          <span class="week-title">Settimana 8</span>
+          <span class="week-dates">2–8 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            2 km RD + 1 km RL + 1000 m RM + 1000 m RL + 1000 m RG+10&quot; + 1000 m RM + 1000 m RG + 2 km RD (10 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 1 × (4500 m RG+10&quot; + 500 m RG-10&quot; + 1000 m RL) + 3 km RD (12 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 9 -->
+      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
+        <summary>
+          <span class="week-title">Settimana 9</span>
+          <span class="week-dates">9–15 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità (blocchi continui)</strong><br>
+            2 km RD + 2 km RL + 2 km RA + 1 km RM + 1 km RG + 1 km RD (9 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 4 × (400 m RM+10&quot; + 400 m RL) + 4 × (400 m RG+10&quot; + 400 m RL) + 1 km RD (10,5 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 10 -->
+      <details class="week" data-start="2026-03-16" data-end="2026-03-22">
+        <summary>
+          <span class="week-title">Settimana 10</span>
+          <span class="week-dates">16–22 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            3 km RD + 2 × (200–400–600–400–200 m RG-20&quot; con recupero 200 m RD tra le parti veloci) + 1,4 km RD (11 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            14 km collinari<br>
+            <em>oppure</em><br>
+            3 km RD + 3 × (2000 m RG + 1000 m RL) + 2 km RD (14 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 11 -->
+      <details class="week" data-start="2026-03-23" data-end="2026-03-29">
+        <summary>
+          <span class="week-title">Settimana 11</span>
+          <span class="week-dates">23–29 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            2 km RD + 2 km RL + 5 × (1000 m RG + 500 m RL) + 1 km RD (11 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 5 × (100 m allungo facile + 100 m RL) + 5 km al meglio + 1 km RD (10 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 12 -->
+      <details class="week" data-start="2026-03-30" data-end="2026-04-05">
+        <summary>
+          <span class="week-title">Settimana 12</span>
+          <span class="week-dates">30 marzo – 5 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            2 km RD + 2 km RL + 6 × (300 m RG-20&quot; + 200 m RG + 500 m RL) + 1 km RL (11 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 3 km tra RA + 3 km tra RM + 3 km tra RG + 3 km RD (15 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 13 -->
+      <details class="week" data-start="2026-04-06" data-end="2026-04-12">
+        <summary>
+          <span class="week-title">Settimana 13</span>
+          <span class="week-dates">6–12 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità (progressione)</strong><br>
+            2 km RD + 2 km RL + 4 km progressione da RL a RG + 2 km RD (10 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 5 km RA + 2 km RD (10 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 14 -->
+      <details class="week" data-start="2026-04-13" data-end="2026-04-19">
+        <summary>
+          <span class="week-title">Settimana 14</span>
+          <span class="week-dates">13–19 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità</strong><br>
+            2 km RD + 2 km RL + 12 × (300 m RG-10&quot; + 200 m RL) + 1 km RD (11 km circa)
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            16 km collinari<br>
+            <em>oppure</em><br>
+            3 km RD + 2 × (1000 m RG + 1000 m RL) + 3 × (1000 m RG-10&quot; + 1000 m RD) + 3 km RD (16 km)
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 15 -->
+      <details class="week" data-start="2026-04-20" data-end="2026-04-26">
+        <summary>
+          <span class="week-title">Settimana 15</span>
+          <span class="week-dates">20–26 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Allenamento – Scarico</strong><br>
+            2 km RD + 6 km RL + 1 km RD (9 km)
+          </p>
+          <p><strong>🔥 Allenamento – Qualità / brillantezza</strong><br>
+            3 km RD + 5 × (100 m allunghi + 100 m RD) + 3 km al meglio + 3 km RD
+          </p>
+          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
+            3 km RD + 10 km RM + 2 km RD (15 km)
+          </p>
+        </div>
+      </details>
+
+      <p class="footnote">
+        Le settimane 4–15 seguono la numerazione della programmazione ufficiale del quadrimestre.
+      </p>
+    </div>
+  </div>
+
+<script>
+  // --- CONFIG ---
+  // Hash univoco per questa pagina per la chiave di localStorage
+  const PAGE_HASH = "46ccd62c529722ef3be367704aa082491faa1ca290ec53ec30d7d47a3cfc12c3";
+  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+
+  // Password in chiaro per questa pagina
+  const key = "BerMir.2026";
+
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const unlockBtn = document.getElementById("unlock");
+  const pwInput = document.getElementById("pw");
+  const lockMsg = document.getElementById("lockMsg");
+
+  // Mostra contenuto e nasconde il lock
+  function showApp() {
+    lock.style.display = "none";
+    lock.setAttribute("aria-hidden", "true");
+    app.style.display = "block";
+    lockMsg.style.display = "none";
+    pwInput.value = "";
+  }
+
+  // Controllo iniziale: se già sbloccato, niente password
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
+  } catch (e) {
+    alreadyUnlocked = false;
+  }
+
+  if (alreadyUnlocked) {
+    showApp();
+  } else {
+    lock.style.display = "block";
+    lock.setAttribute("aria-hidden", "false");
+    app.style.display = "none";
+  }
+
+  // Verifica password
+  function tryUnlock() {
+    const inputPassword = pwInput.value.trim();
+
+    if (inputPassword === key) {
+      try {
+        localStorage.setItem(STORAGE_KEY, "ok");
+      } catch (e) {}
+
+      showApp(); // resta sulla stessa pagina
+    } else {
+      lockMsg.style.display = "block";
+    }
+  }
+
+  // Eventi sui controlli
+  unlockBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    tryUnlock();
+  });
+
+  pwInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter") tryUnlock();
+  });
+</script>
+
+</body>
+</html>
