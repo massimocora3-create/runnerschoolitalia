@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programma personalizzato</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --accent:#f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color:var(--text);
+    }
+    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
+    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
+    .back:hover{opacity:1}
+    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
+    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
+    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
+    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
+    .meta b{color:var(--text)}
+    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
+    .btn:hover{opacity:1}
+    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
+    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
+    .content{font-size:14px; line-height:1.45;}
+    .content p{margin:10px 0}
+    .content strong{font-weight:900}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
+    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
+    .mini .v{font-size:14px; line-height:1.35}
+    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
+    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
+    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
+    details.week summary::-webkit-details-marker{display:none}
+    .week-title{font-weight:900}
+    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
+    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
+    .week-content p{margin:10px 0}
+
+    /* LOCK */
+    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
+    .lock .wrap{max-width:520px;margin:0 auto;}
+    .lock .card{padding:16px}
+    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
+    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
+    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
+
+    /* Ritmi */
+    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
+    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
+    .ritmi-table tbody td{color:var(--text-muted);}
+    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
+    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
+    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
+  </style>
+</head>
+
+<body>
+
+  <!-- LOCK OVERLAY -->
+  <div class="lock" id="lock" aria-hidden="false">
+    <div class="wrap">
+      <div class="card">
+        <h1>🔒 Area riservata</h1>
+        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+
+        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
+        <div class="btnrow">
+          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+        </div>
+
+        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div class="app" id="app">
+    <div class="top">
+      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+      <div class="pill">🟧 Runner’s School Italia</div>
+    </div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Avanzi Marco</span></h1>
+      <p class="meta">
+        Aggiornato: <b id="aggiornatoIl">02/02/2026</b><br>
+        Programmazione febbraio–maggio su <b>3 uscite infrasettimanali</b>:
+        <br>• 1 allenamento di scarico il lunedì
+        <br>• 1 allenamento di qualità il mercoledì
+        <br>• 1 allenamento di scarico / mantenimento il giovedì
+        <br>• lunghi e gare nel fine settimana.
+        <br><br>
+        Obiettivo principale del periodo: arrivare alla
+        <b>100 km del Passatore – 23/05/2026</b>
+        costruendo una base solida, gestibile e sostenibile, utilizzando anche
+        le <b>50 km del Conero</b> e le <b>50 km di Romagna</b> come tappe intermedie.
+      </p>
+
+      <div class="btnrow">
+        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+      </div>
+
+      <div class="footnote">
+        Nota: questo programma è personale. Non condividere password o link con altre persone.
+      </div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card">
+      <div class="grid">
+        <div class="mini">
+          <div class="k">Nome</div>
+          <div class="v">Avanzi Marco</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Profilo</div>
+          <div class="v">
+            Atleta esperto, con esperienza su <strong>maratone</strong>, <strong>ultra fino a 50 km</strong>
+            e <strong>trail fino a circa 45 km</strong>. Buona capacità di sopportare volumi lunghi,
+            abituato a gestire gare di endurance su strada e in natura.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Allenamenti</div>
+          <div class="v">
+            Struttura di riferimento:
+            <br>• <strong>Lunedì</strong> – scarico (12 km o 10 km nelle settimane di scarico)
+            <br>• <strong>Mercoledì</strong> – qualità (circa 13 km, o 10 km nelle settimane di scarico)
+            <br>• <strong>Giovedì</strong> – mantenimento (15 km o 10 km)
+            <br>• fine settimana dedicato a <strong>lunghi, combinati o gare</strong>.
+          </div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Riferimenti cronometrici</div>
+          <div class="v">
+            Ritmi indicativi di lavoro:
+            <br>• RG: <strong>4&apos;25&quot;/km</strong>
+            <br>• RM: <strong>4&apos;45&quot;/km</strong>
+            <br>• RA: <strong>5&apos;05&quot;/km</strong>
+            <br>• RL: <strong>5&apos;15&quot;/km</strong>
+            <br>• RD: <strong>5&apos;25&quot;–5&apos;35&quot;/km</strong>
+            <br><br>
+            Ritmi da confrontare e affinare in base alle soglie e alle sensazioni reali.
+          </div>
+        </div>
+
+        <div class="mini warn" style="grid-column:1 / -1;">
+          <div class="k">Logica del percorso</div>
+          <div class="v">
+            Il programma è pensato per un atleta che <strong>ha già grande esperienza</strong> su maratone
+            e ultra. La priorità non è fare lavori “velocisti”, ma costruire e mantenere una
+            <strong>resistenza di alto livello</strong>, arrivando fresco ai lunghi del weekend e alle gare di
+            preparazione, e gestendo con lucidità i carichi fino al Passatore.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Eventi e obiettivi</div>
+    <div class="card content">
+      <p><strong>📍 Distanze di riferimento</strong><br>
+        • <strong>Lunghi da 30 km</strong> e oltre per costruire la tenuta su strada<br>
+        • <strong>Ultra da 50 km</strong> come prove generali (Conero e Romagna)<br>
+        • Settimane di scarico per assorbire il lavoro senza accumulare stanchezza cronica.
+      </p>
+
+      <p><strong>🎯 Obiettivi del periodo</strong><br>
+        • Arrivare alla <b>100 km del Passatore</b> con una base di lunghi solida<br>
+        • Usare le <b>50 km del Conero</b> e le <b>50 km di Romagna</b> come test e allenamento specifico<br>
+        • Dare una <b>struttura logica</b> alle settimane (scarico–qualità–mantenimento–lunghi)<br>
+        • Lasciare spazio per adattare i carichi in base ai lunghi del fine settimana.
+      </p>
+
+      <p><strong>🧩 Struttura settimanale</strong><br>
+        Ogni settimana segue la logica:
+        <br>1️⃣ <b>Scarico</b> lunedì (12 km o 10 km)
+        <br>2️⃣ <b>Qualità</b> mercoledì (lavori strutturati)
+        <br>3️⃣ <b>Mantenimento</b> giovedì (fondo Z2)
+        <br>4️⃣ <b>Lunghi / gare</b> nel weekend.
+        <br><br>
+        Il lavoro di qualità è posizionato al <b>mercoledì</b> (e non al martedì) proprio per
+        <b>spezza­re meglio la settimana</b>, recuperare dai lunghi del weekend e arrivare
+        al lavoro qualitativo più fresco.
+      </p>
+    </div>
+
+    <div class="section-label">Ritmi di riferimento (Zone RS)</div>
+    <div class="card content">
+      <p>
+        In questo programma utilizziamo le <strong>Zone RS</strong> come riferimento per i ritmi.
+        Sono indicati come <b>intervalli</b>, non come singolo numero fisso: vanno adattati
+        alle sensazioni del giorno, al meteo, al dislivello e allo stato di stanchezza.
+      </p>
+
+      <table class="ritmi-table" aria-label="Ritmi di riferimento">
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Significato</th>
+            <th>Indicazione (circa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RG</td>
+            <td>Ritmo gara (zona Z4 alta)</td>
+            <td>≈ 4&apos;25&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RM</td>
+            <td>Ritmo medio (tra Z3 e Z4)</td>
+            <td>≈ 4&apos;45&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RA</td>
+            <td>Ritmo allegro (Z3)</td>
+            <td>≈ 5&apos;05&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RL</td>
+            <td>Ritmo lento (Z2)</td>
+            <td>≈ 5&apos;15&quot;/km</td>
+          </tr>
+          <tr>
+            <td>RD</td>
+            <td>Riscaldamento / Defaticamento (Z1–Z2)</td>
+            <td>≈ 5&apos;25&quot;–5&apos;35&quot;/km (o più lento se serve)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-box">
+        I ritmi sono una <strong>bussola</strong>, non un vincolo rigido.
+        Se il giorno è pesante si resta nella parte più lenta, se le gambe girano bene
+        ci si avvicina alla parte più veloce, mantenendo sempre controllo, tecnica pulita
+        e capacità di chiudere l’allenamento in progressione o comunque in lucidità.
+      </div>
+    </div>
+
+    <div class="section-label">Note e regole del gioco</div>
+    <div class="card content">
+      <p><strong>📌 Regole operative</strong><br>
+        • Rispetta la logica della settimana: <b>scarico → qualità → mantenimento → lunghi</b>.<br>
+        • Se salti un allenamento, non spostare tutto: riprendi dal successivo e torna nel flusso.<br>
+        • I lavori di qualità vanno corsi <b>in controllo</b>, non alla morte.<br>
+        • Lo scarico deve essere davvero facile: serve a <b>recuperare e assimilare</b> il lavoro dei lunghi.<br>
+        • In caso di grande stanchezza puoi accorciare o alleggerire la qualità,
+          ma mantieni la <b>struttura</b> generale dei giorni.
+      </p>
+
+      <div class="note-box warn">
+        <strong>Campanelli d’allarme</strong><br>
+        Dolori che aumentano durante la corsa, stanchezza che non passa, sonno disturbato,
+        gambe sempre pesanti: sono segnali per <b>ridurre il carico</b> (soprattutto i lunghi) e
+        confrontarsi con il coach prima di andare oltre.
+      </div>
+
+      <p class="footnote">
+        Le sedute riportate sotto seguono la programmazione ufficiale febbraio–maggio
+        predisposta per Marco Avanzi. Eventuali modifiche (ritmi, chilometraggi,
+        scelta tra opzioni “oppure”) vanno valutate in base alle sensazioni e
+        agli impegni settimanali, soprattutto in funzione dei lunghi del weekend.
+      </p>
+    </div>
+
+    <div class="section-label" id="settimane">Settimane</div>
+    <div class="card content">
+      <p>
+        Ogni settimana è strutturata su <strong>3 allenamenti infrasettimanali</strong>
+        (lun–mer–gio) e sui <strong>lunghi/gare del weekend</strong>.
+      </p>
+
+      <!-- Settimana 4 -->
+      <details class="week" data-start="2026-02-02" data-end="2026-02-08">
+        <summary>
+          <span class="week-title">Settimana 4</span>
+          <span class="week-dates">2–8 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2 fondo facile.
+          </p>
+          <p><strong>🤝 Mercoledì – Fondo Z2 (scarico “lungo”)</strong><br>
+            13 km Z2, corsi in controllo, per non aggiungere carico qualitativo
+            in una settimana con combinazione di lungo + mezza maratona nel weekend.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2 continuo.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Sabato: 4 km RD + 16 × (600 m Z3 + 400 m Z2) + 10 km Z2 (≈ 30 km totali).<br>
+            Domenica: mezza maratona (Rovigo) corsa in Z2 (≈ 21 km Z2).
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 5 -->
+      <details class="week" data-start="2026-02-09" data-end="2026-02-15">
+        <summary>
+          <span class="week-title">Settimana 5</span>
+          <span class="week-dates">9–15 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            10 km Z2 fondo facile.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (progressione)</strong><br>
+            3 km RD + 5 km progressione da RD a RM + 2 km RD (10 km).<br>
+            Lavoro di sensibilità al ritmo, senza forzare.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lavoro specifico 2000 m</strong><br>
+            2 km RD + 4 × (2000 m Z4 + 500 m RL).<br>
+            Seduta impegnativa sul ritmo veloce, da gestire con lucidità.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 6 -->
+      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
+        <summary>
+          <span class="week-title">Settimana 6</span>
+          <span class="week-dates">16–22 febbraio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (300 m)</strong><br>
+            3 km RD + 10 × (300 m RG-10&quot; + 300 m RD) + 2 km RL + 2 km RD (≈ 13 km).<br>
+            Richiamo di brillantezza mantenendo recuperi generosi.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – 50 km del Conero</strong><br>
+            Sabato: gara/allenamento <b>50 km del Conero</b> (ultra specifica).<br>
+            Domenica: 8 km Z2 rigeneranti.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 7 -->
+      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
+        <summary>
+          <span class="week-title">Settimana 7</span>
+          <span class="week-dates">23 febbraio – 1 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (1000 m a RG)</strong><br>
+            3 km RD + 5 × (1000 m RG + 500 m RL) + 2,5 km RD (≈ 13 km).<br>
+            Lavoro centrale per consolidare il ritmo gara su frazioni gestibili.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Lunghi o combinati da definire in base al calendario e al recupero dalla 50 km.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 8 -->
+      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
+        <summary>
+          <span class="week-title">Settimana 8</span>
+          <span class="week-dates">2–8 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (blocchi da 3000 m)</strong><br>
+            3 km RL + 2 × (3000 m RM + 1000 m RL) + 2 km RD (≈ 13 km).<br>
+            Lavoro di tenuta a ritmo medio prolungato.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Lunghi o gare di preparazione in base al carico complessivo.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 9 (scarico) -->
+      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
+        <summary>
+          <span class="week-title">Settimana 9 · Scarico</span>
+          <span class="week-dates">9–15 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Progressione leggera</strong><br>
+            3 km RD + 5 km progressione da RD a RM + 2 km RD (10 km).<br>
+            Qualità “soft” per alleggerire il carico.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Volume ridotto</strong><br>
+            Lunghi più brevi (indicativamente intorno ai 20 km complessivi) in ottica recupero.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 10 -->
+      <details class="week" data-start="2026-03-16" data-end="2026-03-22">
+        <summary>
+          <span class="week-title">Settimana 10</span>
+          <span class="week-dates">16–22 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità mista (200–400–600 m)</strong><br>
+            3 km RL + 2 × (200–400–600 m RG-10&quot; + 300 m RD) +
+            1 km RD + 2 km progressione da RL a RG-10&quot; + 3 km RD (≈ 13 km).<br>
+            Lavoro complesso per stimolare cambi di ritmo controllati.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Collinare collettivo</strong><br>
+            Uscita collinare collettiva, da interpretare come <b>lungo di qualità</b>
+            ma sempre in controllo.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 11 -->
+      <details class="week" data-start="2026-03-23" data-end="2026-03-29">
+        <summary>
+          <span class="week-title">Settimana 11</span>
+          <span class="week-dates">23–29 marzo</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (2000 m)</strong><br>
+            3 km RD + 3 × (2000 m RG+10&quot; + 500 m RL) + 2,5 km RD (≈ 13 km).<br>
+            Richiamo di ritmo gara su frazioni lunghe ma gestibili.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Lunghi o gare di preparazione in base al calendario.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 12 -->
+      <details class="week" data-start="2026-03-30" data-end="2026-04-05">
+        <summary>
+          <span class="week-title">Settimana 12</span>
+          <span class="week-dates">30 marzo – 5 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (medio prolungato)</strong><br>
+            3 km RD + 6 km RM + 2 km RL + 2 km RD (≈ 13 km).<br>
+            Tenuta continua a ritmo medio.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Lungo o gara specifica in funzione della fatica accumulata.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 13 (scarico) -->
+      <details class="week" data-start="2026-04-06" data-end="2026-04-12">
+        <summary>
+          <span class="week-title">Settimana 13 · Scarico</span>
+          <span class="week-dates">6–12 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Progressione leggera</strong><br>
+            3 km RD + 5 km progressione da RD a RM + 2 km RD (10 km).<br>
+            Settimana di scarico con qualità morbida.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Volume ridotto</strong><br>
+            Weekend più leggero (intorno ai 20 km complessivi) per ricaricare.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 14 -->
+      <details class="week" data-start="2026-04-13" data-end="2026-04-19">
+        <summary>
+          <span class="week-title">Settimana 14</span>
+          <span class="week-dates">13–19 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (400 m)</strong><br>
+            3 km RD + 8 × (400 m RG-10&quot; + 400 m RD) + 2,6 km RD (≈ 13 km).<br>
+            Richiamo di velocità controllata su frazioni medio-corte.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Lungo o gara di preparazione in vista delle 50 km di Romagna.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 15 -->
+      <details class="week" data-start="2026-04-20" data-end="2026-04-26">
+        <summary>
+          <span class="week-title">Settimana 15</span>
+          <span class="week-dates">20–26 aprile</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (piramide 500–1500 m)</strong><br>
+            3 km RD + (500–1000–1500–1000–500 m RG con 500 m RL tra le frazioni) + 3 km RD (≈ 13 km).<br>
+            Lavoro di tenuta a ritmo gara su frazioni crescenti e decrescenti.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – 50 km di Romagna</strong><br>
+            Gara/allenamento lunga distanza: <b>50 km di Romagna</b>, da interpretare come
+            prova generale di gestione ritmo e strategie per il Passatore.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 16 -->
+      <details class="week" data-start="2026-04-27" data-end="2026-05-03">
+        <summary>
+          <span class="week-title">Settimana 16</span>
+          <span class="week-dates">27 aprile – 3 maggio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (4000 m a RM)</strong><br>
+            3 km RD + 2 × (4000 m RM + 1000 m RL) (≈ 13 km).<br>
+            Lavoro sulla tenuta a ritmo medio dopo il carico delle 50 km.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Lunghi/gare</strong><br>
+            Lungo specifico o combinato, in base al recupero dalla Romagna.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 17 (scarico) -->
+      <details class="week" data-start="2026-05-04" data-end="2026-05-10">
+        <summary>
+          <span class="week-title">Settimana 17 · Scarico</span>
+          <span class="week-dates">4–10 maggio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Progressione leggera</strong><br>
+            3 km RD + 5 km progressione da RD a RM + 2 km RD (10 km).<br>
+            Settimana di alleggerimento per assorbire i carichi.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            10 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Volume moderato</strong><br>
+            Weekend con volume medio, senza impegni troppo estremi.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 18 -->
+      <details class="week" data-start="2026-05-11" data-end="2026-05-17">
+        <summary>
+          <span class="week-title">Settimana 18</span>
+          <span class="week-dates">11–17 maggio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì – Scarico</strong><br>
+            12 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì – Qualità (lavoro misto 200 m)</strong><br>
+            3 km RD + 6 × (200 m RG + 200 m RL) + 6 × (200 m RG-20&quot; + 200 m RD) +
+            2 km RL + 2 km RD (≈ 12 km).<br>
+            Lavoro brillante ma con volumi contenuti.
+          </p>
+          <p><strong>🟧 Giovedì – Mantenimento</strong><br>
+            15 km Z2.
+          </p>
+          <p><strong>🏁 Weekend – Ultimo lungo controllato</strong><br>
+            Ultimo lungo o combinato da impostare in modo molto gestito, senza eccessi.
+          </p>
+        </div>
+      </details>
+
+      <!-- Settimana 19 – Passatore -->
+      <details class="week" data-start="2026-05-18" data-end="2026-05-24">
+        <summary>
+          <span class="week-title">Settimana 19 · Taper & Gara</span>
+          <span class="week-dates">18–24 maggio</span>
+        </summary>
+        <div class="week-content">
+          <p><strong>🟦 Lunedì</strong><br>
+            8 km Z2.
+          </p>
+          <p><strong>🤝 Mercoledì</strong><br>
+            8 km Z2, molto facile, solo per sciogliere.
+          </p>
+          <p><strong>🟧 Giovedì</strong><br>
+            6 km Z2, corsi morbidi, ultimi km di scarico.
+          </p>
+          <p><strong>🏁 Sabato – 100 km del Passatore</strong><br>
+            Obiettivo principale del percorso: gestione intelligente del ritmo, alimentazione,
+            idratazione e testa sulla distanza ultra.
+          </p>
+        </div>
+      </details>
+
+      <p class="footnote">
+        Le settimane seguono la numerazione della programmazione ufficiale del quadrimestre,
+        con estensione fino alla settimana di gara del Passatore.
+      </p>
+    </div>
+  </div>
+
+<script>
+  // --- CONFIG ---
+  // Hash univoco per questa pagina per la chiave di localStorage
+  const PAGE_HASH = "4f25ff950e38aaf3252052be6d8304327817d8edcf26a0ce379d17310e1be212";
+  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+
+  // Password in chiaro per questa pagina
+  const key = "AvaMar.2026";
+
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const unlockBtn = document.getElementById("unlock");
+  const pwInput = document.getElementById("pw");
+  const lockMsg = document.getElementById("lockMsg");
+
+  // Mostra contenuto e nasconde il lock
+  function showApp() {
+    lock.style.display = "none";
+    lock.setAttribute("aria-hidden", "true");
+    app.style.display = "block";
+    lockMsg.style.display = "none";
+    pwInput.value = "";
+  }
+
+  // Controllo iniziale: se già sbloccato, niente password
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
+  } catch (e) {
+    alreadyUnlocked = false;
+  }
+
+  if (alreadyUnlocked) {
+    showApp();
+  } else {
+    lock.style.display = "block";
+    lock.setAttribute("aria-hidden", "false");
+    app.style.display = "none";
+  }
+
+  // Verifica password
+  function tryUnlock() {
+    const inputPassword = pwInput.value.trim();
+
+    if (inputPassword === key) {
+      try {
+        localStorage.setItem(STORAGE_KEY, "ok");
+      } catch (e) {}
+
+      showApp(); // resta sulla stessa pagina
+    } else {
+      lockMsg.style.display = "block";
+    }
+  }
+
+  // Eventi sui controlli
+  unlockBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    tryUnlock();
+  });
+
+  pwInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter") tryUnlock();
+  });
+</script>
+
+</body>
+</html>
