@@ -38,5 +38,6 @@ window.RS_PROGRAMMI = {
   "46ccd62c529722ef3be367704aa082491faa1ca290ec53ec30d7d47a3cfc12c3": "programmi/bernaroli-mirko.html",
   "01d0f33fbe67dc44b70a2715d3477214bd5e4620e8277c62b0572fb6d6b3516d": "programmi/malaspina-gemma.html",
   "15d2a5dd5104dffdff11280b186e0ba19cdf794f27ade77202467546472f4982": "programmi/fontana-marco-vito.html",
-  "6e1bda64018a6403dc61af851d4b245f8fd5caf44f68f1e7cb44cc7e947aa098": "programmi/bertacchini-cecilia.html"
+  "6e1bda64018a6403dc61af851d4b245f8fd5caf44f68f1e7cb44cc7e947aa098": "programmi/bertacchini-cecilia.html",
+  "4f25ff950e38aaf3252052be6d8304327817d8edcf26a0ce379d17310e1be212": "programmi/avanzi-marco.html"
 };
