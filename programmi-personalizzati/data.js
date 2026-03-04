@@ -40,5 +40,6 @@ window.RS_PROGRAMMI = {
   "15d2a5dd5104dffdff11280b186e0ba19cdf794f27ade77202467546472f4982": "programmi/fontana-marco-vito.html",
   "6e1bda64018a6403dc61af851d4b245f8fd5caf44f68f1e7cb44cc7e947aa098": "programmi/bertacchini-cecilia.html",
   "4f25ff950e38aaf3252052be6d8304327817d8edcf26a0ce379d17310e1be212": "programmi/avanzi-marco.html",
-  "aaf592506a330d9d9c4415dffa3b40f973cb7616978b13214b02a030e797c33a": "programmi/zagani-alessandra.html"
-};
+  "aaf592506a330d9d9c4415dffa3b40f973cb7616978b13214b02a030e797c33a": "programmi/zagani-alessandra.html",
+  "1d6e5d132023a129a00d1a520439dc7e2400b2fcb4f35a22a9062050a198001a": "programmi/medici-nadia.html"
+  };
