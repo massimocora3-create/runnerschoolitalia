@@ -24,7 +24,7 @@
       background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
       color:var(--text);
     }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
+    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px; display:none;}
     .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
     .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
     .back:hover{opacity:1}
@@ -46,6 +46,7 @@
     .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
     .mini .v{font-size:14px; line-height:1.35}
     .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
+
     details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
     details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
     details.week summary::-webkit-details-marker{display:none}
@@ -53,6 +54,77 @@
     .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
     .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
     .week-content p{margin:10px 0}
+
+    /* Ritmi table + note */
+    .ritmi-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#050b18;
+      font-size:13px;
+    }
+    .ritmi-table th, .ritmi-table td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(31,41,55,.75);
+      text-align:left;
+      vertical-align:top;
+    }
+    .ritmi-table th{
+      color:var(--text-muted);
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      background:rgba(249,115,22,.06);
+    }
+    .ritmi-table tbody tr:last-child td{border-bottom:0}
+    .note-box{
+      margin-top:12px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(249,115,22,.28);
+      background:rgba(249,115,22,.08);
+      color:var(--text);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    /* Lock */
+    .lock{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px 16px;
+      background:rgba(0,0,0,.72);
+      backdrop-filter: blur(6px);
+    }
+    .lock .wrap{width:min(520px, 100%);}
+    #pw{
+      width:100%;
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#050b18;
+      color:var(--text);
+      font-size:14px;
+      outline:none;
+    }
+    .msg{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(239,68,68,.35);
+      background:rgba(239,68,68,.10);
+      color:var(--text);
+      font-size:13px;
+    }
   </style>
 </head>
 
@@ -67,7 +139,7 @@
     <div class="card">
       <h1>📄 Programma personalizzato · <span id="nomeAllievo">Mazzini Mauro</span></h1>
       <p class="meta">
-        Aggiornato: <b id="aggiornatoIl">10/01/2026</b><br>
+        Aggiornato: <b id="aggiornatoIl">04/03/2026</b><br>
         Regola base: rispetta intensità e recuperi. Se compare dolore “strano”, stop e scrivimi.
       </p>
 
@@ -90,7 +162,7 @@
 
         <div class="mini">
           <div class="k">Allenamenti</div>
-          <div class="v">3 uscite running / settimana</div>
+          <div class="v">4 uscite running / settimana</div>
         </div>
 
         <div class="mini">
@@ -104,8 +176,8 @@
         </div>
 
         <div class="mini" style="grid-column:1 / -1;">
-          <div class="k">Ritmo migliore 5 km (min/km)</div>
-          <div class="v">5'35"</div>
+          <div class="k">Ritmo migliore 3 km (min/km)</div>
+          <div class="v">5'15"</div>
         </div>
       </div>
     </div>
@@ -113,17 +185,18 @@
     <div class="section-label">Obiettivi</div>
     <div class="card content">
       <p><strong>🎯 Obiettivo principale</strong><br>
-        Preparare la Mezza Maratona di Napoli poi valutazione
+        Mezza Maratona di Rimini (19/04/2026), Mezza Maratona di Trieste (03/05/2026), Mezza Maratona di Bellaria (30/05/2026)
       </p>
 
       <p><strong>📌 Obiettivi del periodo</strong><br>
-        • Aumentare i carichi senza esagerare<br>
-        • Migliorare il ritmo sui 5 km (5'35" o meglio)<br>
+        • Essere prestante nelle mezze maratone in programma<br>
+        • Trasformare il ritmo ottenuto sul breve in un buon ritmo sulla mezza maratona, obiettivo tra i 5.40 e i 5.45 al km<br>
         • Imparare un metodo di allenamento duraturo per ottenere progressi continui
       </p>
 
       <p><strong>⚠️ Avvertenze</strong><br>
-        Durante il quadrimestre precedente abbiamo completato la maratona di Valencia, ma ci sono stati problemi di sovraccarico al ginocchio. Questo deve essere monitorato costantemente.
+        Durante il quadrimestre precedente abbiamo completato la maratona di Valencia, ma ci sono stati problemi di sovraccarico al ginocchio. Questo deve essere monitorato costantemente.<br>
+        A febbraio è stata corsa la Mezza Maratona di Napoli con un crono finale di 2.04.43 per un ritmo di 5.55 al km.
       </p>
     </div>
 
@@ -138,31 +211,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>RG</td>
-            <td>Ritmo gara</td>
-            <td translate="no">5'40"</td>
-          </tr>
-          <tr>
-            <td>RM</td>
-            <td>Ritmo medio</td>
-            <td translate="no">6'00"</td>
-          </tr>
-          <tr>
-            <td>RA</td>
-            <td>Ritmo allegro</td>
-            <td translate="no">6'20"</td>
-          </tr>
-          <tr>
-            <td>RL</td>
-            <td>Ritmo lento</td>
-            <td translate="no">6'30"</td>
-          </tr>
-          <tr>
-            <td>RD</td>
-            <td>Riscaldamento Defaticamento</td>
-            <td translate="no">6'40"</td>
-          </tr>
+          <tr><td>RG</td><td>Ritmo gara</td><td translate="no">5'25"</td></tr>
+          <tr><td>RM</td><td>Ritmo medio</td><td translate="no">5'45"</td></tr>
+          <tr><td>RA</td><td>Ritmo allegro</td><td translate="no">6'05"</td></tr>
+          <tr><td>RL</td><td>Ritmo lento</td><td translate="no">6'15"</td></tr>
+          <tr><td>RD</td><td>Riscaldamento / Defaticamento</td><td translate="no">6'25"</td></tr>
         </tbody>
       </table>
 
@@ -175,12 +228,30 @@
       </p>
     </div>
 
-    <div class="section-label">Note e Aggiornamenti</div>
-    <div class="card content">
-      <p>Per ora questa sezione è vuota. Puoi inserire aggiornamenti relativi all'allenamento, modifiche al programma, o altre note utili per il tuo percorso.</p>
-    </div>
-
     <div class="section-label" id="settimane">Settimane</div>
+
+    <!-- Spiegazione struttura -->
+    <div class="card content">
+      <p><strong>📌 Come usare Scarico 1 e Scarico 2</strong><br>
+        Gli allenamenti di <strong>scarico</strong> vanno fatti <strong>sempre</strong> nei giorni “a ridosso” dei lavori più impegnativi: quindi <strong>il giorno prima o il giorno dopo</strong> un allenamento di <strong>Qualità</strong> o di <strong>Fine settimana</strong>.
+        In pratica servono per recuperare e arrivare “fresco” quando conta.
+      </p>
+
+      <p><strong>🟦 Scarico 2 (se ti manca il 4° allenamento)</strong><br>
+        Se in questo periodo non riesci sempre a fare 4 uscite, lo <strong>Scarico 2</strong> è quello che puoi saltare per primo.
+        Quando invece il 4° allenamento è <strong>metabolizzato</strong> (cioè lo reggi bene senza stanchezza “strana” e senza fastidi), possiamo pensare di <strong>sostituire uno scarico</strong> con un allenamento di <strong>mantenimento</strong>.
+      </p>
+
+      <p><strong>🟧 Esempio “Mantenimento” (da usare al posto di uno scarico)</strong><br>
+       2 km RD + 2x (1000m RA + 1000m RL) + 5 x (150m allunghi *possibilmente in salita* + 150m recupero discesa o RD) + 1 km RD  (10 km)<br>
+        oppure<br>
+        2 km RD + 4 km progressione da RD a RA + 5 x (100m allunghi +100m recupero RL) + 2 km RL + 1 km RD (10 km)
+      </p>
+
+      <p class="footnote">
+        Nota: se torna il fastidio al ginocchio, si rimane sugli scarichi (o si taglia volume) e mi scrivi.
+      </p>
+    </div>
 
     <!-- Settimana 1 -->
     <details class="week" data-start="2026-01-12" data-end="2026-01-18">
@@ -189,7 +260,8 @@
         <span class="week-dates">12–18 gennaio</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo se non riesci a fare 4 uscite)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 4 x (1000m RM + 500m RL) + 3 km RL (15 km)</p>
       </div>
@@ -202,11 +274,13 @@
         <span class="week-dates">19–25 gennaio</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>17 km collinari oppure 3 km RD + 4 km RL + 4 km RA + 3 km RM + 3 km RD (17 km)</p>
       </div>
     </details>
+
     <!-- Settimana 3 -->
     <details class="week" data-start="2026-01-26" data-end="2026-02-01">
       <summary>
@@ -214,7 +288,8 @@
         <span class="week-dates">26 gennaio – 1 febbraio</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 12 km RL + 3 km RD (18 km)</p>
       </div>
@@ -227,9 +302,10 @@
         <span class="week-dates">2–8 febbraio</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
-        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RA + 1000 RL) 1 x (3000m RM + 1000m RL) + 3 km RL + 1 km RD (19 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RA + 1000m RL) + 1 x (3000m RM + 1000m RL) + 3 km RL + 1 km RD (19 km)</p>
       </div>
     </details>
 
@@ -240,7 +316,8 @@
         <span class="week-dates">9–15 febbraio</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
       </div>
@@ -253,7 +330,8 @@
         <span class="week-dates">16–22 febbraio</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>MEZZA MARATONA DI NAPOLI</p>
       </div>
@@ -266,7 +344,8 @@
         <span class="week-dates">23 febbraio – 1 marzo</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>30–40' RD/RL + mobilità (facoltativo)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
       </div>
@@ -279,7 +358,8 @@
         <span class="week-dates">2–8 marzo</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4500m RA + 500m RM + 1000m RL) + 2 km RD (17 km)</p>
       </div>
@@ -292,7 +372,8 @@
         <span class="week-dates">9–15 marzo</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (400m RA + 400m RL) + 5 x (400m RM + 400m RL) + 1 km RD (12 km)</p>
       </div>
@@ -305,7 +386,8 @@
         <span class="week-dates">16–22 marzo</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 2 x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>17 km collinari oppure 3 km RD + 4 x (2000m RM + 1000m RL) + 2 km RD (17 km)</p>
       </div>
@@ -318,7 +400,8 @@
         <span class="week-dates">23–29 marzo</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 4 x (1000m RG + 500m RL) + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>2 km RD + 5 x (100m allungo facile + 100m RL) + 10 km al meglio + 1 km RD (14 km)</p>
       </div>
@@ -331,7 +414,8 @@
         <span class="week-dates">30 marzo – 5 aprile</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 5 x (300m RG-20" + 200m RG + 500m RL) + 10' RL (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>2 km RD + 5 km RL + 5 km RA + 5 km RM + 1 km RD (18 km)</p>
       </div>
@@ -344,7 +428,8 @@
         <span class="week-dates">6–12 aprile</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
       </div>
@@ -357,9 +442,10 @@
         <span class="week-dates">13–19 aprile</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 10 x (300m RG-10" + 200m RL) + 10' RD (9 km circa)</p>
-        <p><strong>🏁 Fine settimana</strong><br>20 km collinari oppure Mezza Maratona Obiettivo oppure 3 km RD + 5 x (1000m RG + 1000m RL) + 3 km RD (20-21 km)</p>
+        <p><strong>🏁 Fine settimana</strong><br>Rimini Half Marathon</p>
       </div>
     </details>
 
@@ -370,13 +456,14 @@
         <span class="week-dates">20–26 aprile</span>
       </summary>
       <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+        <p><strong>🟦 Scarico 1</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
+        <p><strong>🟦 Scarico 2</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
         <p><strong>🔥 Qualità</strong><br>15' RD + 3 km al meglio + 10' RD</p>
         <p><strong>🏁 Fine settimana</strong><br>3 km RD + 10 km RM + 2 km RD (15 km)</p>
       </div>
     </details>
 
-      </div><!-- /.weeks -->
+  </div><!-- /#app -->
 
   <!-- 🔒 LOCK -->
   <div class="lock" id="lock">
@@ -398,24 +485,30 @@
     </div>
   </div>
 
-  <!-- APP -->
   <script>
-    const PAGE_HASH = "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b"; // Codice della pagina
+    const PAGE_HASH = "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b";
     const lock = document.getElementById("lock");
-    const app = document.getElementById("app");
-    const key = "MazMau.2026"; // Password
+    const app  = document.getElementById("app");
+    const key  = "MazMau.2026";
 
-    document.getElementById("unlock").onclick = function() {
+    document.getElementById("pw").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") document.getElementById("unlock").click();
+    });
+
+    document.getElementById("unlock").onclick = function(e) {
+      e.preventDefault();
       const inputPassword = document.getElementById("pw").value;
+      const msg = document.getElementById("lockMsg");
+
       if (inputPassword === key) {
+        msg.style.display = "none";
         lock.style.display = "none";
         app.style.display = "block";
+        window.location.hash = "#app";
       } else {
-        document.getElementById("lockMsg").style.display = "block";
+        msg.style.display = "block";
       }
     };
   </script>
-
 </body>
 </html>
-
