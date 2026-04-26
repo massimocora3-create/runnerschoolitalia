@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Runner’s School Italia – Programma completo</title>
+<title>Runner’s School Italia – Programma Pausa</title>
 
 <style>
 :root {
@@ -39,6 +39,16 @@ body {
 }
 .header h1 { margin: 0; font-size: 18px; }
 .header p { margin: 6px 0 0; font-size: 13px; color: var(--text-muted); }
+.box{
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 14px 16px;
+  margin: 14px 0;
+}
+.box h2{ margin:0 0 6px; font-size:15px; color: var(--text); }
+.box p{ margin:0; font-size:13px; color: var(--text-muted); }
 details.level {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -73,6 +83,8 @@ details.week > summary::-webkit-details-marker { display: none; }
 .week-title { font-weight: 600; }
 .week-dates { font-size: 12px; color: var(--text-muted); }
 .week-content { padding: 10px 16px 16px; font-size: 13px; line-height: 1.45; }
+.week-content p { margin: 0 0 10px; }
+.week-content p:last-child { margin-bottom: 0; }
 .chev {
   width: 10px;
   height: 10px;
@@ -99,89 +111,9 @@ details[open] > summary .chev { transform: rotate(225deg); }
   box-shadow: 0 10px 25px rgba(0,0,0,.5);
   z-index: 999;
 }
-  .box{
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 14px 16px;
-  margin: 14px 0;
-}
-.box h2{ margin:0 0 6px; font-size:15px; color: var(--text); }
-.box p{ margin:0; font-size:13px; color: var(--text-muted); }
-  .section-title{
-  margin: 18px 2px 10px;
-  font-size: 14px;
-  letter-spacing: .4px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-.guide-actions{
-  margin: 10px 0 14px;
-}
-.guide-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(249,115,22,0.18), rgba(249,115,22,0.06));
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 13px;
-  box-shadow: var(--shadow-soft);
-}
-.guide-btn:active{ transform: translateY(1px); }
-.guide-btn small{
-  font-weight: 600;
-  color: var(--text-muted);
-}
-.section-card{
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 14px;
-  margin: 12px 0 14px;
-}
 </style>
 </head>
-<script>
-(async function () {
-  const VERSION = "v1";
-  const KEY = "rs_auth_" + VERSION;
 
-  // SHA-256 di RS01042026
-  const PASSWORD_HASH_HEX = "f38b79995ca186d9f5ffeb87efb645b30db55da511f202e124f6ae740977f148";
-
-  function buf2hex(buffer) {
-    return [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, "0")).join("");
-  }
-  async function sha256Hex(text) {
-    const enc = new TextEncoder().encode(text);
-    const digest = await crypto.subtle.digest("SHA-256", enc);
-    return buf2hex(digest);
-  }
-
-  if (localStorage.getItem(KEY) === "1") return;
-
-  const pwd = prompt("Area riservata Runner’s School. Inserisci la password:");
-  if (!pwd) { location.href = "../"; return; }
-
-  const h = await sha256Hex(pwd);
-  if (h.toLowerCase() === PASSWORD_HASH_HEX.toLowerCase()) {
-    localStorage.setItem(KEY, "1");
-    return;
-  }
-
-  alert("Password errata.");
-  location.href = "../";
-})();
-</script>
 <body>
 
 <a href="https://massimocora3-create.github.io/runnerschoolitalia"
@@ -190,1052 +122,176 @@ details[open] > summary .chev { transform: rotate(225deg); }
 
 <div class="app-shell">
 
-
-<!-- =========================
-PROGRAMMA RUNNER'S SCHOOL ITALIA
-PAUSA 3 (settimana attuale) + CICLO GENNAIO-APRILE
-========================= -->
-
 <div class="header">
-  <h1>📅 Programma completo</h1>
- <strong>Nuovo ciclo</strong>: Gennaio–Aprile 2026</p>
+  <h1>📅 Programma Pausa</h1>
+  <p><strong>Mini programma</strong> tra la fine del quadrimestre e l’inizio del prossimo ciclo</p>
 </div>
 
+<section class="box">
+  <h2>🔁 Pausa tra quadrimestri</h2>
+  <p>Programma dal <strong>27 aprile</strong> al <strong>10 maggio</strong>, pensato per mantenere continuità e arrivare pronti al nuovo percorso.</p>
+</section>
+
+<!-- LIVELLO 1 -->
+<details class="level" open>
+  <summary>🟧 Livello 1<div class="chev"></div></summary>
+
+  <details class="week" open>
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
+    <div class="week-content">
+      <p><strong>👥 Collettivo</strong><br>10' corsa lenta + 10x (1' corsa un po' più veloce + 1' corsa lenta) + 10' corsa lenta</p>
+      <p><strong>🅰️ Allenamento 1</strong><br>30' corsa lenta</p>
+      <p><strong>🅱️ Allenamento 2</strong><br>40' corsa lenta</p>
+      <p><strong>🆎 Allenamento 3</strong><br>50' corsa lenta</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
+    <div class="week-content">
+      <p><strong>👥 Collettivo</strong><br>10' corsa lenta + 7x (2' corsa un po' più veloce + 1' corsa lenta) + 10' corsa lenta</p>
+      <p><strong>🅰️ Allenamento 1</strong><br>30' corsa lenta</p>
+      <p><strong>🅱️ Allenamento 2</strong><br>40' corsa lenta</p>
+      <p><strong>🆎 Allenamento 3</strong><br>50' corsa lenta</p>
+    </div>
+  </details>
 </details>
 
-<hr>
-<h2 class="section-title">Running</h2>
-<div class="section-card">
-  <div class="guide-actions">
-    <a class="guide-btn" href="https://www.runnerschoolitalia.com/programmi-di-allenamento-guida-per-allievi/" target="_blank" rel="noopener">
-      GUIDA AI PROGRAMMI RUNNING
-    </a>
-  </div>
-</div>
+<!-- ENDURANCE -->
+<details class="level">
+  <summary>🟦 Livello 2 – Endurance 13 km e oltre<div class="chev"></div></summary>
 
-<!-- ================= LIVELLO 1 (NUOVO CICLO) ================= -->
-<details class="level" data-level="L1_NEW">
-  <summary>🟧 Livello 1 – Nuovo ciclo<div class="chev"></div></summary>
-
-  <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Allenamento con spiegazione tecnica + 10x (30" corsa lenta + 1' camminata) + 5' camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>15’ camminata + 8 x (30” corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>15’ camminata + 10 x (30” corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🆎 A3</strong><br>15’ camminata + 6x (1' corsa lenta + 1’ camminata) + 10’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 10x (1’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>15’ camminata + 6 x (1' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>15’ camminata + 8 x (1' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🆎 A3</strong><br>15’ camminata + 10x (1' corsa lenta + 1’ camminata) + 10’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio – 1 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 8x (2’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>15’ camminata + 10 x (1' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>10’ camminata + 6 x (2' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🆎 A3</strong><br>10’ camminata + 8x (2' corsa lenta + 1’ camminata) + 10’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 5x (3’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>10’ camminata + 8 x (2' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>10’ camminata + 5 x (3' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🆎 A3</strong><br>10’ camminata + 6x (3' corsa lenta + 1’ camminata) + 10’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 5x (4’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>10’ camminata + 6 x (3' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>10’ camminata + 5 x (4' corsa lenta + 1’ camminata) + 10’ camminata</p>
-      <p><strong>🆎 A3</strong><br>10’ camminata + 6x (4' corsa lenta + 1’ camminata) + 5’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Allenamento con spiegazione tecnica + 3x (5' corsa lenta + 1' camminata) + 5' camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>10’ camminata + 6 x (4' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>10’ camminata + 4 x (5' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>10’ camminata + 5x (5' corsa lenta + 1’ camminata) + 5’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio – 1 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 4x (6’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>10’ camminata + 5 x (5' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>10’ camminata + 4 x (6' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>10’ camminata + 5x (6' corsa lenta + 1’ camminata) + 5’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-    <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 4x (7’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>10’ camminata + 5x (6' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>10’ camminata + 4 x (7' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>5’ camminata + 5x (7' corsa lenta + 1’ camminata) + 5’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-    <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 4x (8’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5’ camminata + 5 x (7' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>5’ camminata + 4 x (8' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>5’ camminata + 4x (9' corsa lenta + 1’ camminata) + 5’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-    <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Allenamento con spiegazione tecnica + 2x (10' corsa lenta + 1' camminata) + 5' camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5’ camminata + 4 x (9' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>5’ camminata + 3 x (10' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>5’ camminata + 2x (15' corsa lenta + 1’ camminata) + 5’ camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-    <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 2x (20’ corsa lenta + 1’ camminata) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5’ camminata + 2 x (15' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🅱️ A2</strong><br>5’ camminata + 2 x (20' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>5' camminata + 30' corsa lenta + 5' camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-    <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo – 5 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 5' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 15' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 5' corsa lenta + 1' camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5' camminata + 30' corsa lenta + 5' camminata</p>
-      <p><strong>🅱️ A2</strong><br>5' camminata + 5' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 15' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 5' corsa lenta + 1' camminata</p>
-      <p><strong>🆎 A3</strong><br>5' camminata + 35' corsa lenta + 5' camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-    <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 10’ andature e allunghi + 5’ corsa lenta + 2x (1,5 km corsa al meglio + 2' recupero da fermi) + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5' camminata + 35' corsa lenta + 5' camminata</p>
-      <p><strong>🅱️ A2</strong><br>5’ camminata + 2x (20' corsa lenta + 1’ camminata) + 5’ camminata</p>
-      <p><strong>🆎 A3</strong><br>5' camminata + 5' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 15' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 5' corsa lenta + 1' camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-    <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>5' camminata + 40’ corsa lenta + 5’ camminata + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5' camminata + 5' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 15' corsa lenta + 1' camminata + 10' corsa lenta + 1' camminata + 5' corsa lenta + 1' camminata</p>
-      <p><strong>🅱️ A2</strong><br>5' camminata + 30' corsa lenta + 5' camminata</p>
-      <p><strong>🆎 A3</strong><br>5' camminata + 45' corsa lenta + 5' camminata</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-    <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>10’ andature e allunghi + 3 km al meglio + allungamento muscolare</p>
-      <p><strong>🅰️ A1</strong><br>5' camminata + 30' corsa lenta + 5' camminata</p>
-      <p><strong>🅱️ A2</strong><br>5' camminata + 40' corsa lenta + 5' camminata</p>
-      <p><strong>🆎 A3</strong><br>5' camminata + 45' corsa lenta + 5' camminata</p>
-    </div>
-  </details>
-
-</details>
-
-<!-- ================= LIVELLO 2 – ENDURANCE (NUOVO CICLO) ================= -->
-<details class="level" data-level="L2E_NEW">
-  <summary>🟦 Livello 2 – Endurance (13 km e oltre)<div class="chev"></div></summary>
-
-  <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (1000m RG + 500m RL) + 3 km RL (13,5 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6 x (200m RG + 200m RM) + 6 x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (500m RG-10" + 500m RL) + 10' RL</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
       <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>15 km collinari <em>oppure</em> 3 km RD + 4 km RA + 4 km RM + 1 km RG + 3 km RD (15 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 2 km RG + 3 km RD (16 km)</p>
     </div>
   </details>
 
-  <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio – 1 febbraio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG-10" + 10' RL</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
       <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (100m allungo facile + 100m RL) + 5 km al meglio + 4 km RD (13 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3x (3000m RG+10" + 1000m RL) + 2 km RD (17 km)</p>
     </div>
   </details>
-
-  <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2 x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (3000m RM + 1000 RL) + 1 x (3000m RG + 1000m RL) + 1 km RD (16 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3 x (500m RG + 500m RA) + 2 x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>16 km collinari <em>oppure</em> 3 km RD + 3 km RL + 3 km RA + 3 km RM + 3 km RG+10" + 1 km RD (16 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio – 1 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4000m tra RM e RG+10" + 1000m RL) + 1 km RD (14 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-    <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 x (4500m RM + 500m RG + 1000m RL) + 2 km RD (17 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-    <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 x (400m RA + 400m RL) + 5 x (400m RM + 400m RL) + 1 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-    <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>17 km collinari <em>oppure</em> 3 km RD + 4 x (2000m RM + 1000m RL) + 2 km RD (17 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-    <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4 x (1000m RG + 500m RL) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (300m tra RG-20" e RG-40" + 1'30" recupero in souplesse) + 1 km in progressione da RL a RG-20" + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 5 x (100m allungo facile + 100m RL) + 10 km al meglio + 1 km RD (se non ve la sentite ripetete il lavoro sui 5000m di domenica 1 febbraio) (14 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-    <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo – 5 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 x (300m RG-20" + 200m RG + 500m RL) + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (100m RM + 100m RG + 100m RG-20" + 100m souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 5 km tra RA e RL-10" + 5 km tra RM e RA-10" + 5 km tra RG e RM-10" + 1 km RD (18 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-    <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RA + 2 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-    <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 10 x (300m RG-10" + 200m RL) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4 x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>20 km collinari <em>oppure</em> Mezza Maratona Obbiettivo <em>oppure</em> 3 km RD + 5 x (1000m RG + 1000m RL) + 3 km RD (20-21 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-    <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>Test dei 3000m (La festa della RS) (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 10 x (200m tra RG-20" e RG-40" + 1' recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 10 km RM + 2 km RD (15 km)</p>
-    </div>
-  </details>
-
 </details>
 
-<!-- ================= LIVELLO 2 – MEDIO (NUOVO CICLO) ================= -->
-<details class="level" data-level="L2M_NEW">
-  <summary>🟦 Livello 2 – Medio (9–12 km)<div class="chev"></div></summary>
+<!-- MEDIO -->
+<details class="level">
+  <summary>🟦 Livello 2 – Medio 9–12 km<div class="chev"></div></summary>
 
-  <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 2x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 4x (1000m RG + 500m RL) + 1 km RL (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6x (200m RG + 200m RM) + 6x (200m RG-20" + 200m RL) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (500m RG-10" + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
       <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>12 km collinari <em>oppure</em> 3 km RD + 3 km RA + 3 km RM + 1 km RG + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 3 km RA + 3 km RM + 1 km RG + 2 km RD (12 km)</p>
     </div>
   </details>
 
-  <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio – 1 febbraio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3x (2000m RG+10" + 500m RL) + 5' RD (10 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG-10" + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
       <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5x (100m allungo facile + 100m RL) + 5 km al meglio + 1 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2x (3000m RG+10" + 1000m RL) + 1 km RD (12 km)</p>
     </div>
   </details>
-
-  <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 2x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 1x (3000m RM + 1000 RL) + 1x (3000m RG + 1000m RL) + 1 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km RA + 2 km RD (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3x (500m RG + 500m RA) + 2x (500m RG-20" + 500m RL) + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>12 km collinari <em>oppure</em> 3 km RD + 2 km RL + 2 km RA + 2 km RM + 2 km RG+10" + 1 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio – 1 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 2x (4000m tra RM e RG+10" + 1000m RL) (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-    <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 2x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 1x (4500m RM + 500m RG + 1000m RL) + 2 km RD (11 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-    <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 4x (400m RA + 400m RL) + 4x (400m RM + 400m RL) + 1 km RD (10,5 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-    <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>13 km collinari <em>oppure</em> 3 km RD + 3x (2000m RM + 1000m RL) + 1 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-    <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4x (1000m RG + 500m RL) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (300m tra RG-20" e RG-40" + 1'30" recupero in souplesse) + 1 km in progressione da RL a RG-20" + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5x (100m allungo facile + 100m RL) + 5 km al meglio + 1 km RD (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-    <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo – 5 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (300m RG-20" + 200m RG + 500m RL) + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (100m RM + 100m RG + 100m RG-20" + 100m souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 2x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 3 km tra RA e RL-10" + 3 km tra RM e RA-10" + 3 km tra RG e RM-10" + 1 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-    <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km RA + 2 km RD (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-    <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 10x (300m RG-10" + 200m RL) + 10' RD (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>14 km collinari <em>oppure</em> Gara Obiettivo 10 km <em>oppure</em> 3 km RD + 4x (1000m RG + 1000m RL) + 3 km RD (14 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-    <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>Test dei 3000m (La festa della RS) (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 10 x (200m tra RG-20" e RG-40" + 1' recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 2x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 7 km RM + 2 km RD (12 km)</p>
-    </div>
-  </details>
-
 </details>
 
-<!-- ================= LIVELLO 2 – SPRINT (NUOVO CICLO) ================= -->
-<details class="level" data-level="L2S_NEW">
-  <summary>🟦 Livello 2 – Sprint (6–8 km)<div class="chev"></div></summary>
+<!-- SPRINT -->
+<details class="level">
+  <summary>🟦 Livello 2 – Sprint 6–8 km<div class="chev"></div></summary>
 
-  <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km RM + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 2 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3x (1000m RG + 500m RL) + 0,5 km RL (8 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 6x (200m RG + 200m RM) + 6x (200m RG-20" + 200m RL) + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4x (500m RG-10" + 500m RL) + 5' RL (7 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
       <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>8 km collinari <em>oppure</em> 3 km RD + 1 km RA + 2 km RM + 1 km RG + 1 km RD (8 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>10 km collinari oppure 3 km RD + 2 km RA + 2 km RM + 1 km RG + 2 km RD (10 km)</p>
     </div>
   </details>
 
-  <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio – 1 febbraio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3x (2000m RG+10" + 500m RL) + 5' RD (10 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (400m tra RG-10" e RG-30" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4 km progressione da RL a RG-10" + 5' RL (7 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
       <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1 km RL + 10 x (200m allungo facile + 200m RL) + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5x (100m allungo facile + 100m RL) + 3 km al meglio + 1 km RD (8 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2x (2000m RG+10" + 1000m RL) + 1 km RD (10 km)</p>
     </div>
   </details>
-
-  <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (250m RL + 250m RM + 250m RG + 250m RG-20") + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + piramide 2x (100-200-400-200-100 + 1'00" recupero souplesse tra i periodi veloci) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 2 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 1x (2000m RM + 500m RL) + 1x (2000m RG + 500m RL) + 1 km RD (9 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3 km RA + 2 km RD (8 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 3x (500m RG + 500m RA) + 2x (500m RG-20" + 500m RL) + 10' RL (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1 km RL + 10 x (200m allungo facile + 200m RL) + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>9 km collinari <em>oppure</em> 3 km RD + 1 km RL + 1 km RA + 1 km RM + 1 km RG+10" + 2 km RD (9 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio – 1 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + (500-800-1200-800-500m RG + 500m RL tra le parti veloci) + 5' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 12 x (200m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 1x (4000m tra RM e RG+10" + 1000m RL) + 2 km RD (9 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-    <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 1000m RM + 1000m RL + 1000m RG+10" + 1000m RM + 1000m RG + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 2 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 1x (4500m RM + 500m RG + 1000m RL) (9 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-    <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2 km RA + 2 km RM + 1 km RG + 10' RL (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 3x (400m RA + 400m RL) + 3x (400m RM + 400m RL) + 1 km RD (8 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-    <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 2x (200-400-600-400-200m RG-20" con recupero 200m RD tra le parti veloci) + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>ALLENAMENTO TECNICA-POTENZIAMENTO: 10' RD + 15' preatletici e allunghi + 20' circuito esercizi potenziamento e velocità + 1 km in progressione da RL a RG-20" + 5' RL <em>oppure</em> Allenamento salite (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>10 km collinari <em>oppure</em> 3 km RD + 2x (2000m RM + 1000m RL) + 1 km RD (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-    <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 4x (1000m RG + 500m RL) + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (300m tra RG-20" e RG-40" + 1'30" recupero in souplesse) + 1 km in progressione da RL a RG-20" + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 3 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5x (100m allungo facile + 100m RL) + 5 km al meglio + 1 km RD (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-    <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo – 5 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (300m RG-20" + 200m RG + 500m RL) + 10' RL (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 8 x (100m RM + 100m RG + 100m RG-20" + 100m souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 2 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km RD + 2 km tra RA e RL-10" + 2 km tra RM e RA-10" + 2 km tra RG e RM-10" + 1 km RD (9 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-    <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 20 x (100m tra RG-20" e RG-40" + 100m recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>3 km RD + 3 km RL + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3 km RA + 2 km RD (8 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-    <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 10x (300m RG-10" + 200m RL) + 10' RD (9 km circa) <em>(il collettivo verrà ridotto in caso di necessità: parlatene con il vostro istruttore)</em></p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 4x (1000m in progressione da RL a RG-20" + 3' recupero souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1 km RL + 10 x (200m allungo facile + 200m RL) + 1 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>10 km collinari <em>oppure</em> Gara Obiettivo 10 km <em>oppure</em> 3 km RD + 4x (1000m RG + 500m RL) + 1 km RD (10 km)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-    <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>Test dei 3000m (La festa della RS) (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>10' RD + 15' preatletici e allunghi + 10 x (200m tra RG-20" e RG-40" + 1' recupero in souplesse) + 5' RD (7 km circa)</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 1x (1000m RA + 1000m RL) + 5 x (150m allunghi <em>possibilmente in salita</em> + 150m recupero discesa o RD) + 2 km RD (7 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km RM + 2 km RD (10 km)</p>
-    </div>
-  </details>
-
 </details>
-  
-<h2 class="section-title">Fitwalking</h2>
-<div class="section-card">
-  <div class="guide-actions">
-    <a class="guide-btn" href="https://www.runnerschoolitalia.com/guida-ai-programmi-fw/" target="_blank" rel="noopener">
-      GUIDA AI PROGRAMMI FITWALKING
-    </a>
-  </div>
-</div>
-  
-<!-- ================= FITWALKING – LIVELLO 1 ================= -->
-<details class="level" data-level="FW_L1">
+
+<!-- FITWALKING LIVELLO 1 -->
+<details class="level">
   <summary>🟩 Fitwalking – Livello 1<div class="chev"></div></summary>
 
-  <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con analisi del passo e uso corretto del piede + 6×(1’ CM + 2’ CL) + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>30’ continui: 20’ CL + 5’ CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>20’ CL + 6×(30’’ CV + 1’ CL) + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 30’’ on/30’’ off × 5 giri: squat, ponte glutei, plank 15–20’’, bird-dog, wall push-up</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 8× (1’ CM + 1’ CL) + 10’ CL</p>
+      <p><strong>👥 Qualità</strong><br>15' CL + 5' CM + 5x (1’ CL + 2’ CM + 1’ CV + 1’ CVV) + 8' in progressione + 5' CL</p>
+      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
+      <p><strong>⏱️ Interval</strong><br>10' CL + 3 km CM + 10x (1' CV + 1' CL) + 10' CL</p>
+      <p><strong>🏠 Circuito a casa</strong><br>35’ circuito: 10 squat, 10 bridge, 10 wall push-up, 20’’ plank, 10 affondi × 3 giri</p>
+      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3x (2 km CM + 1 km CV + 500 m CL) + 5’ CL</p>
     </div>
   </details>
 
-  <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con tecnica della rullata del piede + 4×(2’ CM + 3’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>30’ continui: 20’ CL + 5’ CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 8×(30’’ CV + 1’ CL) + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>EMOM 30’: 12 squat / 20’’ plank / 12 affondi statici / 12 wall push-up / 12 calf raise</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 10× (1’ CM + 1’ CL) + 10’ CL</p>
+      <p><strong>👥 Qualità</strong><br>15’ CL + 5' CM + 8x (2’ CV + 2’ CL) + 8' in progressione + 5’ CL</p>
+      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
+      <p><strong>⏱️ Interval</strong><br>10’ CL + 4 km CM + 12x (30” CVV + 1’ CL) + 10’ CL</p>
+      <p><strong>🏠 Circuito a casa</strong><br>30’ circuito: 12 squat / 20’’ plank / 12 affondi statici / 12 wall push-up / 12 bridge</p>
+      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 2x (4 km CM + 500 m CL) + 5’ CL</p>
     </div>
   </details>
-
-  <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio – 1 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con corretta postura del tronco e perfezionamento della rullata del piede + 3×(3’ CM + 2’ CL) + 2×(1’ CV + 2’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>32’: 20’ CL + 10’ CM + 2’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>20’ CL + 6×(45’’ CV + 1’ CL) + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>AMRAP 30’: 10 squat + 10 ponte glutei + 8 wall push-up + 20’’ plank + 10 calf raise</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 8× (1’ CV + 1’ CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con corretta postura del tronco, perfezionamento della rullata del piede e variazioni di ampiezza del passo + 5×(2’ CM + 2’ CL) + 6’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>35’: 20’ CL + 12’ CM + 3’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 8×(45’’ CV + 1’ CL) + 8’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>40’’ on/20’’ off × 3 giri (~30’): squat, bridge, plank, bird-dog, affondi statici, hollow hold 15–20’’</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 2×(2 km CM + 1 km CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con corretta postura ed inizio apprendimento dell’uso delle braccia piegate al gomito + 3×(4’ CM + 2’ CL) + 2×(1’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>38’: 20’ CL + 15’ CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 8×(1’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Ladder 30’: 8-10-12-10-8 rep (squat, bridge, wall push-up, calf raise) + plank 20’’ tra blocchi</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 4 km CM + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con ripasso della tecnica di rullata e movimento delle braccia piegate al gomito + 6×(3’ CM + 1’ CV) + 2’ CL + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>3 km CL + 2 km CM + 1 CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 8×(2’ CV + 2’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 45’’ on/15’’ off × 2 giri (~30’): squat, bridge, plank, bird-dog, wall push-up, sit-to-stand</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 6× (5’ CM + 1’ CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio – 1 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con ripasso della tecnica di rullata, corretta postura e movimento delle braccia piegate al gomito + 4×(3’ CM + 1’ CV) + 2×(30’’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 10× (1’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>EMOM 30’: 12 squat / 20’’ plank / 12 affondi statici / 10 good-morning / 12 wall push-up</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 4 km in progressione da CL a CV + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-    <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con ripasso tecnica rullata, postura e braccia + 6×(2’ CM + 2’ CL) + 4×(1’ CV + 2’ CL) + 7’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>3 km CL + 2 CM + 1 CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 4× (3’ CV + 2’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>30’’ on/30’’ off × 5 giri: squat, bridge, wall push-up, calf raise, bird-dog, side plank 15–20’’</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3×(2 km CM + 500 m CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-    <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL + 3×(5’ CM + 2’ CL) + 2×(45’’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>7 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 2 km CM + 12×(30’’ CV + 1’ CL) + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>AMRAP 30’: 10 squat + 8 wall push-up + 10 bridge + 20’’ plank + 10 sit-to-stand</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 4 km CM + 1 km CV + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-    <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 15’ CL con apprendimento movimento in spinta del bacino + 5×(3’ CM + 1’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 4×(2’ CM + 1’ CL) + 3×(2’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>45’’ on/15’’ off × 2 giri: squat, bridge, wall push-up, bird-dog, side plank 20’’, good-morning</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3× (1 km CM + 500 m CV + 500 m CL) + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-    <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 10’ CL in tecnica Fitwalking (postura, braccia, bacino e rullata) + 3×(6’ CM + 2’ CL) + 2×(1’ CV + 2’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>4 km CL + 2 km CM + 1 CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 2 km CM + 8× (1’ CVV + 1’ CL) + 1 km prog CL→CV + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito a blocchi 30’: 3 giri da 8’ (30’’ on/30’’ off: squat, plank, bridge, affondi statici) + 6’ mobilità/spalle/anche</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 5 km CM + 1 km CV + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-    <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo – 5 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 10’ CL in tecnica Fitwalking + 4×(4’ CM + 2’ CL) + 4×(1’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>7 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 8× (2’ CV + 2’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Ladder 30’: 10-12-14-12-10 rep (squat, bridge, wall push-up, calf raise) + 20’’ plank tra blocchi</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 5 km prog CL→CV + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-    <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 10’ CL in tecnica Fitwalking + 3×(8’ CM + 2’ CL) + 2×(1’ CV + 2’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>3 km CL + 3 CM + 1 CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 12× (1’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>30’’ on/30’’ off × 5 giri: squat, bridge, wall push-up, bird-dog, side plank 25’’, sit-to-stand</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 2× (2 km CM + 1 km CV + 500 m CL) + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-    <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 10’ CL in tecnica Fitwalking + 4×(6’ CM + 2’ CL) + 2×(1’ CV + 2’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>3 km CL + 2 CM + 1 CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 6×(2’ CV + 2’ CL) + 2×(30’’ CVV + 1’ CL) + 8’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>EMOM 30’: 14 squat / 25’’ plank / 12 affondi statici / 12 bridge / 12 wall push-up</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 5 km CM + 1 km CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-    <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Mob 5’ + 10’ CL in tecnica Fitwalking + 2×(10’ CM + 2’ CL) + 2×(1’ CVV + 2’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>7 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 4×(2’ CM + 1’ CL) + 3×(2’ CV + 2’ CL) + 8’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito mixt 30’: 40’’ on/20’’ off × 3 giri: squat, bridge, wall push-up, bird-dog, side plank 25’’, sit-to-stand</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 7 km CM + 1 km CL</p>
-    </div>
-  </details>
-
 </details>
-<!-- ================= FITWALKING – LIVELLO 2 ================= -->
-<details class="level" data-level="FW_L2">
+
+<!-- FITWALKING LIVELLO 2 -->
+<details class="level">
   <summary>🟩 Fitwalking – Livello 2<div class="chev"></div></summary>
 
-  <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">12–18 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ CM con ripasso tecnica FW + 5×(3’ CM + 1’ CL + 1’ CV + 1’ CL) + 5’ CL</p>
+      <p><strong>👥 Qualità</strong><br>15' CL + 5' CM + 5x (1’ CL + 2’ CM + 1’ CV + 1’ CVV) + 8' in progressione + 5' CL</p>
       <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 8× (30’’ CV + 1’ CL) + 10’ CL</p>
+      <p><strong>⏱️ Interval</strong><br>10' CL + 3 km CM + 10x (1' CV + 1' CL) + 10' CL</p>
       <p><strong>🏠 Circuito a casa</strong><br>35’ circuito: 10 squat, 10 bridge, 10 wall push-up, 20’’ plank, 10 affondi × 3 giri</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 2×(1 km CM + 500 m CL) + 2×(1 km CV + 500 m CM) + 10’ CL</p>
+      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3x (2 km CM + 1 km CV + 500 m CL) + 5’ CL</p>
     </div>
   </details>
 
-  <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">19–25 gennaio</span></summary>
+  <details class="week">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ andature + 7×(2’ CV + 1’ CL) + 5×(1’ CVV + 1’ CL) + 5’ CL</p>
+      <p><strong>👥 Qualità</strong><br>15’ CL + 5' CM + 8x (2’ CV + 2’ CL) + 8' in progressione + 5’ CL</p>
       <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 6× (1’ CV + 1’ CL) + 10’ CL</p>
+      <p><strong>⏱️ Interval</strong><br>10’ CL + 4 km CM + 12x (30” CVV + 1’ CL) + 10’ CL</p>
       <p><strong>🏠 Circuito a casa</strong><br>30’ circuito: 12 squat / 20’’ plank / 12 affondi statici / 12 wall push-up / 12 bridge</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 6 km in progressione da CM a CV + 10’ CL</p>
+      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 2x (4 km CM + 500 m CL) + 5’ CL</p>
     </div>
   </details>
-
-  <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">26 gennaio – 1 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Fitwalking Power: camminata ad alta intensità abbinata ad esercizi di fitness (con o senza polsiere 350–500 g)</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 4×(2’ CV + 2’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 40’’ on/20’’ off × 3 giri: squat, bridge, wall push-up, bird-dog, affondi, plank</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3×(1 km CM + 500 m CL - 1 km CV + 500 m CL)</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">2–8 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ andature + 5×(1’ CL + 2’ CM + 1’ CV + 1’ CVV) + 8’ in progressione</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 10×(30’’ CV + 1’ CL) + 1 km prog CL→CVV + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 45’’ on/15’’ off × 2 giri (~35’): squat, bridge, wall push-up, bird-dog, side plank</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 4 km CM + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">9–15 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ CM con andature + 4×(3’ CM + 1’ CL) + 5×(2’ CV + 1’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 12×(30’’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Ladder 30’: 8-10-12-10-8 rep esercizi corpo libero + plank 25’’ tra i blocchi</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 6 km CM + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">16–22 febbraio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ CM + piramide: 1’CV+2’CV+3’CV+4’CV+4’CV+3’CV+2’CV+1’CV (recuperi: 1’CL dopo 1’CV e 2’CL dopo le altre variazioni) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 10×(1’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 40’’ on/20’’ off × 3 giri (~40’): squat, bridge, wall push-up, plank, affondi, side plank</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 2×(4 km CM + 500 m CL) + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">23 febbraio – 1 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Fitwalking Power: camminata ad alta intensità abbinata ad esercizi di fitness (con o senza polsiere 350–500 g)</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 3×(3’ CV + 2’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 35’: 12 squat / 25’’ plank / 12 affondi / 12 wall push-up / 12 bridge</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3×(2 km CM + 1 km CV + 500 m CL) + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-    <summary><span class="week-title">Settimana 8</span><span class="week-dates">2–8 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ andature + 4×(3’ CV + 1’ CL) + 2’ CM + 4×(2’ CVV + 1’ CL) + 10’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 4×(1’ CV + 1’ CL) + 4×(2’ CV + 2’ CL) + 4×(30’’ CVV + 30’’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Ladder 40’: 8-10-12-14-12-10-8 rep esercizi corpo libero + plank 25’’</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 10 km CM + 5’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-    <summary><span class="week-title">Settimana 9</span><span class="week-dates">9–15 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ andature + 2×(4’ CM + 1’ CL) + 2×(4’ CV + 2’ CL) + 2×(3’ CVV + 2’ CL) + 5’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 6 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 2 km CM + 10×(2’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 45’’ on/15’’ off × 3 giri (~40’): squat, bridge, wall push-up, plank, affondi, side plank</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 4 km CM + 2 km CV + 2 km CM + 1 km CV + 1 km CVV + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-    <summary><span class="week-title">Settimana 10</span><span class="week-dates">16–22 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ andature + 3×(5’ CV + 2’ CL) + 3×(2’ CVV + 1’ CL) + 10’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 6 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 2 km CM + 8×(30’’ CVV + 1’ CL) + 1 km prog CL→CV + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>EMOM 40’: 12 squat / 25’’ plank / 12 affondi / 12 wall push-up / 12 bridge</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 3×(1 km CM + 1 km CV + 500 m CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-    <summary><span class="week-title">Settimana 11</span><span class="week-dates">23–29 marzo</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Fitwalking Power: camminata ad alta intensità abbinata ad esercizi di fitness (con o senza polsiere 350–500 g)</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 6 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 2 km CM + 8×(1’ CVV + 1’ CL) + 1 km prog CL→CV + 5’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Ladder 45’: 8-10-12-14-12-10-8 rep esercizi corpo libero + plank 30’’</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 4×(1 km CM + 1 km CV + 500 m CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-    <summary><span class="week-title">Settimana 12</span><span class="week-dates">30 marzo – 5 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>15’ CL + 5’ andature con variazioni di ampiezza del passo + 3×(3’ CM + 1’ CL) + 4×(2’ CV + 1’ CL) + 3×(1’ CVV + 1’ CL) + 10’ CL</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 7 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>15’ CL + 2 km CM + 9×(1’ CVV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 45’’ on/15’’ off × 3 giri (~45’): squat, bridge, wall push-up, plank, affondi, side plank</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 5×(1 km CM + 1 km CV + 500 m CL) + 10’ CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-    <summary><span class="week-title">Settimana 13</span><span class="week-dates">6–12 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>A. Standard: 15’ CL + 5’ andature + 5×(1’ CV con frequenza maggiore e ampiezza più corta + 1’ CV con frequenza minore e ampiezza più lunga + 2’ CL) + 1 km prog CL→CVV + 5’ CL / A. Alternativo: salite</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 7 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 12×(30’’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>EMOM 45’: 12 squat / 30’’ plank / 12 affondi / 12 wall push-up / 12 bridge</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 8 km CM + 2 km CV + 1 km CVV + 1 km CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-    <summary><span class="week-title">Settimana 14</span><span class="week-dates">13–19 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>A. Standard: 15’ CL + 5’ andature + 3’ CM + 3×(4’ CV + 2’ CL) + 3×(2’ CVV + 2’ CL) + 5’ CL / A. Alternativo: circuito a stazioni (potenziamento alternato a tratti CM)</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 5 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 6×(1’ CV + 1’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Ladder 50’: 8-10-12-14-12-10-8 rep esercizi corpo libero + plank 30’’</p>
-      <p><strong>🏁 Fine settimana</strong><br>10’ CL + 12 km CM + 2 km CV + 1 km CL</p>
-    </div>
-  </details>
-
-  <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-    <summary><span class="week-title">Settimana 15</span><span class="week-dates">20–26 aprile</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Collettivo</strong><br>Fitwalking Power: camminata ad alta intensità abbinata ad esercizi di fitness (con o senza polsiere 350–500 g)</p>
-      <p><strong>🅰️ Scarico</strong><br>15’ CL + 6 km CM + 5’ CL</p>
-      <p><strong>⏱️ Interval</strong><br>10’ CL + 3 km CM + 4×(2’ CV + 2’ CL) + 10’ CL</p>
-      <p><strong>🏠 Circuito a casa</strong><br>Circuito 50’’ on/20’’ off × 3 giri (~45–50’): squat, bridge, wall push-up, plank, affondi, side plank</p>
-      <p><strong>🏁 Fine settimana</strong><br>15’ CL + 10 km CM</p>
-    </div>
-  </details>
-
-</details>
-</details>
-
 </details>
 
 </div>
 </body>
 </html>
-
