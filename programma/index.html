@@ -49,6 +49,7 @@ body {
 }
 .box h2{ margin:0 0 6px; font-size:15px; color: var(--text); }
 .box p{ margin:0; font-size:13px; color: var(--text-muted); }
+
 details.level {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -69,6 +70,7 @@ details.level > summary {
   align-items: center;
 }
 details.level > summary::-webkit-details-marker { display: none; }
+
 details.week { border-top: 1px dashed var(--border); }
 details.week > summary {
   list-style: none;
@@ -80,11 +82,13 @@ details.week > summary {
   align-items: center;
 }
 details.week > summary::-webkit-details-marker { display: none; }
+
 .week-title { font-weight: 600; }
 .week-dates { font-size: 12px; color: var(--text-muted); }
 .week-content { padding: 10px 16px 16px; font-size: 13px; line-height: 1.45; }
 .week-content p { margin: 0 0 10px; }
 .week-content p:last-child { margin-bottom: 0; }
+
 .chev {
   width: 10px;
   height: 10px;
@@ -93,6 +97,7 @@ details.week > summary::-webkit-details-marker { display: none; }
   transform: rotate(45deg);
 }
 details[open] > summary .chev { transform: rotate(225deg); }
+
 .back-home {
   position: fixed;
   bottom: 18px;
@@ -133,10 +138,10 @@ details[open] > summary .chev { transform: rotate(225deg); }
 </section>
 
 <!-- LIVELLO 1 -->
-<details class="level" open>
+<details class="level" data-level="L1" open>
   <summary>🟧 Livello 1<div class="chev"></div></summary>
 
-  <details class="week" open>
+  <details class="week" data-start="2026-04-27" data-end="2026-05-03" open>
     <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>👥 Collettivo</strong><br>10' corsa lenta + 10x (1' corsa un po' più veloce + 1' corsa lenta) + 10' corsa lenta</p>
@@ -146,7 +151,7 @@ details[open] > summary .chev { transform: rotate(225deg); }
     </div>
   </details>
 
-  <details class="week">
+  <details class="week" data-start="2026-05-04" data-end="2026-05-10">
     <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>👥 Collettivo</strong><br>10' corsa lenta + 7x (2' corsa un po' più veloce + 1' corsa lenta) + 10' corsa lenta</p>
@@ -157,65 +162,11 @@ details[open] > summary .chev { transform: rotate(225deg); }
   </details>
 </details>
 
-<!-- ENDURANCE -->
-<details class="level">
-  <summary>🟦 Livello 2 – Endurance 13 km e oltre<div class="chev"></div></summary>
-
-  <details class="week">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (500m RG-10" + 500m RL) + 10' RL</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 2 km RG + 3 km RD (16 km)</p>
-    </div>
-  </details>
-
-  <details class="week">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG-10" + 10' RL</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3x (3000m RG+10" + 1000m RL) + 2 km RD (17 km)</p>
-    </div>
-  </details>
-</details>
-
-<!-- MEDIO -->
-<details class="level">
-  <summary>🟦 Livello 2 – Medio 9–12 km<div class="chev"></div></summary>
-
-  <details class="week">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (500m RG-10" + 500m RL) + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (10 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 3 km RA + 3 km RM + 1 km RG + 2 km RD (12 km)</p>
-    </div>
-  </details>
-
-  <details class="week">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
-      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG-10" + 10' RL (9 km circa)</p>
-      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
-      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
-      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2x (3000m RG+10" + 1000m RL) + 1 km RD (12 km)</p>
-    </div>
-  </details>
-</details>
-
 <!-- SPRINT -->
-<details class="level">
+<details class="level" data-level="L2S">
   <summary>🟦 Livello 2 – Sprint 6–8 km<div class="chev"></div></summary>
 
-  <details class="week">
+  <details class="week" data-start="2026-04-27" data-end="2026-05-03">
     <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
@@ -226,7 +177,7 @@ details[open] > summary .chev { transform: rotate(225deg); }
     </div>
   </details>
 
-  <details class="week">
+  <details class="week" data-start="2026-05-04" data-end="2026-05-10">
     <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
@@ -238,11 +189,65 @@ details[open] > summary .chev { transform: rotate(225deg); }
   </details>
 </details>
 
+<!-- MEDIO -->
+<details class="level" data-level="L2M">
+  <summary>🟦 Livello 2 – Medio 9–12 km<div class="chev"></div></summary>
+
+  <details class="week" data-start="2026-04-27" data-end="2026-05-03">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
+    <div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (500m RG-10" + 500m RL) + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (10 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 3 km RA + 3 km RM + 1 km RG + 2 km RD (12 km)</p>
+    </div>
+  </details>
+
+  <details class="week" data-start="2026-05-04" data-end="2026-05-10">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
+    <div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD (9 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG-10" + 10' RL (9 km circa)</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2x (3000m RG+10" + 1000m RL) + 1 km RD (12 km)</p>
+    </div>
+  </details>
+</details>
+
+<!-- ENDURANCE -->
+<details class="level" data-level="L2E">
+  <summary>🟦 Livello 2 – Endurance 13 km e oltre<div class="chev"></div></summary>
+
+  <details class="week" data-start="2026-04-27" data-end="2026-05-03">
+    <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
+    <div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5x (500m RG-10" + 500m RL) + 10' RL</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km progressione da RD a RA + 5 x (100m allunghi + 100m recupero RL) + 2 km RL + 1 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>16 km collinari oppure 3 km RD + 4 km RA + 4 km RM + 2 km RG + 3 km RD (16 km)</p>
+    </div>
+  </details>
+
+  <details class="week" data-start="2026-05-04" data-end="2026-05-10">
+    <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
+    <div class="week-content">
+      <p><strong>🅰️ Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
+      <p><strong>👥 Collettivo Standard</strong><br>15' RD + 5 km progressione da RL a RG-10" + 10' RL</p>
+      <p><strong>👥 Collettivo Alternativo</strong><br>-</p>
+      <p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 10 x (200m allungo facile + 200m RL) + 2 km RD (12 km)</p>
+      <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3x (3000m RG+10" + 1000m RL) + 2 km RD (17 km)</p>
+    </div>
+  </details>
+</details>
+
 <!-- FITWALKING LIVELLO 1 -->
-<details class="level">
+<details class="level" data-level="FW_L1">
   <summary>🟩 Fitwalking – Livello 1<div class="chev"></div></summary>
 
-  <details class="week">
+  <details class="week" data-start="2026-04-27" data-end="2026-05-03">
     <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>👥 Qualità</strong><br>15' CL + 5' CM + 5x (1’ CL + 2’ CM + 1’ CV + 1’ CVV) + 8' in progressione + 5' CL</p>
@@ -253,7 +258,7 @@ details[open] > summary .chev { transform: rotate(225deg); }
     </div>
   </details>
 
-  <details class="week">
+  <details class="week" data-start="2026-05-04" data-end="2026-05-10">
     <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>👥 Qualità</strong><br>15’ CL + 5' CM + 8x (2’ CV + 2’ CL) + 8' in progressione + 5’ CL</p>
@@ -266,10 +271,10 @@ details[open] > summary .chev { transform: rotate(225deg); }
 </details>
 
 <!-- FITWALKING LIVELLO 2 -->
-<details class="level">
+<details class="level" data-level="FW_L2">
   <summary>🟩 Fitwalking – Livello 2<div class="chev"></div></summary>
 
-  <details class="week">
+  <details class="week" data-start="2026-04-27" data-end="2026-05-03">
     <summary><span class="week-title">Settimana 1</span><span class="week-dates">27 aprile – 3 maggio</span></summary>
     <div class="week-content">
       <p><strong>👥 Qualità</strong><br>15' CL + 5' CM + 5x (1’ CL + 2’ CM + 1’ CV + 1’ CVV) + 8' in progressione + 5' CL</p>
@@ -280,7 +285,7 @@ details[open] > summary .chev { transform: rotate(225deg); }
     </div>
   </details>
 
-  <details class="week">
+  <details class="week" data-start="2026-05-04" data-end="2026-05-10">
     <summary><span class="week-title">Settimana 2</span><span class="week-dates">4 maggio – 10 maggio</span></summary>
     <div class="week-content">
       <p><strong>👥 Qualità</strong><br>15’ CL + 5' CM + 8x (2’ CV + 2’ CL) + 8' in progressione + 5’ CL</p>
