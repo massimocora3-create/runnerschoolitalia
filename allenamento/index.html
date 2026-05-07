@@ -10,6 +10,7 @@
   --bg:#020617;
   --bg-card:#0b1120;
   --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
   --text:#e5e7eb;
   --text-muted:#9ca3af;
   --border:#1f2937;
@@ -35,6 +36,280 @@ body{
   box-shadow:var(--shadow);
   padding:16px;
   margin-bottom:18px;
+}
+.header h1{margin:0;font-size:18px}
+.header p{margin:6px 0 0;font-size:13px;color:var(--text-muted)}
+
+.guide-box{
+  background:linear-gradient(135deg,rgba(249,115,22,0.14),var(--bg-card));
+  border:1px solid rgba(249,115,22,0.45);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:14px 16px;
+  margin-bottom:18px;
+}
+.guide-box h2{
+  margin:0 0 6px;
+  font-size:15px;
+}
+.guide-box p{
+  margin:0;
+  font-size:13px;
+  color:var(--text-muted);
+}
+.guide-links{
+  display:grid;
+  gap:10px;
+  margin-top:14px;
+}
+.guide-links a{
+  display:block;
+  text-decoration:none;
+  background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,0.35);
+  color:var(--text);
+  padding:12px 14px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.level{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin-bottom:14px;
+  overflow:hidden;
+}
+.level-header{
+  cursor:pointer;
+  padding:16px;
+  font-size:15px;
+  font-weight:700;
+  color:var(--accent);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.chev{
+  width:10px;
+  height:10px;
+  border-right:2px solid var(--text-muted);
+  border-bottom:2px solid var(--text-muted);
+  transform:rotate(45deg);
+}
+.level.open .chev{transform:rotate(225deg)}
+
+.week-box{
+  border-top:1px dashed var(--border);
+  padding:14px 16px 16px;
+}
+.week-title{
+  font-weight:700;
+  margin-bottom:10px;
+}
+.week-content{
+  font-size:13px;
+  line-height:1.45;
+}
+.week-content p{
+  margin:0 0 10px;
+}
+.week-content p:last-child{
+  margin-bottom:0;
+}
+
+.back{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:48px;
+  height:48px;
+  background:var(--accent);
+  color:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,.5);
+  z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<a class="back" href="https://massimocora3-create.github.io/runnerschoolitalia/">←</a>
+
+<div class="app">
+
+  <div class="header">
+    <h1>🔥 Allenamento della settimana</h1>
+    <p>Seleziona il tuo livello</p>
+  </div>
+
+  <section class="guide-box">
+    <h2>📘 Guide tecniche</h2>
+    <p>Prima di leggere l’allenamento, puoi consultare la guida del tuo livello per capire meglio il senso del programma.</p>
+
+    <div class="guide-links">
+      <a href="https://www.runnerschoolitalia.com/guida-tecnica-al-programma-l1-maggio-luglio-2026/" target="_blank">
+        🟧 Guida Livello 1
+      </a>
+
+      <a href="https://www.runnerschoolitalia.com/guida-tecnica-ai-programmi-l2-maggio-luglio-2026/" target="_blank">
+        🟦 Guida Livello 2 Sprint / Medio / Endurance
+      </a>
+
+      <a href="https://www.runnerschoolitalia.com/guida-tecnica-la-programma-l2-work-in-progress-maggio-luglio-2026/" target="_blank">
+        🛠️ Guida L2 Work in Progress
+      </a>
+    </div>
+  </section>
+
+  <div class="level" data-level="L1">
+    <div class="level-header">🟧 Livello 1<div class="chev"></div></div>
+  </div>
+
+  <div class="level" data-level="L2S">
+    <div class="level-header">🟦 Livello 2 – Sprint<div class="chev"></div></div>
+  </div>
+
+  <div class="level" data-level="L2M">
+    <div class="level-header">🟦 Livello 2 – Medio<div class="chev"></div></div>
+  </div>
+
+  <div class="level" data-level="L2E">
+    <div class="level-header">🟦 Livello 2 – Endurance<div class="chev"></div></div>
+  </div>
+
+  <div class="level" data-level="FW_L1">
+    <div class="level-header">🟩 Fitwalking – Livello 1<div class="chev"></div></div>
+  </div>
+
+  <div class="level" data-level="FW_L2">
+    <div class="level-header">🟩 Fitwalking – Livello 2<div class="chev"></div></div>
+  </div>
+
+</div>
+
+<script>
+(async function(){
+
+  function getTodayRome(){
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat("sv-SE", {
+      timeZone: "Europe/Rome",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    });
+    return formatter.format(now);
+  }
+
+  const today = getTodayRome();
+
+  let html = "";
+
+  try {
+    const res = await fetch("/runnerschoolitalia/programma/dati.html", { cache: "no-store" });
+    html = await res.text();
+  } catch (error) {
+    document.querySelectorAll(".level").forEach(level => {
+      const header = level.querySelector(".level-header");
+      header.addEventListener("click", () => {
+        level.querySelectorAll(".week-box").forEach(b => b.remove());
+        level.appendChild(messageBox("Errore nel caricamento del programma."));
+        level.classList.add("open");
+      });
+    });
+    return;
+  }
+
+  const temp = document.createElement("div");
+  temp.innerHTML = html;
+
+  document.querySelectorAll(".level").forEach(level => {
+
+    const header = level.querySelector(".level-header");
+    const code = level.dataset.level;
+
+    header.addEventListener("click", () => {
+
+      document.querySelectorAll(".level").forEach(l => {
+        if (l !== level) {
+          l.classList.remove("open");
+          l.querySelectorAll(".week-box").forEach(b => b.remove());
+        }
+      });
+
+      if (level.classList.contains("open")) {
+        level.classList.remove("open");
+        level.querySelectorAll(".week-box").forEach(b => b.remove());
+        return;
+      }
+
+      const src = temp.querySelector(`details.level[data-level="${code}"]`);
+
+      if (!src) {
+        level.querySelectorAll(".week-box").forEach(b => b.remove());
+        level.appendChild(messageBox("Programma non trovato per questo livello."));
+        level.classList.add("open");
+        return;
+      }
+
+      const weeks = [...src.querySelectorAll("details.week")];
+
+      let week = weeks.find(w => {
+        return today >= w.dataset.start && today <= w.dataset.end;
+      });
+
+      if (!week) {
+        week = weeks.find(w => today < w.dataset.start) || weeks[weeks.length - 1];
+      }
+
+      if (!week) {
+        level.querySelectorAll(".week-box").forEach(b => b.remove());
+        level.appendChild(messageBox("Nessuna settimana disponibile."));
+        level.classList.add("open");
+        return;
+      }
+
+      const title = week.querySelector(".week-title")?.textContent || "";
+      const dates = week.querySelector(".week-dates")?.textContent || "";
+      const content = week.querySelector(".week-content")?.innerHTML || "";
+
+      const box = document.createElement("div");
+      box.className = "week-box";
+      box.innerHTML = `
+        <div class="week-title">${title} – ${dates}</div>
+        <div class="week-content">${content}</div>
+      `;
+
+      level.querySelectorAll(".week-box").forEach(b => b.remove());
+      level.appendChild(box);
+      level.classList.add("open");
+
+    });
+
+  });
+
+  function messageBox(text){
+    const box = document.createElement("div");
+    box.className = "week-box";
+    box.innerHTML = `<div class="week-content">${text}</div>`;
+    return box;
+  }
+
+})();
+</script>
+
+</body>
+</html>  margin-bottom:18px;
 }
 .header h1{margin:0;font-size:18px}
 .header p{margin:6px 0 0;font-size:13px;color:var(--text-muted)}
