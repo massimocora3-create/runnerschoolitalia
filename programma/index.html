@@ -50,6 +50,29 @@ body {
 .box h2{ margin:0 0 6px; font-size:15px; color: var(--text); }
 .box p{ margin:0; font-size:13px; color: var(--text-muted); }
 
+.guide-box {
+  border-color: rgba(249,115,22,0.45);
+  background: linear-gradient(135deg, rgba(249,115,22,0.14), var(--bg-card));
+}
+
+.guide-links {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.guide-links a {
+  display: block;
+  text-decoration: none;
+  background: var(--accent-soft);
+  border: 1px solid rgba(249,115,22,0.35);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 details.level {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -135,6 +158,27 @@ details[open] > summary .chev { transform: rotate(225deg); }
 <section class="box">
   <h2>🔁 Pausa tra quadrimestri</h2>
   <p>Programma dal <strong>27 aprile</strong> al <strong>10 maggio</strong>, pensato per mantenere continuità e arrivare pronti al nuovo percorso.</p>
+</section>
+
+<section class="box guide-box">
+  <h2>📘 Guide tecniche ai programmi</h2>
+  <p>
+    Prima di scegliere o leggere il programma, ti consigliamo di consultare la guida tecnica del tuo livello.
+  </p>
+
+  <div class="guide-links">
+    <a href="https://www.runnerschoolitalia.com/guida-tecnica-al-programma-l1-maggio-luglio-2026/" target="_blank">
+      🟧 Guida Livello 1
+    </a>
+
+    <a href="https://www.runnerschoolitalia.com/guida-tecnica-ai-programmi-l2-maggio-luglio-2026/" target="_blank">
+      🟦 Guida Livello 2 Sprint / Medio / Endurance
+    </a>
+
+    <a href="https://www.runnerschoolitalia.com/guida-tecnica-la-programma-l2-work-in-progress-maggio-luglio-2026/" target="_blank">
+      🛠️ Guida L2 Work in Progress
+    </a>
+  </div>
 </section>
 
 <!-- LIVELLO 1 -->
@@ -297,6 +341,9 @@ details[open] > summary .chev { transform: rotate(225deg); }
   </details>
 </details>
 
+</div>
+</body>
+</html>
 </div>
 </body>
 </html>
