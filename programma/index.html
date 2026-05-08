@@ -752,5 +752,141 @@ details.week{border-top:1px dashed var(--border)} details.week>summary{list-styl
 
 </details>
 </div>
+
+  <script>
+const RS_PASSWORD = "RSMAGGIO2026";
+const RS_STORAGE_KEY = "rs_programmi_accesso";
+
+// Se già autenticato
+if(localStorage.getItem(RS_STORAGE_KEY) === "ok"){
+  document.body.style.display = "block";
+} else {
+
+  // Nasconde la pagina
+  document.body.style.display = "none";
+
+  // Overlay password
+  const overlay = document.createElement("div");
+  overlay.innerHTML = `
+    <div id="rs-login-box">
+      <div class="rs-card">
+        <h2>🔒 Area Programmi Runner’s School Italia</h2>
+        <p>Inserisci la password per accedere ai programmi maggio-luglio 2026</p>
+
+        <input type="password" id="rs-password" placeholder="Password">
+
+        <button id="rs-enter">Entra</button>
+
+        <div id="rs-error"></div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  // Stile login
+  const style = document.createElement("style");
+  style.innerHTML = `
+    #rs-login-box{
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:99999;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    }
+
+    .rs-card{
+      width:100%;
+      max-width:380px;
+      background:#0b1120;
+      border:1px solid #1f2937;
+      border-radius:22px;
+      padding:28px 24px;
+      text-align:center;
+      box-shadow:0 18px 45px rgba(0,0,0,.55);
+      color:#e5e7eb;
+    }
+
+    .rs-card h2{
+      margin-top:0;
+      margin-bottom:10px;
+      color:#f97316;
+      font-size:22px;
+    }
+
+    .rs-card p{
+      color:#9ca3af;
+      font-size:14px;
+      line-height:1.5;
+      margin-bottom:20px;
+    }
+
+    #rs-password{
+      width:100%;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid #1f2937;
+      background:#020617;
+      color:#fff;
+      font-size:16px;
+      margin-bottom:14px;
+      outline:none;
+    }
+
+    #rs-password:focus{
+      border-color:#f97316;
+    }
+
+    #rs-enter{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:14px;
+      background:#f97316;
+      color:#000;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    #rs-enter:hover{
+      opacity:.92;
+    }
+
+    #rs-error{
+      color:#ef4444;
+      margin-top:12px;
+      font-size:13px;
+      min-height:18px;
+    }
+  `;
+
+  document.head.appendChild(style);
+
+  // Controllo password
+  function checkPassword(){
+    const value = document.getElementById("rs-password").value;
+
+    if(value === RS_PASSWORD){
+      localStorage.setItem(RS_STORAGE_KEY, "ok");
+      location.reload();
+    } else {
+      document.getElementById("rs-error").innerText = "Password non corretta";
+    }
+  }
+
+  document.getElementById("rs-enter").addEventListener("click", checkPassword);
+
+  document.getElementById("rs-password").addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+      checkPassword();
+    }
+  });
+}
+</script>
 </body>
 </html>
