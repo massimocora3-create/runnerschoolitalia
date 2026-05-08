@@ -276,9 +276,12 @@ body{
         return today >= w.dataset.start && today <= w.dataset.end;
       });
 
-      if (!week) {
-        week = weeks.find(w => today < w.dataset.start) || weeks[weeks.length - 1];
-      }
+if (!week) {
+  level.querySelectorAll(".week-box").forEach(b => b.remove());
+  level.appendChild(messageBox("Nessuna settimana disponibile."));
+  level.classList.add("open");
+  return;
+}
 
       if (!week) {
         level.querySelectorAll(".week-box").forEach(b => b.remove());
