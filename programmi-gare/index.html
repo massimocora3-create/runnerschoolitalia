@@ -28,71 +28,140 @@ body{
   margin:0 auto;
   padding:18px 14px 90px;
 }
-.header{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:18px 16px;
-  margin-bottom:14px;
-}
-.header h1{margin:0;font-size:18px}
-.header p{margin:8px 0 0;color:var(--text-muted);font-size:13px;line-height:1.45}
-
-a{color:inherit;text-decoration:none}
-.card-link{display:block;margin:12px 0}
+.header,
+.section-box,
 .card{
   background:var(--bg-card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
+}
+.header{
+  padding:18px 16px;
+  margin-bottom:14px;
+}
+.header h1{margin:0;font-size:18px}
+.header p{
+  margin:8px 0 0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.section-title{
+  margin:20px 4px 8px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--accent);
+  font-weight:800;
+}
+
+.section-box{
+  padding:14px;
+  margin-bottom:12px;
+}
+.empty-title{
+  font-weight:800;
+  font-size:14px;
+  margin-bottom:4px;
+}
+.empty-text{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+a{color:inherit;text-decoration:none}
+.card-link{display:block;margin:12px 0}
+.card{
   padding:14px 14px;
   transition:transform .08s ease, border-color .08s ease;
 }
 .card:active{transform:scale(.99)}
-.card-header{display:flex;gap:12px;align-items:center}
+.card-header{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
 .card-icon{
-  width:42px;height:42px;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:800;
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:800;
   background:var(--accent-soft);
   border:1px solid var(--border);
 }
-.card-title{font-weight:800;font-size:14px}
-.card-subtitle{font-size:12px;color:var(--text-muted);margin-top:2px}
+.card-title{
+  font-weight:800;
+  font-size:14px;
+}
+.card-subtitle{
+  font-size:12px;
+  color:var(--text-muted);
+  margin-top:2px;
+}
 
 .back-home{
-  position:fixed;bottom:18px;right:18px;
-  width:48px;height:48px;border-radius:50%;
-  background:var(--accent);color:#000;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;font-weight:900;
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:900;
   box-shadow:0 10px 25px rgba(0,0,0,.5);
 }
 </style>
 </head>
+
 <body>
 
 <a href="https://massimocora3-create.github.io/runnerschoolitalia" class="back-home" title="Torna alla Home App RS">←</a>
 
 <div class="app">
+
   <div class="header">
     <h1>🏁 Programmi Gare</h1>
-    <p>Sezione dedicata alle tabelle specifiche per le gare (mezze, maratone, ecc.).</p>
+    <p>
+      Sezione dedicata alle tabelle specifiche per mezze, maratone e obiettivi gara.
+    </p>
   </div>
+
+  <div class="section-title">Programmi attuali</div>
+
+  <div class="section-box">
+    <div class="empty-title">Nessun programma gara attivo al momento</div>
+    <div class="empty-text">
+      Le nuove tabelle specifiche verranno caricate qui quando partiranno i prossimi percorsi dedicati alle gare.
+    </div>
+  </div>
+
+  <div class="section-title">Archivio programmi precedenti</div>
 
   <a class="card-link" href="/runnerschoolitalia/programmi-gare/mezze-maratone-gen-apr-2026.html">
     <div class="card">
       <div class="card-header">
         <div class="card-icon">📋</div>
         <div>
-          <div class="card-title">Mezze/Maratone – Gennaio/Aprile 2026</div>
-          <div class="card-subtitle">Tabelle gara-per-gara (area riservata)</div>
+          <div class="card-title">Archivio – Mezze/Maratone Gennaio-Aprile 2026</div>
+          <div class="card-subtitle">Tabelle precedenti consultabili</div>
         </div>
       </div>
     </div>
   </a>
 
 </div>
+
 </body>
 </html>
