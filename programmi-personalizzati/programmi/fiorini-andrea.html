@@ -84,13 +84,6 @@
     .session-title{font-weight:900;margin-bottom:3px;}
     .session-note{color:var(--text-muted);font-size:13px;margin-top:4px;}
 
-    .lock{position:fixed;inset:0;display:none;background:radial-gradient(circle at top,rgba(11,17,32,.95) 0,rgba(2,6,23,.97) 60%,rgba(0,0,0,.98) 100%);padding:18px 16px;z-index:999;}
-    .lock .wrap{max-width:540px;margin:0 auto}
-    .lock .card{padding:16px}
-    .lock input{width:100%;margin-top:10px;background:var(--bg-soft);border:1px solid var(--border);border-radius:14px;padding:12px;color:var(--text);font-size:14px;outline:none;}
-    .lock input:focus{border-color:rgba(249,115,22,.55);box-shadow:0 0 0 3px rgba(249,115,22,.14);}
-    .lock .msg{margin-top:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.5);background:rgba(239,68,68,.08);display:none;font-size:13px;}
-
     @media (max-width:420px){
       .grid{grid-template-columns:1fr}
       .mini.full{grid-column:auto}
@@ -102,22 +95,6 @@
 </head>
 
 <body>
-
-  <div class="lock" id="lock" aria-hidden="false">
-    <div class="wrap">
-      <div class="card">
-        <h1>🔒 Area riservata</h1>
-        <p class="meta">Inserisci la password per visualizzare il programma personalizzato.</p>
-        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
-        </div>
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-        <div class="footnote">La password verrà richiesta solo al primo accesso su questo dispositivo/browser.</div>
-      </div>
-    </div>
-  </div>
 
   <div class="app" id="app">
     <div class="top">
@@ -280,56 +257,10 @@
     </div>
   </div>
 
-<script>
-  const PAGE_HASH = "e47f92cdc5e8f1c86e9338a4ea226908db5d1c176418ae82ca1992de04502705";
-  const key = "FioAnd.2026";
-  const storageKey = "RSI_FioriniAndrea_2026_unlocked_v2";
-
-  const lock = document.getElementById("lock");
-  const app = document.getElementById("app");
-  const unlockBtn = document.getElementById("unlock");
-  const pwInput = document.getElementById("pw");
-  const lockMsg = document.getElementById("lockMsg");
-
-  function showApp(){
-    lock.style.display = "none";
-    app.style.display = "block";
-  }
-
-  function showLock(){
-    lock.style.display = "block";
-    app.style.display = "none";
-  }
-
-  if(localStorage.getItem(storageKey) === "true"){
-    showApp();
-  } else {
-    showLock();
-  }
-
-  function tryUnlock(){
-    const inputPassword = pwInput.value.trim();
-
-    if(inputPassword === key){
-      localStorage.setItem(storageKey, "true");
-      lockMsg.style.display = "none";
-      showApp();
-    } else {
-      lockMsg.style.display = "block";
-    }
-  }
-
-  unlockBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    tryUnlock();
-  });
-
-  pwInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter"){
-      tryUnlock();
-    }
-  });
-</script>
+  <script>
+    const PAGE_HASH = "e47f92cdc5e8f1c86e9338a4ea226908db5d1c176418ae82ca1992de04502705";
+  </script>
 
 </body>
 </html>
+
