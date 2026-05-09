@@ -9,92 +9,93 @@
     :root{
       --bg:#020617;
       --bg-card:#0b1120;
+      --bg-soft:#050b18;
       --accent:#f97316;
-      --accent-soft: rgba(249,115,22,0.12);
+      --accent-soft:rgba(249,115,22,0.12);
+      --accent-border:rgba(249,115,22,0.30);
       --text:#e5e7eb;
       --text-muted:#9ca3af;
       --border:#1f2937;
       --radius:20px;
       --shadow:0 18px 45px rgba(0,0,0,.55);
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
       color:var(--text);
     }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
+
+    .app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+    .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);opacity:.9;font-size:13px;}
     .back:hover{opacity:1}
-    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
-    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
-    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
-    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
-    .meta b{color:var(--text)}
-    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
+    .pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap;}
+
+    .card{background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px;}
+    h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px;}
+    .meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0;}
+    .meta b,.content strong{color:var(--text);font-weight:900}
+
+    .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;opacity:.96;}
     .btn:hover{opacity:1}
-    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
-    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
-    .content{font-size:14px; line-height:1.45;}
+    .btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900;}
+
+    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px;}
+    .content{font-size:14px;line-height:1.48;}
     .content p{margin:10px 0}
-    .content strong{font-weight:900}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
-    .mini .v{font-size:14px; line-height:1.35}
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
-    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .mini{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);padding:12px;}
+    .mini.full{grid-column:1 / -1}
+    .mini .k{font-size:11px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+    .mini .v{font-size:14px;line-height:1.35;}
+
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .tag{font-size:12px;padding:7px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted);}
+    .tag.ok{border-color:rgba(34,197,94,.35);color:#bbf7d0;background:rgba(34,197,94,.08)}
+    .tag.warn{border-color:rgba(249,115,22,.35);color:#fed7aa;background:rgba(249,115,22,.08)}
+    .tag.info{border-color:rgba(56,189,248,.35);color:#bae6fd;background:rgba(56,189,248,.08)}
+
+    .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38;}
+    .alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38;}
+    .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95;}
+
+    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
+    .ritmi-table tr:last-child td{border-bottom:0}
+    .ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}
+    .ritmi-table tbody td{color:var(--text-muted)}
+    .ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
+
+    details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px;}
+    details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;}
     details.week summary::-webkit-details-marker{display:none}
     .week-title{font-weight:900}
-    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
-    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
-    .week-content p{margin:10px 0}
+    .week-dates{font-size:12px;color:var(--text-muted);font-weight:700;text-align:right}
+    .week-content{padding:0 12px 12px;font-size:14px;line-height:1.45;color:var(--text);}
+    .session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06);}
+    .session:first-child{border-top:0}
+    .session-title{font-weight:900;margin-bottom:3px;}
+    .session-note{color:var(--text-muted);font-size:13px;margin-top:4px;}
 
-    /* LOCK */
-    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
-    .lock .wrap{max-width:520px;margin:0 auto;}
-    .lock .card{padding:16px}
-    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
-    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
-    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
-
-    /* Ritmi */
-    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
-    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
-    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
-    .ritmi-table tbody td{color:var(--text-muted);}
-    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
-    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
-    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
+    @media (max-width:420px){
+      .grid{grid-template-columns:1fr}
+      .mini.full{grid-column:auto}
+      .top{align-items:flex-start;flex-direction:column}
+      .week-dates{text-align:left}
+      details.week summary{align-items:flex-start;flex-direction:column}
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- LOCK OVERLAY -->
-  <div class="lock" id="lock" aria-hidden="false">
-    <div class="wrap">
-      <div class="card">
-        <h1>🔒 Area riservata</h1>
-        <p class="meta">Inserisci la password per visualizzare il programma.</p>
-
-        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
-        </div>
-
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- APP -->
   <div class="app" id="app">
     <div class="top">
       <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
@@ -104,486 +105,162 @@
     <div class="card">
       <h1>📄 Programma personalizzato · <span id="nomeAllievo">Zagani Alessandra</span></h1>
       <p class="meta">
-        Aggiornato: <b id="aggiornatoIl">09/02/2026</b><br>
-        Programmazione gennaio–aprile su <b>3 uscite di corsa a settimana</b> (8–12 km):
-        <br>• 1 allenamento di scarico individuale
-        <br>• 1 lavoro di qualità a metà settimana (velocità / ritmo soglia)
-        <br>• 1 lavoro di qualità o combinato nel fine settimana.
-        <br><br>
-        Il quadrimestre segue una logica a <b>3 settimane di carico + 1 di scarico</b>.
-        All’inizio è previsto un <b>test sui 3000 m</b> per aggiornare i ritmi di riferimento.
+        Periodo: <b>Maggio – Agosto 2026</b><br>
+        Aggiornato: <b id="aggiornatoIl">09/05/2026</b><br>
+        Coach: <b>Runner’s School Italia</b>
       </p>
-
+      <div class="tagrow">
+        <span class="tag ok">Percorso endurance</span>
+        <span class="tag info">3 uscite consigliate</span>
+        <span class="tag warn">Obiettivo mezza maratona</span>
+      </div>
       <div class="btnrow">
-        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+        <a class="btn primary" href="#settimane">📅 Vai al programma</a>
+        <a class="btn" href="#ritmi">⏱️ Ritmi</a>
+        <a class="btn" href="#note">📝 Note</a>
       </div>
-
-      <div class="footnote">
-        Nota: questo programma è personale. Non condividere password o link con altre persone.
-      </div>
+      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
     </div>
 
     <div class="section-label">Scheda atleta</div>
     <div class="card">
       <div class="grid">
-        <div class="mini">
-          <div class="k">Nome</div>
-          <div class="v">Zagani Alessandra</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Anno di nascita</div>
-          <div class="v">2001</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Dati fisici</div>
-          <div class="v">65 kg · 162 cm</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Profilo</div>
+        <div class="mini"><div class="k">Disponibilità dichiarata</div><div class="v">1–2 uscite / settimana</div></div>
+        <div class="mini"><div class="k">Programma consigliato</div><div class="v">3 uscite running / settimana</div></div>
+        <div class="mini"><div class="k">Livello attuale</div><div class="v">Già corre · percorso endurance</div></div>
+        <div class="mini"><div class="k">Distanza attuale</div><div class="v">8–12 km</div></div>
+        <div class="mini"><div class="k">Riferimento 5 km</div><div class="v">RG circa 6’00”/km</div></div>
+        <div class="mini"><div class="k">Obiettivo</div><div class="v">Allungare verso la mezza maratona</div></div>
+        <div class="mini full">
+          <div class="k">Storico atleta</div>
           <div class="v">
-            Atleta giovane con base solida di <strong>lavoro in palestra</strong> (Hyrox, crossfit,
-            funzionale) e buona capacità di sopportare carichi misti forza–resistenza.
-            Ha già corso in passato in modo alterno e ha ripreso dopo uno stop per <strong>ernia</strong>,
-            tornando gradualmente a tutti i suoi allenamenti.
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Allenamenti attuali</div>
-          <div class="v">
-            • 3 allenamenti a settimana tra <strong>Hyrox, crossfit e funzionale</strong><br>
-            • 1 seduta di <strong>pilates</strong> a settimana<br>
-            • Obiettivo di <strong>3 uscite di corsa</strong> tra 8 e 12 km.
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Riferimenti corsa</div>
-          <div class="v">
-            Miglior ritmo sui 5 km: <strong>6:00 min/km</strong>.<br>
-            Massima distanza recente: <strong>12 km a 6:19 min/km</strong>.<br>
-            Obiettivi: <strong>imparare un metodo di allenamento duraturo</strong> e
-            <strong>velocizzarsi su queste distanze</strong>.
-          </div>
-        </div>
-
-        <div class="mini warn" style="grid-column:1 / -1;">
-          <div class="k">Logica del percorso</div>
-          <div class="v">
-            Il programma è pensato per una atleta che <strong>già corre</strong> e svolge
-            allenamenti intensi in palestra. La priorità è costruire un <strong>equilibrio
-            sostenibile</strong> tra forza e corsa, rispettando i tempi di recupero e la
-            storia recente di <strong>stop per ernia</strong>. Nei lavori di metà settimana si
-            alternano sedute veloci (per forza muscolare e agilità) e ripetute più lunghe
-            (per lavorare sul <strong>ritmo soglia</strong>).
+            Alessandra era già seguita da Runner’s School. Nel quadrimestre precedente non è riuscita ad allenarsi con grande continuità, soprattutto per fattori esterni e per la difficoltà di incastrare la corsa con giornate pesanti e allenamenti in palestra. Nonostante questo, il programma è stato percepito come gestibile: alcuni lavori del fine settimana sono risultati più duri, ma nel complesso non ci sono stati allenamenti infattibili o troppo distruttivi. Il limite principale non è fisico, ma di continuità e motivazione, visto che la corsa non è l’attività che le viene più naturale amare.
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section-label">Eventi e obiettivi</div>
+    <div class="section-label">Obiettivi del percorso</div>
     <div class="card content">
-      <p><strong>📍 Distanze di riferimento</strong><br>
-        • <strong>5 km</strong> – costruire un passo brillante e controllato<br>
-        • <strong>8–12 km</strong> – distanza tipica degli allenamenti settimanali<br>
-        • Possibile <strong>gara obiettivo sui 10 km</strong> indicata nella programmazione
-          intorno a metà aprile (da scegliere in base al calendario gare).
+      <p><strong>🎯 Obiettivo principale</strong><br>
+        Provare ad allungare progressivamente le distanze per avvicinarsi alla mezza maratona, costruendo però prima una continuità reale negli allenamenti.
       </p>
-
-      <p><strong>🎯 Obiettivi del quadrimestre</strong><br>
-        • Dare <strong>struttura</strong> agli allenamenti di corsa in armonia con Hyrox/crossfit<br>
-        • Migliorare la velocità su 5–10 km mantenendo buone sensazioni<br>
-        • Arrivare a correre gli allenamenti tra 8 e 12 km con <strong>ritmi più rapidi e stabili</strong><br>
-        • Costruire un metodo replicabile anche nei quadrimestri successivi.
+      <p><strong>📌 Obiettivi del periodo</strong><br>
+        • Rendere la corsa più regolare e meno “a settimane alterne”<br>
+        • Consolidare i 10–12 km senza viverli come eterni o troppo noiosi<br>
+        • Inserire lavori variati per rendere il percorso più stimolante<br>
+        • Far crescere progressivamente lunghi lenti e collinari nei microcicli<br>
+        • Mantenere un equilibrio sostenibile con palestra, stanchezza e vita quotidiana
       </p>
-
-      <p><strong>🧩 Struttura settimanale</strong><br>
-        Ogni settimana di corsa segue la logica:
-        <br>1️⃣ <b>Scarico</b>: fondo facile per recupero e volume
-        <br>2️⃣ <b>Qualità</b>: lavori veloci o di ritmo soglia/progressione
-        <br>3️⃣ <b>Fine settimana</b>: combinati, collinari o lavori specifici sul ritmo.
+      <p><strong>🧭 Punto chiave</strong><br>
+        Il desiderio di avvicinarsi alla mezza maratona è assolutamente sensato, ma con sole 1–2 uscite settimanali diventa difficile costruire davvero una progressione efficace. Già correre 12–13 km con 1–2 sedute è una buona distanza; per allungare in modo stabile serve provare ad arrivare almeno a 3 uscite quando possibile.
       </p>
     </div>
 
-    <div class="section-label">Ritmi di riferimento (Zone RS)</div>
+    <div class="section-label">Spiegazione del percorso</div>
     <div class="card content">
       <p>
-        In questo programma utilizziamo le <strong>Zone RS</strong> come riferimento per i ritmi.
-        Sono indicati come <b>intervalli</b>, in modo da adattarli alle sensazioni del giorno,
-        al meteo e al tipo di percorso.
+        Il programma di Alessandra è costruito sulla base del percorso Endurance. L’obiettivo non è solo “fare chilometri”, ma dare una struttura più chiara al lavoro, alternando sedute semplici, lavori di qualità e fine settimana più vari.
       </p>
+      <p>
+        La difficoltà principale non è che Alessandra non sia in grado di correre: la capacità c’è. Il vero punto è riuscire a trovare continuità, perché con 1–2 allenamenti a settimana si può mantenere una buona base, ma diventa più complicato allungare davvero verso la mezza maratona. Per questo il programma resta impostato su 3 uscite: poi, in base al tempo e alla stanchezza, potrà gestirlo con buon senso.
+      </p>
+      <p>
+        Se in una settimana riesce a fare solo 2 sedute, la scelta più pratica può essere tenere la qualità e il fine settimana. Però attenzione: la seduta di scarico, anche se può sembrare noiosa, è molto importante. Serve a costruire volume, recuperare dai lavori più intensi e rendere il corpo più pronto ad assorbire i carichi successivi.
+      </p>
+      <p>
+        Il programma segue microcicli di 4 settimane: 3 settimane di carico e 1 settimana di scarico. Nei lavori di qualità si alternano ripetute miste con recupero attivo e passivo, lavori variati in soglia e progressioni. Nel fine settimana si alternano variati, collinari o lavori di potenziamento, lavori corti e veloci e, nelle settimane di scarico, lunghi lenti.
+      </p>
+      <div class="note-box">
+        <strong>Idea guida:</strong> per avvicinarsi alla mezza non serve fare sempre allenamenti durissimi. Serve soprattutto trovare continuità, rendere la corsa meno monotona e imparare a dare valore anche alle sedute lente, che sono quelle che costruiscono davvero la base.
+      </div>
+    </div>
 
+    <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+    <div class="card content">
       <table class="ritmi-table" aria-label="Ritmi di riferimento">
-        <thead>
-          <tr>
-            <th>Sigla</th>
-            <th>Significato</th>
-            <th>Indicazione (circa)</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Sigla</th><th>Significato</th><th>Ritmo</th></tr></thead>
         <tbody>
-          <tr>
-            <td>RG</td>
-            <td>Ritmo gara (10 km)</td>
-            <td>≈ 6&apos;10&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RM</td>
-            <td>Ritmo medio</td>
-            <td>≈ 6&apos;30&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RA</td>
-            <td>Ritmo allegro</td>
-            <td>≈ 6&apos;50&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RL</td>
-            <td>Ritmo lento</td>
-            <td>≈ 7&apos;00&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RD</td>
-            <td>Riscaldamento / Defaticamento</td>
-            <td>≈ 7&apos;10&quot;/km (anche più lento se serve)</td>
-          </tr>
+          <tr><td>RG</td><td>Ritmo gara / riferimento</td><td translate="no">6’10”/km</td></tr>
+          <tr><td>RM</td><td>Ritmo medio</td><td translate="no">6’30”/km</td></tr>
+          <tr><td>RA</td><td>Ritmo allegro</td><td translate="no">6’50”/km</td></tr>
+          <tr><td>RL</td><td>Ritmo lento</td><td translate="no">7’00”/km</td></tr>
+          <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td translate="no">7’10”/km</td></tr>
         </tbody>
       </table>
-
       <div class="note-box">
-        I ritmi sono una <strong>bussola</strong>, non un vincolo rigido.
-        Se il giorno è pesante si resta nella parte più lenta del corridoio,
-        se le gambe girano bene ci si può avvicinare alla parte più veloce,
-        mantenendo sempre controllo, respirazione regolare e tecnica pulita.
-        Dopo il test iniziale rivaultiamo i ritmi e vediamo se cambiare qualcosa.
+        <strong>Calcolo ritmi:</strong> i ritmi sono costruiti sul riferimento attuale di circa 6’00”/km sui 5 km. RG = ritmo test 5000 + 10”; RM = RG + 20”; RA = RM + 20”; RL = RA + 10”; RD = RL + 10”.
       </div>
     </div>
 
-    <div class="section-label">Note e regole del gioco</div>
+    <div class="section-label" id="note">Note del coach</div>
     <div class="card content">
-      <p><strong>📌 Regole operative</strong><br>
-        • Rispetta la logica della settimana: <b>scarico → qualità → fine settimana</b>.<br>
-        • Se un allenamento di Hyrox/crossfit è stato particolarmente pesante,
-          valuta di <b>trasformare un lavoro di qualità in scarico</b> e segnalalo al coach.<br>
-        • I lavori di qualità vanno corsi <b>in controllo</b>, non a tutta: l’obiettivo è
-          costruire continuità, non “uccidersi” in una singola seduta.<br>
-        • Lo scarico deve essere davvero facile: serve a <b>recuperare e assimilare</b> il lavoro.<br>
-        • In caso di stanchezza puoi allungare un po&apos; i recuperi o togliere una ripetuta,
-          ma cerca di mantenere la <b>struttura</b> delle sedute.
+      <p><strong>📌 Indicazioni chiave</strong><br>
+        • Se fai 3 uscite: segui scarico, qualità e fine settimana.<br>
+        • Se fai solo 2 uscite: meglio tenere qualità e fine settimana, ma senza dimenticare che lo scarico è fondamentale.<br>
+        • Nei periodi di palestra pesante, non forzare i lavori di qualità se le gambe sono già scariche.<br>
+        • La seduta lenta può sembrare noiosa, ma è quella che costruisce resistenza e avvicina alla mezza.<br>
+        • L’obiettivo non è “amare ogni allenamento”, ma creare una routine sostenibile e meno pesante mentalmente.
       </p>
-
-      <div class="note-box warn">
-        <strong>Campanelli d’allarme</strong><br>
-        Dolori che aumentano durante la corsa, fastidi alla schiena che si accentuano,
-        stanchezza che non passa, sonno disturbato, gambe sempre pesanti: sono segnali
-        per <b>ridurre il carico</b> (soprattutto i lavori di qualità) e confrontarsi con il coach.
-      </div>
-
-      <p class="footnote">
-        Le sedute riportate di seguito sono quelle della programmazione ufficiale
-        del quadrimestre per Alessandra. Eventuali modifiche (ritmi, chilometraggi,
-        scelta tra opzioni “oppure”) vanno valutate in base alle sensazioni, agli
-        allenamenti in palestra e agli impegni settimanali.
-      </p>
+      <div class="alert-box"><strong>⚠️ Attenzione:</strong> 1–2 uscite possono bastare per mantenere, ma sono poche per costruire davvero verso la mezza. Il consiglio resta provare ad arrivare a 3 uscite nelle settimane migliori.</div>
     </div>
 
-    <div class="section-label" id="settimane">Settimane</div>
+    <div class="section-label">Struttura settimanale</div>
     <div class="card content">
-      <p>
-        Ogni settimana è strutturata su <strong>3 allenamenti</strong>:
-        <br>1️⃣ <b>Scarico</b> · 2️⃣ <b>Qualità</b> · 3️⃣ <b>Lavoro di fine settimana</b>.
-      </p>
+      <div class="grid">
+        <div class="mini"><div class="k">Seduta 1</div><div class="v">Scarico · corsa lenta e costruzione base</div></div>
+        <div class="mini"><div class="k">Seduta 2</div><div class="v">Qualità · ripetute, soglia o variato</div></div>
+        <div class="mini"><div class="k">Seduta 3</div><div class="v">Fine settimana · collinare, corto veloce, variato o lungo lento</div></div>
+        <div class="mini"><div class="k">Priorità se fai 2 uscite</div><div class="v">Qualità + fine settimana, ma scarico appena possibile</div></div>
+      </div>
+    </div>
 
-      <!-- Settimana 5 -->
-      <details class="week" data-start="2026-02-09" data-end="2026-02-15" open>
-        <summary>
-          <span class="week-title">Settimana 5</span>
-          <span class="week-dates">9–15 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (test 3000 m)</strong><br>
-            15&apos; RD + 3 km al meglio (test dei 3000 m) + 15&apos; RD
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
-            3 km RD + 5 km RA + 2 km RD (10 km)
-          </p>
-        </div>
-      </details>
+    <div class="section-label" id="settimane">Programma</div>
+    <div class="card content">
+      <p>Apri la settimana corrispondente e segui le sedute nell’ordine indicato. Il programma è impostato su 3 uscite settimanali: scarico, collettivo standard e fine settimana.</p>
 
-      <!-- Settimana 6 -->
-      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-        <summary>
-          <span class="week-title">Settimana 6</span>
-          <span class="week-dates">16–22 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità</strong><br>
-            2 km RD + 2 km RL + 3 &times; (500 m RG + 500 m RA) + 3 &times; (500 m RG-20&quot; + 500 m RL) + 1 km RL (11 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana (combinato)</strong><br>
-            3 km RD + 2 km RL + 2 km RA + 2 km RM + 2 km RG+10&quot; + 1 km RD (12 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-05-11" data-end="2026-05-17" open><summary><span class="week-title">Settimana 1</span><span class="week-dates">11–17 maggio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 1 x (1000m RG-10” + 2’ recupero souplesse) + 2 x (600m RG-20” + 1’30” recupero souplesse) + 5 x (200m RG-30” + 1’ recupero souplesse) + 1 km RD (10,5 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 2 x (1000m RG + 500m RL) + 2 x (500m RG-10” + 500m RL) + 3 km RL (11 km)</div></div></div></details>
 
-      <!-- Settimana 7 -->
-      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-        <summary>
-          <span class="week-title">Settimana 7</span>
-          <span class="week-dates">23 febbraio – 1 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (velocità breve)</strong><br>
-            10&apos; RD + 15&apos; preatletici e allunghi + 12 &times; (200 m tra RG-20&quot; e RG-40&quot; + 100 m recupero in souplesse) + 5&apos; RD (7 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
-            2 km RD + 2 &times; (4000 m tra RM e RG+10&quot; + 1000 m RL) (12 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-05-18" data-end="2026-05-24"><summary><span class="week-title">Settimana 2</span><span class="week-dates">18–24 maggio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 5000m (1000m RM + 1000m RG + 1000m RM + 1000m RG + 1000m RM + 1000m RG) + 2 km RD (10 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 5000m RG (corto veloce) + 2 km RD (11 km)</div></div></div></details>
 
-      <!-- Settimana 8 -->
-      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-        <summary>
-          <span class="week-title">Settimana 8</span>
-          <span class="week-dates">2–8 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (ritmo soglia / progressione)</strong><br>
-            2 km RD + 1 km RL + 1000 m RM + 1000 m RL + 1000 m RG+10&quot; + 1000 m RM + 1000 m RG + 3 km RD (11 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana (salite + progressione)</strong><br>
-            3 km RD + 12 &times; (salite 120–150 m veloci + recupero lento in discesa) + 1 km RD + 2 km progressione da RL a RG-20&quot; + 2 km RD (11 km circa)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-05-25" data-end="2026-05-31"><summary><span class="week-title">Settimana 3</span><span class="week-dates">25–31 maggio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 4x (1’ RG + 1’ RM) + 4x (1’ RG-20” + 1’ RL) + 4x (1’ RG-40” + 1’ souplesse) + 1 km RD (10 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>11 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div></div></details>
 
-      <!-- Settimana 9 -->
-      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-        <summary>
-          <span class="week-title">Settimana 9</span>
-          <span class="week-dates">9–15 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (blocchi di ritmo)</strong><br>
-            2 km RD + 2 km RL + 2 km RA + 2 km RM + 1 km RG + 1 km RD (10 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
-            3 km RD + 4 &times; (400 m RA + 400 m RL) + 4 &times; (400 m RM + 400 m RL) + 1 km RD (10,5 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-06-01" data-end="2026-06-07"><summary><span class="week-title">Settimana 4 · Scarico</span><span class="week-dates">1–7 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 4 km RM + 1 km RG + 1 km RD (9 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 8 km RL + 2 km RD (13 km)</div></div></div></details>
 
-      <!-- Settimana 10 -->
-      <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-        <summary>
-          <span class="week-title">Settimana 10</span>
-          <span class="week-dates">16–22 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (piramide veloce)</strong><br>
-            3 km RD + 2 &times; (200–400–600–400–200 m RG-20&quot; con recupero 200 m RD tra le parti veloci) + 1,4 km RD (11 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana (lungo collinare / specifico)</strong><br>
-            13 km collinari<br>
-            <em>oppure</em><br>
-            3 km RD + 3 &times; (2000 m RM + 1000 m RL) + 1 km RD (12 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-06-08" data-end="2026-06-14"><summary><span class="week-title">Settimana 5</span><span class="week-dates">8–14 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 5 x (400m RG-10” + 400m RG-30” + 200m souplesse) + 2 km RD (10 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 2 x (2000m RG + 500m RD) + 2 x (500m RG-10” + 500m RL) + 2 km RD (12 km)</div></div></div></details>
 
-      <!-- Settimana 11 -->
-      <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-        <summary>
-          <span class="week-title">Settimana 11</span>
-          <span class="week-dates">23–29 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (1000 m a RG)</strong><br>
-            2 km RD + 2 km RL + 5 &times; (1000 m RG + 500 m RL) + 1 km RD (11 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana (rifinitura)</strong><br>
-            3 km RD + 5 &times; (100 m allungo facile + 100 m RL) + 5 km al meglio + 1 km RD (10 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-06-15" data-end="2026-06-21"><summary><span class="week-title">Settimana 6</span><span class="week-dates">15–21 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 1000m RG (2’ souplesse) + 800m RG-10” (2’ souplesse) + 600m RG-20” (2’ souplesse) + 400m RG-30” + (2’ souplesse) + 2x (200m RG-40” + 1’ souplesse) + 1 km RD (10 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 3 km al meglio + 3 km RD (10 km)</div></div></div></details>
 
-      <!-- Settimana 12 -->
-      <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-        <summary>
-          <span class="week-title">Settimana 12</span>
-          <span class="week-dates">30 marzo – 5 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (blocchi 300 m)</strong><br>
-            2 km RD + 2 km RL + 6 &times; (300 m RG-20&quot; + 200 m RG + 500 m RL) + 1 km RL (11 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana (lungo a 3 blocchi)</strong><br>
-            2 km RD + 3 km tra RA e RL-10&quot; + 3 km tra RM e RA-10&quot; + 3 km tra RG e RM-10&quot; + 1 km RD (12 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-06-22" data-end="2026-06-28"><summary><span class="week-title">Settimana 7</span><span class="week-dates">22–28 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 4 km RM (con allungo di 200m RG ogni 800m) + 4 x (200m RG-20” + 200m RD) + 2 km RD (10,5 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>13 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div></div></details>
 
-      <!-- Settimana 13 -->
-      <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-        <summary>
-          <span class="week-title">Settimana 13</span>
-          <span class="week-dates">6–12 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (progressione)</strong><br>
-            2 km RD + 2 km RL + 4 km progressione da RL a RG + 2 km RD (10 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
-            3 km RD + 5 km RA + 2 km RD (10 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-06-29" data-end="2026-07-05"><summary><span class="week-title">Settimana 8 · Scarico</span><span class="week-dates">29 giugno – 5 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 3 km progressione da RL a RG + 5 x (400m RG + 1’30” RD) + 2 km RD (10 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 9 km RL + 2 km RD (14 km)</div></div></div></details>
 
-      <!-- Settimana 14 -->
-      <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-        <summary>
-          <span class="week-title">Settimana 14</span>
-          <span class="week-dates">13–19 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (300 m veloci)</strong><br>
-            2 km RD + 2 km RL + 12 &times; (300 m RG-10&quot; + 200 m RL) + 1 km RD (11 km circa)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana (opzioni)</strong><br>
-            14 km collinari<br>
-            <em>oppure</em><br>
-            Gara obiettivo 10 km<br>
-            <em>oppure</em><br>
-            3 km RD + 4 &times; (1000 m RG + 1000 m RL) + 3 km RD (14 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-07-06" data-end="2026-07-12"><summary><span class="week-title">Settimana 9</span><span class="week-dates">6–12 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 10 x (100m RG-30” + 100m souplesse + 100m RG-30” + 200m RL) + 2 km RD (10 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 4 x (1000m RM + 1000m RG) + 2 km RD (12 km)</div></div></div></details>
 
-      <!-- Settimana 15 -->
-      <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-        <summary>
-          <span class="week-title">Settimana 15</span>
-          <span class="week-dates">20–26 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento – Scarico</strong><br>
-            2 km RD + 6 km RL + 1 km RD (9 km)
-          </p>
-          <p><strong>🤝 Allenamento – Qualità (3 km al meglio)</strong><br>
-            3 km RD + 3 km al meglio + 3 km RD (9 km)
-          </p>
-          <p><strong>🏁 Allenamento – Fine settimana</strong><br>
-            3 km RD + 7 km RM + 2 km RD (12 km)
-          </p>
-        </div>
-      </details>
+      <details class="week" data-start="2026-07-13" data-end="2026-07-19"><summary><span class="week-title">Settimana 10</span><span class="week-dates">13–19 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 2x (1000m RG + 500m RL) + 2x (1000m RG-15” + 500m RD) + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>14 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div></div></details>
 
-      <p class="footnote">
-        Le settimane 5–15 seguono la numerazione della programmazione ufficiale
-        del quadrimestre.
-      </p>
+      <details class="week" data-start="2026-07-20" data-end="2026-07-26"><summary><span class="week-title">Settimana 11</span><span class="week-dates">20–26 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 3x (500m RG + 500m RL) + 3x (500m RG-20” + 500m RD) + 1 km RL (10 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 5000m RG (corto veloce) + 2 km RD (11 km)</div></div></div></details>
+
+      <details class="week" data-start="2026-07-27" data-end="2026-08-02"><summary><span class="week-title">Settimana 12 · Scarico</span><span class="week-dates">27 luglio – 2 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 3 km RM + 1 km RG + 2 km RD (9 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 10 km RL + 2 km RD (15 km)</div></div></div></details>
+
+      <details class="week" data-start="2026-08-03" data-end="2026-08-09"><summary><span class="week-title">Settimana 13</span><span class="week-dates">3–9 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 5x (200m RG-40” + 1’ recupero souplesse) + 4x (400m RG-30” + 2’ recupero souplesse) + 3x (800m RG-20” + 3’ recupero souplesse) + 2 km RD (10 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 2 km RL + 2 km RM + 2 km RG + 2 km RD (11 km)</div></div></div></details>
+
+      <details class="week" data-start="2026-08-10" data-end="2026-08-16"><summary><span class="week-title">Settimana 14</span><span class="week-dates">10–16 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>3 km RD + 1 km RL + 1 km RA + 1 km RM + 1 km RG + 1 km RG-10” + 1 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>15 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div></div></details>
+
+      <details class="week" data-start="2026-08-17" data-end="2026-08-23"><summary><span class="week-title">Settimana 15</span><span class="week-dates">17–23 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 7 km RL + 1 km RD (10 km)</div></div><div class="session"><div class="session-title">🔥 Collettivo standard</div><div>2 km RD + 2000m RM + 500m RA + 2000m RG + 500m RL + 2000m RG-10” + 500m RD + 1 km RD (10,5 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 3 km al meglio + 3 km RD (10 km)</div></div></div></details>
+    </div>
+
+    <div class="section-label">Promemoria finale</div>
+    <div class="card content">
+      <p><strong>La mezza si costruisce con continuità, non con la fretta.</strong><br>Se Alessandra riuscirà a rendere la corsa più regolare, anche senza amare ogni singola seduta, questo percorso potrà portarla ad allungare in modo concreto e sostenibile. Il primo obiettivo è esserci: poi la distanza crescerà.</p>
+      <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
     </div>
   </div>
 
-<script>
-  // --- CONFIG ---
-  // Hash univoco per questa pagina per la chiave di localStorage
-  const PAGE_HASH = "aaf592506a330d9d9c4415dffa3b40f973cb7616978b13214b02a030e797c33a";
-  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
-
-  // Password in chiaro per questa pagina
-  const key = "ZagAle.2026";
-
-  const lock = document.getElementById("lock");
-  const app = document.getElementById("app");
-  const unlockBtn = document.getElementById("unlock");
-  const pwInput = document.getElementById("pw");
-  const lockMsg = document.getElementById("lockMsg");
-
-  // Mostra contenuto e nasconde il lock
-  function showApp() {
-    lock.style.display = "none";
-    lock.setAttribute("aria-hidden", "true");
-    app.style.display = "block";
-    lockMsg.style.display = "none";
-    pwInput.value = "";
-  }
-
-  // Controllo iniziale: se già sbloccato, niente password
-  let alreadyUnlocked = false;
-  try {
-    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
-  } catch (e) {
-    alreadyUnlocked = false;
-  }
-
-  if (alreadyUnlocked) {
-    showApp();
-  } else {
-    lock.style.display = "block";
-    lock.setAttribute("aria-hidden", "false");
-    app.style.display = "none";
-  }
-
-  // Verifica password
-  function tryUnlock() {
-    const inputPassword = pwInput.value.trim();
-
-    if (inputPassword === key) {
-      try {
-        localStorage.setItem(STORAGE_KEY, "ok");
-      } catch (e) {}
-
-      showApp(); // resta sulla stessa pagina
-    } else {
-      lockMsg.style.display = "block";
-    }
-  }
-
-  // Eventi sui controlli
-  unlockBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    tryUnlock();
-  });
-
-  pwInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter") tryUnlock();
-  });
-</script>
+  <script>
+    const PAGE_HASH = "aaf592506a330d9d9c4415dffa3b40f973cb7616978b13214b02a030e797c33a";
+  </script>
 
 </body>
 </html>
+
