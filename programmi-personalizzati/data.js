@@ -44,5 +44,5 @@ window.RS_PROGRAMMI = {
   "1d6e5d132023a129a00d1a520439dc7e2400b2fcb4f35a22a9062050a198001a": "programmi/medici-nadia.html",
   "e47f92cdc5e8f1c86e9338a4ea226908db5d1c176418ae82ca1992de04502705": "programmi/fiorini-andrea.html",
   "1d172f7dee912592e93f5db43bd67db1fad6622c14ef5c2186739a0343e5a4b6": "programmi/negri-silvia.html",
-  "4f9c3c4d96cb0f8c40f43f0b70f9e6f9f52f5f98c51f96f6a7d89c9ef6a2b441": "programmi/pertoldi-luca.html"
+  "091cff5743e367d605e3b4583aa676eedce6a4ea643e38a2ef80bfadedd0c3f1": "programmi/pertoldi-luca.html"
   };
