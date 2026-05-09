@@ -46,5 +46,6 @@ window.RS_PROGRAMMI = {
   "1d172f7dee912592e93f5db43bd67db1fad6622c14ef5c2186739a0343e5a4b6": "programmi/negri-silvia.html",
   "091cff5743e367d605e3b4583aa676eedce6a4ea643e38a2ef80bfadedd0c3f1": "programmi/pertoldi-luca.html",
   "91ed25289501ca297306e2cca3a3c2d464a76dcb26890a327326a32139fb013d": "programmi/durante-giada.html",
-  "4530fa887ea0b335f569b8e4a3324ac4e4a325546955832aa04fa4fc612cd3d6": "programmi/licciardello-giuseppe.html"
+  "4530fa887ea0b335f569b8e4a3324ac4e4a325546955832aa04fa4fc612cd3d6": "programmi/licciardello-giuseppe.html",
+  "9b6d2180912392aabc9521d5bd32744bcad5c3ba0c4ae42ff7abd81a77688c45": "programmi/perlini-emma.html"
   };
