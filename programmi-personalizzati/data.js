@@ -43,5 +43,6 @@ window.RS_PROGRAMMI = {
   "aaf592506a330d9d9c4415dffa3b40f973cb7616978b13214b02a030e797c33a": "programmi/zagani-alessandra.html",
   "1d6e5d132023a129a00d1a520439dc7e2400b2fcb4f35a22a9062050a198001a": "programmi/medici-nadia.html",
   "e47f92cdc5e8f1c86e9338a4ea226908db5d1c176418ae82ca1992de04502705": "programmi/fiorini-andrea.html",
-  "1d172f7dee912592e93f5db43bd67db1fad6622c14ef5c2186739a0343e5a4b6": "programmi/negri-silvia.html"
+  "1d172f7dee912592e93f5db43bd67db1fad6622c14ef5c2186739a0343e5a4b6": "programmi/negri-silvia.html",
+  "4f9c3c4d96cb0f8c40f43f0b70f9e6f9f52f5f98c51f96f6a7d89c9ef6a2b441": "programmi/pertoldi-luca.html"
   };
