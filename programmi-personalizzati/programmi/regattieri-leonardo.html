@@ -9,88 +9,93 @@
     :root{
       --bg:#020617;
       --bg-card:#0b1120;
+      --bg-soft:#050b18;
       --accent:#f97316;
-      --accent-soft: rgba(249,115,22,0.12);
+      --accent-soft:rgba(249,115,22,0.12);
+      --accent-border:rgba(249,115,22,0.30);
       --text:#e5e7eb;
       --text-muted:#9ca3af;
       --border:#1f2937;
       --radius:20px;
       --shadow:0 18px 45px rgba(0,0,0,.55);
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
       color:var(--text);
     }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
+
+    .app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+    .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);opacity:.9;font-size:13px;}
     .back:hover{opacity:1}
-    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
-    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
-    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
-    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
-    .meta b{color:var(--text)}
-    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
+    .pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap;}
+
+    .card{background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px;}
+    h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px;}
+    .meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0;}
+    .meta b,.content strong{color:var(--text);font-weight:900}
+
+    .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;opacity:.96;}
     .btn:hover{opacity:1}
-    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
-    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
-    .content{font-size:14px; line-height:1.45;}
+    .btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900;}
+
+    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px;}
+    .content{font-size:14px;line-height:1.48;}
     .content p{margin:10px 0}
-    .content strong{font-weight:900}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
-    .mini .v{font-size:14px; line-height:1.35}
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
-    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .mini{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);padding:12px;}
+    .mini.full{grid-column:1 / -1}
+    .mini .k{font-size:11px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+    .mini .v{font-size:14px;line-height:1.35;}
+
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .tag{font-size:12px;padding:7px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted);}
+    .tag.ok{border-color:rgba(34,197,94,.35);color:#bbf7d0;background:rgba(34,197,94,.08)}
+    .tag.warn{border-color:rgba(249,115,22,.35);color:#fed7aa;background:rgba(249,115,22,.08)}
+    .tag.info{border-color:rgba(56,189,248,.35);color:#bae6fd;background:rgba(56,189,248,.08)}
+
+    .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38;}
+    .alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38;}
+    .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95;}
+
+    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
+    .ritmi-table tr:last-child td{border-bottom:0}
+    .ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}
+    .ritmi-table tbody td{color:var(--text-muted)}
+    .ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
+
+    details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px;}
+    details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;}
     details.week summary::-webkit-details-marker{display:none}
     .week-title{font-weight:900}
-    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
-    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
-    .week-content p{margin:10px 0}
+    .week-dates{font-size:12px;color:var(--text-muted);font-weight:700;text-align:right}
+    .week-content{padding:0 12px 12px;font-size:14px;line-height:1.45;color:var(--text);}
+    .session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06);}
+    .session:first-child{border-top:0}
+    .session-title{font-weight:900;margin-bottom:3px;}
+    .session-note{color:var(--text-muted);font-size:13px;margin-top:4px;}
 
-    /* LOCK */
-    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
-    .lock .wrap{max-width:520px;margin:0 auto;}
-    .lock .card{padding:16px}
-    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
-    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
-    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
-
-    /* Nota box */
-    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
-    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
+    @media (max-width:420px){
+      .grid{grid-template-columns:1fr}
+      .mini.full{grid-column:auto}
+      .top{align-items:flex-start;flex-direction:column}
+      .week-dates{text-align:left}
+      details.week summary{align-items:flex-start;flex-direction:column}
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- LOCK OVERLAY -->
-  <div class="lock" id="lock" aria-hidden="false">
-    <div class="wrap">
-      <div class="card">
-        <h1>🔒 Area riservata</h1>
-        <p class="meta">Inserisci la password per visualizzare il programma.</p>
-
-        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
-        <div class="btnrow">
-          <!-- IMPORTANTE: button, NON <a href="#"> -->
-          <button class="btn primary" type="button" id="unlock">🔓 Sblocca</button>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
-        </div>
-
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- APP -->
   <div class="app" id="app">
     <div class="top">
       <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
@@ -100,380 +105,147 @@
     <div class="card">
       <h1>📄 Programma personalizzato · <span id="nomeAllievo">Regattieri Leonardo</span></h1>
       <p class="meta">
-        Aggiornato: <b id="aggiornatoIl">12/01/2026</b><br>
-        Regola base: qui l’obiettivo è <b>progressione e sicurezza</b>. Se qualcosa “pizzica” in modo strano, stop e mi scrivi.
+        Periodo: <b>Maggio – Agosto 2026</b><br>
+        Aggiornato: <b id="aggiornatoIl">09/05/2026</b><br>
+        Coach: <b>Runner’s School Italia</b>
       </p>
-
+      <div class="tagrow">
+        <span class="tag ok">Percorso L2 base</span>
+        <span class="tag info">4 uscite settimanali</span>
+        <span class="tag warn">Test 3000 m necessario</span>
+      </div>
       <div class="btnrow">
-        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+        <a class="btn primary" href="#settimane">📅 Vai al programma</a>
+        <a class="btn" href="#ritmi">⏱️ Ritmi</a>
+        <a class="btn" href="#note">📝 Note</a>
       </div>
-
-      <div class="footnote">
-        Nota: questo programma è personale. Non condividere password o link con altre persone.
-      </div>
+      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
     </div>
 
     <div class="section-label">Scheda atleta</div>
     <div class="card">
       <div class="grid">
-        <div class="mini">
-          <div class="k">Dati</div>
-          <div class="v">1981 · 168 cm · 82 kg</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Obiettivo</div>
-          <div class="v"><strong>Ripartire da zero</strong> (corsa + camminata)</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Livello</div>
-          <div class="v">L1 – Neofita assoluto</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Altri sport</div>
-          <div class="v">Camminata · Ballo (2 corsi/sett)</div>
-        </div>
-
-        <div class="mini" style="grid-column:1 / -1;">
-          <div class="k">Storico</div>
+        <div class="mini"><div class="k">Disponibilità</div><div class="v">3 uscite abituali · programma consigliato su 4 uscite</div></div>
+        <div class="mini"><div class="k">Livello attuale</div><div class="v">Ha completato L1 · fase di passaggio</div></div>
+        <div class="mini"><div class="k">Distanza attuale</div><div class="v">5–7 km · fino a 40’ continuativi</div></div>
+        <div class="mini"><div class="k">Ritmo recente</div><div class="v">Circa 7’20”/km nelle ultime uscite</div></div>
+        <div class="mini"><div class="k">Miglior riferimento dichiarato</div><div class="v">Fino a circa 6’38”/km</div></div>
+        <div class="mini"><div class="k">Obiettivo personale</div><div class="v">Dimagrire e velocizzarsi</div></div>
+        <div class="mini full">
+          <div class="k">Storico atleta</div>
           <div class="v">
-            Un anno fa cardio al <strong>CUS</strong>. Ultimamente cammini ~<strong>10 km</strong> circa <strong>2 volte a settimana</strong>
-            (la camminata ti segna mediamente <strong>10’/km</strong>).<br>
-            <strong>Mai corso</strong>: partenza da zero.
-          </div>
-        </div>
-
-        <div class="mini warn" style="grid-column:1 / -1;">
-          <div class="k">Attenzione</div>
-          <div class="v">
-            In questa fase la cosa più importante è <strong>abituare tendini e articolazioni</strong> all’impatto, senza fretta.
-            Se “forzi” troppo presto, il rischio è di infiammare e dover fermarsi.
+            Leonardo era già seguito da Runner’s School e ha completato il Livello 1, arrivando a correre in modo continuativo per circa 40 minuti, con una corsa leggera e controllata e una distanza indicativa di 5–6 km. Nell’ultimo periodo è stato abbastanza costante, con circa 3 allenamenti a settimana, salvo una settimana di stop per impegni. Il dolore alla pianta del piede sembra essersi risolto con il cambio di scarpe, aspetto positivo da monitorare comunque nelle prossime settimane.
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section-label">Obiettivi e regole del gioco</div>
+    <div class="section-label">Prima indicazione importante</div>
     <div class="card content">
-      <p><strong>🎯 Obiettivo (semplice ma concreto)</strong><br>
-        Costruire una base per arrivare a correre in modo continuativo, senza dolore e senza affanni inutili.
-        La priorità non è il ritmo: è la <strong>costanza</strong>.
+      <p><strong>📌 Test dei 3000 m da fare al meglio</strong><br>
+        Prima di impostare i ritmi definitivi del nuovo percorso, la cosa più utile per Leonardo è svolgere un <strong>test sui 3000 m al meglio</strong>. Il ritmo medio di 7’20”/km delle ultime uscite è un riferimento utile per capire la corsa facile, ma non può essere usato come vero ritmo massimo o ritmo test.
       </p>
-
-      <p><strong>✅ Metodo</strong><br>
-        Partiamo alternando <strong>corsa lenta + camminata</strong>. È la strategia più efficace per iniziare da zero
-        e far adattare il corpo in modo graduale.
+      <p>
+        Per calcolare bene RG, RM, RA, RL e RD serve un dato più attendibile, ottenuto da una prova breve e controllata ma corsa con impegno. Il test dei 3000 m ci darà una fotografia più reale del livello attuale e ci permetterà di impostare ritmi più corretti per il quadrimestre.
       </p>
+      <div class="note-box"><strong>Indicazione pratica:</strong> fino al test, i lavori vanno eseguiti più a sensazione che al secondo, mantenendo sempre controllo e buona tecnica.</div>
+    </div>
 
-      <div class="note-box">
-        <strong>Uscite a settimana</strong><br>
-        Tu avevi indicato 2 uscite: va bene come punto di partenza.<br>
-        Però il programma è impostato su <strong>3 uscite settimanali</strong> perché è la quantità “giusta” per una progressione più stabile.
-        Se riesci ad aggiungere la terza uscita anche solo ogni tanto, è un grande aiuto.
-      </div>
-
-      <div class="note-box">
-        <strong>Nota (detta con tatto, ma importante)</strong><br>
-        Se nei prossimi mesi riesci a perdere anche solo <strong>qualche kg</strong>, la corsa diventa più “leggera”:
-        meno impatto su articolazioni e tendini, e sensazioni migliori. Nessuna ossessione: l’obiettivo è stare bene e fare progressi.
-      </div>
-
-      <p class="footnote">
-        Regola pratica: durante la “corsa lenta” devi riuscire a stare in controllo (respirazione gestibile, niente apnea).
+    <div class="section-label">Obiettivi del percorso</div>
+    <div class="card content">
+      <p><strong>🎯 Obiettivo principale</strong><br>
+        Consolidare il passaggio dal Livello 1 a un lavoro più strutturato, arrivando progressivamente ai 10 km continuativi e iniziando a velocizzarsi sulle distanze brevi e medie.
+      </p>
+      <p><strong>📌 Obiettivi del periodo</strong><br>
+        • Stabilire ritmi reali con un test sui 3000 m<br>
+        • Aumentare progressivamente il chilometraggio<br>
+        • Arrivare a correre 10 km continuativi a fine percorso<br>
+        • Inserire lavori di qualità semplici ma efficaci<br>
+        • Migliorare velocità, controllo e gestione dello sforzo<br>
+        • Favorire anche il percorso di dimagrimento attraverso continuità e volume crescente
+      </p>
+      <p><strong>🧭 Metodo di lavoro</strong><br>
+        Il programma è costruito su microcicli di allenamento: 3 settimane di carico progressivo e 1 settimana di scarico. In questo modo il corpo riceve stimoli nuovi, ma ha anche il tempo di recuperarli e trasformarli in miglioramento.
       </p>
     </div>
 
-    <div class="section-label" id="settimane">Settimane</div>
+    <div class="section-label">Spiegazione del percorso</div>
     <div class="card content">
-      <p>Tre sedute a settimana: <strong>Allenamento 1 · Allenamento 2 · Allenamento 3</strong>. Rispetta i recuperi e non anticipare i passaggi.</p>
-
-      <!-- Settimana 1 -->
-      <details class="week" data-start="2026-01-12" data-end="2026-01-18">
-        <summary>
-          <span class="week-title">Settimana 1</span>
-          <span class="week-dates">12–18 gennaio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>15’ camminata + 8 x (30” corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>15’ camminata + 10 x (30” corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>15’ camminata + 6 x (1’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 2 -->
-      <details class="week" data-start="2026-01-19" data-end="2026-01-25">
-        <summary>
-          <span class="week-title">Settimana 2</span>
-          <span class="week-dates">19–25 gennaio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>15’ camminata + 6 x (1’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>15’ camminata + 8 x (1’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>15’ camminata + 10 x (1’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 3 -->
-      <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-        <summary>
-          <span class="week-title">Settimana 3</span>
-          <span class="week-dates">26 gennaio – 1 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>15’ camminata + 10 x (1’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ camminata + 6 x (2’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>10’ camminata + 8 x (2’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 4 -->
-      <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-        <summary>
-          <span class="week-title">Settimana 4</span>
-          <span class="week-dates">2–8 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>10’ camminata + 8 x (2’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ camminata + 5 x (3’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>10’ camminata + 6 x (3’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 5 -->
-      <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-        <summary>
-          <span class="week-title">Settimana 5</span>
-          <span class="week-dates">9–15 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>10’ camminata + 6 x (3’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ camminata + 5 x (4’ corsa lenta + 1’ camminata) + 10’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>10’ camminata + 6 x (4’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 6 -->
-      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-        <summary>
-          <span class="week-title">Settimana 6</span>
-          <span class="week-dates">16–22 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>10’ camminata + 6 x (4’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ camminata + 4 x (5’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>10’ camminata + 5 x (5’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 7 -->
-      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-        <summary>
-          <span class="week-title">Settimana 7</span>
-          <span class="week-dates">23 febbraio – 1 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>10’ camminata + 5 x (5’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ camminata + 4 x (6’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>10’ camminata + 5 x (6’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 8 -->
-      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-        <summary>
-          <span class="week-title">Settimana 8</span>
-          <span class="week-dates">2–8 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>10’ camminata + 5 x (6’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ camminata + 4 x (7’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 5 x (7’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 9 -->
-      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-        <summary>
-          <span class="week-title">Settimana 9</span>
-          <span class="week-dates">9–15 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>5’ camminata + 5 x (7’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>5’ camminata + 4 x (8’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 4 x (9’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 10 -->
-      <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-        <summary>
-          <span class="week-title">Settimana 10</span>
-          <span class="week-dates">16–22 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>5’ camminata + 4 x (9’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>5’ camminata + 3 x (10’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 2 x (15’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 11 -->
-      <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-        <summary>
-          <span class="week-title">Settimana 11</span>
-          <span class="week-dates">23–29 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>5’ camminata + 2 x (15’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>5’ camminata + 2 x (20’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 30’ corsa lenta + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 12 -->
-      <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-        <summary>
-          <span class="week-title">Settimana 12</span>
-          <span class="week-dates">30 marzo – 5 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>5’ camminata + 30’ corsa lenta + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>
-            5’ camminata + 5’ corsa lenta + 1’ camminata + 10’ corsa lenta + 1’ camminata + 15’ corsa lenta + 1’ camminata +
-            10’ corsa lenta + 1’ camminata + 5’ corsa lenta + 1’ camminata
-          </p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 35’ corsa lenta + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 13 -->
-      <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-        <summary>
-          <span class="week-title">Settimana 13</span>
-          <span class="week-dates">6–12 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>5’ camminata + 35’ corsa lenta + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>5’ camminata + 2 x (20’ corsa lenta + 1’ camminata) + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>
-            5’ camminata + 5’ corsa lenta + 1’ camminata + 10’ corsa lenta + 1’ camminata + 15’ corsa lenta + 1’ camminata +
-            10’ corsa lenta + 1’ camminata + 5’ corsa lenta + 1’ camminata
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 14 -->
-      <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-        <summary>
-          <span class="week-title">Settimana 14</span>
-          <span class="week-dates">13–19 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>
-            5’ camminata + 5’ corsa lenta + 1’ camminata + 10’ corsa lenta + 1’ camminata + 15’ corsa lenta + 1’ camminata +
-            10’ corsa lenta + 1’ camminata + 5’ corsa lenta + 1’ camminata
-          </p>
-          <p><strong>Allenamento 2</strong><br>5’ camminata + 30’ corsa lenta + 5’ camminata</p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 45’ corsa lenta + 5’ camminata</p>
-        </div>
-      </details>
-
-      <!-- Settimana 15 -->
-      <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-        <summary>
-          <span class="week-title">Settimana 15</span>
-          <span class="week-dates">20–26 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>Allenamento 1</strong><br>5’ camminata + 30’ corsa lenta + 5’ camminata</p>
-          <p><strong>Allenamento 2</strong><br>10’ corsa lenta + 3 km al meglio + 5’ corsa lenta</p>
-          <p><strong>Allenamento 3</strong><br>5’ camminata + 45’ corsa lenta + 5’ camminata</p>
-        </div>
-      </details>
-
-      <p class="footnote">
-        Se una settimana salti un’uscita: non “recuperare” facendo doppio. Riprendi dal prossimo allenamento previsto e mantieni la progressione.
+      <p>
+        Leonardo ha chiuso bene il Livello 1: questo è il primo passaggio importante. Ora però il lavoro cambia. Non siamo più nella fase in cui l’obiettivo è semplicemente “riuscire a correre”, ma nella fase in cui dobbiamo costruire una base più solida, più lunga e un po’ più veloce.
       </p>
+      <p>
+        Il programma prevede una progressione graduale del chilometraggio per arrivare, alla fine del percorso, a correre 10 km continuativi. La settimana ideale è impostata su 4 uscite: una seduta di scarico, una seduta di qualità, una seduta di mantenimento e un lavoro nel fine settimana.
+      </p>
+      <p>
+        Nel lavoro di qualità alterneremo stimoli diversi: lavori di velocità con recupero passivo o molto facile, lavori in soglia, progressioni e variati. L’obiettivo non è correre sempre forte, ma imparare a cambiare ritmo, recuperare bene e gestire lo sforzo senza perdere leggerezza.
+      </p>
+      <p>
+        Nel fine settimana troveremo a rotazione lavori variati, test corti veloci per monitorare i miglioramenti, allenamenti di potenziamento in collina o su terreni morbidi e, nelle settimane di scarico, corse lente più lunghe per aumentare la distanza in modo sostenibile.
+      </p>
+      <div class="note-box">
+        <strong>Idea guida:</strong> il vero salto di qualità sarà trasformare la corsa da “riesco a correre 40 minuti” a “so allenarmi con metodo”. Da qui si costruiscono i 10 km e, soprattutto, una corsa più efficace e più leggera.
+      </div>
+    </div>
+
+    <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+    <div class="card content">
+      <p>
+        I ritmi definitivi saranno calcolati dopo il test dei 3000 m. Fino a quel momento, useremo indicazioni di intensità più semplici.
+      </p>
+      <table class="ritmi-table" aria-label="Ritmi provvisori">
+        <thead><tr><th>Fase</th><th>Significato</th><th>Indicazione</th></tr></thead>
+        <tbody>
+          <tr><td>RL</td><td>Corsa lenta</td><td>Facile, controllata, respirazione gestibile</td></tr>
+          <tr><td>RA/RM</td><td>Ritmi intermedi</td><td>Da definire dopo test 3000 m</td></tr>
+          <tr><td>RG</td><td>Ritmo riferimento</td><td>Da calcolare dopo test 3000 m</td></tr>
+          <tr><td>Test</td><td>3000 m al meglio</td><td>Serve per stabilire i ritmi reali</td></tr>
+        </tbody>
+      </table>
+      <div class="note-box"><strong>Formula che useremo dopo il test:</strong> RG = ritmo test 5000 + 10”/km; RM = RG + 20”; RA = RM + 20”; RL = RA + 10”; RD = RL + 10”. Per Leonardo useremo il test 3000 m come primo riferimento pratico, poi lo aggiorneremo in base all’evoluzione.</div>
+    </div>
+
+    <div class="section-label" id="note">Note del coach</div>
+    <div class="card content">
+      <p><strong>📌 Indicazioni chiave</strong><br>
+        • Prima cosa: fare il test sui 3000 m per avere ritmi reali.<br>
+        • Non usare il ritmo medio delle corse lente come riferimento massimo.<br>
+        • Nei lavori veloci cerca una corsa brillante, ma non rigida.<br>
+        • Se torna fastidio alla pianta del piede, scala subito il carico e scrivimi.<br>
+        • Il dimagrimento arriverà più facilmente con continuità, non con allenamenti troppo duri fatti a caso.
+      </p>
+      <div class="alert-box"><strong>⚠️ Attenzione:</strong> Leonardo ha appena completato il passaggio da L1. Il corpo sta ancora costruendo adattamento: meglio crescere in modo progressivo che forzare per velocizzarsi troppo presto.</div>
+    </div>
+
+    <div class="section-label">Struttura settimanale</div>
+    <div class="card content">
+      <div class="grid">
+        <div class="mini"><div class="k">Seduta 1</div><div class="v">Scarico · corsa facile</div></div>
+        <div class="mini"><div class="k">Seduta 2</div><div class="v">Qualità · velocità, soglia o variato</div></div>
+        <div class="mini"><div class="k">Seduta 3</div><div class="v">Mantenimento · corsa controllata</div></div>
+        <div class="mini"><div class="k">Seduta 4</div><div class="v">Fine settimana · test, collinare, variato o lungo lento</div></div>
+      </div>
+    </div>
+
+    <div class="section-label" id="settimane">Programma</div>
+    <div class="card content">
+      <p>
+        Il programma definitivo verrà impostato sui ritmi dopo il test dei 3000 m. La struttura del percorso resta questa: 4 uscite settimanali, microcicli di 3 settimane di carico + 1 di scarico, aumento graduale fino ai 10 km continuativi.
+      </p>
+      <details class="week" open><summary><span class="week-title">Step iniziale</span><span class="week-dates">Prima settimana utile</span></summary><div class="week-content"><div class="session"><div class="session-title">📌 Test 3000 m</div><div>10’ corsa lenta + qualche allungo facile + 3000 m al meglio + 5’/10’ corsa lenta o camminata.</div><div class="session-note">Da questo test calcoleremo i ritmi reali per personalizzare il lavoro successivo.</div></div></div></details>
+    </div>
+
+    <div class="section-label">Promemoria finale</div>
+    <div class="card content">
+      <p><strong>Hai già fatto il primo passo: ora serve metodo.</strong><br>Il Livello 1 ha costruito continuità. Il prossimo obiettivo sarà trasformare questa base in una corsa più lunga, più efficace e un po’ più veloce, arrivando ai 10 km con gradualità e senza perdere leggerezza.</p>
+      <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
     </div>
   </div>
 
-<script>
-  // --- CONFIG ---
-  // Password giusta per Leonardo:
-  const key = "RegLeo.2026";                       // password in chiaro
-  const STORAGE_KEY = "rs_unlock_RegLeo_2026";     // chiave per localStorage
-
-  const lock = document.getElementById("lock");
-  const app = document.getElementById("app");
-  const unlockBtn = document.getElementById("unlock");
-  const pwInput = document.getElementById("pw");
-  const lockMsg = document.getElementById("lockMsg");
-
-  function showLocked(){
-    lock.style.display = "block";
-    app.style.display = "none";
-    lockMsg.style.display = "none";
-    pwInput.value = "";
-    pwInput.focus();
-  }
-
-  function showUnlocked(){
-    lock.style.display = "none";
-    app.style.display = "block";
-    lockMsg.style.display = "none";
-    pwInput.value = "";
-  }
-
-  function tryUnlock(){
-    const inputPassword = (pwInput.value || "").trim();
-    if (inputPassword === key) {
-      // Segna come sbloccato su questo dispositivo
-      localStorage.setItem(STORAGE_KEY, "1");
-      showUnlocked();
-    } else {
-      lockMsg.style.display = "block";
-    }
-  }
-
-  // --- AVVIO ---
-  // Se su questo dispositivo è già stato sbloccato, vai diretto al programma
-  if (localStorage.getItem(STORAGE_KEY) === "1") {
-    showUnlocked();
-  } else {
-    showLocked();
-  }
-
-  // Click sul pulsante "Sblocca"
-  unlockBtn.addEventListener("click", function(e){
-    // Blocca QUALSIASI azione predefinita o gestione globale
-    e.preventDefault();
-    e.stopPropagation();
-    tryUnlock();
-  });
-
-  // Invio da tastiera nel campo password
-  pwInput.addEventListener("keydown", function(e){
-    if (e.key === "Enter") {
-      e.preventDefault(); // evita submit di eventuali <form> intorno
-      e.stopPropagation();
-      tryUnlock();
-    }
-  });
-
-  // Ulteriore sicurezza: se il builder ti ha messo dentro un <form>, blocchiamo il submit
-  document.addEventListener("submit", function(e){
-    if (e.target && e.target.contains(pwInput)) {
-      e.preventDefault();
-      e.stopPropagation();
-      tryUnlock();
-    }
-  });
-</script>
-
-
-
+  <script>
+    const PAGE_HASH = "3ac64f1a699f50aa9bf2bf0a83940efadaffcfd47303b9c0955610d6b332bed4";
+  </script>
 
 </body>
 </html>
+
