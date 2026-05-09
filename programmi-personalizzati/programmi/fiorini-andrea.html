@@ -280,41 +280,56 @@
     </div>
   </div>
 
-  <script>
+<script>
   const PAGE_HASH = "7c4e8b9f21d64c9aa8d57f3148b0e62c53f1a7d9482bc4e5a91fd67c320ab841";
   const key = "FioAnd.2026";
-  const storageKey = "RSI_FioriniAndrea_2026_unlocked";
+  const storageKey = "RSI_FioriniAndrea_2026_unlocked_v2";
 
-    const lock = document.getElementById("lock");
-    const app = document.getElementById("app");
-    const unlockBtn = document.getElementById("unlock");
-    const pwInput = document.getElementById("pw");
-    const lockMsg = document.getElementById("lockMsg");
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const unlockBtn = document.getElementById("unlock");
+  const pwInput = document.getElementById("pw");
+  const lockMsg = document.getElementById("lockMsg");
 
-    if(localStorage.getItem(storageKey) === "true"){
-      lock.style.display = "none";
-      app.style.display = "block";
-    }else{
-      lock.style.display = "block";
-      app.style.display = "none";
+  function showApp(){
+    lock.style.display = "none";
+    app.style.display = "block";
+  }
+
+  function showLock(){
+    lock.style.display = "block";
+    app.style.display = "none";
+  }
+
+  if(localStorage.getItem(storageKey) === "true"){
+    showApp();
+  } else {
+    showLock();
+  }
+
+  function tryUnlock(){
+    const inputPassword = pwInput.value.trim();
+
+    if(inputPassword === key){
+      localStorage.setItem(storageKey, "true");
+      lockMsg.style.display = "none";
+      showApp();
+    } else {
+      lockMsg.style.display = "block";
     }
+  }
 
-    function tryUnlock(){
-      const inputPassword = (pwInput.value || "").trim();
-      if(inputPassword === key){
-        localStorage.setItem(storageKey,"true");
-        lock.style.display = "none";
-        app.style.display = "block";
-        lockMsg.style.display = "none";
-        pwInput.value = "";
-      }else{
-        lockMsg.style.display = "block";
-      }
+  unlockBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    tryUnlock();
+  });
+
+  pwInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      tryUnlock();
     }
-
-    unlockBtn.addEventListener("click",function(e){e.preventDefault();tryUnlock();});
-    pwInput.addEventListener("keydown",function(e){if(e.key === "Enter") tryUnlock();});
-  </script>
+  });
+</script>
 
 </body>
 </html>
