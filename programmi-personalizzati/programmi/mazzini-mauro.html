@@ -1,240 +1,282 @@
-
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Runner’s School Italia – Programma personalizzato</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Runner’s School Italia – Programma personalizzato</title>
 
-  <style>
-    :root{
-      --bg:#020617;
-      --bg-card:#0b1120;
-      --bg-soft:#050b18;
-      --accent:#f97316;
-      --accent-soft:rgba(249,115,22,0.12);
-      --accent-border:rgba(249,115,22,0.30);
-      --text:#e5e7eb;
-      --text-muted:#9ca3af;
-      --border:#1f2937;
-      --radius:20px;
-      --shadow:0 18px 45px rgba(0,0,0,.55);
-    }
+<style>
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --bg-soft:#050b18;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --accent-border:rgba(249,115,22,0.30);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
 
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
-      color:var(--text);
-    }
+*{
+  box-sizing:border-box;
+}
 
-    .app{
-      max-width:540px;
-      margin:0 auto;
-      padding:18px 16px 34px;
-      display:none;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:12px;
-    }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
 
-    .back{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      text-decoration:none;
-      color:var(--text);
-      opacity:.9;
-      font-size:13px;
-    }
+/* schermata iniziale */
 
-    .pill{
-      font-size:12px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      border:1px solid var(--accent-border);
-      color:var(--text);
-      white-space:nowrap;
-    }
+#loader{
+  position:fixed;
+  inset:0;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-family:sans-serif;
+  z-index:9999;
+  text-align:center;
+  padding:30px;
+}
 
-    .card{
-      background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px;
-      margin-bottom:14px;
-    }
+/* pagina */
 
-    h1{
-      font-size:19px;
-      line-height:1.18;
-      margin:0 0 8px;
-    }
+.app{
+  max-width:540px;
+  margin:0 auto;
+  padding:18px 16px 34px;
+  display:none;
+}
 
-    .meta{
-      color:var(--text-muted);
-      font-size:13px;
-      line-height:1.4;
-    }
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
 
-    .tagrow{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text);
+  opacity:.9;
+  font-size:13px;
+}
 
-    .tag{
-      font-size:12px;
-      padding:7px 9px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:var(--bg-soft);
-    }
+.back:hover{
+  opacity:1;
+}
 
-    .tag.ok{
-      border-color:rgba(34,197,94,.35);
-      color:#bbf7d0;
-      background:rgba(34,197,94,.08);
-    }
+.pill{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid var(--accent-border);
+  color:var(--text);
+}
 
-    .tag.info{
-      border-color:rgba(56,189,248,.35);
-      color:#bae6fd;
-      background:rgba(56,189,248,.08);
-    }
+.card{
+  background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  margin-bottom:14px;
+}
 
-    .tag.warn{
-      border-color:rgba(249,115,22,.35);
-      color:#fed7aa;
-      background:rgba(249,115,22,.08);
-    }
+h1{
+  font-size:19px;
+  line-height:1.2;
+  margin:0 0 8px;
+}
 
-    .btnrow{
-      display:flex;
-      gap:10px;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
+.meta{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.4;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:var(--bg-soft);
-      color:var(--text);
-      font-size:13px;
-    }
+.meta b{
+  color:var(--text);
+}
 
-    .btn.primary{
-      background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));
-      border:0;
-      color:#0b1120;
-      font-weight:900;
-    }
+.tagrow{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
 
-    .section-label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--text-muted);
-      margin:22px 2px 10px;
-    }
+.tag{
+  font-size:12px;
+  padding:7px 9px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+}
 
-    .content{
-      font-size:14px;
-      line-height:1.5;
-    }
+.tag.ok{
+  border-color:rgba(34,197,94,.35);
+  color:#bbf7d0;
+  background:rgba(34,197,94,.08);
+}
 
-    .note-box{
-      margin-top:12px;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--accent-border);
-      background:var(--accent-soft);
-    }
+.tag.info{
+  border-color:rgba(56,189,248,.35);
+  color:#bae6fd;
+  background:rgba(56,189,248,.08);
+}
 
-    details.week{
-      border:1px solid var(--border);
-      border-radius:16px;
-      background:var(--bg-soft);
-      overflow:hidden;
-      margin-top:10px;
-    }
+.tag.warn{
+  border-color:rgba(249,115,22,.35);
+  color:#fed7aa;
+  background:rgba(249,115,22,.08);
+}
 
-    details.week summary{
-      list-style:none;
-      cursor:pointer;
-      padding:12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-weight:900;
-    }
+.btnrow{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
 
-    details.week summary::-webkit-details-marker{
-      display:none;
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+  color:var(--text);
+  font-size:13px;
+}
 
-    .week-content{
-      padding:0 12px 12px;
-      font-size:14px;
-      line-height:1.45;
-    }
+.btn.primary{
+  background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));
+  border:0;
+  color:#0b1120;
+  font-weight:900;
+}
 
-    .session{
-      padding:10px 0;
-      border-top:1px solid rgba(255,255,255,.06);
-    }
+.section-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--text-muted);
+  margin:22px 2px 10px;
+}
 
-    .session:first-child{
-      border-top:0;
-    }
+.content{
+  font-size:14px;
+  line-height:1.5;
+}
 
-    .session-title{
-      font-weight:900;
-      margin-bottom:4px;
-    }
+.note-box{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--accent-border);
+  background:var(--accent-soft);
+}
 
-    .footnote{
-      margin-top:12px;
-      color:var(--text-muted);
-      font-size:11px;
-    }
+details.week{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-soft);
+  overflow:hidden;
+  margin-top:10px;
+}
 
-    @media (max-width:420px){
-      .top{
-        flex-direction:column;
-        align-items:flex-start;
-      }
+details.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:900;
+}
 
-      details.week summary{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-    }
-  </style>
+details.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week-content{
+  padding:0 12px 12px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.session{
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.session:first-child{
+  border-top:0;
+}
+
+.session-title{
+  font-weight:900;
+  margin-bottom:4px;
+}
+
+.footnote{
+  margin-top:12px;
+  color:var(--text-muted);
+  font-size:11px;
+}
+
+@media (max-width:420px){
+
+  .top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  details.week summary{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- schermata iniziale -->
+
+<div id="loader">
+  Controllo accesso...
+</div>
+
+<!-- pagina -->
+
 <div class="app" id="app">
 
   <div class="top">
+
     <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">
       ← Programmi personalizzati
     </a>
@@ -242,9 +284,11 @@
     <div class="pill">
       🟧 Runner’s School Italia
     </div>
+
   </div>
 
   <div class="card">
+
     <h1>
       📄 Programma personalizzato · Mauro Mazzini
     </h1>
@@ -256,19 +300,37 @@
     </p>
 
     <div class="tagrow">
-      <span class="tag ok">Preparazione gare</span>
-      <span class="tag info">4 uscite settimanali</span>
-      <span class="tag warn">Attenzione ginocchio sx</span>
+
+      <span class="tag ok">
+        Preparazione gare
+      </span>
+
+      <span class="tag info">
+        4 uscite settimanali
+      </span>
+
+      <span class="tag warn">
+        Attenzione ginocchio sx
+      </span>
+
     </div>
 
     <div class="btnrow">
-      <a class="btn primary" href="#programma">📅 Vai al programma</a>
-      <a class="btn" href="#note">📝 Note</a>
+
+      <a class="btn primary" href="#programma">
+        📅 Vai al programma
+      </a>
+
+      <a class="btn" href="#note">
+        📝 Note
+      </a>
+
     </div>
 
     <div class="footnote">
       Questo programma è personale. Non condividere password o link con altre persone.
     </div>
+
   </div>
 
   <div class="section-label">
@@ -276,14 +338,19 @@
   </div>
 
   <div class="card content">
+
     <p>
       Preparare Bellaria e Stralivigno continuando a migliorare la gestione della mezza maratona senza forzare troppo il percorso.
     </p>
 
     <div class="note-box">
+
       <strong>Idea guida:</strong><br>
+
       prima gestione, continuità e salute... poi arriverà anche il tempo sotto le 2 ore.
+
     </div>
+
   </div>
 
   <div class="section-label" id="programma">
@@ -293,6 +360,7 @@
   <div class="card content">
 
     <details class="week" open>
+
       <summary>
         <span>Settimana 1</span>
         <span>11–17 maggio</span>
@@ -321,9 +389,11 @@
         </div>
 
       </div>
+
     </details>
 
     <details class="week">
+
       <summary>
         <span>Settimana 2</span>
         <span>18–24 maggio</span>
@@ -347,6 +417,7 @@
         </div>
 
       </div>
+
     </details>
 
   </div>
@@ -370,64 +441,71 @@
 
 <script>
 
-  const PAGE_HASH = "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b";
-  const STORAGE_KEY = "rs_access_" + PAGE_HASH;
+const PAGE_HASH = "707035a06b7cff7deefc04a12da4f429068ca6a321d70717dd923cfbff5a072b";
 
-  async function sha256(text){
-    const data = new TextEncoder().encode(text);
+const STORAGE_KEY = "rs_access_" + PAGE_HASH;
 
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+async function sha256(text){
 
-    return Array.from(new Uint8Array(hashBuffer))
-      .map(b => b.toString(16).padStart(2, "0"))
-      .join("");
+  const data = new TextEncoder().encode(text);
+
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+
+  return Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function initProtection(){
+
+  const app = document.getElementById("app");
+
+  const loader = document.getElementById("loader");
+
+  // accesso già salvato
+
+  if(localStorage.getItem(STORAGE_KEY) === "ok"){
+
+    loader.style.display = "none";
+
+    app.style.display = "block";
+
+    return;
   }
 
-  async function checkPassword(){
+  // richiesta password
 
-    if(localStorage.getItem(STORAGE_KEY) === "ok"){
-      document.getElementById("app").style.display = "block";
-      return;
-    }
+  const password = prompt("Inserisci la password per accedere al programma:");
 
-    const password = prompt("Inserisci la password per accedere al programma:");
+  // annullato
 
-    if(!password){
-      document.body.innerHTML = `
-        <div style="
-          min-height:100vh;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          text-align:center;
-          color:white;
-          font-family:sans-serif;
-          background:#020617;
-          padding:30px;
-        ">
-          Accesso non autorizzato
-        </div>
-      `;
-      return;
-    }
+  if(password === null || password.trim() === ""){
 
-    const hash = await sha256(password.trim());
+    loader.innerHTML = "Accesso annullato";
 
-    if(hash === PAGE_HASH){
-
-      localStorage.setItem(STORAGE_KEY, "ok");
-
-      document.getElementById("app").style.display = "block";
-
-    }else{
-
-      alert("Password errata.");
-
-      location.reload();
-    }
+    return;
   }
 
-  checkPassword();
+  const hash = await sha256(password.trim());
+
+  // password corretta
+
+  if(hash === PAGE_HASH){
+
+    localStorage.setItem(STORAGE_KEY, "ok");
+
+    loader.style.display = "none";
+
+    app.style.display = "block";
+
+  }else{
+
+    loader.innerHTML = "Password errata.<br>Ricarica la pagina.";
+
+  }
+}
+
+window.addEventListener("load", initProtection);
 
 </script>
 
