@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programma personalizzato</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --accent:#f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color:var(--text);
+    }
+    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
+    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
+    .back:hover{opacity:1}
+    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
+    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
+    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
+    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
+    .meta b{color:var(--text)}
+    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
+    .btn:hover{opacity:1}
+    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
+    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
+    .content{font-size:14px; line-height:1.45;}
+    .content p{margin:10px 0}
+    .content strong{font-weight:900}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
+    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
+    .mini .v{font-size:14px; line-height:1.35}
+    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
+    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
+    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
+    details.week summary::-webkit-details-marker{display:none}
+    .week-title{font-weight:900}
+    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
+    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
+    .week-content p{margin:10px 0}
+
+    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
+    .lock .wrap{max-width:520px;margin:0 auto;}
+    .lock .card{padding:16px}
+    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
+    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
+    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
+
+    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
+    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
+    .ritmi-table tbody td{color:var(--text-muted);}
+    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
+    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
+    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
+  </style>
+</head>
+
+<body>
+
+  <div class="lock" id="lock" aria-hidden="false">
+    <div class="wrap">
+      <div class="card">
+        <h1>🔒 Area riservata</h1>
+        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+
+        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
+        <div class="btnrow">
+          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+        </div>
+
+        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app" id="app">
+    <div class="top">
+      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+      <div class="pill">🟧 Runner’s School Italia</div>
+    </div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Carli Federica</span></h1>
+      <p class="meta">
+        Aggiornato: <b id="aggiornatoIl">15/05/2026</b><br>
+        Percorso personalizzato per riprendere continuità e velocizzare sulle distanze brevi e medie.<br>
+        Programmazione maggio–agosto su <b>3 uscite settimanali</b>:
+        <br>• 1 allenamento di scarico
+        <br>• 1 collettivo standard / qualità
+        <br>• 1 lavoro di fine settimana.
+      </p>
+
+      <div class="btnrow">
+        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+      </div>
+
+      <div class="footnote">
+        Nota: questo programma è personale. Non condividere password o link con altre persone.
+      </div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card">
+      <div class="grid">
+        <div class="mini">
+          <div class="k">Nome</div>
+          <div class="v">Carli Federica</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Profilo</div>
+          <div class="v">Corre già, ma non troppo veloce</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Allenamenti</div>
+          <div class="v"><strong>3 uscite running / settimana</strong></div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Distanza attuale</div>
+          <div class="v">Massimo 5–7 km</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">RG indicativo</div>
+          <div class="v">7'25&quot;/km</div>
+        </div>
+
+        <div class="mini">
+          <div class="k">Esperienza RS</div>
+          <div class="v">Già seguita fino al quadrimestre settembre–dicembre</div>
+        </div>
+
+        <div class="mini" style="grid-column:1 / -1;">
+          <div class="k">Obiettivo</div>
+          <div class="v">
+            Imparare un metodo di allenamento duraturo e cercare di velocizzarsi sulle distanze attuali.
+            La prima fase sarà dedicata soprattutto a ritrovare continuità.
+          </div>
+        </div>
+
+        <div class="mini" style="grid-column:1 / -1;">
+          <div class="k">Punto di partenza</div>
+          <div class="v">
+            I mesi da luglio/agosto a novembre erano andati bene e avevano portato Federica alla sua prima 10 km.
+            Dopo un periodo con pochi allenamenti e fatti da sola, è tornata un po’ indietro rispetto al livello raggiunto.
+          </div>
+        </div>
+
+        <div class="mini warn" style="grid-column:1 / -1;">
+          <div class="k">Attenzione</div>
+          <div class="v">
+            Federica fatica soprattutto nelle ripetute veloci e negli esercizi di potenziamento.
+            Ha avuto qualche rallentamento per un dolore all’ileopsoas: per questo il percorso sarà semplice,
+            progressivo e senza lavori troppo complicati da gestire.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Logica del percorso</div>
+    <div class="card content">
+      <p>
+        L’obiettivo principale di questa prima fase è <strong>ridare continuità</strong>.
+        Non serve forzare subito: prima rimettiamo ordine, costanza e fiducia negli allenamenti.
+      </p>
+
+      <p>
+        Il programma sarà costruito con lavori semplici, chiari e facilmente gestibili.
+        La qualità ci sarà, ma sarà inserita in modo progressivo, senza sedute troppo elaborate.
+      </p>
+
+      <div class="note-box warn">
+        Se il dolore all’ileopsoas dovesse tornare o aumentare durante la corsa, la priorità sarà ridurre il carico
+        e adattare subito gli allenamenti.
+      </div>
+    </div>
+
+    <div class="section-label">Ritmi di riferimento</div>
+    <div class="card content">
+      <p>
+        Il ritmo gara indicativo di partenza è circa <strong>7'25&quot;/km</strong>.
+        Lo useremo come riferimento iniziale, ma lo aggiusteremo in base alle sensazioni reali.
+      </p>
+
+      <table class="ritmi-table" aria-label="Ritmi di riferimento">
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Significato</th>
+            <th>Indicazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>RG</td><td>Ritmo gara</td><td>7'25&quot;/km</td></tr>
+          <tr><td>RM</td><td>Ritmo medio</td><td>7'40&quot;/km</td></tr>
+          <tr><td>RA</td><td>Ritmo allegro</td><td>7'50&quot;/km</td></tr>
+          <tr><td>RL</td><td>Ritmo lento</td><td>8'00&quot;/km</td></tr>
+          <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td>8'10&quot;/km</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note-box">
+        Se gli allenamenti risultano troppo facili o troppo impegnativi, aggiorniamo subito i ritmi.
+        Il programma deve aiutarti a crescere, non a rincorrere numeri sbagliati.
+      </div>
+    </div>
+
+    <div class="section-label" id="settimane">Settimane</div>
+    <div class="card content">
+      <p>
+        Ogni settimana è strutturata su <strong>3 allenamenti</strong>:
+        <br>1️⃣ Scarico · 2️⃣ Collettivo standard / qualità · 3️⃣ Fine settimana.
+      </p>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 1</span><span class="week-dates">11–17 maggio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 2 km RL + 1 km RD (5 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 4 × (200 m RG + 200 m RL) + 4 × (200 m RG-30&quot; + 200 m recupero souplesse) + 1 km RD (6 km circa)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 1 × (1000 m RG + 500 m RL) + 1 × (500 m RG-10&quot; + 500 m RL) + 1,5 km RL (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 2</span><span class="week-dates">18–24 maggio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 2 km RL + 1 km RD (5 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 3000 m (1000 m RM + 1000 m RG + 1000 m RM) + 1 km RD (6 km)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + Test 3000 m al meglio + 1 km RD (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 3</span><span class="week-dates">25–31 maggio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 2 km RL + 1 km RD (5 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 2 × (400 m RG + 400 m RL) + 3 × (400 m RG-20&quot; + 1'30&quot; recupero souplesse) + 1 km RL (6 km circa)</p>
+          <p><strong>🏁 Fine settimana</strong><br>6 km collinare oppure lavoro su salite urbane o fondo morbido (sabbia, erba)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 4</span><span class="week-dates">1–7 giugno</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 2 km RL + 1 km RD (5 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 2 km RM + 1 km RG + 1 km RD (6 km)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3 km RL + 1 km RD (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 5</span><span class="week-dates">8–14 giugno</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 2 km RL + 1 km RD (5 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 1 × (1000 m RG + 500 m RL) + 1 × (1000 m RG-15&quot; + 3' recupero souplesse) + 1 km RD (6 km circa)</p>
+          <p><strong>🏁 Fine settimana</strong><br>2 km RD + 1 × (2000 m RM + 500 m RD) + 1 × (500 m RG-10&quot; + 500 m RL) + 1,5 km RD (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 6</span><span class="week-dates">15–21 giugno</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 4 km RM + 1 km RD (7 km)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + Test 3000 m al meglio + 1 km RD (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 7</span><span class="week-dates">22–28 giugno</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 5 × (200 m RG + 200 m RL) + 5 × (200 m RG-30&quot; + 200 m recupero souplesse) + 1 km RD (7 km circa)</p>
+          <p><strong>🏁 Fine settimana</strong><br>7 km collinare oppure lavoro su salite urbane o fondo morbido (sabbia, erba)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 8</span><span class="week-dates">29 giugno – 5 luglio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 2 km RM + 1 km RG + 1 km RD (6 km)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 3 km RL + 2 km RD (8 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 9</span><span class="week-dates">6–12 luglio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>3 km RD + 8 × (300 m RG-30&quot; + 1'30&quot; recupero souplesse) + 1 km RD</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 × (1000 m RA + 1000 m RG) + 1 km RD (8 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 10</span><span class="week-dates">13–19 luglio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 4 km progressione da RL a RG-10&quot; + 1 km RD</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + Test 3000 m al meglio + 1 km RD (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 11</span><span class="week-dates">20–26 luglio</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 2 × (500 m RG + 500 m RL) + 3 × (500 m RG-20&quot; + 1'30&quot; recupero souplesse) + 1 km RL (7 km circa)</p>
+          <p><strong>🏁 Fine settimana</strong><br>8 km collinare oppure lavoro su salite urbane o fondo morbido (sabbia, erba)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 12</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 3 km RL + 1 km RD (6 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 2 km RM + 1 km RG + 1 km RD (6 km)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 4 km RL + 2 km RD (9 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 13</span><span class="week-dates">3–9 agosto</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>3 km RD + 3 × (200 m RG-40&quot; + 1' recupero souplesse) + 2 × (400 m RG-30&quot; + 2' recupero souplesse) + 1 × (800 m RG-20&quot; + 3' recupero souplesse) + 1 km RD (7 km circa)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 2 × (2000 m RM + 500 m RL) + 1 km RD (9 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 14</span><span class="week-dates">10–16 agosto</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>1 km RD + 1 km RL + 1 km RA + 1 km RM + 1 km RG + 1 km RM + 1 km RD</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + Test 3000 m al meglio + 1 km RD (7 km)</p>
+        </div>
+      </details>
+
+      <details class="week">
+        <summary><span class="week-title">Settimana 15</span><span class="week-dates">17–23 agosto</span></summary>
+        <div class="week-content">
+          <p><strong>🟦 Scarico</strong><br>2 km RD + 4 km RL + 1 km RD (7 km)</p>
+          <p><strong>🔥 Collettivo standard</strong><br>2 km RD + 1000 m RM + 500 m RA + 1000 m RG + 500 m RL + 1000 m RG-10&quot; + 500 m RD + 1 km RD (7,5 km)</p>
+          <p><strong>🏁 Fine settimana</strong><br>3 km RD + 5 km RL + 2 km RD (10 km)</p>
+        </div>
+      </details>
+
+      <p class="footnote">
+        Le sedute sono riportate dalla programmazione ufficiale maggio–agosto.
+        Eventuali modifiche vanno concordate in base alle sensazioni, soprattutto in caso di fastidio all’ileopsoas.
+      </p>
+    </div>
+  </div>
+
+<script>
+  const PAGE_HASH = "5458fd000ef8ebc33107b37217aa509aa98847e2d184bfdccacda4d35c92cd2f";
+  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+
+  const key = "CarFed.2026";
+
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const unlockBtn = document.getElementById("unlock");
+  const pwInput = document.getElementById("pw");
+  const lockMsg = document.getElementById("lockMsg");
+
+  function showApp() {
+    lock.style.display = "none";
+    lock.setAttribute("aria-hidden", "true");
+    app.style.display = "block";
+    lockMsg.style.display = "none";
+    pwInput.value = "";
+  }
+
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
+  } catch (e) {
+    alreadyUnlocked = false;
+  }
+
+  if (alreadyUnlocked) {
+    showApp();
+  } else {
+    lock.style.display = "block";
+    lock.setAttribute("aria-hidden", "false");
+    app.style.display = "none";
+  }
+
+  function tryUnlock() {
+    const inputPassword = pwInput.value.trim();
+
+    if (inputPassword === key) {
+      try {
+        localStorage.setItem(STORAGE_KEY, "ok");
+      } catch (e) {}
+
+      showApp();
+    } else {
+      lockMsg.style.display = "block";
+    }
+  }
+
+  unlockBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    tryUnlock();
+  });
+
+  pwInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter") tryUnlock();
+  });
+</script>
+
+</body>
+</html>
