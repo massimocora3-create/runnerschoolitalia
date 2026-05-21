@@ -51,5 +51,6 @@ window.RS_PROGRAMMI = {
   "181292970e2386b946e1061ade209c38e39cb5463258b02364ede97cd8eff797": "programmi/dacunto-paolo.html",
   "1c3016aec9c32fa3f9f18613cdbb4388fe4558320fc95040491025392f09f98b": "programmi/cardi-davide.html",
   "5458fd000ef8ebc33107b37217aa509aa98847e2d184bfdccacda4d35c92cd2f": "programmi/carli-federica.html",
-  "de5d54e68c7810e50141dc5aaab346f69aafdd598126cbe214c0a76fd9c903ba": "programmi/bissa-federico.html"
+  "de5d54e68c7810e50141dc5aaab346f69aafdd598126cbe214c0a76fd9c903ba": "programmi/bissa-federico.html",
+  "2e6c3ee72d77a59d7d4b748c641a8b0a12ea5ab613fb11fecfb7b6d1fdd3b43c": "programmi/predieri-matilde.html"
   };
