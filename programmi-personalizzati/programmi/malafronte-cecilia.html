@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programma personalizzato Malafronte Cecilia</title>
+
+  <style>
+    :root{--bg:#020617;--bg-card:#0b1120;--bg-soft:#050b18;--accent:#f97316;--accent-soft:rgba(249,115,22,.12);--accent-border:rgba(249,115,22,.30);--text:#e5e7eb;--text-muted:#9ca3af;--border:#1f2937;--radius:20px;--shadow:0 18px 45px rgba(0,0,0,.55)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);color:var(--text)}
+    .app{max-width:540px;margin:0 auto;padding:18px 16px 34px;display:none}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);opacity:.9;font-size:13px}.pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap}
+    .card{background:linear-gradient(180deg,rgba(249,115,22,.06),rgba(0,0,0,0)),var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px}h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px}.meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0}.meta b,.content strong{color:var(--text);font-weight:900}
+    .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;opacity:.96}.btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900}
+    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px}.content{font-size:14px;line-height:1.48}.content p{margin:10px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);padding:12px}.mini.full{grid-column:1 / -1}.mini .k{font-size:11px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}.mini .v{font-size:14px;line-height:1.35}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.tag{font-size:12px;padding:7px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted)}.tag.ok{border-color:rgba(34,197,94,.35);color:#bbf7d0;background:rgba(34,197,94,.08)}.tag.warn{border-color:rgba(249,115,22,.35);color:#fed7aa;background:rgba(249,115,22,.08)}.tag.info{border-color:rgba(56,189,248,.35);color:#bae6fd;background:rgba(56,189,248,.08)}
+    .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38}.alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38}.footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95}
+    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border)}.ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top}.ritmi-table tr:last-child td{border-bottom:0}.ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}.ritmi-table tbody td{color:var(--text-muted)}.ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
+    details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px}details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900}details.week summary::-webkit-details-marker{display:none}.week-title{font-weight:900}.week-dates{font-size:12px;color:var(--text-muted);font-weight:700;text-align:right}.week-content{padding:0 12px 12px;font-size:14px;line-height:1.45;color:var(--text)}.session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}.session:first-child{border-top:0}.session-title{font-weight:900;margin-bottom:3px}.session-note{color:var(--text-muted);font-size:13px;margin-top:4px}
+    .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}.login-card{width:100%;max-width:420px}.login-title{font-size:21px;margin:0 0 8px}.login-input{width:100%;margin-top:12px;padding:13px 14px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:15px}.login-btn{width:100%;margin-top:10px;padding:13px 14px;border:0;border-radius:14px;background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));font-weight:900;color:#0b1120;cursor:pointer}.error{display:none;color:#fecaca;font-size:13px;margin-top:10px}
+    @media(max-width:420px){.grid{grid-template-columns:1fr}.mini.full{grid-column:auto}.top{align-items:flex-start;flex-direction:column}.week-dates{text-align:left}details.week summary{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="login-wrap" id="loginWrap"><div class="card login-card"><h1 class="login-title">🔒 Programma riservato</h1><p class="meta">Inserisci la password personale per visualizzare il programma.</p><input id="passwordInput" class="login-input" type="password" placeholder="Password" autocomplete="current-password"><button id="loginBtn" class="login-btn">Accedi</button><div id="errorMsg" class="error">Password non corretta. Riprova.</div><p class="footnote">Runner’s School Italia · Programma personale riservato</p></div></div>
+
+  <div class="app" id="app">
+    <div class="top"><a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a><div class="pill">🟧 Runner’s School Italia</div></div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Malafronte Cecilia</span></h1>
+      <p class="meta">Periodo: <b>Giugno – Agosto 2026</b><br>Aggiornato: <b id="aggiornatoIl">08/06/2026</b><br>Coach: <b>Runner’s School Italia</b></p>
+      <div class="tagrow"><span class="tag ok">Costruzione distanza</span><span class="tag info">3 uscite settimanali</span><span class="tag warn">Obiettivo Ravenna 2026</span></div>
+      <div class="btnrow"><a class="btn primary" href="#settimane">📅 Vai al programma</a><a class="btn" href="#ritmi">⏱️ Ritmi</a><a class="btn" href="#note">📝 Note</a></div>
+      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card"><div class="grid">
+      <div class="mini"><div class="k">Atleta</div><div class="v">Malafronte Cecilia</div></div>
+      <div class="mini"><div class="k">Anno</div><div class="v">2002</div></div>
+      <div class="mini"><div class="k">Peso / Altezza</div><div class="v">53 kg · 163 cm</div></div>
+      <div class="mini"><div class="k">Altri sport</div><div class="v">Palestra</div></div>
+      <div class="mini"><div class="k">Percorso</div><div class="v">Già corre · obiettivo specifico</div></div>
+      <div class="mini"><div class="k">Allenamenti</div><div class="v">3 uscite running / settimana</div></div>
+      <div class="mini"><div class="k">Distanza attuale</div><div class="v">5–7 km</div></div>
+      <div class="mini"><div class="k">RG</div><div class="v" translate="no">6’30”/km</div></div>
+      <div class="mini full"><div class="k">Esperienza sportiva</div><div class="v">Corsa sporadica e allenamenti total body a casa. Da gennaio 2026 ha iniziato a dare maggiore continuità, correndo e frequentando la palestra circa tre volte a settimana.</div></div>
+      <div class="mini full"><div class="k">Obiettivo dichiarato</div><div class="v">Mezza Maratona di Ravenna, 8 novembre 2026. In questa fase l’obiettivo principale è aumentare i chilometri riducendo fatica fisica e affanno, senza dare priorità al tempo.</div></div>
+    </div></div>
+
+    <div class="section-label">Obiettivi del percorso</div>
+    <div class="card content">
+      <p><strong>🎯 Obiettivo principale</strong><br>Allungare progressivamente le distanze, migliorando la capacità di correre con meno fatica fisica e respiratoria.</p>
+      <p><strong>📌 Obiettivi del periodo</strong><br>• Stabilizzare 3 uscite settimanali<br>• Portare gradualmente il lungo da 7 km a 10 km<br>• Migliorare l’efficienza di corsa senza rincorrere il cronometro<br>• Inserire un lavoro di qualità a settimana per rendere il passo più economico<br>• Mantenere una corsa di scarico facile e rigenerante<br>• Creare una base utile per iniziare da settembre il percorso verso la mezza di Ravenna</p>
+      <p><strong>🧭 Punto chiave</strong><br>Cecilia vuole giustamente aumentare i chilometri, ma in questa fase non conviene pensare solo ad allungare. Con un RG di circa 6’30”/km, correre sempre più lungo a ritmo molto lento rischierebbe di diventare impegnativo per tendini e articolazioni. Per questo il programma mantiene un allenamento di qualità controllata ogni settimana.</p>
+    </div>
+
+    <div class="section-label">Spiegazione del percorso</div>
+    <div class="card content">
+      <p>Il programma di Cecilia è costruito su tre uscite settimanali: una corsa facile di scarico, un allenamento di qualità e un lungo lento nel fine settimana.</p>
+      <p>La seduta di scarico serve a costruire continuità senza aggiungere stress. La qualità non ha l’obiettivo di “tirare forte” a tutti i costi, ma di migliorare tecnica, brillantezza e capacità di sostenere il ritmo con meno fatica.</p>
+      <p>Il lungo lento cresce in modo molto graduale, da 7 km fino a 12 km. Questa progressione è sufficiente per preparare il terreno al lavoro autunnale, senza anticipare troppo i carichi specifici della mezza maratona.</p>
+      <div class="note-box"><strong>Idea guida:</strong> più chilometri, sì, ma con una corsa più efficiente. L’obiettivo non è solo arrivare più lontano, ma arrivarci consumando meno energie.</div>
+    </div>
+
+    <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+    <div class="card content">
+      <table class="ritmi-table" aria-label="Ritmi di riferimento"><thead><tr><th>Sigla</th><th>Significato</th><th>Ritmo</th></tr></thead><tbody>
+        <tr><td>RG</td><td>Ritmo gara / riferimento</td><td translate="no">6’30”/km</td></tr>
+        <tr><td>RM</td><td>Ritmo medio</td><td translate="no">6’50”/km</td></tr>
+        <tr><td>RA</td><td>Ritmo allegro</td><td translate="no">7’10”/km</td></tr>
+        <tr><td>RL</td><td>Ritmo lento</td><td translate="no">7’20”/km</td></tr>
+        <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td translate="no">7’30”/km</td></tr>
+      </tbody></table>
+      <div class="note-box"><strong>Calcolo ritmi:</strong> ritmi calcolati partendo dal RG dichiarato di 6’30”/km. Formula Runner’s School: RM = RG +20”; RA = RM +20”; RL = RA +10”; RD = RL +10”.</div>
+      <div class="alert-box"><strong>⚠️ Nota importante:</strong> in questa fase i ritmi sono una guida, non un obbligo rigido. Se il caldo, la palestra o la stanchezza si fanno sentire, meglio correre più piano e chiudere bene.</div>
+    </div>
+
+    <div class="section-label" id="note">Note del coach</div>
+    <div class="card content">
+      <p><strong>📌 Indicazioni chiave</strong><br>• La corsa di scarico deve restare facile.<br>• Nei lavori veloci cerca controllo, non affanno.<br>• Il lungo va corso lento, regolare e con sensazioni buone.<br>• La palestra va gestita: se le gambe sono molto cariche, non forzare la qualità.<br>• L’obiettivo Ravenna è lontano: ora bisogna costruire base e continuità.<br>• Se serve, meglio togliere qualcosa da una seduta piuttosto che saltare la settimana successiva.</p>
+      <div class="alert-box"><strong>⚠️ Attenzione:</strong> il miglioramento non passa solo dall’aumentare i chilometri. Serve anche rendere il gesto più efficiente, per correre più a lungo con meno impatto e meno fatica.</div>
+    </div>
+
+    <div class="section-label">Struttura settimanale</div>
+    <div class="card content"><div class="grid">
+      <div class="mini"><div class="k">Seduta 1</div><div class="v">Scarico · corsa facile e continuità</div></div>
+      <div class="mini"><div class="k">Seduta 2</div><div class="v">Qualità · lavori controllati e progressivi</div></div>
+      <div class="mini"><div class="k">Seduta 3</div><div class="v">Fine settimana · lungo lento progressivo</div></div>
+      <div class="mini"><div class="k">Priorità</div><div class="v">Aumentare distanza riducendo la fatica</div></div>
+    </div></div>
+
+    <div class="section-label" id="settimane">Programma</div>
+    <div class="card content">
+      <p>Apri la settimana corrispondente e segui le sedute nell’ordine indicato. Il programma è impostato su 3 uscite settimanali: scarico, qualità e fine settimana.</p>
+
+      <details class="week" data-start="2026-06-08" data-end="2026-06-14" open><summary><span class="week-title">Settimana 5</span><span class="week-dates">8–14 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 2 x (300m RG + 300m RL) + 4 x (300m RG-20” + 200m cammino) + 1 km RL (7,2 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>7 km RL</div></div></div></details>
+      <details class="week" data-start="2026-06-15" data-end="2026-06-21"><summary><span class="week-title">Settimana 6</span><span class="week-dates">15–21 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 2 x (400m RG + 400m RL) + 2 x (400m RG-20” + 200m cammino) + 1,2 km RL (7 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>7,5 km RL</div></div></div></details>
+      <details class="week" data-start="2026-06-22" data-end="2026-06-28"><summary><span class="week-title">Settimana 7</span><span class="week-dates">22–28 giugno</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 1 x (2000m RG + 500m RL) + 1 x (1000m RG-10” + 500m cammino) + 1 km RL (7 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>8 km RL</div></div></div></details>
+      <details class="week" data-start="2026-06-29" data-end="2026-07-05"><summary><span class="week-title">Settimana 8 · Scarico</span><span class="week-dates">29 giugno – 5 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 3 km RM + 2 km RG (7 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>8,5 km RL</div></div></div></details>
+      <details class="week" data-start="2026-07-06" data-end="2026-07-12"><summary><span class="week-title">Settimana 9</span><span class="week-dates">6–12 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 10 x (100m RG + 100m RL) + 10 x (100m RG-40” + 100m cammino) + 1 km RL (8 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>9 km RL</div></div></div></details>
+      <details class="week" data-start="2026-07-13" data-end="2026-07-19"><summary><span class="week-title">Settimana 10</span><span class="week-dates">13–19 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 5 x (200m RG + 200m RL) + 5 x (200m RG-30” + 200m cammino) + 1 km RL (8 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>9,5 km RL</div></div></div></details>
+      <details class="week" data-start="2026-07-20" data-end="2026-07-26"><summary><span class="week-title">Settimana 11</span><span class="week-dates">20–26 luglio</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 2 x (1000m RG + 500m RL) + 1 x (1000m RG-15” + 500m cammino) + 1 km RL (8,5 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>10 km RL</div></div></div></details>
+      <details class="week" data-start="2026-07-27" data-end="2026-08-02"><summary><span class="week-title">Settimana 12 · Scarico</span><span class="week-dates">27 luglio – 2 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 4 km RM + 2 km RG (8 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>10,5 km RL</div></div></div></details>
+      <details class="week" data-start="2026-08-03" data-end="2026-08-09"><summary><span class="week-title">Settimana 13</span><span class="week-dates">3–9 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 3 x (300m RG + 300m RL) + 5 x (300m RG-30” + 200m cammino) + 1 km RL (8 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>11 km RL</div></div></div></details>
+      <details class="week" data-start="2026-08-10" data-end="2026-08-16"><summary><span class="week-title">Settimana 14</span><span class="week-dates">10–16 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 1 x (2500m RG + 500m RL) + 1 x (1500m RG-15” + 500m cammino) + 1 km RL (8 km)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>11,5 km RL</div></div></div></details>
+      <details class="week" data-start="2026-08-17" data-end="2026-08-23"><summary><span class="week-title">Settimana 15</span><span class="week-dates">17–23 agosto</span></summary><div class="week-content"><div class="session"><div class="session-title">🟦 Scarico</div><div>3 km RD + 3 km RL + 1 km RD</div></div><div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RL + 2 x (500m RG + 500m RL) + 2 x (500m RG-20” + 200m cammino) + 1,2 km RL (8 km circa)</div></div><div class="session"><div class="session-title">🏁 Fine settimana</div><div>12 km RL</div></div></div></details>
+    </div>
+
+    <div class="section-label">Promemoria finale</div>
+    <div class="card content"><p><strong>Un passo alla volta verso Ravenna.</strong><br>Cecilia ha un obiettivo bello e stimolante, ma la mezza maratona si prepara con gradualità. Questa estate deve servire a costruire continuità, aumentare la distanza e rendere la corsa più economica. Da settembre, se la base sarà solida, si potrà iniziare un lavoro più specifico verso Ravenna.</p><p class="footnote">Runner’s School Italia · Programma personale riservato</p></div>
+  </div>
+
+  <script>
+    const PAGE_HASH = "ea420cccf850a18071b1c9cd19832c4b11e97cccd22c829665695a5d32c19f5f";
+    const STORAGE_KEY = "MalCec.2026";
+    async function sha256(text){const enc=new TextEncoder().encode(text);const buffer=await crypto.subtle.digest("SHA-256",enc);return Array.from(new Uint8Array(buffer)).map(b=>b.toString(16).padStart(2,"0")).join("");}
+    function showApp(){document.getElementById("loginWrap").style.display="none";document.getElementById("app").style.display="block";}
+    async function checkPassword(){const input=document.getElementById("passwordInput");const error=document.getElementById("errorMsg");const value=input.value.trim();const hash=await sha256(value);if(hash===PAGE_HASH){sessionStorage.setItem(STORAGE_KEY,"ok");showApp();}else{error.style.display="block";input.value="";input.focus();}}
+    document.getElementById("loginBtn").addEventListener("click",checkPassword);
+    document.getElementById("passwordInput").addEventListener("keydown",e=>{if(e.key==="Enter")checkPassword();});
+    if(sessionStorage.getItem(STORAGE_KEY)==="ok")showApp();
+  </script>
+</body>
+</html>
