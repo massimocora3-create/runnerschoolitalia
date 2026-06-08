@@ -112,7 +112,7 @@
   </div>
 
   <script>
-    const PAGE_HASH = "ea420cccf850a18071b1c9cd19832c4b11e97cccd22c829665695a5d32c19f5f";
+    const PAGE_HASH = "153792d4bc8ecbec665742caa993d86726ab67e81246dc206cfef62fe253aa35";
     const STORAGE_KEY = "MalCec.2026";
     async function sha256(text){const enc=new TextEncoder().encode(text);const buffer=await crypto.subtle.digest("SHA-256",enc);return Array.from(new Uint8Array(buffer)).map(b=>b.toString(16).padStart(2,"0")).join("");}
     function showApp(){document.getElementById("loginWrap").style.display="none";document.getElementById("app").style.display="block";}
