@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Programma personalizzato Doni Roberta</title>
+
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --bg-soft:#050b18;
+      --accent:#f97316;
+      --accent-soft:rgba(249,115,22,0.12);
+      --accent-border:rgba(249,115,22,0.30);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+      color:var(--text);
+    }
+
+    .app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+    .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);opacity:.9;font-size:13px;}
+    .back:hover{opacity:1}
+    .pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap;}
+
+    .card{background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px;}
+    h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px;}
+    .meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0;}
+    .meta b,.content strong{color:var(--text);font-weight:900}
+
+    .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;opacity:.96;}
+    .btn:hover{opacity:1}
+    .btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900;}
+
+    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px;}
+    .content{font-size:14px;line-height:1.48;}
+    .content p{margin:10px 0}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .mini{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);padding:12px;}
+    .mini.full{grid-column:1 / -1}
+    .mini .k{font-size:11px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
+    .mini .v{font-size:14px;line-height:1.35;}
+
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .tag{font-size:12px;padding:7px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted);}
+    .tag.ok{border-color:rgba(34,197,94,.35);color:#bbf7d0;background:rgba(34,197,94,.08)}
+    .tag.warn{border-color:rgba(249,115,22,.35);color:#fed7aa;background:rgba(249,115,22,.08)}
+    .tag.info{border-color:rgba(56,189,248,.35);color:#bae6fd;background:rgba(56,189,248,.08)}
+
+    .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38;}
+    .alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38;}
+    .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95;}
+
+    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border);}
+    .ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
+    .ritmi-table tr:last-child td{border-bottom:0}
+    .ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}
+    .ritmi-table tbody td{color:var(--text-muted)}
+    .ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
+
+    details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px;}
+    details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;}
+    details.week summary::-webkit-details-marker{display:none}
+    .week-title{font-weight:900}
+    .week-dates{font-size:12px;color:var(--text-muted);font-weight:700;text-align:right}
+    .week-content{padding:0 12px 12px;font-size:14px;line-height:1.45;color:var(--text);}
+    .session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06);}
+    .session:first-child{border-top:0}
+    .session-title{font-weight:900;margin-bottom:3px;}
+    .session-note{color:var(--text-muted);font-size:13px;margin-top:4px;}
+
+    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
+    .lock .wrap{max-width:520px;margin:0 auto;}
+    .lock .card{padding:16px}
+    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
+    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
+    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
+
+    @media (max-width:420px){
+      .grid{grid-template-columns:1fr}
+      .mini.full{grid-column:auto}
+      .top{align-items:flex-start;flex-direction:column}
+      .week-dates{text-align:left}
+      details.week summary{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="lock" id="lock" aria-hidden="false">
+    <div class="wrap">
+      <div class="card">
+        <h1>🔒 Area riservata</h1>
+        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+
+        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
+        <div class="btnrow">
+          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+        </div>
+
+        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app" id="app">
+    <div class="top">
+      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+      <div class="pill">🟧 Runner’s School Italia</div>
+    </div>
+
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Doni Roberta</span></h1>
+      <p class="meta">
+        Periodo: <b>Giugno – Agosto 2026</b><br>
+        Aggiornato: <b id="aggiornatoIl">29/06/2026</b><br>
+        Coach: <b>Runner’s School Italia</b>
+      </p>
+
+      <div class="tagrow">
+        <span class="tag ok">Già corre</span>
+        <span class="tag info">2 uscite settimanali</span>
+        <span class="tag warn">Obiettivo 10 km continuativi</span>
+      </div>
+
+      <div class="btnrow">
+        <a class="btn primary" href="#settimane">📅 Vai al programma</a>
+        <a class="btn" href="#ritmi">⏱️ Indicazioni</a>
+        <a class="btn" href="#note">📝 Note</a>
+      </div>
+
+      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card">
+      <div class="grid">
+        <div class="mini"><div class="k">Atleta</div><div class="v">Doni Roberta</div></div>
+        <div class="mini"><div class="k">Anno di nascita</div><div class="v">1984</div></div>
+        <div class="mini"><div class="k">Altezza / Peso</div><div class="v">170 cm · 76 kg</div></div>
+        <div class="mini"><div class="k">Attività</div><div class="v">Running + palestra Body Composition</div></div>
+        <div class="mini"><div class="k">Allenamenti</div><div class="v">1-2 uscite running / settimana</div></div>
+        <div class="mini"><div class="k">Distanza attuale</div><div class="v">Massimo 5–7 km circa</div></div>
+        <div class="mini"><div class="k">Prestazione dichiarata</div><div class="v" translate="no">5 km in 41 minuti</div></div>
+        <div class="mini"><div class="k">Stato attuale</div><div class="v">Corsa percepita lenta e pesante, con fatica già dopo pochi minuti.</div></div>
+        <div class="mini full">
+          <div class="k">Obiettivo dichiarato</div>
+          <div class="v">Arrivare a correre 10 km continuativi.</div>
+        </div>
+        <div class="mini full">
+          <div class="k">Esperienza precedente</div>
+          <div class="v">
+            Roberta ha iniziato a correre nei ritagli di tempo per perdere peso. Ha poi aggiunto la palestra perché la aiuta a essere più costante e regolare, mentre la corsa resta un’attività pratica, che può seguire ovunque e in qualsiasi orario.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Obiettivi del percorso</div>
+    <div class="card content">
+      <p><strong>🎯 Obiettivo principale</strong><br>
+        Accompagnare Roberta verso l’obiettivo dei <strong>10 km continuativi</strong>, lavorando però prima di tutto sulla qualità della corsa: renderla più leggera, meno impattante e meno faticosa.
+      </p>
+
+      <p><strong>📌 Obiettivi del periodo</strong><br>
+        • Consolidare la continuità negli allenamenti<br>
+        • Aumentare gradualmente il fondo lento del fine settimana<br>
+        • Migliorare la capacità di correre senza andare subito in affanno<br>
+        • Inserire piccoli stimoli di velocità per rendere la corsa più brillante<br>
+        • Costruire fiducia verso i 10 km continuativi
+      </p>
+
+      <p><strong>🧭 Punto chiave</strong><br>
+        In questa fase l’obiettivo non è correre forte, ma imparare a correre meglio. Velocizzare leggermente la corsa servirà a renderla più fluida, più naturale e meno pesante.
+      </p>
+    </div>
+
+    <div class="section-label">Spiegazione del percorso</div>
+    <div class="card content">
+      <p>
+        Da quello che emerge dai dati iniziali, Roberta ha probabilmente un RG superiore agli <strong translate="no">8’00”/km</strong>. Per questo motivo, prima di iniziare il percorso, consigliamo comunque di effettuare un <strong>test sui 3 km</strong> da correre al meglio delle proprie possibilità, così da valutare con più precisione i reali ritmi di riferimento.
+      </p>
+
+      <p>
+        Se questi dati verranno confermati, in questa prima fase non useremo i ritmi standard Runner’s School calcolati in modo preciso, perché con un RG superiore agli 8’00”/km è più utile lavorare sulle sensazioni, sulla continuità e sulla capacità di rendere la corsa più leggera.
+      </p>
+
+      <p>
+        Il programma è basato su <strong>2 uscite settimanali</strong>: un allenamento di qualità e un allenamento di fondo lento. Se fosse possibile inserire una terza uscita molto facile, anche breve, sarebbe oro.
+      </p>
+
+      <div class="note-box">
+        <strong>Idea guida:</strong> una seduta di qualità con tratti brevi di corsa più veloce e recuperi camminando; una seduta di fondo lento dove aumenteremo gradualmente il carico per avvicinarci ai 10 km continuativi.
+      </div>
+    </div>
+
+    <div class="section-label" id="ritmi">Indicazioni di lavoro</div>
+    <div class="card content">
+      <p>
+        In questo programma non utilizziamo ancora i ritmi RS calcolati. Useremo solo tre indicazioni pratiche:
+      </p>
+
+      <table class="ritmi-table" aria-label="Indicazioni di lavoro">
+        <thead><tr><th>Sigla</th><th>Significato</th><th>Come gestirla</th></tr></thead>
+        <tbody>
+          <tr><td>RL</td><td>Corsa a ritmo lento</td><td>Una corsa facile, tranquilla, che non deve mandarti in affanno.</td></tr>
+          <tr><td>RV</td><td>Corsa più veloce</td><td>Un ritmo più brillante, che puoi tenere solo per un breve periodo di tempo, senza sprintare.</td></tr>
+          <tr><td>Camminata</td><td>Recupero</td><td>Periodi di camminata da alternare alla corsa RV per recuperare bene e ripartire in controllo.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="alert-box">
+        <strong>⚠️ Nota importante:</strong> non serve guardare troppo il ritmo al km. La RL deve essere facile, mentre la RV deve essere semplicemente più brillante e controllata.
+      </div>
+    </div>
+
+    <div class="section-label" id="note">Note del coach</div>
+    <div class="card content">
+      <p><strong>📌 Indicazioni chiave</strong><br>
+        • Le 2 uscite sono il riferimento principale.<br>
+        • Se si riuscisse a inserire una terza uscita sarebbe davvero molto utile.<br>
+        • Nei tratti RV non bisogna partire a tutta: ritmo brillante ma controllato.<br>
+        • Nei recuperi si cammina davvero, senza fretta, per riprendere fiato.<br>
+        • La seduta RL del fine settimana deve essere facile e regolare.<br>
+        • Se un allenamento risulta troppo impegnativo, si può ripetere prima di passare allo step successivo.
+      </p>
+
+      <div class="alert-box">
+        <strong>⚠️ Attenzione:</strong> in caso di dolore persistente, fastidi articolari o sensazioni strane, meglio comunicarlo subito per adattare il carico.
+      </div>
+    </div>
+
+    <div class="section-label">Struttura settimanale</div>
+    <div class="card content">
+      <div class="grid">
+        <div class="mini"><div class="k">Seduta 1</div><div class="v">Qualità · alternanza RV / camminata</div></div>
+        <div class="mini"><div class="k">Seduta 2</div><div class="v">Fine settimana · fondo lento RL</div></div>
+        <div class="mini"><div class="k">Seduta extra</div><div class="v">Facoltativa · 20-40’ RL facile</div></div>
+        <div class="mini"><div class="k">Priorità</div><div class="v">Rendere la corsa più leggera</div></div>
+        <div class="mini full"><div class="k">Obiettivo</div><div class="v">Avvicinarsi gradualmente ai 10 km continuativi</div></div>
+      </div>
+    </div>
+
+    <div class="section-label" id="settimane">Programma</div>
+    <div class="card content">
+      <p>Apri la settimana corrispondente e segui le sedute nell’ordine indicato. Il programma è impostato su 2 uscite settimanali: qualità e fine settimana.</p>
+
+      <details class="week" data-start="2026-06-29" data-end="2026-07-05" open>
+        <summary><span class="week-title">Settimana 4</span><span class="week-dates">29 giugno – 5 luglio</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 10 x (100 m RV + 30" camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>6 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-07-06" data-end="2026-07-12">
+        <summary><span class="week-title">Settimana 5</span><span class="week-dates">6–12 luglio</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 5 x (200 m RV + 1' camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>6 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-07-13" data-end="2026-07-19">
+        <summary><span class="week-title">Settimana 6</span><span class="week-dates">13–19 luglio</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 4 x (300 m RV + 1'30" camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>6 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-07-20" data-end="2026-07-26">
+        <summary><span class="week-title">Settimana 7</span><span class="week-dates">20–26 luglio</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 3 x (400 m RV + 2' camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>7 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-07-27" data-end="2026-08-02">
+        <summary><span class="week-title">Settimana 8</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 10 x (100 m RV + 30" camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>7 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-08-03" data-end="2026-08-09">
+        <summary><span class="week-title">Settimana 9</span><span class="week-dates">3–9 agosto</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 5 x (200 m RV + 1' camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>7 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-08-10" data-end="2026-08-16">
+        <summary><span class="week-title">Settimana 10</span><span class="week-dates">10–16 agosto</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 4 x (300 m RV + 1'30" camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>8 km RL</div></div>
+        </div>
+      </details>
+
+      <details class="week" data-start="2026-08-17" data-end="2026-08-23">
+        <summary><span class="week-title">Settimana 11</span><span class="week-dates">17–23 agosto</span></summary>
+        <div class="week-content">
+          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RL + 3 x (500 m RV + 2' camminata) + 2 km RL</div></div>
+          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>8 km RL</div></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="section-label">Promemoria finale</div>
+    <div class="card content">
+      <p><strong>Continuità prima di tutto.</strong><br>
+        Roberta parte da una buona base perché già corre, ma in questa fase dobbiamo rendere la corsa più facile, più leggera e meno impattante. I 10 km arriveranno con gradualità, senza forzare i tempi.
+      </p>
+      <p>
+        L’obiettivo non è fare fatica a tutti i costi, ma costruire una corsa più efficiente e sostenibile.
+      </p>
+      <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
+    </div>
+  </div>
+
+<script>
+  const PAGE_HASH = "0f174655ba2271974e011a8f83afdffdc0d105760fd3e178c475af5961b88dbb";
+  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+
+  const key = "DonRob.2026";
+
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const unlockBtn = document.getElementById("unlock");
+  const pwInput = document.getElementById("pw");
+  const lockMsg = document.getElementById("lockMsg");
+
+  function showApp() {
+    lock.style.display = "none";
+    lock.setAttribute("aria-hidden", "true");
+    app.style.display = "block";
+    lockMsg.style.display = "none";
+    pwInput.value = "";
+  }
+
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
+  } catch (e) {
+    alreadyUnlocked = false;
+  }
+
+  if (alreadyUnlocked) {
+    showApp();
+  } else {
+    lock.style.display = "block";
+    lock.setAttribute("aria-hidden", "false");
+    app.style.display = "none";
+  }
+
+  function tryUnlock() {
+    const inputPassword = pwInput.value.trim();
+
+    if (inputPassword === key) {
+      try {
+        localStorage.setItem(STORAGE_KEY, "ok");
+      } catch (e) {}
+
+      showApp();
+    } else {
+      lockMsg.style.display = "block";
+    }
+  }
+
+  unlockBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    tryUnlock();
+  });
+
+  pwInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter") tryUnlock();
+  });
+</script>
+
+</body>
+</html>
