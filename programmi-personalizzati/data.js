@@ -57,5 +57,6 @@ window.RS_PROGRAMMI = {
   "74c27da3fb8a9dc85ad6a19381a321d39cee899ac1d8016b1adad3382a7a80e2": "programmi/maccagnani-giulia.html",
   "bd299f0a335be68487b0ad3f2d3e930c95632beaa210ca30c18d75d1abcb8906": "programmi/marmiroli-cinzia.html",
   "153792d4bc8ecbec665742caa993d86726ab67e81246dc206cfef62fe253aa35": "programmi/malafronte-cecilia.html",
-  "0f174655ba2271974e011a8f83afdffdc0d105760fd3e178c475af5961b88dbb": "programmi/doni-roberta.html"
+  "0f174655ba2271974e011a8f83afdffdc0d105760fd3e178c475af5961b88dbb": "programmi/doni-roberta.html",
+  "96b2f78a3454e95215cd2c1c2ae209813db168d6744c649d3ccfe7824c7b5387": "programmi/benetti-jenny.html"
   };
