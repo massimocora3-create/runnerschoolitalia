@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Barbieri Carlo</title>
+  <style>
+    :root{--bg:#020617;--bg-card:#0b1120;--bg-soft:#050b18;--accent:#f97316;--accent-soft:rgba(249,115,22,0.12);--accent-border:rgba(249,115,22,0.30);--text:#e5e7eb;--text-muted:#9ca3af;--border:#1f2937;--radius:20px;--shadow:0 18px 45px rgba(0,0,0,.55)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);color:var(--text)}
+    #loader{position:fixed;inset:0;background:#020617;display:flex;align-items:center;justify-content:center;color:white;font-family:sans-serif;z-index:9999;text-align:center;padding:30px}
+    .app{max-width:540px;margin:0 auto;padding:18px 16px 34px;display:none}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);opacity:.9;font-size:13px}.pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap}
+    .card{background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px}h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px}.meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0}.meta b,.content strong{color:var(--text);font-weight:900}
+    .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;opacity:.96}.btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900}
+    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px}.content{font-size:14px;line-height:1.48}.content p{margin:10px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);padding:12px}.mini.full{grid-column:1 / -1}.mini .k{font-size:11px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}.mini .v{font-size:14px;line-height:1.35}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.tag{font-size:12px;padding:7px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted)}.tag.ok{border-color:rgba(34,197,94,.35);color:#bbf7d0;background:rgba(34,197,94,.08)}.tag.warn{border-color:rgba(249,115,22,.35);color:#fed7aa;background:rgba(249,115,22,.08)}.tag.info{border-color:rgba(56,189,248,.35);color:#bae6fd;background:rgba(56,189,248,.08)}
+    .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38}.alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38}.footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95}
+    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border)}.ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top}.ritmi-table tr:last-child td{border-bottom:0}.ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}.ritmi-table tbody td{color:var(--text-muted)}.ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
+    details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px}details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900}details.week summary::-webkit-details-marker{display:none}.week-title{font-weight:900}.week-dates{font-size:12px;color:var(--text-muted);font-weight:700;text-align:right}.week-content{padding:0 12px 12px;font-size:14px;line-height:1.45;color:var(--text)}.session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}.session:first-child{border-top:0}.session-title{font-weight:900;margin-bottom:3px}.session-note{color:var(--text-muted);font-size:13px;margin-top:4px}
+    @media(max-width:420px){.grid{grid-template-columns:1fr}.mini.full{grid-column:auto}.top{align-items:flex-start;flex-direction:column}.week-dates{text-align:left}details.week summary{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div id="loader">Controllo accesso...</div>
+  <div class="app" id="app">
+    <div class="top"><a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a><div class="pill">🟧 Runner’s School Italia</div></div>
+    <div class="card">
+      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Barbieri Carlo</span></h1>
+      <p class="meta">Periodo: <b>Luglio – Agosto 2026</b><br>Aggiornato: <b id="aggiornatoIl">03/07/2026</b><br>Coach: <b>Runner’s School Italia</b></p>
+      <div class="tagrow"><span class="tag ok">10 km + 5 km</span><span class="tag info">4 uscite settimanali</span><span class="tag warn">Atleta evoluto</span></div>
+      <div class="btnrow"><a class="btn primary" href="#settimane">📅 Vai al programma</a><a class="btn" href="#ritmi">⏱️ Ritmi</a><a class="btn" href="#note">📝 Note</a></div>
+      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
+    </div>
+
+    <div class="section-label">Scheda atleta</div>
+    <div class="card"><div class="grid">
+      <div class="mini"><div class="k">Atleta</div><div class="v">Barbieri Carlo</div></div>
+      <div class="mini"><div class="k">Nome utente</div><div class="v">Barbieri Carlo</div></div>
+      <div class="mini"><div class="k">Percorso</div><div class="v">Atleta evoluto · gare brevi</div></div>
+      <div class="mini"><div class="k">Allenamenti</div><div class="v">4 uscite running / settimana</div></div>
+      <div class="mini"><div class="k">Storico recente</div><div class="v">10 km Monza 35’49” · Mezza Francoforte 1h23’55”</div></div>
+      <div class="mini"><div class="k">Ultimo percorso</div><div class="v">Mezza Castelmaggiore a dicembre: 1h18'25" PB centrato alla grande!</div></div>
+      <div class="mini full"><div class="k">Gare obiettivo</div><div class="v">Berlino · 10 km · settimana 4<br>Gara 5 km · settimana 8</div></div>
+      <div class="mini full"><div class="k">Nota personale</div><div class="v">Carlo si è trasferito a Vienna e negli ultimi mesi ha continuato ad allenarsi in autonomia. Il nuovo blocco serve a riportare ordine, qualità e continuità in vista di due gare ravvicinate, mantenendo una struttura semplice e gestibile anche da solo.</div></div>
+    </div></div>
+
+    <div class="section-label">Obiettivi del percorso</div>
+    <div class="card content">
+      <p><strong>🎯 Obiettivo principale</strong><br>Preparare in 8 settimane una gara di 10 km e una gara di 5 km, lavorando su brillantezza, ritmo gara e capacità di recuperare correndo.</p>
+      <p><strong>📌 Obiettivi del periodo</strong><br>• Ritrovare ritmo e sensibilità sui lavori veloci<br>• Preparare il 10 km con sedute specifiche<br>• Mantenere una buona base aerobica con lunghi facili e collinari<br>• Spostare progressivamente il focus verso il 5 km nella seconda parte<br>• Usare recuperi in souplesse per rendere i lavori più specifici</p>
+      <p><strong>🧭 Punto chiave</strong><br>Carlo ha già velocità e qualità importanti. In questo blocco non serve caricare troppo: serve allenarsi con precisione, recuperare bene e trasformare la velocità in prestazione su 10 km e 5 km.</p>
+    </div>
+
+    <div class="section-label">Spiegazione del percorso</div>
+    <div class="card content">
+      <p>Il programma è costruito su 4 uscite settimanali: lunedì easy, martedì intervalli, giovedì tempo/fartlek e fine settimana lungo o gara. È una struttura semplice, sostenibile e adatta a un atleta che ora si allena in autonomia.</p>
+      <p>Il primo blocco porta Carlo verso il 10 km di Berlino: martedì si lavora su brillantezza e velocità aerobica, mentre il giovedì si inseriscono sedute più specifiche di tenuta, come il 3×2000 m a ritmo gara. Il fine settimana resta utile per conservare fondo, forza e continuità.</p>
+      <p>Dopo Berlino il programma non si svuota, ma cambia focus: si recupera dalla gara, si mantiene il motore aerobico acceso e si lavora in modo più mirato verso il 5 km con 800 m, 400 m, 200 m e richiami a ritmo gara.</p>
+      <p>Su richiesta di Carlo sono stati inseriti lavori di velocità in pista, ma con recuperi in souplesse invece che da fermo. Questa scelta rende il lavoro più utile per un atleta evoluto: il corpo impara a recuperare restando in movimento, a smaltire meglio la fatica e a non “spegnersi” tra una ripetuta e l’altra.</p>
+      <div class="note-box"><strong>Idea guida:</strong> non allenare tutto insieme, ma costruire una progressione pulita: prima 10 km, poi 5 km, senza perdere la base aerobica.</div>
+    </div>
+
+    <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+    <div class="card content">
+      <table class="ritmi-table" aria-label="Ritmi di riferimento"><thead><tr><th>Sigla</th><th>Significato</th><th>Riferimento</th></tr></thead><tbody>
+        <tr><td>RG</td><td>Ritmo gara / riferimento del periodo</td><td>Da adattare alla gara obiettivo e alla condizione attuale</td></tr>
+        <tr><td>RM</td><td>Ritmo medio / soglia controllata</td><td>Forte ma gestibile, senza andare fuori controllo</td></tr>
+        <tr><td>RA</td><td>Ritmo allegro</td><td>Aerobico brillante</td></tr>
+        <tr><td>RL</td><td>Ritmo lento</td><td>Corsa facile</td></tr>
+        <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td>Molto facile</td></tr>
+      </tbody></table>
+      <div class="note-box"><strong>Nota ritmi:</strong> nei lavori veloci conta la precisione. Meglio chiudere regolare e in controllo che partire troppo forte e rovinare il lavoro.</div>
+      <div class="alert-box"><strong>⚠️ Recuperi:</strong> quando è indicata souplesse, il recupero va corso molto facile ma in movimento. Non è un ritmo da spingere.</div>
+    </div>
+
+    <div class="section-label" id="note">Note del coach</div>
+    <div class="card content"><p><strong>📌 Indicazioni chiave</strong><br>• Il lunedì deve restare davvero facile.<br>• Il martedì è il giorno della brillantezza: qualità, ma senza forzare oltre il ritmo indicato.<br>• Il giovedì costruisce tenuta e controllo.<br>• Il fine settimana mantiene il fondo e, quando previsto, simula la gara.<br>• Dopo Berlino ascoltare bene le sensazioni: il blocco finale si può adattare in base al recupero.<br>• Nei 400 e negli 800 i recuperi in souplesse sono fondamentali: rendono il lavoro più evoluto e più specifico.</p></div>
+
+    <div class="section-label">Struttura settimanale</div>
+    <div class="card content"><div class="grid">
+      <div class="mini"><div class="k">Lunedì</div><div class="v">Easy · corsa facile e recupero</div></div>
+      <div class="mini"><div class="k">Martedì</div><div class="v">Intervalli · velocità e qualità</div></div>
+      <div class="mini"><div class="k">Giovedì</div><div class="v">Tempo / fartlek · soglia e tenuta</div></div>
+      <div class="mini"><div class="k">Fine settimana</div><div class="v">Lungo, collinare o gara</div></div>
+    </div></div>
+
+    <div class="section-label" id="settimane">Programma</div>
+    <div class="card content"><p>Apri la settimana corrispondente e segui le sedute nell’ordine indicato. Il programma è impostato su 4 uscite settimanali.</p>
+
+      <details class="week" data-start="2026-07-06" data-end="2026-07-12" open><summary><span class="week-title">Settimana 1</span><span class="week-dates">6–12 luglio</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Intervalli</div><div>3 km RD + 3 blocchi da 5×(200 m RG-30” + 1’ recupero passivo) con 800 m in progressione da RL a RG ogni blocco + 2 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Tempo/Fartlek</div><div>3 km RD + 5 km RM con allungo di 200 m RG ogni 800 m + 2 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 7 km RL + 2 km RA + 1 km RM + 2 km RD</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-07-13" data-end="2026-07-19"><summary><span class="week-title">Settimana 2</span><span class="week-dates">13–19 luglio</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Intervalli</div><div>3 km RD + 10×(400 m RG-30” + 2’ souplesse) + 3 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Specifico 10 km</div><div>3 km RD + 3×(2000 m RG + 500 m RL) + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>16 km collinare facile</div><div class="session-note">In sostituzione: lavoro a ritmo blando su salite urbane o su fondo morbido (sabbia, erba).</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-07-20" data-end="2026-07-26"><summary><span class="week-title">Settimana 3 · Francolino</span><span class="week-dates">20–26 luglio</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Opzione qualità</div><div>2 km RD + 5 km RL + 1 km RD se vuoi tirare la gara di Francolino. Altrimenti: 3 km RD poi 3×(200 m RG-40” + 1’ souplesse - 400 m RG-30” + 2’ souplesse - 800 m RG-20” + 3’ souplesse) + 3 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Giovedì · Gara test</div><div>Gara Francolino 5,8 km + riscaldamento e defaticamento</div></div>
+        <div class="session"><div class="session-title">🌱 Fine settimana</div><div>15 km in relax a ritmo facile senza guardare il tempo</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-07-27" data-end="2026-08-02"><summary><span class="week-title">Settimana 4 · Berlino 10 km</span><span class="week-dates">27 luglio – 2 agosto</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Richiamo</div><div>3 km RD + 10×(200 m RG-10” + 200 m RD) + 2 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Scarico</div><div>2 km RD + 5 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>Gara Berlino 10 km</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-08-03" data-end="2026-08-09"><summary><span class="week-title">Settimana 5</span><span class="week-dates">3–9 agosto</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Recupero</div><div>5 km RD + 2 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Intervalli</div><div>3 km RD + 6×(800 m RG-20” + 3’ souplesse) + 3 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Tempo/Fartlek</div><div>3 km RD + 2×(2000 m RM + 500 m RG + 500 m RD) + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 4 km RL + 4 km RA + 2 km RM + 2 km RD</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-08-10" data-end="2026-08-16"><summary><span class="week-title">Settimana 6</span><span class="week-dates">10–16 agosto</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Intervalli</div><div>3 km RD + 10×(400 m RG-30” + 2’ souplesse) + 3 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Progressione</div><div>3 km RD + 5 km in progressione da RL a RG + 2 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>18 km collinare facile</div><div class="session-note">In sostituzione: lavoro a ritmo blando su salite urbane o su fondo morbido (sabbia, erba).</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-08-17" data-end="2026-08-23"><summary><span class="week-title">Settimana 7</span><span class="week-dates">17–23 agosto</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Intervalli</div><div>3×(200 m RG-40” + 1’ souplesse - 400 m RG-30” + 2’ souplesse - 800 m RG-20” + 3’ souplesse) + 3 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Medio</div><div>3 km RD + 8 km RM + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🌱 Fine settimana</div><div>15 km in relax a ritmo facile senza guardare il tempo</div></div>
+      </div></details>
+
+      <details class="week" data-start="2026-08-24" data-end="2026-08-30"><summary><span class="week-title">Settimana 8 · Gara 5 km</span><span class="week-dates">24–30 agosto</span></summary><div class="week-content">
+        <div class="session"><div class="session-title">🟦 Lunedì · Easy</div><div>2 km RD + 8 km RL + 1 km RD</div></div>
+        <div class="session"><div class="session-title">🔥 Martedì · Richiamo</div><div>3 km RD + 10×(200 m RG-10” + 200 m RD) + 2 km RD</div></div>
+        <div class="session"><div class="session-title">⚙️ Giovedì · Specifico 5 km</div><div>3 km RD + 3×(1000 m RG + 500 m RL) + 2 km RD</div></div>
+        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>Gara 5 km</div></div>
+      </div></details>
+    </div>
+
+    <div class="section-label">Promemoria finale</div>
+    <div class="card content"><p><strong>Precisione, recupero e fiducia.</strong><br>Carlo ha già dimostrato di poter correre forte e di saper migliorare, come confermato dal PB centrato alla Mezza di Castelmaggiore. Ora il lavoro è tornare brillante sulle distanze brevi, gestendo bene i recuperi e arrivando alle gare con gambe fresche.</p><p class="footnote">Runner’s School Italia · Programma personale riservato</p></div>
+  </div>
+
+  <script>
+    const PAGE_HASH = "460ec9b3248e8c357129d5c16d4e5d9c058566324c1d52e8cc375a586662782b";
+    const STORAGE_KEY = "rs_access_" + PAGE_HASH;
+    async function sha256(text){const data=new TextEncoder().encode(text);const hashBuffer=await crypto.subtle.digest("SHA-256",data);return Array.from(new Uint8Array(hashBuffer)).map(b=>b.toString(16).padStart(2,"0")).join("");}
+    async function initProtection(){const app=document.getElementById("app");const loader=document.getElementById("loader");if(localStorage.getItem(STORAGE_KEY)==="ok"){loader.style.display="none";app.style.display="block";return;}const password=prompt("Inserisci la password per accedere al programma:");if(password===null||password.trim()===""){loader.innerHTML="Accesso annullato";return;}const hash=await sha256(password.trim());if(hash===PAGE_HASH){localStorage.setItem(STORAGE_KEY,"ok");loader.style.display="none";app.style.display="block";}else{loader.innerHTML="Password errata.<br>Ricarica la pagina.";}}
+    window.addEventListener("load",initProtection);
+  </script>
+</body>
+</html>
