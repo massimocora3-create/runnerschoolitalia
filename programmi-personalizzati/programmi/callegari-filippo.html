@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -181,11 +180,95 @@ tr:last-child td{border-bottom:0}
   .full{grid-column:auto}
   .week summary{align-items:flex-start;flex-direction:column;gap:4px}
 }
+
+/* AREA RISERVATA – stesso sistema del precedente programma */
+.lock{
+  position:fixed;
+  inset:0;
+  display:none;
+  background:radial-gradient(circle at top,rgba(11,17,32,.95) 0,rgba(2,6,23,.97) 60%,rgba(0,0,0,.98) 100%);
+  padding:18px 16px;
+  z-index:9999;
+}
+.lock .wrap{max-width:560px;margin:0 auto}
+.lock .lock-card{
+  background:linear-gradient(180deg,rgba(249,115,22,.06),rgba(0,0,0,0)),var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+}
+.lock h1{font-size:18px;margin:0 0 6px}
+.lock .meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0}
+.lock input{
+  width:100%;
+  margin-top:10px;
+  background:#050b18;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px;
+  color:var(--text);
+  font-size:14px;
+  outline:none;
+}
+.lock input:focus{border-color:rgba(249,115,22,.55);box-shadow:0 0 0 3px rgba(249,115,22,.14)}
+.lock .lock-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.lock .lock-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#050b18;
+  color:var(--text);
+  font-size:13px;
+  cursor:pointer;
+}
+.lock .lock-btn.primary{
+  background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));
+  border:0;
+  color:#0b1120;
+  font-weight:900;
+}
+.lock .msg{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(239,68,68,.5);
+  background:rgba(239,68,68,.08);
+  display:none;
+  font-size:13px;
+}
+.lock .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35}
+
 </style>
 </head>
 
 <body>
-<div class="app">
+
+
+<!-- LOCK OVERLAY -->
+<div class="lock" id="lock" aria-hidden="false">
+  <div class="wrap">
+    <div class="lock-card">
+      <h1>🔒 Area riservata</h1>
+      <p class="meta">Inserisci la password per visualizzare il programma.</p>
+
+      <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password">
+      <div class="lock-actions">
+        <a class="lock-btn primary" href="#" id="unlock">🔓 Sblocca</a>
+        <a class="lock-btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+      </div>
+
+      <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+      <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+    </div>
+  </div>
+</div>
+
+<div class="app" id="app">
 
   <header class="header">
     <div class="pill">🟧 PROGRAMMA PERSONALIZZATO RS</div>
@@ -489,5 +572,69 @@ tr:last-child td{border-bottom:0}
   </div>
 
 </div>
+
+<script>
+  // --- CONFIG ---
+  // Codice abbinato identico al precedente programma di Filippo
+  const PAGE_HASH = "c16f5b918e77fcf75b5cf004635559976751c11b169e13ce0215b68aa3f2dbf7";
+  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+
+  // Password invariata
+  const key = "CalFil.2026";
+
+  const lock = document.getElementById("lock");
+  const app = document.getElementById("app");
+  const unlockBtn = document.getElementById("unlock");
+  const pwInput = document.getElementById("pw");
+  const lockMsg = document.getElementById("lockMsg");
+
+  function showApp() {
+    lock.style.display = "none";
+    lock.setAttribute("aria-hidden", "true");
+    app.style.display = "block";
+    lockMsg.style.display = "none";
+    pwInput.value = "";
+  }
+
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
+  } catch (e) {
+    alreadyUnlocked = false;
+  }
+
+  if (alreadyUnlocked) {
+    showApp();
+  } else {
+    lock.style.display = "block";
+    lock.setAttribute("aria-hidden", "false");
+    app.style.display = "none";
+    window.setTimeout(() => pwInput.focus(), 50);
+  }
+
+  function tryUnlock() {
+    const inputPassword = pwInput.value.trim();
+
+    if (inputPassword === key) {
+      try {
+        localStorage.setItem(STORAGE_KEY, "ok");
+      } catch (e) {}
+      showApp();
+    } else {
+      lockMsg.style.display = "block";
+      pwInput.select();
+    }
+  }
+
+  unlockBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    tryUnlock();
+  });
+
+  pwInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") tryUnlock();
+  });
+</script>
+
 </body>
 </html>
