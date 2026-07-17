@@ -1,691 +1,493 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Runner’s School Italia – Programma personalizzato</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filippo Callegari – Copenhagen Half Marathon 2026</title>
 
-  <style>
-    :root{
-      --bg:#020617;
-      --bg-card:#0b1120;
-      --accent:#f97316;
-      --accent-soft: rgba(249,115,22,0.12);
-      --text:#e5e7eb;
-      --text-muted:#9ca3af;
-      --border:#1f2937;
-      --radius:20px;
-      --shadow:0 18px 45px rgba(0,0,0,.55);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      color:var(--text);
-    }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
-    .back:hover{opacity:1}
-    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
-    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
-    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
-    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
-    .meta b{color:var(--text)}
-    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
-    .btn:hover{opacity:1}
-    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
-    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
-    .content{font-size:14px; line-height:1.45;}
-    .content p{margin:10px 0}
-    .content strong{font-weight:900}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
-    .mini .v{font-size:14px; line-height:1.35}
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
-    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
-    details.week summary::-webkit-details-marker{display:none}
-    .week-title{font-weight:900}
-    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
-    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
-    .week-content p{margin:10px 0}
-
-    /* LOCK */
-    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
-    .lock .wrap{max-width:520px;margin:0 auto;}
-    .lock .card{padding:16px}
-    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
-    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
-    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
-
-    /* Ritmi */
-    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
-    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
-    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
-    .ritmi-table tbody td{color:var(--text-muted);}
-    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
-    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
-    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
-  </style>
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --bg-inner:#050b18;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --green:#22c55e;
+  --blue:#38bdf8;
+  --red:#ef4444;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+.app{max-width:560px;margin:0 auto;padding:18px 14px 80px}
+.header,.box,.week{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.header{
+  padding:18px;
+  margin-bottom:14px;
+  background:
+    linear-gradient(180deg,rgba(249,115,22,.09),rgba(0,0,0,0)),
+    var(--bg-card);
+}
+.header h1{margin:0 0 8px;font-size:21px;line-height:1.2}
+.header p{margin:5px 0;color:var(--text-muted);font-size:14px;line-height:1.45}
+.header strong{color:var(--text)}
+.pill{
+  display:inline-flex;
+  margin-bottom:10px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,.3);
+  font-size:12px;
+  font-weight:900;
+}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.btn{
+  display:inline-flex;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--accent-soft);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+}
+.box{padding:15px;margin-bottom:14px}
+.box h2{margin:0 0 9px;font-size:16px;color:var(--accent)}
+.box h3{margin:16px 0 7px;font-size:14px}
+.box p,.box li{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+.box p{margin:0}
+.box strong{color:var(--text)}
+.box ul{margin:8px 0 0;padding-left:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mini{
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:var(--bg-inner);
+}
+.mini .k{
+  margin-bottom:5px;
+  color:var(--text-muted);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.mini .v{font-size:13px;line-height:1.4}
+.full{grid-column:1/-1}
+.note{
+  margin-top:11px;
+  padding:11px 12px;
+  border:1px solid rgba(249,115,22,.3);
+  border-radius:14px;
+  background:var(--accent-soft);
+  font-size:13px;
+  line-height:1.45;
+}
+.warn{
+  border-color:rgba(239,68,68,.42);
+  background:rgba(239,68,68,.08);
+}
+.good{
+  border-color:rgba(34,197,94,.35);
+  background:rgba(34,197,94,.08);
+}
+table{
+  width:100%;
+  margin-top:10px;
+  border-collapse:collapse;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+th,td{
+  padding:9px 8px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+  font-size:12px;
+}
+th{background:rgba(255,255,255,.035);color:var(--text)}
+td{color:var(--text-muted)}
+td:first-child{color:var(--text);font-weight:900}
+tr:last-child td{border-bottom:0}
+.week{margin:11px 0;overflow:hidden}
+.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  font-weight:900;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.week summary::-webkit-details-marker{display:none}
+.week[open] summary{border-bottom:1px solid var(--border)}
+.week-content{padding:2px 14px 14px}
+.week-content p{
+  margin:12px 0 0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.48;
+}
+.week-content strong{color:var(--text)}
+.week-dates{
+  color:var(--text-muted);
+  font-size:11px;
+  white-space:nowrap;
+}
+.tag{
+  display:inline-block;
+  margin-top:5px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:rgba(56,189,248,.1);
+  border:1px solid rgba(56,189,248,.25);
+  color:#bae6fd;
+  font-size:10px;
+  font-weight:800;
+}
+.footer{
+  margin-top:18px;
+  color:var(--text-muted);
+  font-size:11px;
+  line-height:1.45;
+  text-align:center;
+}
+@media(max-width:390px){
+  .grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .week summary{align-items:flex-start;flex-direction:column;gap:4px}
+}
+</style>
 </head>
 
 <body>
+<div class="app">
 
-  <!-- LOCK OVERLAY -->
-  <div class="lock" id="lock" aria-hidden="false">
-    <div class="wrap">
-      <div class="card">
-        <h1>🔒 Area riservata</h1>
-        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+  <header class="header">
+    <div class="pill">🟧 PROGRAMMA PERSONALIZZATO RS</div>
+    <h1>🇩🇰 Filippo Callegari<br>Copenhagen Half Marathon 2026</h1>
+    <p><strong>Gara:</strong> domenica 20 settembre 2026 · 21,0975 km</p>
+    <p><strong>Preparazione:</strong> 9 settimane · 4 allenamenti settimanali</p>
+    <p><strong>Obiettivo:</strong> arrivare pronto per correre una mezza regolare e competitiva, sfruttando un percorso particolarmente veloce.</p>
+    <div class="btnrow">
+      <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">⬅️ Programmi personalizzati</a>
+      <a class="btn" href="#settimane">📅 Vai alle settimane</a>
+    </div>
+  </header>
 
-        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+  <section class="box">
+    <h2>👤 Profilo atleta e logica del percorso</h2>
+    <div class="grid">
+      <div class="mini">
+        <div class="k">Atleta</div>
+        <div class="v"><strong>Filippo Callegari</strong></div>
+      </div>
+      <div class="mini">
+        <div class="k">Frequenza</div>
+        <div class="v"><strong>4 uscite running</strong> a settimana</div>
+      </div>
+      <div class="mini">
+        <div class="k">Profilo</div>
+        <div class="v">Runner evoluto, con buona esperienza sulla mezza maratona e capacità di sostenere lavori strutturati.</div>
+      </div>
+      <div class="mini">
+        <div class="k">Obiettivo tecnico</div>
+        <div class="v">Rendere più economico e stabile il passo specifico mezza, evitando partenze troppo aggressive.</div>
+      </div>
+      <div class="mini full">
+        <div class="k">Impostazione</div>
+        <div class="v">
+          Il programma riprende la base estiva prevista per Pomposa, ma la rende più specifica per Copenaghen:
+          meno lavoro collinare, più continuità a ritmo mezza, lunghi variati e blocchi progressivi.
+          La qualità resta importante, ma nessuna singola seduta deve diventare una gara.
         </div>
-
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
       </div>
     </div>
+
+    <div class="note">
+      <strong>Obiettivo cronometrico indicativo:</strong> costruire una condizione compatibile con una gara
+      nell’area di <strong>1h40'–1h42'</strong>, da confermare attraverso sensazioni, test e continuità.
+      Il riferimento principale sarà un ritmo mezza iniziale intorno a <strong>4'48"–4'50"/km</strong>.
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>🏙️ Copenhagen Half Marathon 2026</h2>
+    <p>
+      L’edizione 2026 sarà inserita nei <strong>World Athletics Road Running Championships Copenhagen 26</strong>.
+      Filippo correrà quindi sullo stesso percorso utilizzato per l’assegnazione dei titoli mondiali,
+      all’interno di un evento da circa <strong>35.000 partecipanti</strong>.
+    </p>
+
+    <h3>Il percorso</h3>
+    <p>
+      La gara si sviluppa nel cuore di Copenaghen su strade larghe, completamente chiuse al traffico
+      e con un profilo molto pianeggiante. Il tracciato attraversa il centro storico e i quartieri più
+      caratteristici della città, con musica, zone di tifo e intrattenimento lungo il percorso.
+      La configurazione annunciata riprende il percorso della Copenhagen Half Marathon 2024,
+      già testato da quasi 30.000 partecipanti.
+    </p>
+
+    <h3>✅ Punti di forza</h3>
+    <ul>
+      <li><strong>Tracciato molto veloce e pianeggiante</strong>, ideale per mantenere un passo costante.</li>
+      <li>Strade generalmente larghe e fondo asfaltato regolare.</li>
+      <li>Partenza organizzata in gruppi assegnati sulla base del tempo previsto.</li>
+      <li>Grande partecipazione internazionale e numerosi riferimenti di ritmo.</li>
+      <li>Tifo, musica e “power zones” che aiutano soprattutto nella seconda parte.</li>
+      <li>Evento mondiale, con atmosfera e organizzazione di altissimo livello.</li>
+    </ul>
+
+    <h3>⚠️ Criticità</h3>
+    <ul>
+      <li><strong>Affollamento iniziale:</strong> con decine di migliaia di partecipanti sarà importante collocarsi nel gruppo corretto.</li>
+      <li><strong>Rischio di partire troppo forte:</strong> percorso, pubblico e gruppi veloci possono falsare la percezione dello sforzo.</li>
+      <li><strong>Vento:</strong> su alcuni tratti esposti può incidere più del dislivello; conviene sfruttare i gruppi senza subire cambi di ritmo.</li>
+      <li><strong>Curve e restringimenti:</strong> pur essendo veloce, è un percorso cittadino e non una lunga linea completamente rettilinea.</li>
+      <li><strong>Trasferta internazionale:</strong> viaggio, sonno, pasti e tempo trascorso in piedi nei giorni precedenti vanno gestiti con attenzione.</li>
+    </ul>
+
+    <div class="note good">
+      <strong>Chiave della gara:</strong> Copenaghen premia la regolarità. Il vantaggio del percorso si sfrutta
+      correndo in controllo fino almeno al km 15, non anticipando lo sforzo solo perché nei primi chilometri
+      il passo sembra facile.
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>⏱️ Ritmi di riferimento</h2>
+    <p>
+      I ritmi derivano dai riferimenti già utilizzati nel precedente programma di Filippo.
+      Sono corridoi di lavoro e vanno adattati a caldo, vento, stanchezza e condizioni del percorso.
+    </p>
+
+    <table aria-label="Ritmi di riferimento Filippo Callegari">
+      <thead>
+        <tr>
+          <th>Sigla</th>
+          <th>Significato</th>
+          <th>Ritmo indicativo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>RG</td><td>Ritmo gara 10–15 km</td><td>4'35"–4'40"/km</td></tr>
+        <tr><td>RHM</td><td>Ritmo specifico mezza</td><td>4'48"–4'50"/km</td></tr>
+        <tr><td>RM</td><td>Ritmo medio</td><td>4'55"–5'00"/km</td></tr>
+        <tr><td>RA</td><td>Ritmo allegro</td><td>5'15"–5'20"/km</td></tr>
+        <tr><td>RL</td><td>Ritmo lento</td><td>5'25"–5'35"/km</td></tr>
+        <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td>5'35"–5'50"/km</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note warn">
+      Con temperature elevate il ritmo non deve essere forzato. Nei lavori lunghi e specifici conta
+      soprattutto mantenere lo <strong>sforzo corretto</strong>: meglio qualche secondo più piano che
+      trasformare un allenamento riuscito in un recupero difficile.
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>🧱 Struttura della settimana</h2>
+    <p>
+      <strong>1️⃣ Scarico:</strong> corsa facile per recuperare e mantenere continuità.<br>
+      <strong>2️⃣ Qualità:</strong> lavoro su RG, brillantezza o capacità aerobica.<br>
+      <strong>3️⃣ Mantenimento:</strong> volume controllato con eventuali allunghi.<br>
+      <strong>4️⃣ Fine settimana:</strong> lungo progressivo, variato o specifico mezza.
+    </p>
+    <div class="note">
+      È preferibile lasciare almeno un giorno facile o di riposo tra qualità e lungo.
+      Schema consigliato: <strong>martedì – giovedì – sabato – domenica</strong>,
+      oppure una distribuzione equivalente compatibile con gli impegni personali.
+    </div>
+  </section>
+
+  <div id="settimane"></div>
+
+  <details class="week" open>
+    <summary>Settimana 1 <span class="week-dates">20–26 luglio</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 10 km</strong><br>2 km RD + 7 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Qualità estiva</strong><br>15' RD + 6 × (2' RG + 2' RL) + 10' RD</p>
+      <p><strong>🔵 Allenamento 3 – Mantenimento · 10 km</strong><br>2 km RD + 5 km RL + 2 km RA + 1 km RD</p>
+      <p><strong>📈 Allenamento 4 – Progressivo · 14 km</strong><br>4 km RL + 4 km RA + 4 km RM + 2 km RD</p>
+      <span class="tag">Ingresso graduale nel lavoro specifico</span>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 2 <span class="week-dates">27 luglio–2 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 10 km</strong><br>2 km RD + 7 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Ripetute brevi</strong><br>15' RD + 8 × (400 m RG-20" + 1'30" recupero souplesse) + 10' RD</p>
+      <p><strong>🔵 Allenamento 3 – Mantenimento · 10 km</strong><br>2 km RD + 6 km RL + 5 × (100 m allungo + 100 m RL) + 1 km RD</p>
+      <p><strong>⛰️ Allenamento 4 – Collinare aerobico · 15 km</strong><br>Percorso continuo e controllato, senza forzare le salite. In alternativa: 15 km ondulati o su sterrato regolare.</p>
+      <span class="tag">Forza generale e capacità aerobica</span>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 3 <span class="week-dates">3–9 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 10 km</strong><br>2 km RD + 7 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Medio controllato</strong><br>3 km RD + 6 km RM + 2 km RD</p>
+      <p><strong>🔵 Allenamento 3 – Mantenimento · 10 km</strong><br>2 km RD + 6 km RL + 2 km RD</p>
+      <p><strong>🎯 Allenamento 4 – Primo specifico · 16 km</strong><br>3 km RD + 3 × (3 km RHM + 1 km RL) + 1 km RD</p>
+      <span class="tag">Primo contatto strutturato con il ritmo mezza</span>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 4 · Scarico <span class="week-dates">10–16 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 9 km</strong><br>2 km RD + 6 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Progressione leggera · 10 km</strong><br>3 km RD + 3 km RL + 2 km RA + 1 km RM + 1 km RD</p>
+      <p><strong>🔵 Allenamento 3 – Facile · 8 km</strong><br>2 km RD + 5 km RL + 1 km RD</p>
+      <p><strong>🟢 Allenamento 4 – Lungo facile · 13 km</strong><br>2 km RD + 10 km RL + 1 km RD</p>
+      <span class="tag">Assimilazione e recupero</span>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 5 <span class="week-dates">17–23 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 10 km</strong><br>2 km RD + 7 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Ripetute lunghe</strong><br>3 km RD + 5 × (1000 m RG + 2' recupero souplesse) + 2 km RD</p>
+      <p><strong>🔵 Allenamento 3 – Mantenimento · 10 km</strong><br>2 km RD + 5 km RL + 5 × (150 m allungo + 150 m RD) + 1,5 km RD</p>
+      <p><strong>📈 Allenamento 4 – Progressivo · 18 km</strong><br>5 km RL + 5 km RA + 4 km RM + 2 km RHM + 2 km RD</p>
+      <span class="tag">Aumento della durata e chiusura specifica</span>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 6 <span class="week-dates">24–30 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 10 km</strong><br>2 km RD + 7 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Fartlek brillante</strong><br>15' RD + 12 × (1' RG-20" + 1' RL) + 10' RD</p>
+      <p><strong>🔵 Allenamento 3 – Mantenimento · 10 km</strong><br>3 km RD + 5 km RL + 2 km RD</p>
+      <p><strong>🔄 Allenamento 4 – Variato specifico · 18 km</strong><br>3 km RD + 4 × (2 km RHM + 1 km RL) + 2 km RM + 1 km RD</p>
+      <span class="tag">Tenuta del ritmo con recupero attivo</span>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 7 <span class="week-dates">31 agosto–6 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 9 km</strong><br>2 km RD + 6 km RL + 1 km RD</p>
+      <p><strong>🧪 Allenamento 2 – Test 3000 m</strong><br>3 km RD + 5 × (100 m allungo + 100 m recupero) + 1 km RL + 3 km al meglio + 3 km RD</p>
+      <p><strong>🔵 Allenamento 3 – Rigenerante · 8 km</strong><br>2 km RD + 5 km RL molto facile + 1 km RD</p>
+      <p><strong>🎯 Allenamento 4 – Specifico lungo · 19 km</strong><br>3 km RD + 4 km RM + 8 km RHM + 2 km RL + 2 km RD</p>
+      <span class="tag">Settimana di verifica: test e tenuta specifica</span>
+      <div class="note warn"><strong>Attenzione:</strong> se il test viene corso davvero al massimo, il lungo va affrontato con flessibilità. È possibile ridurre il blocco RHM da 8 a 6 km.</div>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 8 · Settimana chiave <span class="week-dates">7–13 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico · 9 km</strong><br>2 km RD + 6 km RL + 1 km RD</p>
+      <p><strong>🔥 Allenamento 2 – Richiamo RG</strong><br>3 km RD + 4 × (1200 m RG + 400 m RL) + 2 km RD</p>
+      <p><strong>🔵 Allenamento 3 – Mantenimento · 8 km</strong><br>2 km RD + 5 km RL + 1 km RD</p>
+      <p><strong>🇩🇰 Allenamento 4 – Simulazione specifica · 20 km</strong><br>3 km RD + 3 km RM + 10 km RHM + 2 km RL + 2 km RD</p>
+      <span class="tag">Seduta decisiva della preparazione</span>
+      <div class="note good">Il blocco da 10 km a RHM deve risultare impegnativo ma sempre controllato. Se il ritmo viene mantenuto senza calo e con buona lucidità, il riferimento gara è realistico.</div>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>🏁 Settimana gara <span class="week-dates">14–20 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Allenamento 1 – Scarico</strong><br>40' totali tra RD e RL</p>
+      <p><strong>🔥 Allenamento 2 – Attivazione</strong><br>15' RD + 5 × (400 m RHM + 400 m RL) + 10' RD</p>
+      <p><strong>🔵 Allenamento 3 – Rifinitura</strong><br>25' RL + 4 × 80–100 m allungo sciolto, con recupero completo</p>
+      <p><strong>🏁 Allenamento 4 – Copenhagen Half Marathon</strong><br>21,0975 km</p>
+      <span class="tag">Riduzione del volume, mantenimento della brillantezza</span>
+    </div>
+  </details>
+
+  <section class="box">
+    <h2>🎯 Strategia di gara</h2>
+    <p>
+      <strong>Km 0–3 · Frenare l’entusiasmo</strong><br>
+      Partenza leggermente prudente, intorno a 4'52"–4'55"/km. Evitare zig-zag e accelerazioni per superare.
+      Il tempo perso nei primi minuti è molto inferiore a quello che si rischia di perdere nel finale.
+      <br><br>
+      <strong>Km 4–10 · Entrare nel ritmo</strong><br>
+      Stabilizzarsi progressivamente nell’area 4'48"–4'50"/km, cercando un gruppo regolare.
+      Correre coperti in caso di vento, senza inseguire gruppi che procedono a strappi.
+      <br><br>
+      <strong>Km 11–15 · Proteggere la gara</strong><br>
+      Mantenere cadenza, postura e respirazione. Questa è la fase in cui il percorso veloce può indurre
+      a guadagnare secondi inutili. Nessuna vera progressione prima del km 15.
+      <br><br>
+      <strong>Km 16–19 · Iniziare a correre la gara</strong><br>
+      Se lo sforzo è sotto controllo, portarsi gradualmente verso 4'45"–4'48"/km.
+      Se invece il ritmo comincia a pesare, difendere il passo senza reagire con accelerazioni brusche.
+      <br><br>
+      <strong>Ultimi 2,1 km · Tutto quello che resta</strong><br>
+      Aumentare progressivamente, sfruttando il tifo e il lungo rettilineo finale.
+      L’obiettivo è arrivare al km 19 ancora capace di correre, non semplicemente di resistere.
+    </p>
+
+    <div class="note">
+      <strong>Passaggio indicativo per 1h41' circa:</strong><br>
+      5 km ≈ 23'55"–24'05" · 10 km ≈ 47'55"–48'10" · 15 km ≈ 1h11'55"–1h12'15".<br>
+      I passaggi vanno letti con elasticità in base a vento, affollamento e precisione del GPS.
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>🥤 Gestione pratica della trasferta</h2>
+    <p>
+      Arrivare possibilmente a Copenaghen almeno il giorno precedente senza concentrare troppe attività turistiche
+      nelle ultime 24 ore. Bere regolarmente durante il viaggio, scegliere pasti semplici e già collaudati
+      e preparare abbigliamento e pettorale la sera prima.
+      <br><br>
+      In gara: colazione abituale, un gel poco prima della partenza solo se già sperimentato,
+      quindi un richiamo energetico intorno ai 35'–40' e un secondo tra 70' e 75'.
+      Bere piccole quantità ai ristori senza rallentare bruscamente o attraversare il flusso degli altri atleti.
+    </p>
+  </section>
+
+  <section class="box">
+    <h2>📌 Regole del programma</h2>
+    <p>
+      • Se salta una seduta, non deve recuperarla comprimendo gli allenamenti successivi.<br>
+      • La priorità è: lungo specifico → qualità → scarico → mantenimento.<br>
+      • Dolori in aumento, fatica persistente o sonno disturbato richiedono una riduzione del carico.<br>
+      • Nei giorni caldi sono ammessi rallentamenti, recuperi più lunghi e riduzione dei blocchi veloci.<br>
+      • Il test dei 3000 m potrà essere utilizzato per aggiornare i ritmi delle ultime due settimane.
+    </p>
+  </section>
+
+  <div class="footer">
+    Programma personale Runner’s School Italia · Filippo Callegari · Copenhagen Half Marathon 2026<br>
+    Ogni variazione va concordata in base alle sensazioni e alla risposta agli allenamenti.
   </div>
 
-  <!-- APP -->
-  <div class="app" id="app">
-    <div class="top">
-      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-      <div class="pill">🟧 Runner’s School Italia</div>
-    </div>
-
-    <div class="card">
-      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Callegari Filippo</span></h1>
-      <p class="meta">
-        Aggiornato: <b id="aggiornatoIl">26/01/2026</b><br>
-        Preparazione per le <b>mezze maratone di Verona (15/02), Bologna (01/03) e Maranello (29/03)</b>.<br>
-        Programmazione gennaio–aprile <b>su 5 uscite settimanali</b>:
-        <br>• 1 allenamento di scarico
-        <br>• 1 allenamento di mantenimento
-        <br>• 1 allenamento di qualità
-        <br>• 1 ulteriore scarico
-        <br>• 1 lavoro di fine settimana (gara / lungo strutturato).
-      </p>
-
-      <div class="btnrow">
-        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
-      </div>
-
-      <div class="footnote">
-        Nota: questo programma è personale. Non condividere password o link con altre persone.
-      </div>
-    </div>
-
-    <div class="section-label">Scheda atleta</div>
-    <div class="card">
-      <div class="grid">
-        <div class="mini">
-          <div class="k">Nome</div>
-          <div class="v">Callegari Filippo</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Profilo</div>
-          <div class="v">
-            Runner evoluto, obiettivo migliorare il ritmo gara tra 10 km e mezza maratona
-            e gestire tre gare ravvicinate in buona efficienza.
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Allenamenti</div>
-          <div class="v">
-            <strong>5 uscite running / settimana</strong><br>
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Struttura settimana</div>
-          <div class="v">
-            Allenamento 1: scarico · Allenamento 2: mantenimento · Allenamento 3: qualità<br>
-            Allenamento 4: scarico · Allenamento 5: lungo / gara / lavoro di fine settimana.
-          </div>
-        </div>
-
-        <div class="mini" style="grid-column:1 / -1;">
-          <div class="k">Riferimento corsa</div>
-          <div class="v">
-            RG attuale di riferimento: circa <strong translate="no">4’33&quot;/km</strong>.<br>
-            Obiettivo di lavoro nel periodo: consolidare un RG intorno a <strong>4’30&quot;/km</strong> in allenamento (senza superscarpe),
-            per portare il passo mezza <strong>sotto i 4’50&quot;/km</strong>.
-          </div>
-        </div>
-
-        <div class="mini warn" style="grid-column:1 / -1;">
-          <div class="k">Logica del percorso</div>
-          <div class="v">
-            In una fase precedente il lavoro è stato volutamente <strong>più semplice e lineare</strong>, con meno combinazioni e stimoli,
-            per permettere a Filippo di ritrovare continuità, fiducia e certezze dopo lo stop.
-            Ora che la forma è buona e le sensazioni sono tornate, il programma diventa
-            <strong>più strutturato</strong>, con qualità mirata e gestione precisa delle tre mezze.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-label">Eventi e obiettivi</div>
-    <div class="card content">
-      <p><strong>📍 Eventi principali</strong><br>
-        • <strong>Mezza Maratona di Verona</strong> – 15 febbraio 2026<br>
-        • <strong>Mezza Maratona di Bologna</strong> – 1 marzo 2026<br>
-        • <strong>Mezza Maratona di Maranello</strong> – 29 marzo 2026
-      </p>
-
-      <p><strong>🎯 Obiettivi di lavoro</strong><br>
-        • Migliorare il <b>ritmo gara</b> tra 10 km e 21 km<br>
-        • Rendere più “facile” il passo in area <b>4’50&quot;/km</b> in mezza<br>
-        • Gestire tre gare ravvicinate mantenendo una <b>buona continuità di forma</b>
-      </p>
-
-      <p><strong>🔄 Perché il cambio di strategia rispetto al programma precedente?</strong><br>
-        Nella fase scorsa Filippo aveva bisogno di <b>lavorare in modo più semplice</b>:
-        meno incastri, meno sedute complesse, più chiarezza nella struttura. L’obiettivo era:
-        <br>• ritrovare certezze sulle sensazioni in corsa<br>
-        <br>• vedere che il corpo rispondeva bene dopo lo stop<br>
-        <br>• ricostruire fiducia nel fatto che il lavoro pagava.
-        <br><br>
-        Ora che le certezze sono tornate e la forma è di buon livello, il programma può farsi
-        <b>più ricco e specifico</b>, con combinazioni di ritmi, richiami di RG e lunghi strutturati.
-        Non è un cambio “di idea”, ma il passaggio naturale da una fase di <b>reset</b>
-        a una fase di <b>costruzione avanzata</b>.
-      </p>
-    </div>
-
-    <div class="section-label">Ritmi di riferimento (Zone RS)</div>
-    <div class="card content">
-      <p>
-        In questo programma utilizziamo le <strong>Zone RS</strong> per adattare i ritmi in base alle sensazioni
-        e alla fase di forma. I valori sotto sono indicativi e definiscono un <b>corridoio</b>, non un singolo numero fisso.
-      </p>
-
-      <table class="ritmi-table" aria-label="Ritmi di riferimento">
-        <thead>
-          <tr>
-            <th>Sigla</th>
-            <th>Significato</th>
-            <th>Indicazione (circa)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>RG</td>
-            <td>Ritmo gara (10–15 km)</td>
-            <td>4'38&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RM</td>
-            <td>Ritmo medio</td>
-            <td>4'58&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RA</td>
-            <td>Ritmo allegro</td>
-            <td>5'18&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RL</td>
-            <td>Ritmo lento</td>
-            <td>5'28&quot;/km</td>
-          </tr>
-          <tr>
-            <td>RD</td>
-            <td>Riscaldamento / Defaticamento</td>
-            <td>5'38&quot;/km</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="note-box">
-        L’obiettivo del periodo è <strong>spostare progressivamente l’RG reale</strong> verso 4'30&quot;/km
-        (senza superscarpe), mantenendo comunque controllo e lucidità nelle sedute di qualità.
-      </div>
-    </div>
-
-    <div class="section-label">Note e regole del gioco</div>
-    <div class="card content">
-      <p><strong>📌 Regole operative</strong><br>
-        • Rispetta la logica della settimana: <b>scarico → mantenimento → qualità → scarico → fine settimana</b>.<br>
-        • Se salti un allenamento, non “recuperarlo” a caso: rientra nel flusso dalla seduta successiva.<br>
-        • I lavori di qualità (soprattutto quelli su RG e RM) vanno corsi <b>controllati</b>, non a tutta.<br>
-        • Le sedute di scarico devono restare facili: servono a <b>recuperare e assimilare</b> il lavoro, non a fare ritmo nascosto.<br>
-        • In caso di stanchezza eccessiva: allunga i recuperi o taglia qualche ripetuta, ma salva la struttura generale della seduta.
-      </p>
-
-      <div class="note-box warn">
-        <strong>Campanelli d’allarme</strong><br>
-        Dolori che aumentano correndo, fatica che non passa, gambe sempre pesanti, sonno disturbato:
-        sono segnali per <b>ridurre il carico</b> e parlarne subito con il coach.
-      </div>
-
-      <p class="footnote">
-        Programma costruito sulle settimane da fine gennaio a fine aprile, con focus sulle tre mezze
-        e una fase finale di consolidamento e rifinitura.
-      </p>
-    </div>
-
-    <div class="section-label" id="settimane">Settimane</div>
-    <div class="card content">
-      <p>
-        Ogni settimana è strutturata su <strong>5 allenamenti</strong>:
-        <br>1️⃣ Scarico · 2️⃣ Mantenimento · 3️⃣ Qualità · 4️⃣ Scarico · 5️⃣ Lavoro di fine settimana (gara / lungo).
-      </p>
-
-      <!-- Settimana 1 -->
-      <details class="week" data-start="2026-01-26" data-end="2026-02-01">
-        <summary>
-          <span class="week-title">Settimana 1</span>
-          <span class="week-dates">26 gennaio – 1 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 4 km RL + 10 × (200 m allungo facile + 200 m RL) + 2 km RD (12 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            3 km RD + 3 × (2000 m RG+10&quot; + 500 m RL) + 1,5 km RD (12 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 5 × (100 m allungo facile + 100 m RL) + 1 km RD + 5 km RG + 3 km RL + 4 km RD (17 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 2 -->
-      <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-        <summary>
-          <span class="week-title">Settimana 2</span>
-          <span class="week-dates">2–8 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento / forza</strong><br>
-            2 km RD + 3 × (1000 m RA + 1000 m RL) + 5 × (150 m allunghi
-            <em>possibilmente in salita</em> + 150 m recupero discesa o RD) + 1 km RD (12 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            2 km RD + 2 km RL + 5 × (250 m RL + 250 m RM + 250 m RG + 250 m RG-20&quot;) + 3 km RD (12 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + (3000 m RM + 1000 m RL) + (3000 m RG + 1000 m RL) + 1 km RD (12 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 3 -->
-      <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-        <summary>
-          <span class="week-title">Settimana 3</span>
-          <span class="week-dates">9–15 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità (progressione)</strong><br>
-            3 km RD + RD + 6 km progressione da RL a RG + 2 km RD (11 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 4 km RL + 1 km RD (7 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Gara</strong><br>
-            Mezza Maratona di Verona
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 4 -->
-      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-        <summary>
-          <span class="week-title">Settimana 4</span>
-          <span class="week-dates">16–22 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 4 km RL + 10 × (200 m allungo facile + 200 m RL) + 2 km RD (12 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            3 km RD + 3 × (500 m RG + 500 m RA) + 3 × (500 m RG-20&quot; + 500 m RL) + 3 km RL (12 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 7 km RA + 2 km RD (12 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 5 -->
-      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-        <summary>
-          <span class="week-title">Settimana 5</span>
-          <span class="week-dates">23 febbraio – 1 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            3 km RD + 5 × (200 m RG + 200 m RM) + 5 × (200 m RG-20&quot; + 200 m RL) + 2 km RD (9 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 4 km RL + 1 km RD (7 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Gara</strong><br>
-            Mezza Maratona di Bologna
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 6 -->
-      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-        <summary>
-          <span class="week-title">Settimana 6</span>
-          <span class="week-dates">2–8 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento / forza</strong><br>
-            2 km RD + 3 × (1000 m RA + 1000 m RL) + 5 × (150 m allunghi
-            <em>possibilmente in salita</em> + 150 m recupero discesa o RD) + 1 km RD (12 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità lunga</strong><br>
-            3 km RD + 1000 m RM + 1000 m RL + 1000 m RG+10&quot; + 1000 m RM + 1000 m RG + 1 km RM + 2 km RD (12 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 7 km RA + 2 km RD (12 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 7 -->
-      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-        <summary>
-          <span class="week-title">Settimana 7</span>
-          <span class="week-dates">9–15 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            3 km RD + 5 km RL + 2 km RD (10 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            2 km RD + 2 km RL + 3 km RA + 3 km RM + 1 km RG + 1 km RD (12 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            17 km collinari<br>
-            <em>oppure</em> 3 km RD + 4 × (2000 m RM + 1000 m RL) + 2 km RD (17 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 8 -->
-      <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-        <summary>
-          <span class="week-title">Settimana 8</span>
-          <span class="week-dates">16–22 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 4 km RL + 10 × (200 m allungo facile + 200 m RL) + 2 km RD (12 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            3 km RD + 2 × (200–400–600–400–200 m RG-20&quot; con recupero 200 m RD tra le parti veloci)
-            + 2,4 km RD (12 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 5 × (400 m RA + 400 m RL) + 5 × (400 m RM + 400 m RL) + 1 km RD (12 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 9 -->
-      <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-        <summary>
-          <span class="week-title">Settimana 9</span>
-          <span class="week-dates">23–29 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            3 km RD + 4 × (1000 m RM + 500 m RL) + 1 km RD (10 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 4 km RL + 1 km RD (7 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Gara</strong><br>
-            Mezza Maratona di Maranello
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 10 -->
-      <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-        <summary>
-          <span class="week-title">Settimana 10</span>
-          <span class="week-dates">30 marzo – 5 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            <em>Riposo</em>
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità / fondo</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            <em>Riposo</em>
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            2 km RD + 7 km RL + 1 km RD (10 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 11 -->
-      <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-        <summary>
-          <span class="week-title">Settimana 11</span>
-          <span class="week-dates">6–12 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento</strong><br>
-            2 km RD + 4 km RL + 10 × (200 m RG-30&quot; + 1' recupero souplesse) + 2 km RD (11 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            2 km RD + 2 km RL + RD + 6 × (300 m RG-20&quot; + 200 m RG + 500 m RL) + 3 km RL (13 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 5 × (100 m allungo + 100 m recupero) + 5 km RG + 3 km RD (12 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 12 -->
-      <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-        <summary>
-          <span class="week-title">Settimana 12</span>
-          <span class="week-dates">13–19 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento / forza</strong><br>
-            3 km RD + 10 × (150 m allunghi in salita + 150 m recupero discesa o RD)
-            + 1 km RD + 1 km progressione da RL a RG-20&quot; + 2 km RD (10 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità</strong><br>
-            3 km RD + 10 × (400 m RG-30&quot; + 1'30&quot; souplesse) + 1 km RD
-            + 2 km progressione da RL a RG + 2 km RD (14 km circa)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 2 × (1 km RM + 1 km RG + 1 km RG-10&quot; + 1 km RL) + 1 km RD (12 km)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 13 -->
-      <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-        <summary>
-          <span class="week-title">Settimana 13</span>
-          <span class="week-dates">20–26 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Scarico</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>⚙️ Allenamento 2 – Mantenimento / forza</strong><br>
-            2 km RD + 3 × (1000 m RA + 1000 m RL) + 5 × (150 m allunghi
-            <em>possibilmente in salita</em> + 150 m recupero discesa o RD) + 1 km RD (12 km)
-          </p>
-          <p><strong>🔥 Allenamento 3 – Qualità / brillantezza</strong><br>
-            3 km RD + 5 × (100 m allungo + 100 m recupero) + 3 km al meglio + 3 km RD (10 km)
-          </p>
-          <p><strong>🌱 Allenamento 4 – Scarico</strong><br>
-            2 km RD + 5 km RL + 1 km RD (8 km)
-          </p>
-          <p><strong>🏁 Allenamento 5 – Fine settimana</strong><br>
-            3 km RD + 5 km RM + 2 km RD (10 km)
-          </p>
-        </div>
-      </details>
-
-      <p class="footnote">
-        Le sedute sono riportate dalla programmazione ufficiale gennaio–aprile. Eventuali modifiche (ritmi, chilometraggi,
-        inserimento o meno delle varianti “oppure”) vanno concordate in base alle sensazioni di settimana in settimana.
-      </p>
-    </div>
-  </div>
-
-<script>
-  // --- CONFIG ---
-  // Usiamo un hash univoco per questa pagina per la chiave di localStorage
-  const PAGE_HASH = "c16f5b918e77fcf75b5cf004635559976751c11b169e13ce0215b68aa3f2dbf7";
-  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
-
-  // Password in chiaro per questa pagina
-  const key = "CalFil.2026";
-
-  const lock = document.getElementById("lock");
-  const app = document.getElementById("app");
-  const unlockBtn = document.getElementById("unlock");
-  const pwInput = document.getElementById("pw");
-  const lockMsg = document.getElementById("lockMsg");
-
-  // Mostra contenuto e nasconde il lock
-  function showApp() {
-    lock.style.display = "none";
-    lock.setAttribute("aria-hidden", "true");
-    app.style.display = "block";
-    lockMsg.style.display = "none";
-    pwInput.value = "";
-  }
-
-  // Controllo iniziale: se già sbloccato, niente password
-  let alreadyUnlocked = false;
-  try {
-    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
-  } catch (e) {
-    alreadyUnlocked = false;
-  }
-
-  if (alreadyUnlocked) {
-    showApp();
-  } else {
-    lock.style.display = "block";
-    lock.setAttribute("aria-hidden", "false");
-    app.style.display = "none";
-  }
-
-  // Verifica password
-  function tryUnlock() {
-    const inputPassword = pwInput.value.trim();
-
-    if (inputPassword === key) {
-      try {
-        localStorage.setItem(STORAGE_KEY, "ok");
-      } catch (e) {}
-
-      showApp(); // ✅ nessun redirect, resti sulla stessa pagina
-    } else {
-      lockMsg.style.display = "block";
-    }
-  }
-
-  // Eventi sui controlli
-  unlockBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    tryUnlock();
-  });
-
-  pwInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter") tryUnlock();
-  });
-</script>
-
+</div>
 </body>
 </html>
