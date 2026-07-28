@@ -1,0 +1,696 @@
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dolomitica Run Half Marathon 2026</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 14px 80px;
+}
+
+.header,
+.box,
+.week{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.header{
+  padding:18px;
+  margin-bottom:14px;
+}
+
+.header h1{
+  margin:0 0 8px;
+  font-size:20px;
+  line-height:1.25;
+}
+
+.header p{
+  margin:4px 0 0;
+  color:var(--text-muted);
+  font-size:14px;
+  line-height:1.4;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  margin-top:12px;
+  margin-right:6px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--accent-soft);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+}
+
+.box{
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.box h2{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+
+.box p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.box strong{
+  color:var(--text);
+}
+
+.week{
+  margin:12px 0;
+  overflow:hidden;
+}
+
+.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  font-weight:900;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week summary::after{
+  content:"+";
+  color:var(--accent);
+  font-size:20px;
+  line-height:1;
+}
+
+.week[open] summary::after{
+  content:"−";
+}
+
+.week-content{
+  padding:0 14px 14px;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+
+.week-content p{
+  margin:12px 0 0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.week-content strong{
+  color:var(--text);
+}
+
+.week-dates{
+  margin-left:auto;
+  color:var(--text-muted);
+  font-size:12px;
+  white-space:nowrap;
+  font-weight:700;
+}
+
+.note{
+  margin-top:10px;
+  padding:10px 12px;
+  border-left:3px solid var(--accent);
+  border-radius:8px;
+  background:var(--accent-soft);
+  color:var(--text-muted);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.legend{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  margin-top:12px;
+}
+
+.legend div{
+  padding:8px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text-muted);
+  font-size:12px;
+}
+
+.footer{
+  margin-top:20px;
+  text-align:center;
+  color:var(--text-muted);
+  font-size:11px;
+  line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <h1>🏔️ Dolomitica Run Half Marathon 2026</h1>
+
+    <p><strong>Data gara:</strong> domenica 13 settembre 2026</p>
+    <p><strong>Distanza:</strong> 21,0975 km</p>
+    <p><strong>Partenza:</strong> Pinzolo</p>
+    <p><strong>Arrivo:</strong> Centro Sportivo Sesena, Tione di Trento</p>
+
+    <a class="btn" href="/runnerschoolitalia/programmi-gare/">
+      ⬅️ Torna ai Programmi Gare
+    </a>
+
+    <a class="btn"
+       href="https://www.endu.net/it/events/dolomitica-run"
+       target="_blank"
+       rel="noopener noreferrer">
+      ℹ️ Informazioni gara
+    </a>
+  </div>
+
+  <div class="box">
+    <h2>Indicazioni generali</h2>
+
+    <p>
+      Programma specifico di <strong>7 settimane</strong>, con inizio il
+      27 luglio 2026 e conclusione il giorno della gara.
+      <br><br>
+      La preparazione è stata adattata considerando che il percorso viene iniziato
+      a stagione estiva già in corso e che non sono quindi disponibili le classiche
+      dieci settimane complete.
+      <br><br>
+      La qualità infrasettimanale segue il Programma Endurance Runner's School,
+      mentre il lavoro del fine settimana viene progressivamente orientato verso
+      la mezza maratona.
+      <br><br>
+      L'obiettivo è arrivare alla gara con una buona resistenza aerobica,
+      una discreta capacità di mantenere il ritmo e gambe sufficientemente
+      fresche per affrontare al meglio il percorso della Val Rendena.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>🏔️ La Dolomitica Run</h2>
+
+    <p>
+      La Dolomitica Run Half Marathon è una gara nazionale FIDAL di
+      <strong>21,0975 km</strong>, con partenza dal centro di Pinzolo
+      e arrivo sulla pista di atletica del Centro Sportivo Sesena,
+      a Tione di Trento.
+      <br><br>
+      Il percorso è completamente asfaltato e segue per buona parte
+      la pista ciclabile della Val Rendena, attraversando boschi,
+      prati e diversi paesi della valle.
+      <br><br>
+      Il tracciato presenta un andamento complessivamente favorevole,
+      con una progressiva perdita di quota tra Pinzolo e Tione,
+      ma non deve essere interpretato come una discesa continua e regolare.
+      Sono presenti cambi di pendenza, falsopiani, brevi risalite e tratti
+      nei quali sarà importante correre mantenendo costante lo sforzo.
+      <br><br>
+      Proprio per questo il programma comprende progressivi, allenamenti variati
+      e alcuni percorsi collinari: lavori utili per abituarsi ai cambi di ritmo
+      e per preparare la muscolatura a gestire anche i tratti più favorevoli
+      senza sovraccaricare eccessivamente i quadricipiti.
+    </p>
+
+    <div class="note">
+      La gara si svolge a metà settembre ma la partenza è prevista in tarda mattinata.
+      Sarà quindi importante verificare le previsioni e adattare ritmo,
+      idratazione e abbigliamento alle condizioni della giornata.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>☀️ Preparazione estiva</h2>
+
+    <p>
+      Gran parte della preparazione viene svolta tra la fine di luglio e agosto,
+      quando le temperature possono essere elevate e rendere più difficile
+      rispettare con precisione i ritmi indicati.
+      <br><br>
+      Nei giorni particolarmente caldi è preferibile allenarsi nelle ore più fresche,
+      rallentare leggermente il ritmo e controllare maggiormente lo sforzo.
+      Non è necessario trasformare ogni seduta in una prova tirata.
+      <br><br>
+      La priorità deve essere la continuità: completare regolarmente gli allenamenti,
+      recuperare bene e arrivare a settembre senza accumulare stanchezza eccessiva.
+      I ritmi sono riferimenti utili, ma caldo, umidità e condizioni personali
+      devono sempre essere tenuti in considerazione.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>📌 Legenda ritmi</h2>
+
+    <div class="legend">
+      <div><strong>RD</strong><br>Ritmo defaticante</div>
+      <div><strong>RL</strong><br>Ritmo lento</div>
+      <div><strong>RA</strong><br>Ritmo aerobico</div>
+      <div><strong>RM</strong><br>Ritmo medio</div>
+      <div><strong>RG</strong><br>Ritmo gara</div>
+      <div><strong>Souplesse</strong><br>Corsa molto lenta</div>
+    </div>
+  </div>
+
+  <details class="week" open>
+    <summary>
+      Settimana 1
+      <span class="week-dates">27 luglio-2 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        2 km RD + 8 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        15' RD + 8 × (400 m RG-20" + 1'30" recupero souplesse) + 10' RL
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 6 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>⛰️ Fine settimana – 15 km collinare</strong><br>
+        Percorso collinare continuo a intensità prevalentemente aerobica,
+        senza forzare le salite.
+      </p>
+
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>
+      Settimana 2
+      <span class="week-dates">3-9 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        2 km RD + 8 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        15' RD + 25' RM + 10' RD
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 6 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>⚡ Fine settimana – 15 km specifico</strong><br>
+        3 km RD + 5 km RM + 5 km RG + 2 km RD
+      </p>
+
+      <div class="note">
+        I 5 km a RG devono essere corsi in controllo.
+        In caso di caldo elevato è possibile rallentare leggermente,
+        mantenendo invariata la struttura dell'allenamento.
+      </div>
+
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>
+      Settimana 3
+      <span class="week-dates">10-16 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        2 km RD + 7 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità controllata</strong><br>
+        15' RD + 3 km RL + 3 km RM +
+        5 × (100 m allungo + 100 m recupero RL) + 10' RD
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 5 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Fine settimana – 12 km scarico</strong><br>
+        2 km RD + 8 km RL + 2 km RD
+      </p>
+
+      <div class="note">
+        Settimana di recupero. Gli allenamenti devono lasciare una sensazione
+        di facilità e permettere di assorbire il lavoro delle prime due settimane.
+      </div>
+
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>
+      Settimana 4
+      <span class="week-dates">17-23 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        2 km RD + 8 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        15' RD + 5 × (800 m RG-10" + 2' recupero souplesse) + 10' RD
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 6 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>📈 Fine settimana – 16 km progressivo</strong><br>
+        5 km RL + 5 km RM + 4 km RG + 2 km RD
+      </p>
+
+      <div class="note">
+        Nella parte finale non bisogna cercare il massimo.
+        L'obiettivo è aumentare progressivamente l'andatura,
+        mantenendo una corsa fluida e controllata.
+      </div>
+
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>
+      Settimana 5
+      <span class="week-dates">24-30 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        2 km RD + 8 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        15' RD + 12 × (1' RG-20" + 1' RL) + 10' RD
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 6 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔄 Fine settimana – 18 km variato</strong><br>
+        3 km RD + 4 km RM + 2 km RL +
+        4 km RM + 2 km RL + 1 km RG + 2 km RD
+      </p>
+
+      <div class="note">
+        È il lungo principale della preparazione.
+        Quando possibile può essere svolto su un percorso leggermente ondulato,
+        con falsopiani e brevi cambi di pendenza.
+        Il chilometro a RG deve essere brillante ma non massimale.
+      </div>
+
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>
+      Settimana 6
+      <span class="week-dates">31 agosto-6 settembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        2 km RD + 7 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        15' RD + 5 × (100 m allungo + 100 m recupero RD) +
+        1 km RL + 3 km sostenuti + 15' RD
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 5 km RL + 2 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Fine settimana – 13 km scarico pre-gara</strong><br>
+        2 km RD + 4 km RL + 3 km RM + 2 km RL + 2 km RD
+      </p>
+
+      <div class="note">
+        I 3 km sostenuti servono per verificare la condizione,
+        ma non devono diventare una gara.
+        Il fine settimana deve essere affrontato con facilità,
+        iniziando a ridurre il carico complessivo.
+      </div>
+
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>
+      🏁 Settimana gara
+      <span class="week-dates">7-13 settembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        30' RD-RL
+      </p>
+
+      <p>
+        <strong>🔥 Richiamo qualità soft</strong><br>
+        15' RD + 4 × (100 m allungo + 100 m recupero RD) +
+        2 km RM + 10' RD
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        20-25' RL
+      </p>
+
+      <p>
+        <strong>🏁 Domenica 13 settembre</strong><br>
+        Dolomitica Run Half Marathon – 21,0975 km
+      </p>
+
+      <div class="note">
+        Nell'ultima settimana non bisogna recuperare allenamenti saltati
+        e non serve testare ulteriormente la condizione.
+        La priorità è arrivare alla partenza riposati.
+      </div>
+
+    </div>
+  </details>
+
+  <div class="box">
+    <h2>🎯 Strategia di gara</h2>
+
+    <p>
+      La Dolomitica Run presenta un percorso complessivamente favorevole,
+      ma la perdita di quota non deve spingere a partire troppo velocemente.
+      Correre forte fin dai primi chilometri rischia di sovraccaricare
+      precocemente i quadricipiti e rendere molto più difficile la parte finale.
+      <br><br>
+
+      <strong>Primi 3 km</strong><br>
+      Partire con controllo, mantenendo un'andatura leggermente più prudente
+      rispetto al ritmo medio previsto. Nei primi chilometri possono essere
+      presenti leggere variazioni di pendenza: è quindi preferibile controllare
+      lo sforzo anziché inseguire rigidamente il ritmo indicato dall'orologio.
+      <br><br>
+
+      <strong>Dal 4° al 10° km</strong><br>
+      Portarsi progressivamente verso il ritmo gara.
+      Nei tratti più favorevoli lasciare scorrere la corsa senza allungare
+      eccessivamente il passo e senza aumentare troppo la frequenza.
+      La sensazione deve rimanere controllata.
+      <br><br>
+
+      <strong>Dal 10° al 16° km</strong><br>
+      È la fase nella quale costruire realmente la gara.
+      Mantenere uno sforzo regolare, adattando il ritmo ai falsopiani
+      e agli eventuali cambi di pendenza.
+      In leggera salita è normale perdere qualche secondo:
+      non bisogna recuperarli immediatamente.
+      <br><br>
+
+      <strong>Dal 16° al 19° km</strong><br>
+      Se le sensazioni sono buone si può iniziare ad aumentare gradualmente
+      l'intensità. Nei tratti in discesa sfruttare la pendenza con naturalezza,
+      senza frenare ma anche senza forzare eccessivamente l'ampiezza del passo.
+      <br><br>
+
+      <strong>Ultimi 2 km</strong><br>
+      Correre in progressione utilizzando le energie rimaste.
+      L'ultimo tratto porta all'arrivo nel Centro Sportivo Sesena,
+      con conclusione sulla pista di atletica: è il momento di aumentare
+      definitivamente il ritmo e chiudere la gara in spinta.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>⌚ Ritmo e gestione del percorso</h2>
+
+    <p>
+      Su un percorso con cambi di pendenza il ritmo istantaneo dell'orologio
+      può essere poco indicativo.
+      È preferibile controllare il ritmo medio del chilometro e,
+      soprattutto nei falsopiani, fare riferimento alla respirazione
+      e alla percezione dello sforzo.
+      <br><br>
+      Nei tratti favorevoli il ritmo potrà risultare naturalmente più veloce
+      rispetto al proprio RG su una mezza pianeggiante.
+      Questo non significa che sia necessario accelerare volontariamente:
+      bisogna lasciare che sia il percorso a far aumentare la velocità,
+      mantenendo uno sforzo regolare.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>⛰️ Allenamenti collinari</h2>
+
+    <p>
+      Gli allenamenti collinari prevedono un percorso continuo
+      a intensità prevalentemente aerobica.
+      <br><br>
+      In assenza di colline possono essere sostituiti da salite urbane,
+      cavalcavia, argini, sterrato compatto, sabbia o tratti su erba.
+      <br><br>
+      Le salite non devono essere affrontate alla massima intensità:
+      l'obiettivo è mantenere uno sforzo controllato e sostenibile
+      per tutta la durata dell'allenamento.
+      <br><br>
+      Anche le discese devono essere corse in controllo,
+      evitando di frenare eccessivamente e cercando una corsa fluida,
+      con appoggi rapidi e baricentro stabile.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>💧 Idratazione e alimentazione</h2>
+
+    <p>
+      Durante i lunghi è consigliabile provare la stessa strategia
+      di idratazione e integrazione che si intende utilizzare in gara.
+      Non bisogna sperimentare prodotti nuovi il giorno della competizione.
+      <br><br>
+      Per una mezza maratona può essere utile assumere un gel
+      indicativamente tra il 7° e il 10° chilometro,
+      accompagnandolo con acqua.
+      Gli atleti che prevedono tempi di gara più lunghi possono valutare
+      una seconda assunzione nella parte finale, purché già sperimentata
+      durante gli allenamenti.
+      <br><br>
+      La quantità e la frequenza devono comunque essere adattate
+      alla durata prevista, alle condizioni climatiche
+      e alle abitudini personali.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>⚠️ Adattamento del programma</h2>
+
+    <p>
+      Il programma rappresenta una guida generale e deve essere adattato
+      alla condizione individuale.
+      <br><br>
+      Se non si è recuperato bene dall'allenamento precedente,
+      è possibile sostituire una seduta di qualità con un allenamento
+      di mantenimento o con una corsa lenta.
+      <br><br>
+      È preferibile arrivare alla gara con un allenamento in meno
+      piuttosto che accumulare stanchezza o correre in presenza di dolore.
+    </p>
+  </div>
+
+  <div class="footer">
+    Programma Dolomitica Run Half Marathon 2026<br>
+    Runner's School Italia
+  </div>
+
+</div>
+
+</body>
+</html>
+```
