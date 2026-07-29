@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venice Half Marathon 2026</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 14px 80px;
+}
+
+.header,.box,.week{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.header{
+  padding:18px;
+  margin-bottom:14px;
+}
+
+.header h1{
+  margin:0 0 8px;
+  font-size:20px;
+}
+
+.header p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:14px;
+  line-height:1.4;
+}
+
+.btn{
+  display:inline-flex;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--accent-soft);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+}
+
+.box{
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.box h2{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+
+.box h3{
+  margin:16px 0 6px;
+  font-size:14px;
+  color:var(--text);
+}
+
+.box p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.box ul{
+  margin:8px 0 0;
+  padding-left:20px;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.week{
+  margin:12px 0;
+  overflow:hidden;
+}
+
+.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  font-weight:900;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week-content{
+  padding:0 14px 14px;
+}
+
+.week-content p{
+  margin:12px 0 0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.week-content strong{
+  color:var(--text);
+}
+
+.week-dates{
+  color:var(--text-muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <h1>🏁 Venice Half Marathon 2026</h1>
+    <p><strong>Data gara:</strong> domenica 25 ottobre 2026</p>
+    <a class="btn" href="/runnerschoolitalia/programmi-gare/">⬅️ Torna ai Programmi Gare</a>
+  </div>
+
+  <div class="box">
+    <h2>Indicazioni generali</h2>
+    <p>
+      Programma specifico di 13 settimane più la settimana gara.
+      Le prime nove settimane coincidono con la preparazione dell'Abbazia di Pomposa Half Marathon,
+      in modo da permettere agli atleti impegnati nei due obiettivi di allenarsi insieme.
+      <br><br>
+      Dalla decima settimana il lavoro del fine settimana diventa più specifico per la Venice Half Marathon,
+      alternando resistenza, ritmo gara, ripetute lunghe e scarico.
+      Il chilometraggio massimo previsto è di 20 km.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>🌊 Una mezza tra Mestre e Venezia</h2>
+    <p>
+      La Venice Half Marathon è una gara internazionale di 21,097 km che parte da Piazza Ferretto,
+      nel centro di Mestre, e termina a Riva Sette Martiri, nel cuore di Venezia.
+      <br><br>
+      Dopo i primi chilometri cittadini, il percorso attraversa l'area di Piazza Barche,
+      il Canal Salso e il Parco San Giuliano. Da qui gli atleti raggiungono il Ponte della Libertà,
+      il lungo collegamento tra la terraferma e Venezia.
+      <br><br>
+      Il tracciato è prevalentemente pianeggiante e scorrevole, ma il possibile vento sul Ponte della Libertà
+      e i 14 ponti presenti nella parte conclusiva possono rendere il finale più impegnativo di quanto suggerisca
+      il solo dislivello.
+    </p>
+  </div>
+
+  <details class="week">
+    <summary>Settimana 1 <span class="week-dates">20-26 luglio</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 6 × (2' RG + 2' RL) + 10' RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
+      <p><strong>📈 Fine Settimana - 13 km</strong><br>Progressivo: 4 km RL + 4 km RM + 3 km RG + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 2 <span class="week-dates">27 luglio-2 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 8 × (400 m RG-20" + 1'30" recupero souplesse) + 10' RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 6 km RL + 2 km RD</p>
+      <p><strong>⛰️ Fine Settimana - 15 km</strong><br>
+        Collinare continuo a intensità aerobica, senza forzare le salite.
+        <br><br>
+        <em>Alternativa in pianura:</em> 3 km RD + 4 km RL + 6 km RM + 2 km RD
+      </p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 3 <span class="week-dates">3-9 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 25' RM + 10' RD</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 6 km RL + 2 km RD</p>
+      <p><strong>⚡ Fine Settimana - 15 km</strong><br>3 km RD + 6 km RG + 4 km RL + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 4 <span class="week-dates">10-16 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 3 km RL + 3 km RM + 5 × (100 m allungo + 100 m recupero RL) + 10' RD</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD</p>
+      <p><strong>🟢 Fine Settimana - 12 km</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 5 <span class="week-dates">17-23 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 5 × (800 m RG-10" + 2' recupero souplesse) + 10' RD</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 6 km RL + 2 km RD</p>
+      <p><strong>📈 Fine Settimana - 16 km</strong><br>Progressivo: 5 km RL + 5 km RM + 4 km RG + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 6 <span class="week-dates">24-30 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 12 × (1' RG-20" + 1' RL) + 10' RD</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 6 km RL + 2 km RD</p>
+      <p><strong>⛰️ Fine Settimana - 17 km</strong><br>
+        Collinare continuo a intensità aerobica, senza forzare le salite.
+        <br><br>
+        <em>Alternativa in pianura:</em> 3 km RD + 5 km RL + 7 km RM + 2 km RD
+      </p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 7 <span class="week-dates">31 agosto-6 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>15' RD + 5 × (100 m allungo + 100 m recupero RD) + 1 km RL + 3 km al meglio + 15' RD</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 6 km RL + 2 km RD</p>
+      <p><strong>🔄 Fine Settimana - 18 km</strong><br>3 km RD + 5 km RM + 2 km RL + 4 km RM + 2 km RL + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 8 <span class="week-dates">7-13 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD</p>
+      <p><strong>🔄 Fine Settimana - 19 km</strong><br>3 km RD + 4 × (2 km RM + 1 km RL) + 2 km RA + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 9 <span class="week-dates">14-20 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 4 km RL + 2 km RD</p>
+      <p><strong>🟢 Fine Settimana - 13 km</strong><br>2 km RD + 4 km RL + 3 km RM + 2 km RL + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 10 <span class="week-dates">21-27 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD</p>
+      <p><strong>⛰️ Fine Settimana - 20 km</strong><br>
+        Collinare continuo a intensità aerobica, senza forzare le salite.
+        <br><br>
+        <em>Alternativa specifica in pianura:</em> 3 km RD + 6 km RL + 9 km RM + 2 km RD
+      </p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 11 <span class="week-dates">28 settembre-4 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD</p>
+      <p><strong>🔥 Fine Settimana - 16 km</strong><br>2 km RD + 4 × (2000 m RG + 1000 m RL) + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 12 <span class="week-dates">5-11 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 8 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 2 km RD</p>
+      <p><strong>📈 Fine Settimana - 18 km</strong><br>Progressivo: 4 km RL + 6 km RM + 6 km RG + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>Settimana 13 <span class="week-dates">12-18 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>2 km RD + 7 km RL + 2 km RD</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School (soft)</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 4 km RL + 2 km RD</p>
+      <p><strong>🟢 Fine Settimana - 12 km</strong><br>2 km RD + 4 km RL + 4 km RM + 2 km RD</p>
+    </div>
+  </details>
+
+  <details class="week">
+    <summary>🏁 Settimana Gara <span class="week-dates">19-25 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>30' RD-RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School (soft)</p>
+      <p><strong>🔵 Mantenimento</strong><br>25' RL</p>
+      <p><strong>🏁 Domenica</strong><br>Venice Half Marathon - 21,097 km</p>
+    </div>
+  </details>
+
+  <div class="box">
+    <h2>🎯 Come affrontare la gara</h2>
+
+    <h3>I primi chilometri a Mestre</h3>
+    <p>
+      La prima parte è scorrevole e può invogliare a partire troppo velocemente.
+      Nei primi 2-3 km è preferibile correre leggermente controllati, lasciando stabilizzare
+      la respirazione prima di raggiungere il Ritmo Gara previsto.
+    </p>
+
+    <h3>La parte centrale</h3>
+    <p>
+      Una volta trovato il ritmo, bisogna cercare continuità e regolarità.
+      È il momento ideale per correre rilassati, mantenere una falcata economica
+      e sfruttare eventuali gruppetti che procedono alla stessa velocità.
+    </p>
+
+    <h3>Il Ponte della Libertà</h3>
+    <p>
+      Il ponte è lungo, rettilineo ed esposto. In presenza di vento contrario è utile evitare
+      di correre isolati e cercare la protezione di un gruppo, senza però accelerare eccessivamente
+      per raggiungerlo.
+      <br><br>
+      Su questo tratto è più importante controllare lo sforzo che inseguire continuamente
+      il passo indicato dall'orologio.
+    </p>
+
+    <h3>Gli ultimi chilometri a Venezia</h3>
+    <p>
+      Nel centro storico si affrontano 14 ponti. Le rampe predisposte permettono di evitare
+      gli scalini, ma la continua alternanza tra brevi salite e discese può spezzare il ritmo.
+      <br><br>
+      In salita conviene accorciare leggermente il passo e mantenere costante lo sforzo.
+      In discesa bisogna lasciare scorrere la corsa senza frenare bruscamente.
+      È importante arrivare a Venezia con ancora una piccola riserva di energie.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>📌 Strategia consigliata</h2>
+    <ul>
+      <li>Primi 2-3 km leggermente controllati.</li>
+      <li>Parte centrale al Ritmo Gara previsto.</li>
+      <li>Ponte della Libertà gestito in base al vento e alle sensazioni.</li>
+      <li>Ponti finali corsi a intensità costante, senza inseguire il ritmo medio.</li>
+      <li>Progressione conclusiva solo dopo aver valutato le energie rimaste.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>⛰️ Allenamenti collinari</h2>
+    <p>
+      Gli allenamenti collinari prevedono un percorso continuo a intensità prevalentemente aerobica.
+      Le salite non devono essere affrontate alla massima intensità: l'obiettivo è mantenere uno sforzo
+      controllato e sostenibile per tutta la durata dell'allenamento.
+      <br><br>
+      Per questa preparazione ogni seduta collinare dispone anche di un'alternativa specifica in pianura,
+      più adatta agli atleti che non hanno a disposizione salite o che preferiscono svolgere un lavoro
+      maggiormente orientato al ritmo della mezza maratona.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
