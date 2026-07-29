@@ -1,0 +1,922 @@
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Venice Marathon – Programma e consigli Runner's School</title>
+
+  <meta
+    name="description"
+    content="Descrizione del percorso della Venice Marathon, strategia di gara, difficoltà principali e consigli Runner's School per affrontare al meglio la maratona di Venezia."
+  >
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #081226;
+      --card: #0b172d;
+      --card-light: #101e37;
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #f8fafc;
+      --muted: #b8c3d6;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.14);
+      --green: #22c55e;
+      --blue: #38bdf8;
+      --red: #fb7185;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 34%),
+        linear-gradient(180deg, #020617 0%, #061123 100%);
+      color: var(--text);
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 70px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 52px 42px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          120deg,
+          rgba(2, 6, 23, 0.95),
+          rgba(8, 24, 48, 0.90)
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 13px;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -110px;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.12);
+      filter: blur(2px);
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      padding: 7px 13px;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #ffd58a;
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin-bottom: 16px;
+      font-size: clamp(2.5rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .quick-info {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .quick-item {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .quick-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .quick-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(11, 23, 45, 0.97),
+          rgba(8, 18, 38, 0.97)
+        );
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-icon {
+      display: grid;
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border: 1px solid rgba(245, 158, 11, 0.30);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      font-size: 1.35rem;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.16rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    .route-grid,
+    .strategy-grid,
+    .tips-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .route-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .route-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card-light);
+    }
+
+    .route-card .number {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .route-card p {
+      margin-bottom: 0;
+      font-size: 0.96rem;
+    }
+
+    .highlight {
+      margin-top: 22px;
+      padding: 22px 24px;
+      border-left: 5px solid var(--accent);
+      border-radius: 0 16px 16px 0;
+      background: var(--accent-soft);
+    }
+
+    .highlight p {
+      margin-bottom: 0;
+      color: #f5e7c7;
+    }
+
+    .difficulty-list,
+    .check-list,
+    .error-list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .difficulty-list li,
+    .check-list li,
+    .error-list li {
+      position: relative;
+      padding: 16px 18px 16px 50px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--muted);
+    }
+
+    .difficulty-list li::before,
+    .check-list li::before,
+    .error-list li::before {
+      position: absolute;
+      top: 14px;
+      left: 17px;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .difficulty-list li::before {
+      content: "↗";
+      color: var(--accent);
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--green);
+    }
+
+    .error-list li::before {
+      content: "×";
+      color: var(--red);
+    }
+
+    .strategy-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .strategy-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      background: var(--card-light);
+    }
+
+    .strategy-card:first-child {
+      border-top: 4px solid var(--blue);
+    }
+
+    .strategy-card:last-child {
+      border-top: 4px solid var(--accent);
+    }
+
+    .strategy-km {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.83rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .strategy-card:first-child .strategy-km {
+      color: var(--blue);
+    }
+
+    .strategy-card:last-child .strategy-km {
+      color: var(--accent);
+    }
+
+    .strategy-card p {
+      margin-bottom: 0;
+    }
+
+    .tips-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .tip-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card-light);
+    }
+
+    .tip-card span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .tip-card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .rs-advice {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(245, 158, 11, 0.34);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.16),
+          rgba(8, 18, 38, 0.96) 55%
+        );
+    }
+
+    .rs-advice::after {
+      content: "RS";
+      position: absolute;
+      right: 22px;
+      bottom: -38px;
+      color: rgba(255, 255, 255, 0.035);
+      font-size: 10rem;
+      font-weight: 1000;
+      line-height: 1;
+    }
+
+    .rs-advice .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer {
+      padding: 30px 12px 0;
+      text-align: center;
+      color: #8fa0ba;
+      font-size: 0.86rem;
+    }
+
+    .footer strong {
+      color: var(--accent);
+    }
+
+    @media (max-width: 850px) {
+      .quick-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 14px;
+      }
+
+      .hero {
+        padding: 40px 24px 32px;
+        border-radius: 22px;
+      }
+
+      .section {
+        padding: 25px 20px;
+      }
+
+      .route-grid,
+      .strategy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .quick-info {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.55rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <header class="hero">
+
+      <div class="eyebrow">🏁 Programmi gare Runner's School</div>
+
+      <h1>Venice Marathon</h1>
+
+      <p class="hero-text">
+        Una maratona affascinante e unica al mondo, dalla Riviera del Brenta
+        fino al cuore di Venezia. Un percorso prevalentemente pianeggiante,
+        veloce nella prima parte e tecnicamente più impegnativo negli ultimi
+        chilometri, tra ponti, masegni e scorci indimenticabili sulla laguna.
+      </p>
+
+      <div class="quick-info">
+
+        <div class="quick-item">
+          <strong>42,195 km</strong>
+          <span>Distanza ufficiale</span>
+        </div>
+
+        <div class="quick-item">
+          <strong>Stra</strong>
+          <span>Partenza da Villa Pisani</span>
+        </div>
+
+        <div class="quick-item">
+          <strong>Venezia</strong>
+          <span>Arrivo a Riva Sette Martiri</span>
+        </div>
+
+        <div class="quick-item">
+          <strong>Pianeggiante</strong>
+          <span>Finale tecnico sui ponti</span>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">🌊</div>
+        <h2>Una maratona unica</h2>
+      </div>
+
+      <p>
+        La <strong>Venice Marathon</strong> è una delle maratone italiane più
+        conosciute e suggestive. Il percorso unisce la bellezza delle ville
+        della Riviera del Brenta, la parte più moderna della terraferma
+        veneziana e un finale spettacolare nel centro storico di Venezia.
+      </p>
+
+      <p>
+        È una gara capace di richiamare runner provenienti da tutto il mondo
+        e può rappresentare un obiettivo ideale sia per chi vuole affrontare
+        la propria <strong>prima maratona</strong>, sia per gli atleti che
+        desiderano correre su un tracciato generalmente scorrevole.
+      </p>
+
+      <div class="highlight">
+        <p>
+          Il vero fascino della Venice Marathon emerge soprattutto nella parte
+          conclusiva: dopo oltre trenta chilometri di gara, il percorso conduce
+          gli atleti verso la laguna e regala uno degli arrivi più emozionanti
+          del panorama internazionale.
+        </p>
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">📍</div>
+        <h2>Il percorso</h2>
+      </div>
+
+      <p>
+        La partenza è situata a <strong>Stra</strong>, davanti alla splendida
+        <strong>Villa Pisani</strong>. Da qui gli atleti percorrono la Riviera
+        del Brenta, attraversando un territorio ricco di ville storiche,
+        piccoli centri abitati e lunghi tratti pianeggianti.
+      </p>
+
+      <div class="route-grid">
+
+        <article class="route-card">
+          <span class="number">Prima parte</span>
+          <h3>La Riviera del Brenta</h3>
+          <p>
+            I primi chilometri sono scorrevoli e favoriscono la ricerca di un
+            ritmo regolare. La facilità apparente del percorso può però
+            spingere a partire troppo velocemente.
+          </p>
+        </article>
+
+        <article class="route-card">
+          <span class="number">Parte centrale</span>
+          <h3>Mestre e San Giuliano</h3>
+          <p>
+            La gara prosegue sulla terraferma veneziana, attraversando Mestre
+            e la zona del Parco San Giuliano. In questa fase possono comparire
+            alcuni brevi cavalcavia e leggere variazioni di ritmo.
+          </p>
+        </article>
+
+        <article class="route-card">
+          <span class="number">Dopo il 30° km</span>
+          <h3>Il Ponte della Libertà</h3>
+          <p>
+            Il lungo rettilineo che collega la terraferma a Venezia è uno dei
+            momenti mentalmente più delicati della gara. Il percorso rimane
+            scorrevole, ma la fatica accumulata comincia a farsi sentire.
+          </p>
+        </article>
+
+        <article class="route-card">
+          <span class="number">Finale</span>
+          <h3>Il centro storico</h3>
+          <p>
+            Entrati nella Venezia storica, il tracciato attraversa ponti,
+            canali e luoghi iconici fino all'arrivo a
+            <strong>Riva Sette Martiri</strong>.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">🌉</div>
+        <h2>Le difficoltà principali</h2>
+      </div>
+
+      <p>
+        Il percorso è quasi completamente pianeggiante, ma la Venice Marathon
+        non deve essere considerata una gara priva di difficoltà.
+      </p>
+
+      <ul class="difficulty-list">
+
+        <li>
+          <strong>Partenza molto scorrevole:</strong>
+          nei primi chilometri è facile correre più velocemente del ritmo
+          programmato e consumare energie preziose.
+        </li>
+
+        <li>
+          <strong>Brevi cavalcavia:</strong>
+          tra la parte centrale e l'avvicinamento a Venezia sono presenti
+          alcune salite molto brevi, capaci comunque di interrompere la
+          regolarità del passo.
+        </li>
+
+        <li>
+          <strong>Ponte della Libertà:</strong>
+          è un tratto lungo, esposto e mentalmente impegnativo, soprattutto
+          perché viene affrontato nella fase decisiva della maratona.
+        </li>
+
+        <li>
+          <strong>Ponti veneziani:</strong>
+          negli ultimi chilometri sono presenti numerosi attraversamenti.
+          I gradini vengono coperti da apposite rampe, ma i continui saliscendi
+          richiedono comunque energia e modificano il ritmo.
+        </li>
+
+        <li>
+          <strong>Pavimentazione:</strong>
+          nel centro storico l'asfalto lascia spazio ai tradizionali
+          <em>masegni</em> veneziani e ad alcuni brevi tratti di pavimentazione
+          meno regolare.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">✨</div>
+        <h2>Il passaggio sul Canal Grande</h2>
+      </div>
+
+      <p>
+        Uno degli elementi più caratteristici della gara è l'attraversamento
+        del <strong>Canal Grande</strong> attraverso un ponte galleggiante
+        installato appositamente in occasione della manifestazione.
+      </p>
+
+      <p>
+        Questo passaggio consente agli atleti di proseguire verso la parte
+        finale del percorso e rappresenta uno dei momenti più iconici e
+        fotografati dell'intera Venice Marathon.
+      </p>
+
+      <div class="highlight">
+        <p>
+          È importante affrontare il ponte senza accelerazioni improvvise:
+          dopo molti chilometri di corsa, ogni variazione brusca di ritmo può
+          diventare più costosa del previsto.
+        </p>
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">🎯</div>
+        <h2>Strategia di gara</h2>
+      </div>
+
+      <p>
+        La Venice Marathon premia gli atleti capaci di gestire le energie e di
+        mantenere un ritmo regolare. Il percorso iniziale è veloce, ma la gara
+        si decide soprattutto dopo il trentesimo chilometro.
+      </p>
+
+      <div class="strategy-grid">
+
+        <article class="strategy-card">
+          <span class="strategy-km">Dal km 0 al km 30</span>
+          <h3>Controllo e risparmio</h3>
+          <p>
+            Mantieni il ritmo maratona programmato senza lasciarti trascinare
+            dagli altri concorrenti. La sensazione iniziale deve essere quella
+            di correre con un piccolo margine.
+          </p>
+        </article>
+
+        <article class="strategy-card">
+          <span class="strategy-km">Dal km 30 all'arrivo</span>
+          <h3>Concentrazione e gestione</h3>
+          <p>
+            Sul Ponte della Libertà e nel centro storico concentrati sulla
+            regolarità dello sforzo. Nei ponti non inseguire il passo medio
+            istantaneo: corri in base alle sensazioni e rilancia gradualmente
+            dopo ogni discesa.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">💡</div>
+        <h2>Consigli pratici</h2>
+      </div>
+
+      <div class="tips-grid">
+
+        <article class="tip-card">
+          <span>⌚</span>
+          <h3>Non inseguire il GPS</h3>
+          <p>
+            Nel centro storico il segnale può risultare meno preciso. Affidati
+            soprattutto ai riferimenti chilometrici ufficiali e alla
+            percezione dello sforzo.
+          </p>
+        </article>
+
+        <article class="tip-card">
+          <span>🥤</span>
+          <h3>Alimentati con regolarità</h3>
+          <p>
+            Non aspettare di avvertire fame o calo energetico. Segui il piano
+            di integrazione provato durante i lunghi della preparazione.
+          </p>
+        </article>
+
+        <article class="tip-card">
+          <span>👟</span>
+          <h3>Scarpe già testate</h3>
+          <p>
+            Utilizza una scarpa stabile e confortevole, già provata sui lunghi.
+            Evita di sperimentare un modello nuovo il giorno della gara.
+          </p>
+        </article>
+
+        <article class="tip-card">
+          <span>🌬️</span>
+          <h3>Controlla il vento</h3>
+          <p>
+            Il Ponte della Libertà è un tratto esposto. In caso di vento,
+            cerca di correre in gruppo senza effettuare continui cambi di ritmo.
+          </p>
+        </article>
+
+        <article class="tip-card">
+          <span>🌉</span>
+          <h3>Gestisci i ponti</h3>
+          <p>
+            Accorcia leggermente il passo in salita, mantieni una buona
+            frequenza e sfrutta la discesa per riprendere velocità in modo
+            naturale.
+          </p>
+        </article>
+
+        <article class="tip-card">
+          <span>🧠</span>
+          <h3>Dividi la gara</h3>
+          <p>
+            Pensa prima alla Riviera, poi alla terraferma, quindi al Ponte
+            della Libertà e infine a Venezia. Obiettivi mentali più brevi
+            rendono la distanza più gestibile.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">⚠️</div>
+        <h2>Cinque errori da evitare</h2>
+      </div>
+
+      <ul class="error-list">
+
+        <li>
+          Partire più velocemente del ritmo maratona perché i primi chilometri
+          sembrano particolarmente facili.
+        </li>
+
+        <li>
+          Saltare i rifornimenti o modificare il piano di integrazione provato
+          durante la preparazione.
+        </li>
+
+        <li>
+          Accelerare sul Ponte della Libertà per cercare di recuperare alcuni
+          secondi.
+        </li>
+
+        <li>
+          Affrontare i ponti veneziani con falcate troppo lunghe e dispendiose.
+        </li>
+
+        <li>
+          Concentrarsi esclusivamente sul passo medio del GPS negli ultimi
+          chilometri anziché sulla gestione dello sforzo.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-title">
+        <div class="section-icon">✅</div>
+        <h2>Per chi è consigliata</h2>
+      </div>
+
+      <ul class="check-list">
+
+        <li>
+          Per chi vuole vivere la propria <strong>prima maratona</strong> in
+          un contesto spettacolare e internazionale.
+        </li>
+
+        <li>
+          Per gli atleti che apprezzano i percorsi prevalentemente
+          pianeggianti e scorrevoli.
+        </li>
+
+        <li>
+          Per chi è in grado di gestire con intelligenza il ritmo e le energie
+          nella prima parte di gara.
+        </li>
+
+        <li>
+          Per chi desidera correre una maratona con un finale unico, nel cuore
+          di una delle città più affascinanti del mondo.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="section rs-advice">
+
+      <div class="content">
+
+        <div class="section-title">
+          <div class="section-icon">🏃</div>
+          <h2>Il consiglio di Runner's School</h2>
+        </div>
+
+        <p>
+          Non lasciarti ingannare dalla facilità dei primi chilometri:
+          <strong>la maratona comincia davvero dopo il 30° km</strong>.
+        </p>
+
+        <p>
+          Il tuo obiettivo deve essere arrivare al Ponte della Libertà ancora
+          lucido, ben alimentato e con una corsa efficiente. Se avrai gestito
+          correttamente la prima parte, gli ultimi ponti non saranno soltanto
+          una difficoltà, ma diventeranno parte dell'emozione della gara.
+        </p>
+
+        <p>
+          Correre tra la laguna, il Canal Grande e i luoghi simbolo di Venezia
+          fino al traguardo di Riva Sette Martiri è un'esperienza che ogni
+          maratoneta dovrebbe vivere almeno una volta.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <footer class="footer">
+      <strong>Runner's School Italia</strong><br>
+      Programmi gare, preparazione e consigli per correre in modo consapevole.
+    </footer>
+
+  </main>
+
+</body>
+</html>
+```
