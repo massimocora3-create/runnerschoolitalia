@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parma Marathon 2026</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 14px 80px;
+}
+
+.header,.box,.week{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.header{
+  padding:18px;
+  margin-bottom:14px;
+}
+
+.header h1{
+  margin:0 0 8px;
+  font-size:20px;
+}
+
+.header p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:14px;
+  line-height:1.4;
+}
+
+.btn{
+  display:inline-flex;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--accent-soft);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+}
+
+.box{
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.box h2{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+
+.box h3{
+  margin:16px 0 6px;
+  font-size:14px;
+  color:var(--text);
+}
+
+.box p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.box ul{
+  margin:8px 0 0;
+  padding-left:20px;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.week{
+  margin:12px 0;
+  overflow:hidden;
+}
+
+.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  font-weight:900;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.week summary::-webkit-details-marker{display:none}
+
+.week-content{padding:0 14px 14px}
+
+.week-content p{
+  margin:12px 0 0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.week-content strong{color:var(--text)}
+
+.week-dates{
+  color:var(--text-muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.note{
+  margin-top:10px;
+  padding:12px;
+  border-radius:14px;
+  background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,.25);
+  color:var(--text-muted);
+  font-size:12px;
+  line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+  <div class="header">
+    <h1>🏁 Parma Marathon 2026</h1>
+    <p><strong>Data gara:</strong> domenica 18 ottobre 2026</p>
+    <a class="btn" href="/runnerschoolitalia/programmi-gare/">⬅️ Torna ai Programmi Gare</a>
+  </div>
+
+  <div class="box">
+    <h2>Indicazioni generali</h2>
+    <p>
+      Programma specifico di 14 settimane più la settimana gara.
+      La preparazione mantiene la struttura del Programma Endurance Runner's School:
+      la seduta di qualità resta quella prevista dal programma Endurance, mentre
+      il lavoro del fine settimana diventa progressivamente specifico per la maratona.
+      <br><br>
+      Il programma alterna lunghi di costruzione, collinari, lavori specifici a Ritmo Maratona,
+      sedute di brillantezza e settimane di scarico. Il lungo massimo previsto è di 34 km,
+      collocato due settimane prima della gara.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>📋 Struttura settimanale</h2>
+    <ul>
+      <li>Scarico.</li>
+      <li>Qualità come da Programma Endurance Runner's School.</li>
+      <li>Mantenimento.</li>
+      <li>Lungo specifico del fine settimana.</li>
+      <li>Quinta uscita facoltativa: 10-11 km RD/RL; 8-10 km nelle settimane di scarico.</li>
+    </ul>
+    <div class="note">
+      Nei lavori specifici, gli ultimi 500 m di ogni ripetuta a RM vengono corsi a RG.
+      Nel lungo finale da 34 km, invece, tutti i blocchi restano interamente a RM.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>🏛️ Una maratona nel cuore di Parma</h2>
+    <p>
+      La Parma Marathon si corre su un percorso unico ad anello, con partenza e arrivo
+      nel Parco pubblico della Cittadella. Il tracciato è certificato e omologato FIDAL
+      e attraversa la città alternando lunghi tratti scorrevoli, viali, zone urbane
+      e passaggi più periferici.
+      <br><br>
+      Non è una maratona completamente piatta: l'organizzazione indica un dislivello
+      complessivo di circa 130 metri. Le variazioni altimetriche sono generalmente graduali,
+      ma nel corso di 42 km possono spezzare il ritmo e diventare più impegnative nella
+      seconda parte. Per questo è una gara veloce e regolare, ma richiede una gestione
+      attenta dello sforzo più che la ricerca ossessiva del passo medio istantaneo.
+    </p>
+  </div>
+
+  
+  <details class="week">
+    <summary>Settimana 1 <span class="week-dates">6-12 luglio</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
+      <p><strong>🟢 Fine Settimana - 18 km</strong><br>2 km RD + 14 km RL + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 2 <span class="week-dates">13-19 luglio</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m recupero RL) + 1 km RD</p>
+      <p><strong>⛰️ Fine Settimana - 22 km</strong><br>Collinare continuo a intensità aerobica, senza forzare le salite.<br><br><em>Alternativa specifica in pianura:</em> 2 km RD + 6 km RL + 4 × (2 km RM + 1 km RL) + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 3 <span class="week-dates">20-26 luglio</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>11-12 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School, senza chilometri aggiuntivi</p>
+      <p><strong>🔵 Mantenimento</strong><br>11-12 km RD/RL</p>
+      <p><strong>🟢 Fine Settimana - 16 km</strong><br>2 km RD + 10 km RL + 2 km RM + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 4 <span class="week-dates">27 luglio-2 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>2 km RD + 8 km RL + 5 × (100 m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
+      <p><strong>🔄 Fine Settimana - 24 km</strong><br>2 km RD + 6 km RL + 3 × (3,5 km RM + 500 m RG + 1 km RL) + 1 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 5 <span class="week-dates">3-9 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
+      <p><strong>⛰️ Fine Settimana - 28 km</strong><br>Collinare continuo a intensità aerobica, senza forzare le salite.<br><br><em>Alternativa specifica in pianura:</em> 2 km RD + 6 km RL + 5 × (2,5 km RM + 500 m RG + 1 km RL) + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 6 <span class="week-dates">10-16 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m recupero RL) + 1 km RD</p>
+      <p><strong>⚡ Fine Settimana - 20 km</strong><br>2 km RD + 4 km RL + 10 km RG + 4 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 7 <span class="week-dates">17-23 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>11-12 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School, senza chilometri aggiuntivi</p>
+      <p><strong>🔵 Mantenimento</strong><br>11-12 km RD/RL</p>
+      <p><strong>🟢 Fine Settimana - 16 km</strong><br>2 km RD + 8 km RL + 4 km RM + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 8 <span class="week-dates">24-30 agosto</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>2 km RD + 8 km RL + 5 × (100 m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
+      <p><strong>🔄 Fine Settimana - 30 km</strong><br>2 km RD + 8 km RL + (1,5 km RM + 500 m RG) + 1 km RL + (3,5 km RM + 500 m RG) + 1 km RL + (5,5 km RM + 500 m RG) + 2 km RL + 4 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 9 <span class="week-dates">31 agosto-6 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
+      <p><strong>🔄 Fine Settimana - 25 km</strong><br>2 km RD + 8 km RL + 3 × (2,5 km RM + 500 m RG + 1 km RL) + 3 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 10 <span class="week-dates">7-13 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m recupero RL) + 1 km RD</p>
+      <p><strong>⛰️ Fine Settimana - 32 km</strong><br>Collinare continuo a intensità aerobica, senza forzare le salite.<br><br><em>Alternativa specifica in pianura:</em> 2 km RD + 6 km RL + 6 × (2,5 km RM + 500 m RG + 1 km RL) + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 11 <span class="week-dates">14-20 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>11-12 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School, senza chilometri aggiuntivi</p>
+      <p><strong>🔵 Mantenimento</strong><br>11-12 km RD/RL</p>
+      <p><strong>🟢 Fine Settimana - 14 km</strong><br>2 km RD + 8 km RL + 2 km RM + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 12 <span class="week-dates">21-27 settembre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>2 km RD + 8 km RL + 5 × (100 m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
+      <p><strong>🏁 Fine Settimana - Mezza Maratona</strong><br>Gara di Mezza Maratona.<br><br><em>Alternativa:</em> 2 km RD + 3 km RL + 15 km RG + 1 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 13 <span class="week-dates">28 settembre-4 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>12-14 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School + 3-4 km RL</p>
+      <p><strong>🔵 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
+      <p><strong>🔥 Fine Settimana - 34 km</strong><br>2 km RD + 8 km RL + 4 × (4 km RM + 1 km RL) + 4 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>Settimana 14 <span class="week-dates">5-11 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>11 km RD/RL</p>
+      <p><strong>🔥 Qualità</strong><br>Come da Programma Endurance Runner's School in versione alleggerita, senza chilometri aggiuntivi</p>
+      <p><strong>🔵 Mantenimento</strong><br>11 km RD/RL</p>
+      <p><strong>🟢 Fine Settimana - 12 km</strong><br>2 km RD + 6 km RL + 2 km RM + 2 km RD</p>
+    </div>
+  </details>
+  <details class="week">
+    <summary>🏁 Settimana Gara <span class="week-dates">12-18 ottobre</span></summary>
+    <div class="week-content">
+      <p><strong>🟢 Scarico</strong><br>30' RD-RL</p>
+      <p><strong>🔥 Richiamo</strong><br>20-30' di corsa facile + 4-5 allunghi facoltativi</p>
+      <p><strong>🔵 Mantenimento</strong><br>25' RL oppure riposo, in base alle sensazioni</p>
+      <p><strong>🏁 Domenica</strong><br>Parma Marathon - 42,195 km</p>
+    </div>
+  </details>
+
+  <div class="box">
+    <h2>🎯 Come affrontare la gara</h2>
+
+    <h3>Partenza dalla Cittadella</h3>
+    <p>
+      I primi chilometri devono servire a trovare il ritmo, non a guadagnare secondi.
+      La partenza alle 9.15 e l'atmosfera del parco possono portare a uscire troppo forte:
+      è meglio restare leggermente sotto controllo, lasciare stabilizzare il gruppo
+      e raggiungere il Ritmo Maratona in modo graduale.
+    </p>
+
+    <h3>Prima metà di gara</h3>
+    <p>
+      Il percorso è prevalentemente scorrevole, ma non perfettamente piatto.
+      Le leggere variazioni devono essere assorbite mantenendo costante lo sforzo:
+      nelle salite si accorcia appena il passo, nei tratti favorevoli si lascia scorrere
+      senza trasformare ogni discesa in un'accelerazione.
+    </p>
+
+    <h3>Dal 25° al 35° km</h3>
+    <p>
+      È il tratto decisivo. Il dislivello complessivo, pur contenuto, comincia a pesare
+      quando la muscolatura è affaticata. Qui conta la regolarità: alimentarsi ai ristori,
+      evitare cambi di ritmo e non inseguire il GPS quando il passo oscilla di pochi secondi.
+    </p>
+
+    <h3>Rientro verso il Parco della Cittadella</h3>
+    <p>
+      Negli ultimi chilometri bisogna correre sulle sensazioni. Se il ritmo resta gestibile,
+      si può aumentare progressivamente solo dopo il 37°-38° km. Il ritorno nello stesso
+      punto di partenza aiuta mentalmente, ma la progressione deve partire solo quando
+      restano energie reali e una meccanica di corsa ancora efficace.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>📌 Strategia consigliata</h2>
+    <ul>
+      <li>Primi 3-5 km leggermente controllati, senza superare il Ritmo Maratona previsto.</li>
+      <li>Prima metà corsa a sforzo costante, accettando piccole oscillazioni del passo.</li>
+      <li>Ristori programmati ogni 5 km: integrare fin dall'inizio, senza aspettare fame o sete.</li>
+      <li>Dal 25° km concentrarsi su postura, frequenza del passo e regolarità respiratoria.</li>
+      <li>Progressione finale solo dal 37°-38° km e soltanto se le sensazioni sono solide.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>⚠️ Errori da evitare</h2>
+    <ul>
+      <li>Considerare il percorso completamente piatto e impostare un ritmo troppo aggressivo.</li>
+      <li>Forzare nelle leggere salite per mantenere identico il passo al chilometro.</li>
+      <li>Recuperare subito in discesa i secondi persi, aumentando inutilmente il costo muscolare.</li>
+      <li>Saltare i ristori: quelli ufficiali sono previsti ai km 5, 10, 15, 20, 25, 30, 35 e 40.</li>
+      <li>Sperimentare in gara gel, scarpe o abbigliamento non testati nei lunghi specifici.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>⛰️ Perché mantenere i collinari</h2>
+    <p>
+      Anche se Parma è una maratona scorrevole, il percorso presenta circa 130 metri
+      di dislivello complessivo. I collinari inseriti nel programma servono quindi
+      a sviluppare forza resistente, elasticità muscolare e capacità di mantenere
+      uno sforzo uniforme quando il terreno cambia leggermente.
+      <br><br>
+      Devono essere corsi a intensità prevalentemente aerobica, senza forzare le salite.
+      Ogni seduta collinare dispone anche di un'alternativa specifica in pianura,
+      indicata direttamente all'interno della settimana.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>ℹ️ Informazioni ufficiali utili</h2>
+    <ul>
+      <li>Data: domenica 18 ottobre 2026.</li>
+      <li>Partenza e arrivo: Parco pubblico della Cittadella, Via Passo Buole.</li>
+      <li>Orario di partenza indicato: 9.15.</li>
+      <li>Percorso unico ad anello, certificato e omologato FIDAL.</li>
+      <li>Dislivello complessivo indicato dall'organizzazione: circa 130 m.</li>
+      <li>Tempo limite: 5 ore e 30 minuti.</li>
+      <li>Ristori previsti ogni 5 km, dal km 5 al km 40.</li>
+    </ul>
+    <div class="note">
+      Orari, servizi e modalità operative possono essere aggiornati dall'organizzazione
+      nelle settimane precedenti la gara: controllare sempre le comunicazioni ufficiali.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
