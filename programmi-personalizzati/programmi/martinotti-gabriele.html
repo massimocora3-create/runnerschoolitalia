@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Runner’s School Italia – Programma personalizzato Martinotti Gabriele</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --bg-soft:#050b18;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --accent-border:rgba(249,115,22,0.30);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text);
+  opacity:.9;
+  font-size:13px;
+}
+
+.pill{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid var(--accent-border);
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:20px;
+  margin:0 0 8px;
+}
+
+.meta{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.section-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--text-muted);
+  margin:22px 2px 10px;
+}
+
+.content{
+  font-size:14px;
+  line-height:1.5;
+}
+
+.content p{
+  margin:10px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.mini{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-soft);
+  padding:12px;
+}
+
+.mini.full{
+  grid-column:1 / -1;
+}
+
+.k{
+  font-size:11px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.v{
+  font-size:14px;
+  line-height:1.35;
+}
+
+.tagrow{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.tag{
+  font-size:12px;
+  padding:7px 9px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+}
+
+.tag.ok{
+  border-color:rgba(34,197,94,.35);
+  color:#bbf7d0;
+}
+
+.tag.info{
+  border-color:rgba(56,189,248,.35);
+  color:#bae6fd;
+}
+
+.tag.warn{
+  border-color:rgba(249,115,22,.35);
+  color:#fed7aa;
+}
+
+.note-box{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--accent-border);
+  background:var(--accent-soft);
+}
+
+.alert-box{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(239,68,68,.35);
+  background:rgba(239,68,68,.08);
+}
+
+details.week{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-soft);
+  overflow:hidden;
+  margin-top:10px;
+}
+
+details.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+details.week summary::-webkit-details-marker{display:none}
+
+.week-content{
+  padding:0 12px 12px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.session{
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.session:first-child{border-top:0}
+
+.session-title{
+  font-weight:900;
+  margin-bottom:4px;
+}
+
+.small{
+  font-size:12px;
+  color:var(--text-muted);
+}
+
+@media (max-width:420px){
+  .grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<div class="top">
+<a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+<div class="pill">🟧 Runner’s School Italia</div>
+</div>
+
+<div class="card">
+<h1>📄 Programma personalizzato · Martinotti Gabriele</h1>
+
+<p class="meta">
+Periodo: <b>10 agosto – 25 ottobre 2026</b><br>
+Obiettivo: <b>Venice Marathon 2026</b><br>
+Data gara: <b>Domenica 25 ottobre 2026</b><br>
+Coach: <b>Runner’s School Italia</b>
+</p>
+
+<div class="tagrow">
+<span class="tag ok">Obiettivo maratona</span>
+<span class="tag info">4 uscite settimanali</span>
+<span class="tag warn">Ciclo 3+1</span>
+</div>
+
+<div class="note-box">
+Questo programma è personale ed è costruito sul percorso svolto da Gabriele nei mesi precedenti.
+La priorità non è aumentare ulteriormente la velocità, già adeguata all’obiettivo, ma trasformarla in
+<strong>resistenza specifica da maratona</strong>, aumentando in modo progressivo la capacità di sostenere
+chilometri e fatica senza perdere efficienza nella seconda parte di gara.
+</div>
+</div>
+
+<div class="section-label">Situazione di partenza</div>
+
+<div class="card content">
+<p>
+Gabriele arriva a questa fase con una buona velocità di base: nelle settimane precedenti ha corso
+lavori di qualità anche molto più veloci rispetto al ritmo necessario per affrontare Venezia.
+Il punto debole emerso soprattutto nella precedente maratona di Padova non è stato quindi la velocità,
+ma la capacità di mantenere un’azione efficace dopo molte ore di corsa, anche a causa di un volume
+settimanale non ancora sufficiente e di lavori qualitativi spesso troppo intensi rispetto all’obiettivo.
+</p>
+
+<p>
+Nel nuovo ciclo spostiamo quindi il centro della preparazione: meno ricerca della velocità pura,
+più continuità aerobica, recuperi corsi, lunghi progressivi e lavori controllati.
+</p>
+
+<div class="alert-box">
+<strong>⚠️ Regola fondamentale:</strong> i ritmi sono riferimenti e non obblighi.
+Se l’aumento del carico dovesse diventare troppo pesante, soprattutto nelle sedute di scarico e nei tratti aerobici,
+ridurremo subito l’intensità riportando il passo anche nella fascia <strong>6'20&quot;–6'40&quot;/km</strong>,
+ritmi ai quali Gabriele era già abituato nella preparazione precedente.
+</div>
+</div>
+
+<div class="section-label">Venice Marathon</div>
+
+<div class="card content">
+<p>
+La Venice Marathon è una maratona affascinante e molto particolare. La partenza è situata a Stra,
+davanti a Villa Pisani, e la prima parte attraversa la Riviera del Brenta su un tracciato generalmente
+scorrevole, dove è facile lasciarsi trascinare e correre troppo velocemente.
+</p>
+
+<p>
+La gara prosegue verso Mestre e il Parco San Giuliano, prima di affrontare uno dei tratti simbolo:
+il <strong>Ponte della Libertà</strong>. È un segmento lungo, rettilineo ed esposto, nel quale vento e stanchezza
+possono incidere molto più del passo indicato dal GPS.
+</p>
+
+<p>
+Gli ultimi chilometri dentro Venezia sono unici ma richiedono attenzione: i numerosi ponti interrompono
+continuamente il ritmo e obbligano a gestire salite brevi, discese e cambi di appoggio.
+Per questo la preparazione non deve insegnare soltanto a correre a un determinato passo,
+ma soprattutto a <strong>mantenere economia e controllo quando la fatica è già elevata</strong>.
+</p>
+
+<div class="note-box">
+<strong>Obiettivo indicativo:</strong> correre la maratona intorno ai <strong>6'00&quot;/km</strong>,
+con una gestione prudente nella prima parte e la priorità di arrivare al 30°–32° km ancora in controllo.
+</div>
+</div>
+
+<div class="section-label">Metodo di lavoro</div>
+
+<div class="card content">
+<p>
+La preparazione è organizzata su <strong>4 allenamenti settimanali</strong>:
+</p>
+
+<p>
+<strong>🟢 Scarico</strong><br>
+Seduta aerobica facile. Serve a sviluppare volume, facilitare il recupero e aumentare la capacità di correre
+senza aggiungere stress eccessivo.
+</p>
+
+<p>
+<strong>🔥 Qualità</strong><br>
+È l’unica seduta realmente brillante della settimana. I lavori sono volutamente più controllati rispetto
+alla preparazione precedente: meno velocità pura, più lavori vicini ai ritmi realmente utili per la maratona
+e recuperi prevalentemente corsi.
+</p>
+
+<p>
+<strong>🔵 Mantenimento</strong><br>
+Seduta aerobica intermedia, generalmente a RL con eventuali tratti a RA o brevi allunghi.
+Serve a consolidare il volume senza trasformarsi in un secondo allenamento di qualità.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+È la seduta chiave della preparazione. I lunghi aumentano gradualmente fino a 34 km e vengono alternati
+a settimane più leggere. L’obiettivo è sviluppare resistenza muscolare, metabolica e mentale.
+</p>
+
+<div class="note-box">
+<strong>Ciclo 3+1:</strong> tre settimane di costruzione progressiva seguite da una settimana di scarico.
+Lo scarico non interrompe la preparazione: permette di assorbire il lavoro svolto e arrivare al blocco successivo
+con energie sufficienti.
+</div>
+</div>
+
+<div class="section-label">Cosa cambia rispetto al programma precedente</div>
+
+<div class="card content">
+<p>
+<strong>1. La qualità viene rallentata e resa più specifica.</strong><br>
+Nel ciclo precedente erano presenti ripetute molto veloci, talvolta vicine ai 4'30&quot;–4'40&quot;/km.
+Per un obiettivo maratona intorno ai 6'00&quot;/km questo tipo di stimolo era sproporzionato rispetto alla reale necessità.
+Ora RG resta indicativamente a 5'10&quot;/km e i lavori più rapidi sono brevi e controllati.
+</p>
+
+<p>
+<strong>2. I recuperi diventano attivi.</strong><br>
+L’obiettivo non è recuperare completamente tra le prove ma imparare a continuare a correre con un livello
+moderato di fatica. Per questo utilizziamo soprattutto RL o corsa facile al posto di recuperi eccessivamente lenti.
+</p>
+
+<p>
+<strong>3. Aumenta il peso della componente aerobica.</strong><br>
+La preparazione precedente aveva un chilometraggio medio relativamente contenuto.
+In questo ciclo aumentiamo progressivamente il volume attraverso quattro uscite, senza trasformare tutte le sedute
+in allenamenti impegnativi.
+</p>
+
+<p>
+<strong>4. I lunghi diventano realmente specifici per la maratona.</strong><br>
+L’obiettivo è abituare il corpo a correre bene dopo 20, 25 e 30 km, non dimostrare in allenamento di saper correre forte.
+Il lungo più importante arriverà a 34 km, con blocchi a RA, quindi leggermente più veloci del RL ma ancora pienamente controllati.
+</p>
+
+<div class="note-box">
+<strong>Idea guida:</strong> la velocità necessaria Gabriele la possiede già. Ora dobbiamo costruire la capacità
+di conservarla quando le gambe iniziano a essere stanche.
+</div>
+</div>
+
+<div class="section-label">Ritmi di riferimento</div>
+
+<div class="card content">
+<div class="grid">
+<div class="mini"><div class="k">RG</div><div class="v"><strong>5'10&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RM</div><div class="v"><strong>5'30&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RA</div><div class="v"><strong>5'50&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RL</div><div class="v"><strong>6'00&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RD</div><div class="v"><strong>6'10&quot;–6'20&quot;/km</strong></div></div>
+</div>
+
+<div class="note-box">
+<strong>Nota:</strong> i ritmi RG, RM, RA, RL e RD sono i riferimenti utilizzati per costruire le diverse sedute del programma.
+</div>
+</div>
+
+<div class="section-label">Programma</div>
+
+<div class="card content">
+
+<details class="week" open>
+<summary>Settimana 1 · 10–16 agosto <span class="small">Carico 1/3</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 5 km RM + 1 km RL + 5 × (100 m allungo + 100 m recupero RL) + 2 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 24 km</div>
+<div>4 km RD + 14 km RL + 4 km RA + 2 km RD.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 2 · 17–23 agosto <span class="small">Carico 2/3</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10–11 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 5 × (1000 m RG + 500 m EL) + 2 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m RL) + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 26 km</div>
+<div>4 km RD + 14 km RL + 6 km RA + 2 km RD.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 3 · 24–30 agosto <span class="small">Scarico</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>8–10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 10 × (200 m RG + 200 m RL) + 3 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>8–10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 18–20 km</div>
+<div>Tutto a RL, senza tratti specifici.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 4 · 31 agosto–6 settembre <span class="small">Nuovo blocco</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10–11 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 5 × (100 m allungo + 100 m recupero RL) + 5 km RG + 1 km RL + 2 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>2 km RD + 8 km RL + 5 × (100 m salita + recupero discesa camminando/jog) + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 28 km</div>
+<div>3 km RD + 15 km RL + 6 km RA + 2 km RM + 2 km RD.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 5 · 7–13 settembre</summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10–11 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 6 km in progressione da RL a RG-10&quot; + 3 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 24 km</div>
+<div>3 km RD + 9 km RL + 8 km RA + 2 km RM + 2 km RD.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 6 · 14–20 settembre</summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10–11 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 6 × (500 m RG-10&quot; + 500 m RL) + 3 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 30 km</div>
+<div>4 km RD + 14 km RL + 8 km RA + 2 km RM + 2 km RD.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 7 · 21–27 settembre <span class="small">Scarico</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>8–10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 10 × (200 m RG + 200 m RL) + 3 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>8–10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 20 km</div>
+<div>Tutto a RL, corsa continua e controllata.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 8 · 28 settembre–4 ottobre</summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10–11 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 3 × (2000 m tra RG e RG+10&quot; + 500 m RL) + 2 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m RL) + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 32 km</div>
+<div>4 km RD + 14 km RL + 10 km RA + 2 km RM + 2 km RD.</div>
+<div class="small" style="margin-top:6px;">Alternativa, se prevista una gara o un lavoro sostitutivo: 15 km RM.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 9 · 5–11 ottobre <span class="small">Lungo massimo</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>10–10–11 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>2 km RD + 2 × (1 km RL + 1 km RA + 1 km RM + 1 km RG) + 1 km RL.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 34 km</div>
+<div>4 km RD + 12 km RL + 3 × (4 km RA + 1 km RL) + 3 km RD.</div>
+<div class="small" style="margin-top:6px;">I blocchi a RA sono volutamente solo un poco più veloci del RL: il lungo deve costruire resistenza, non diventare una gara.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 10 · 12–18 ottobre <span class="small">Scarico / taper</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>8–10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Qualità</div>
+<div>3 km RD + 10 × (200 m RG + 200 m RL) + 3 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>8–10 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Fine settimana · 16 km</div>
+<div>2 km RD + 10 km RL + 2 km a ritmo gara maratona (~6'00&quot;/km) + 2 km RD.</div>
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>Settimana 11 · 19–25 ottobre <span class="small">Settimana gara</span></summary>
+<div class="week-content">
+
+<div class="session">
+<div class="session-title">🟢 Scarico</div>
+<div>6–7 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔥 Richiamo</div>
+<div>3 km RD + 4 km RA + 5 × (100 m allungo + 100 m recupero RL) + 1 km RD.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🔵 Mantenimento</div>
+<div>25–30' RD + 3 allunghi brevi. In alternativa riposo se le gambe non sono fresche.</div>
+</div>
+
+<div class="session">
+<div class="session-title">🏁 Domenica 25 ottobre · VENICE MARATHON</div>
+<div>42,195 km. Prima parte prudente, regolarità fino al 30° km e progressione soltanto se le energie sono realmente presenti.</div>
+</div>
+
+</div>
+</details>
+
+</div>
+
+<div class="section-label">Strategia gara</div>
+
+<div class="card content">
+<p>
+<strong>0–10 km:</strong> partire controllati, indicativamente tra 6'05&quot; e 6'10&quot;/km.<br>
+<strong>10–30 km:</strong> stabilizzarsi progressivamente intorno ai 6'00&quot;/km senza inseguire il passo medio.<br>
+<strong>30–37 km:</strong> correre a sensazione e a sforzo costante, accettando eventuali piccole oscillazioni.<br>
+<strong>Ultimi chilometri:</strong> aumentare soltanto se rimangono energie reali.
+</p>
+
+<p>
+Sul Ponte della Libertà e negli ultimi ponti veneziani conta più la continuità dello sforzo che il passo istantaneo.
+Non bisogna recuperare forzatamente i secondi persi in salita.
+</p>
+
+<div class="note-box">
+<strong>Obiettivo del programma:</strong> non arrivare a Venezia semplicemente più veloce,
+ma arrivarci capace di correre ancora bene dopo il 30° chilometro.
+</div>
+</div>
+
+<div class="section-label">Promemoria finale</div>
+
+<div class="card content">
+<p>
+<strong>La maratona si costruisce con continuità.</strong><br>
+Il lavoro di qualità deve lasciare energie per il resto della settimana.
+Il lungo deve costruire resistenza e fiducia, non dimostrare in anticipo il risultato della gara.
+Se il carico diventa eccessivo, si rallenta: proteggere la continuità viene prima del rispetto rigido del ritmo.
+</p>
+</div>
+
+</div>
+
+<script>
+const PAGE_HASH = "87dd30f118eb62aa8a999883f50c15f831a2a7e8261addf5f11cc7443c191bfe";
+</script>
+
+</body>
+</html>
