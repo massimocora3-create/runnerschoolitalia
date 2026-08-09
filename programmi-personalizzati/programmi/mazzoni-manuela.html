@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Runner’s School Italia – Programma personalizzato Manuela Mazzoni</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --bg-soft:#050b18;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --accent-border:rgba(249,115,22,0.30);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text);
+  opacity:.9;
+  font-size:13px;
+}
+
+.pill{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid var(--accent-border);
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:20px;
+  margin:0 0 8px;
+}
+
+.meta{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.section-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--text-muted);
+  margin:22px 2px 10px;
+}
+
+.content{
+  font-size:14px;
+  line-height:1.5;
+}
+
+.content p{
+  margin:10px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.mini{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-soft);
+  padding:12px;
+}
+
+.mini.full{
+  grid-column:1 / -1;
+}
+
+.k{
+  font-size:11px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.v{
+  font-size:14px;
+  line-height:1.35;
+}
+
+.tagrow{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.tag{
+  font-size:12px;
+  padding:7px 9px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+}
+
+.tag.ok{
+  border-color:rgba(34,197,94,.35);
+  color:#bbf7d0;
+}
+
+.tag.info{
+  border-color:rgba(56,189,248,.35);
+  color:#bae6fd;
+}
+
+.tag.warn{
+  border-color:rgba(249,115,22,.35);
+  color:#fed7aa;
+}
+
+.note-box{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--accent-border);
+  background:var(--accent-soft);
+}
+
+.alert-box{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(239,68,68,.35);
+  background:rgba(239,68,68,.08);
+}
+
+details.week{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:var(--bg-soft);
+  overflow:hidden;
+  margin-top:10px;
+}
+
+details.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+details.week summary::-webkit-details-marker{display:none}
+
+.week-content{
+  padding:0 12px 12px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.session{
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.session:first-child{border-top:0}
+
+.session-title{
+  font-weight:900;
+  margin-bottom:4px;
+}
+
+.small{
+  font-size:12px;
+  color:var(--text-muted);
+}
+
+@media (max-width:420px){
+  .grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<div class="top">
+<a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+<div class="pill">🟧 Runner’s School Italia</div>
+</div>
+
+<div class="card">
+<h1>📄 Programma personalizzato · Manuela Mazzoni</h1>
+
+<p class="meta">
+Periodo: <b>10 agosto – 1 novembre 2026</b><br>
+Obiettivo: <b>TCS New York City Marathon 2026</b><br>
+Data gara: <b>Domenica 1 novembre 2026</b><br>
+Coach: <b>Runner’s School Italia</b>
+</p>
+
+<div class="tagrow">
+<span class="tag ok">Obiettivo maratona</span>
+<span class="tag info">5 uscite settimanali</span>
+<span class="tag warn">Ciclo 3+1</span>
+</div>
+
+<div class="note-box">
+Questo programma è personale ed è costruito sulla situazione attuale di <strong>Manuela Mazzoni</strong>,
+alla sua <strong>prima maratona</strong>. La priorità non è aumentare la velocità, già più che sufficiente per
+l’obiettivo, ma trasformarla in <strong>resistenza specifica da maratona</strong>, aumentando progressivamente
+la capacità di correre a lungo, assorbire i carichi e arrivare ancora efficiente dopo il 30° km.
+</div>
+</div>
+
+<div class="section-label">Situazione di partenza</div>
+
+<div class="card content">
+<p>
+Manuela arriva a questa preparazione dopo un anno molto positivo, nel quale è migliorata parecchio
+sia dal punto di vista della continuità sia delle prestazioni, culminato con il
+<strong>nuovo personale sulla Mezza Maratona ottenuto a Rovigo a febbraio</strong>.
+</p>
+
+<p>
+Nelle ultime settimane, complice il caldo e alcuni impegni personali, il chilometraggio è stato meno regolare:
+</p>
+
+<div class="grid">
+<div class="mini"><div class="k">29/6 – 5/7</div><div class="v"><strong>47,53 km</strong></div></div>
+<div class="mini"><div class="k">6/7 – 12/7</div><div class="v"><strong>18,27 km</strong></div></div>
+<div class="mini"><div class="k">13/7 – 19/7</div><div class="v"><strong>26,67 km</strong></div></div>
+<div class="mini"><div class="k">20/7 – 26/7</div><div class="v"><strong>42,64 km</strong></div></div>
+<div class="mini full"><div class="k">27/7 – 2/8</div><div class="v"><strong>16,98 km</strong></div></div>
+</div>
+
+<p>
+Non partiamo quindi dal momento di massimo volume dell’anno, ma alle spalle c’è comunque una base solida,
+costruita in mesi di lavoro e crescita. Il test sui 3 km ha indicato un <strong>RG di circa 4'45&quot;/km</strong>;
+per la preparazione utilizzeremo però riferimenti leggermente più prudenti.
+</p>
+
+<p>
+Manuela ha già una velocità sul corto e medio più che adeguata. Per questo il lavoro dei prossimi mesi
+non deve cercare ulteriori miglioramenti sul ritmo gara breve, ma soprattutto costruire
+<strong>resistenza, solidità muscolare, capacità di gestire la fatica e continuità</strong>.
+</p>
+
+<div class="alert-box">
+<strong>⚠️ Indicazione personale:</strong> essendo la prima maratona, l’obiettivo non è inseguire il cronometro
+fin dai primi chilometri. Il riferimento di circa <strong>6'00&quot;/km</strong> è un obiettivo medio e realistico,
+ma la priorità sarà arrivare al 30°–32° km ancora in controllo.
+</div>
+</div>
+
+<div class="section-label">New York Marathon</div>
+
+<div class="card content">
+<p>
+La TCS New York City Marathon è una gara unica, ma anche molto diversa da una maratona piatta.
+Il percorso attraversa i cinque borough e presenta ponti, saliscendi e continui cambi di ritmo.
+Per questo il riferimento dei <strong>6'00&quot;/km</strong> deve essere letto come media ideale,
+non come ritmo da difendere rigidamente chilometro dopo chilometro.
+</p>
+
+<p>
+La gara inizia subito con il <strong>Verrazzano-Narrows Bridge</strong>, il punto più alto del percorso.
+La prima regola sarà quindi partire controllati, senza guardare ossessivamente il passo e senza
+cercare di recuperare in discesa i secondi persi in salita.
+</p>
+
+<p>
+La parte centrale, soprattutto a Brooklyn, sarà quella più favorevole per trovare ritmo.
+Più avanti il <strong>Queensboro Bridge</strong>, la lunga fase su First Avenue, il passaggio nel Bronx
+e soprattutto la salita di <strong>Fifth Avenue</strong> richiederanno gestione e pazienza.
+</p>
+
+<div class="note-box">
+<strong>Obiettivo indicativo:</strong> correre intorno ai <strong>6'00&quot;/km</strong>, per un tempo teorico di circa
+<strong>4h13'</strong>, ma con priorità assoluta alla gestione, alla regolarità e al piacere di vivere bene
+la prima maratona.
+</div>
+</div>
+
+<div class="section-label">Metodo di lavoro</div>
+
+<div class="card content">
+<p>
+La preparazione è organizzata su <strong>5 allenamenti settimanali</strong>:
+lunedì, martedì, mercoledì, venerdì e domenica.
+</p>
+
+<p>
+<strong>🟢 Lunedì – Scarico</strong><br>
+3 km RD + 6 km RL + 2 km RD. Se necessario, soprattutto dopo i lunghi più impegnativi,
+<strong>l’intera seduta può essere corsa tranquillamente a RD</strong>.
+Il recupero viene prima del rispetto rigido del ritmo.
+</p>
+
+<p>
+<strong>🔵 Martedì – Fondo lento RS</strong><br>
+Circa 10 km a ritmo RL, intorno ai <strong>6'00&quot;/km</strong>.
+Serve a consolidare volume e continuità senza aggiungere stress eccessivo.
+</p>
+
+<p>
+<strong>🔥 Mercoledì – Soglia RS</strong><br>
+Allenamento collettivo Runner’s School + <strong>3 km RL</strong> prima o dopo la seduta.
+Nelle settimane di scarico va scelto un gruppo leggermente più soft.
+</p>
+
+<p>
+<strong>🟠 Venerdì – RS o mantenimento</strong><br>
+L’allenamento Runner’s School del venerdì può rimanere, aggiungendo 3–4 km facili prima o dopo.
+In alternativa si ruotano tre lavori di mantenimento nelle tre settimane di carico.
+</p>
+
+<p>
+<strong>🏁 Domenica – Fine settimana</strong><br>
+È la seduta chiave. Il programma alterna due lavori lunghi/importanti e un lavoro più corto e brillante
+all’interno di ogni microciclo, con progressione fino a 34 km.
+</p>
+
+<div class="note-box">
+<strong>Ciclo 3+1:</strong> tre settimane di carico seguite da una settimana di scarico.
+L’ultima settimana di scarico coincide con la settimana precedente alla maratona.
+</div>
+</div>
+
+<div class="section-label">Strategia del programma</div>
+
+<div class="card content">
+<p>
+Il programma è costruito per sviluppare soprattutto <strong>resistenza specifica da maratona</strong>.
+Manuela possiede già un ottimo ritmo sul corto e medio, quindi non abbiamo bisogno di inserire lavori aggressivi a RG.
+</p>
+
+<p>
+Nei lavori individuali non si andrà praticamente mai oltre <strong>RM-10&quot;</strong>.
+La velocità verrà comunque mantenuta attraverso il lavoro collettivo del mercoledì.
+L’obiettivo è imparare a correre a lungo vicino al ritmo maratona, o poco più velocemente,
+senza consumare energie inutili.
+</p>
+
+<p>
+La <strong>collina è sempre consigliata</strong>, perché New York richiede capacità di gestire ponti, salite e discese.
+Quando il lungo viene svolto collinare, è preferibile evitare di caricare anche il lavoro corto con altra collina.
+Se invece il lungo è in piano, il richiamo collinare durante la settimana diventa molto utile.
+</p>
+
+<p>
+Nei lunghi conterà soprattutto la capacità di finire ancora efficienti. I tratti tra RL e RA servono a
+mantenere una buona meccanica con fatica accumulata, non a trasformare il lungo in una gara.
+</p>
+
+<div class="note-box">
+<strong>Principio guida:</strong> non dobbiamo rendere Manuela più veloce; dobbiamo renderla capace di usare bene
+la velocità che già possiede per 42,195 km.
+</div>
+</div>
+
+
+
+<div class="section-label">Ritmi di riferimento</div>
+
+<div class="card content">
+<div class="grid">
+<div class="mini"><div class="k">RG</div><div class="v"><strong>5'00&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RM</div><div class="v"><strong>5'30&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RA</div><div class="v"><strong>5'50&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RL</div><div class="v"><strong>6'00&quot;/km</strong></div></div>
+<div class="mini"><div class="k">RD</div><div class="v"><strong>6'10&quot;–6'20&quot;/km</strong></div></div>
+</div>
+
+<div class="note-box">
+<strong>Test 3 km:</strong> RG teorico circa <strong>4'45&quot;/km</strong>. I riferimenti del programma sono volutamente
+più prudenti e orientati alla costruzione della maratona.
+</div>
+</div>
+
+<div class="section-label">Programma</div>
+
+<div class="card content">
+
+<details class="week" open>
+<summary>Settimana 1 · 10–16 agosto <span class="small">Carico 1/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL, intorno a 6'00&quot;/km.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL prima o dopo.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS del venerdì + 3–4 km facili prima o dopo. In alternativa: 3 km RD + 4 km RA + 5 × (100 m allungo + 100 m recupero RL) + 2 km RD.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · 16–18 km</div><div>Collinari, oppure 3 km RD + 4 × (1500 m RA + 500 m RM + 500 m RD) + 1 km RM-10&quot; + 3 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 2 · 17–23 agosto <span class="small">Carico 2/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS + 3–4 km facili, oppure 3 km RD + 4 km RL + 3 km RA + 1 km RD.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · Lungo 25 km</div><div>5 km RD + 5 km RL + 5 km RA + 5 km RL + 5 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 3 · 24–30 agosto <span class="small">Scarico</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>8–10 km RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>8–10 km facili, senza forzare.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS soft</div><div>Scegliere un gruppo più soft. Evitare di trasformare lo scarico in un lavoro intenso.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · Scarico</div><div>10 km RD.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · 20 km</div><div>5 km RD + 10 km RL + 5 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 4 · 31 agosto–6 settembre <span class="small">Carico 1/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS + 3–4 km facili, oppure 2 km RD + 7 km RL + 5 × (100 m salita + recupero discesa camminando/jog) + 1 km RD.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · Lungo 28 km</div><div>Collinare, oppure 4 km RD + 5 × (2,5 km RA + 500 m RM + 1 km RD) + 1 km RM-10&quot; + 3 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 5 · 7–13 settembre <span class="small">Carico 2/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS + 3–4 km facili oppure uno dei mantenimenti previsti.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · 18–20 km</div><div>Collinari, oppure 3 km RD + 7 × (1 km RM-10&quot; + 1 km RL) + 3 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 6 · 14–20 settembre <span class="small">Carico 3/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS + 3–4 km facili oppure mantenimento controllato.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · Lungo 30 km</div><div>3 km RD + 25 km tra RL e RA + 2 km RD.</div><div class="small" style="margin-top:6px;">Partire verso RL e avvicinarsi a RA soltanto se le sensazioni rimangono buone.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 7 · 21–27 settembre <span class="small">Scarico</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>8–10 km RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>8–10 km facili.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS soft</div><div>Scegliere un gruppo più soft.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · Scarico</div><div>10 km RD.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · 20 km</div><div>5 km RD + 10 km RL + 5 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 8 · 28 settembre–4 ottobre <span class="small">Carico 1/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS + 3–4 km facili oppure mantenimento controllato.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · Lungo 32 km</div><div>Collinare, oppure 3 km RD + 3 × (8 km tra RL e RA + 1 km RM) + 2 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 9 · 5–11 ottobre <span class="small">Carico 2/3</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Allenamento RS + 3–4 km facili oppure mantenimento.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · 18–20 km</div><div>Collinari, oppure 3 km RD + 5 × (2 km RM + 1 km RL) + 2 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 10 · 12–18 ottobre <span class="small">Carico 3/3 · lungo massimo</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>3 km RD + 6 km RL + 2 km RD. Se necessario, tutto a RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>Circa 10 km a RL.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS</div><div>Allenamento RS soglia + 3 km RL, senza eccedere.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · RS / mantenimento</div><div>Seduta controllata, evitando di arrivare stanchi al lungo.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · Lungo 34 km</div><div>4 km RD + 7 km RL + 4 × (4 km RA + 1 km RL) + 3 km RD.</div><div class="small" style="margin-top:6px;">Confermato se i 30 e 32 km sono stati assorbiti bene. In caso di stanchezza residua importante, fermarsi a 32 km è sufficiente.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 11 · 19–25 ottobre <span class="small">Scarico / taper</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>8–10 km RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento RS</div><div>8–10 km facili.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Soglia RS soft</div><div>Scegliere un gruppo più soft.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · Scarico</div><div>8–10 km RD oppure riposo se le gambe non sono fresche.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica · 16 km</div><div>2 km RD + 10 km RL + 2 km RA + 2 km RD.</div></div>
+</div></details>
+
+<details class="week">
+<summary>Settimana 12 · 26 ottobre–1 novembre <span class="small">Settimana gara</span></summary>
+<div class="week-content">
+<div class="session"><div class="session-title">🟢 Lunedì · Scarico</div><div>6–7 km RD.</div></div>
+<div class="session"><div class="session-title">🔵 Martedì · Fondo lento</div><div>6–8 km facili, senza cercare volume.</div></div>
+<div class="session"><div class="session-title">🔥 Mercoledì · Richiamo</div><div>30–40' facili con 4–5 allunghi brevi e controllati.</div></div>
+<div class="session"><div class="session-title">🟠 Venerdì · Attivazione</div><div>20–30' RD molto facili oppure riposo, in base alle sensazioni e alla logistica del viaggio.</div></div>
+<div class="session"><div class="session-title">🏁 Domenica 1 novembre · TCS NEW YORK CITY MARATHON</div><div>42,195 km. Prima parte prudente, gestione dei ponti e progressione soltanto se dopo il 35° km rimangono energie reali.</div></div>
+</div></details>
+
+</div>
+
+<div class="section-label">Strategia gara</div>
+
+<div class="card content">
+<p>
+<strong>0–5 km · Verrazzano:</strong> partenza molto controllata. In salita non guardare il passo.
+Accettare tranquillamente un ritmo più lento della media prevista e non recuperare forzatamente in discesa.
+</p>
+
+<p>
+<strong>5–21 km · Brooklyn:</strong> stabilizzarsi progressivamente intorno a <strong>5'55&quot;–6'05&quot;/km</strong>,
+sempre con sensazione di controllo. Al passaggio della mezza la percezione deve essere di avere ancora molto margine.
+</p>
+
+<p>
+<strong>21–30 km · Queens / Queensboro:</strong> correre a sforzo costante. Sul Queensboro il passo può rallentare:
+va bene così. Passo corto, frequenza regolare e nessun tentativo di recuperare secondi.
+</p>
+
+<p>
+<strong>30–35 km · First Avenue / Bronx:</strong> proteggere la gara. Dividere mentalmente il percorso in piccoli blocchi
+e continuare a bere e alimentarsi secondo il piano.
+</p>
+
+<p>
+<strong>35–38 km · Fifth Avenue:</strong> uno dei punti più delicati. Accettare un rallentamento,
+mantenere postura e frequenza e non combattere contro il Garmin.
+</p>
+
+<p>
+<strong>Ultimi km · Central Park:</strong> se la gara è stata gestita bene, usare gradualmente quello che rimane.
+Negli ultimi 3–4 km il cronometro smette di essere la priorità: correre e godersi la prima maratona.
+</p>
+
+<div class="note-box">
+<strong>Regola fondamentale:</strong> a New York conta più la continuità dello sforzo che il passo istantaneo.
+I <strong>6'00&quot;/km</strong> sono una media ideale, non un obbligo su ogni singolo chilometro.
+</div>
+</div>
+
+<div class="section-label">Promemoria finale</div>
+
+<div class="card content">
+<p>
+<strong>La prima maratona si costruisce con continuità.</strong><br>
+Il lavoro di qualità deve lasciare energie per il resto della settimana.
+Il lungo deve costruire resistenza e fiducia, non dimostrare in anticipo il risultato della gara.
+Se il carico diventa eccessivo, si rallenta: proteggere la continuità viene prima del rispetto rigido del ritmo.
+</p>
+
+<p>
+Per Manuela il risultato migliore sarà arrivare a New York con la sensazione di avere costruito abbastanza
+resistenza da affrontare la gara con lucidità, pazienza e fiducia. La velocità c’è già:
+ora dobbiamo fare in modo che rimanga disponibile anche quando la maratona entra nella sua parte decisiva.
+</p>
+</div>
+
+<script>
+const PAGE_HASH = "8eb16419b34432a7d3ec6abcad38362db4d613bb71a744e94ba6089721373e97";
+</script>
+
+</body>
+</html>
