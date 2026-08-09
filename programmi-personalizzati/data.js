@@ -62,5 +62,6 @@ window.RS_PROGRAMMI = {
   "460ec9b3248e8c357129d5c16d4e5d9c058566324c1d52e8cc375a586662782b": "programmi/barbieri-carlo.html",
   "6332e4dcf8a913207d89fa9820c0219073bb2c7fa3b8f2875e1c6c39e6ae5321": "programmi/gaiba-gloria.html",
   "87dd30f118eb62aa8a999883f50c15f831a2a7e8261addf5f11cc7443c191bfe": "programmi/martinotti-gabriele.html",
-  "251549d65f294ad3105e5f83c6e774edff7d4b5397c2ff473830a686a6ba3354": "programmi/borgatti-benedetta.html"
+  "251549d65f294ad3105e5f83c6e774edff7d4b5397c2ff473830a686a6ba3354": "programmi/borgatti-benedetta.html",
+  "8eb16419b34432a7d3ec6abcad38362db4d613bb71a744e94ba6089721373e97": "programmi/mazzoni-manuela.html"
   };
