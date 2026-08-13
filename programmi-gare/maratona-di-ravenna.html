@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maratona di Ravenna 2026</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 14px 80px;
+}
+
+.header,.box,.week{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.header{
+  padding:18px;
+  margin-bottom:14px;
+}
+
+.header h1{
+  margin:0 0 8px;
+  font-size:20px;
+}
+
+.header p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:14px;
+  line-height:1.4;
+}
+
+.btn{
+  display:inline-flex;
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--accent-soft);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+}
+
+.box{
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.box h2{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--accent);
+}
+
+.box h3{
+  margin:16px 0 6px;
+  font-size:14px;
+  color:var(--text);
+}
+
+.box p{
+  margin:0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.box ul{
+  margin:8px 0 0;
+  padding-left:20px;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.week{
+  margin:12px 0;
+  overflow:hidden;
+}
+
+.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  font-weight:900;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week-content{
+  padding:0 14px 14px;
+}
+
+.week-content p{
+  margin:12px 0 0;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.week-content strong{
+  color:var(--text);
+}
+
+.week-dates{
+  color:var(--text-muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.note{
+  margin-top:10px;
+  padding:12px;
+  border-radius:14px;
+  background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,.25);
+  color:var(--text-muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.warning{
+  margin-top:12px;
+  padding:13px;
+  border-radius:14px;
+  background:rgba(234,179,8,.08);
+  border:1px solid rgba(234,179,8,.30);
+  color:var(--text-muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.warning strong{
+  color:#facc15;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+
+  <div class="header">
+    <h1>🏁 Maratona di Ravenna 2026</h1>
+
+    <p>
+      <strong>Data gara:</strong> domenica 8 novembre 2026<br>
+      <strong>Distanza:</strong> 42,195 km
+    </p>
+
+    <a class="btn" href="/runnerschoolitalia/programmi-gare/">
+      ⬅️ Torna ai Programmi Gare
+    </a>
+  </div>
+
+
+  <!-- INDICAZIONI GENERALI -->
+
+  <div class="box">
+
+    <h2>📋 Indicazioni generali</h2>
+
+    <p>
+      Programma specifico di 12 settimane per la preparazione
+      alla Maratona di Ravenna.
+      <br><br>
+
+      La preparazione mantiene la struttura del Programma Endurance
+      Runner's School ed è organizzata attraverso
+      <strong>microcicli di 4 settimane: 3 settimane di carico
+      seguite da 1 settimana di scarico</strong>.
+      <br><br>
+
+      L'obiettivo è costruire progressivamente la resistenza necessaria
+      per affrontare la maratona, senza trascurare forza,
+      brillantezza ed efficienza di corsa.
+      <br><br>
+
+      All'interno di ogni microciclo i lavori del fine settimana
+      alternano tre stimoli differenti:
+    </p>
+
+    <ul>
+      <li>
+        <strong>un lungo in piano</strong>, progressivamente più specifico
+        e con una presenza sempre maggiore del Ritmo Maratona;
+      </li>
+
+      <li>
+        <strong>un lungo collinare</strong>, utile per sviluppare
+        forza e resistenza muscolare;
+      </li>
+
+      <li>
+        <strong>un lavoro più corto e veloce</strong>, per mantenere
+        brillantezza, ritmo ed efficienza di corsa.
+      </li>
+    </ul>
+
+    <p style="margin-top:10px;">
+      Dopo le tre settimane di carico arriva la
+      <strong>settimana di scarico</strong>, nella quale il volume
+      e l'intensità complessiva vengono ridotti per permettere
+      all'organismo di recuperare e assimilare il lavoro svolto.
+    </p>
+
+    <div class="note">
+      🔄 <strong>La logica del programma</strong><br><br>
+
+      <strong>3 settimane di carico + 1 settimana di scarico.</strong>
+      <br><br>
+
+      Durante ogni microciclo alterniamo quindi
+      <strong>lungo in piano, collinare e lavoro corto/veloce</strong>,
+      prima della settimana dedicata al recupero.
+      <br><br>
+
+      Con l'avvicinarsi della maratona aumentano progressivamente
+      sia la distanza dei lunghi sia la quantità di chilometri
+      corsi a Ritmo Maratona.
+    </div>
+
+    <div class="warning">
+      ⚠️ <strong>IMPORTANTE</strong><br><br>
+
+      Questo è un <strong>programma standard</strong>, pensato per fornire
+      una struttura completa e progressiva di preparazione alla maratona.
+      <br><br>
+
+      Ogni atleta, però, ha una storia, un livello di preparazione,
+      dei ritmi, una capacità di recupero e delle esigenze differenti.
+      <br><br>
+
+      Se volete essere sicuri che il programma sia
+      <strong>al 100% adatto a voi</strong>, confrontatevi con il vostro
+      <strong>istruttore di fiducia</strong>, che potrà eventualmente
+      adattare carichi, ritmi e sedute alle vostre caratteristiche.
+    </div>
+
+  </div>
+
+
+  <!-- STRUTTURA SETTIMANALE -->
+
+  <div class="box">
+
+    <h2>🏃 Struttura settimanale</h2>
+
+    <ul>
+      <li>Prima uscita di scarico.</li>
+      <li>Qualità come da Programma Endurance Runner's School.</li>
+      <li>Mantenimento.</li>
+      <li>Seconda uscita aerobica di scarico.</li>
+      <li>Lavoro specifico del fine settimana.</li>
+    </ul>
+
+    <div class="note">
+      Le sedute devono essere distribuite durante la settimana
+      lasciando, quando possibile, un adeguato recupero tra
+      i lavori più impegnativi.
+      <br><br>
+      RD, RL, RA, RM e RG fanno riferimento ai ritmi personali
+      Runner's School.
+    </div>
+
+  </div>
+
+
+  <!-- DESCRIZIONE RAVENNA -->
+
+  <div class="box">
+
+    <h2>🏛️ Ravenna: correre dentro la storia</h2>
+
+    <p>
+      La Maratona di Ravenna Città d'Arte è una gara particolare:
+      ai 42,195 km della maratona unisce uno dei patrimoni artistici
+      e culturali più importanti d'Italia.
+      <br><br>
+
+      Il percorso attraversa Ravenna e il suo centro storico,
+      passando nei pressi degli otto monumenti paleocristiani
+      e bizantini riconosciuti dall'UNESCO come Patrimonio Mondiale
+      dell'Umanità.
+      <br><br>
+
+      Basilica di San Vitale, Mausoleo di Galla Placidia,
+      Battistero Neoniano, Cappella Arcivescovile,
+      Basilica di Sant'Apollinare Nuovo, Battistero degli Ariani,
+      Mausoleo di Teodorico e Basilica di Sant'Apollinare in Classe
+      accompagnano idealmente gli atleti lungo un percorso
+      che unisce sport, storia e arte.
+      <br><br>
+
+      Anche la medaglia consegnata ai finisher richiama uno dei simboli
+      più importanti della città: il mosaico ravennate.
+    </p>
+
+  </div>
+
+
+  <!-- COME AFFRONTARLA -->
+
+  <div class="box">
+
+    <h2>🎯 Come affrontarla</h2>
+
+    <p>
+      La maratona deve essere affrontata fin dai primi chilometri
+      con controllo e regolarità.
+      <br><br>
+
+      Uno degli errori più comuni è lasciarsi trasportare dalle
+      ottime sensazioni iniziali e correre più velocemente del
+      Ritmo Maratona programmato.
+      <br><br>
+
+      Nei primi 10-15 km il ritmo deve sembrare relativamente facile.
+      L'obiettivo è conservare energie preziose per la seconda metà
+      della gara e soprattutto per gli ultimi 10-12 km.
+      <br><br>
+
+      Il vero obiettivo della preparazione è arrivare dopo il
+      trentesimo chilometro con ancora energie sufficienti
+      per mantenere una corsa efficace.
+    </p>
+
+  </div>
+
+
+  <!-- SETTIMANA 1 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 1
+      <span class="week-dates">17-23 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 5 km RL + 3 km RA + 3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>⚡ Fine Settimana - Corto Veloce</strong><br>
+        5 km RD + 5 km RG + 5 km RD
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 2 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 2
+      <span class="week-dates">24-30 agosto</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 7 km RL +
+        5 × (100 m allungo + 100 m recupero RL) + 3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>⛰️ Fine Settimana - 25 km</strong><br>
+        Collinare 25 km
+        <br><br>
+        <em>Alternativa in piano:</em><br>
+        5 km RD + 5 km RL + 5 km RA + 5 km RM + 5 km RD
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 3 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 3
+      <span class="week-dates">31 agosto-6 settembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>🔄 Fine Settimana - Scarico</strong><br>
+        3 km RD + 3 × (3 km RM + 1 km RL) + 1 km RD
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 4 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 4
+      <span class="week-dates">7-13 settembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        2 km RD + 8 km RL +
+        5 × (100 m allungo in salita +
+        100 m recupero in discesa souplesse) +
+        3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>⛰️ Fine Settimana - 28 km</strong><br>
+        Collinare 28 km
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 5 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 5
+      <span class="week-dates">14-20 settembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 5 km RL + 3 km RA + 3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>⚡ Fine Settimana - Corto Veloce</strong><br>
+        5 km RD + 10 km al meglio + 5 km RD
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 6 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 6
+      <span class="week-dates">21-27 settembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 7 km RL +
+        5 × (100 m allungo + 100 m recupero RL) +
+        3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>🏃 Fine Settimana - Lungo 30 km</strong><br>
+        3 km RD +
+        6 × (2,5 km RM + 500 m RG + 1 km RL) +
+        2 km RD
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 7 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 7
+      <span class="week-dates">28 settembre-4 ottobre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>🔄 Fine Settimana - Scarico</strong><br>
+        4 km RD + 4 km RL + 4 km RM + 4 km RD
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 8 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 8
+      <span class="week-dates">5-11 ottobre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        2 km RD + 8 km RL +
+        5 × (100 m allungo in salita +
+        100 m recupero in discesa souplesse) +
+        3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>⛰️ Fine Settimana - 32 km</strong><br>
+        Collinare 32 km
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 9 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 9
+      <span class="week-dates">12-18 ottobre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 5 km RL + 3 km RA + 3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>🏁 Fine Settimana - Half Marathon</strong><br>
+        Half Marathon al meglio
+      </p>
+
+      <div class="note">
+        Dopo la gara valutare il recupero nella settimana successiva
+        prima di affrontare il lungo più importante della preparazione.
+      </div>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 10 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 10
+      <span class="week-dates">19-25 ottobre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 7 km RL +
+        5 × (100 m allungo + 100 m recupero RL) +
+        3 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>🏃 Fine Settimana - Lungo 34 km</strong><br>
+        3 km RD +
+        6 × (3,5 km RM + 500 m RG + 1 km RL) +
+        1 km RD
+        <br><br>
+
+        <em>Oppure:</em><br>
+        6 × (4 km RM + 1 km RL)
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 11 -->
+
+  <details class="week">
+
+    <summary>
+      Settimana 11
+      <span class="week-dates">26 ottobre-1 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 5 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 7 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Secondo Scarico</strong><br>
+        3 km RD + 7 km RL + 3 km RD
+      </p>
+
+      <p>
+        <strong>🔄 Fine Settimana - Scarico</strong><br>
+        2 km RD + 5 km RL + 5 km RM + 2 km RD
+        <br><br>
+        Chi vuole può correre 5 km in gara.
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <!-- SETTIMANA 12 -->
+
+  <details class="week" open>
+
+    <summary>
+      Settimana 12 - GARA 🏁
+      <span class="week-dates">2-8 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <p>
+        <strong>🟢 Scarico</strong><br>
+        3 km RD + 4 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🔥 Qualità</strong><br>
+        Lavoro Qualità Standard da tabella Runner's School
+        <strong>(soft)</strong>
+      </p>
+
+      <p>
+        <strong>🔵 Mantenimento</strong><br>
+        3 km RD + 3 km RL + 1 km RD
+      </p>
+
+      <p>
+        <strong>🟢 Attivazione</strong><br>
+        30' RD/RL
+      </p>
+
+      <p>
+        <strong>🏁 Domenica 8 novembre</strong><br>
+        MARATONA DI RAVENNA<br>
+        42,195 km
+      </p>
+
+      <div class="note">
+        Tutto il lavoro è stato fatto.
+        In questa settimana non dobbiamo più costruire forma:
+        dobbiamo arrivare alla partenza riposati, pronti
+        e con voglia di correre.
+      </div>
+
+    </div>
+
+  </details>
+
+
+  <!-- GIORNO GARA -->
+
+  <div class="box">
+
+    <h2>🏁 Il giorno della gara</h2>
+
+    <p>
+      Partite controllati e rispettate fin dai primi chilometri
+      il Ritmo Maratona programmato.
+      <br><br>
+
+      Non lasciatevi ingannare dalle sensazioni iniziali:
+      nei primi 10-15 km il ritmo deve sembrare facile.
+      La maratona comincia davvero molto più avanti.
+      <br><br>
+
+      Curate con attenzione idratazione e integrazione fin dalle
+      prime fasi di gara, senza aspettare di avvertire sete,
+      fame o cali di energia.
+      <br><br>
+
+      Dopo il trentesimo chilometro ascoltate le sensazioni:
+      se il lavoro svolto vi permetterà di mantenere il ritmo
+      programmato, continuate regolari.
+      Se invece avrete ancora margine, sarà quello il momento
+      per iniziare gradualmente a correre la vostra gara.
+      <br><br>
+
+      E soprattutto godetevi gli ultimi chilometri:
+      arrivare al traguardo di una maratona è sempre qualcosa
+      che va molto oltre il semplice cronometro.
+    </p>
+
+  </div>
+
+
+  <!-- DISCLAIMER FINALE -->
+
+  <div class="box">
+
+    <h2>👟 Un programma, ma soprattutto una guida</h2>
+
+    <p>
+      Ricordate che nessun programma standard può conoscere
+      perfettamente come state reagendo agli allenamenti.
+      <br><br>
+
+      Stanchezza, impegni personali, gare intermedie,
+      piccoli fastidi o semplicemente una risposta diversa
+      ai carichi possono rendere necessario modificare
+      una o più settimane.
+      <br><br>
+
+      Per questo motivo, soprattutto durante la preparazione
+      di una maratona, il confronto con il proprio
+      <strong>istruttore di fiducia</strong> rimane fondamentale.
+    </p>
+
+  </div>
+
+
+</div>
+
+</body>
+</html>
