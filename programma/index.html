@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programmi Estivi Runner’s School Italia 2026</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Q1 Settembre–Dicembre 2026 | Runner’s School Italia</title>
 <style>
 :root { --bg:#020617; --bg-card:#0b1120; --accent:#f97316; --accent-soft:rgba(249,115,22,.12); --text:#e5e7eb; --text-muted:#9ca3af; --border:#1f2937; --radius-lg:20px; --shadow-soft:0 18px 45px rgba(0,0,0,.55); }
 .rs-app-programmi *{box-sizing:border-box}
@@ -43,342 +44,119 @@
 #rs-lock button{width:100%;padding:13px;border:0;border-radius:12px;background:#f97316;color:#111827;font-size:15px;font-weight:800;cursor:pointer}
 #rs-lock .error{min-height:20px;color:#fca5a5;font-size:13px;margin-top:8px}
 </style>
-<div id="rs-lock"><div class="lock-card"><div style="font-size:42px">🔒</div><h1>Programmi Estivi RS</h1><p>Inserisci la password riservata agli allievi Runner’s School Italia.</p><input id="rs-password" type="password" autocomplete="current-password" placeholder="Password"><button id="rs-enter" type="button">ENTRA</button><div class="error" id="rs-error"></div></div></div>
+<div id="rs-lock"><div class="lock-card"><div style="font-size:42px">🔒</div><h1>Q1 Settembre–Dicembre 2026</h1><p>Inserisci la password riservata agli allievi Runner’s School Italia.</p><input autocomplete="current-password" id="rs-password" placeholder="Password" type="password"/><button id="rs-enter" type="button">ENTRA</button><div class="error" id="rs-error"></div></div></div>
 <div class="rs-app-programmi" id="rs-content" style="display:none">
-<a href="https://massimocora3-create.github.io/runnerschoolitalia" class="back-home" title="Torna alla Home App RS">←</a>
+<a class="back-home" href="https://massimocora3-create.github.io/runnerschoolitalia" title="Torna alla Home App RS">←</a>
 <div class="app-shell">
-<div class="header"><span class="badge">Estate 2026</span><h1>☀️ Programmi Estivi Runner’s School Italia</h1><p><strong>Pausa estiva 20 luglio – 6 settembre</strong>: programmi per allenarsi in autonomia e arrivare pronti alla ripartenza di settembre.</p></div>
-<section class="box"><h2>ℹ️ Come usare questa pagina</h2><p>Apri il tuo livello e consulta la settimana di riferimento. Le uscite sono pensate per mantenere continuità, consolidare il lavoro fatto e gestire il caldo senza esagerare.</p><a class="info-link" href="https://www.runnerschoolitalia.com/programmi-estivi-2026/" target="_blank" rel="noopener noreferrer">📘 Spiegazione e tabelle complete</a></section>
-<details class="level" data-level="work-in-progress" open>
-  <summary>🟨 Work in Progress<div class="chev"></div></summary>
-  <details class="week" data-start="2026-07-20" data-end="2026-07-26" open>
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">20 luglio – 26 luglio</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>5' cammino + 25' corsa facile + 5' cammino</p>
-      <p><strong>👥 Qualità leggera</strong><br>10' corsa facile + 6 × (1' brillante + 2' corsa facile) + 5' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>40' corsa facile</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-07-27" data-end="2026-08-02">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>30' corsa facile</p>
-      <p><strong>👥 Qualità leggera</strong><br>10' corsa facile + 5 × (2' brillante + 2' corsa facile) + 5' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>45' corsa facile</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-03" data-end="2026-08-09">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">3 agosto – 9 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>35' corsa facile</p>
-      <p><strong>👥 Qualità leggera</strong><br>10' corsa facile + 15' ritmo regolare controllato + 5' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>50' corsa facile</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-10" data-end="2026-08-16">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">10 agosto – 16 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>30' corsa facile</p>
-      <p><strong>👥 Qualità leggera</strong><br>10' corsa facile + 5 × (80–100 m allungo + 100 m recupero corsa facile) + 5' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>40' corsa facile</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-17" data-end="2026-08-23">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">17 agosto – 23 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>35' corsa facile</p>
-      <p><strong>👥 Qualità leggera</strong><br>10' corsa facile + 4 × (3' brillante + 2' corsa facile) + 5' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>55' corsa facile</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-24" data-end="2026-08-30">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">24 agosto – 30 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>35' corsa facile</p>
-      <p><strong>👥 Qualità leggera</strong><br>10' corsa facile + 20' ritmo regolare controllato + 5' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>60' corsa facile</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-31" data-end="2026-09-06">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
-    <div class="week-content">
-      <p><strong>🅰️ Scarico</strong><br>30' corsa facile</p>
-      <p><strong>👥 Qualità leggera</strong><br>Test 3000 m facoltativo oppure 30' corsa facile</p>
-      <p><strong>🏁 Fine settimana</strong><br>50–60' corsa facile; 45–50' se è stato effettuato il Test 3000 m</p>
-    </div>
-  </details>
-</details>
-<details class="level" data-level="sprint" >
-  <summary>🟦 Sprint 6–8 km<div class="chev"></div></summary>
-  <details class="week" data-start="2026-07-20" data-end="2026-07-26" >
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">20 luglio – 26 luglio</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>10' RD + 6 × (1' RG + 2' RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 2 km RA + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>8 km progressivo: 3 km RL + 2 km RM + 2 km RG + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-07-27" data-end="2026-08-02" >
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>10' RD + 6 × 400m RG-20" rec. 1'30" souplesse + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 4 × (100m allungo + 100m recupero RL) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>9 km collinare: percorso collinare continuo a intensità aerobica, senza forzare le salite</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-03" data-end="2026-08-09" >
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">3 agosto – 9 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>10' RD + 15' RM + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 4 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>8 km corto veloce: 2 km RD + 4 km RG + 1 km RL + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-10" data-end="2026-08-16" >
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">10 agosto – 16 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>10' RD + 2 km RL + 2 km RM + 5 × (100m allungo + 100m recupero RL) + 5' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>7 km RL</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-17" data-end="2026-08-23" >
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">17 agosto – 23 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>10' RD + 4 × 800m RG rec. 2' souplesse + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 4 km RL + 2 km RA + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>9 km progressivo: 3 km RL + 3 km RM + 2 km RG + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-24" data-end="2026-08-30" >
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">24 agosto – 30 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>10' RD + 8 × (1' RG-20" + 1' RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 4 × (100m allungo + 100m recupero RL) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>9 km collinare: percorso collinare continuo a intensità aerobica, senza forzare le salite</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-31" data-end="2026-09-06" >
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 4 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>Test 3000m facoltativo</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 4 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>8 km variato: 2 km RL + 2 km RM + 2 km RG + 1 km RL + 1 km RD</p>
-    </div>
-  </details>
-</details>
-<details class="level" data-level="medio" >
-  <summary>🟦 Medio 9–12 km<div class="chev"></div></summary>
-  <details class="week" data-start="2026-07-20" data-end="2026-07-26" >
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">20 luglio – 26 luglio</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 6 × (2' RG + 2' RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 3 km RA + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>11 km progressivo: 4 km RL + 3 km RM + 3 km RG + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-07-27" data-end="2026-08-02" >
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 7 × 400m RG-20" rec. 1'30" souplesse + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km RL + 5 × (100m allungo + 100m recupero RL) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>12 km collinare: percorso collinare continuo a intensità aerobica, senza forzare le salite</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-03" data-end="2026-08-09" >
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">3 agosto – 9 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 18' RM + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km RL + 5 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>9 km corto veloce: 2 km RD + 5 km RG + 1 km RL + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-10" data-end="2026-08-16" >
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">10 agosto – 16 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 2 km RL + 3 km RM + 5 × (100m allungo + 100m recupero RL) + 5' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>9 km RL</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-17" data-end="2026-08-23" >
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">17 agosto – 23 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 5 × 800m RG rec. 2' souplesse + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 5 km RL + 3 km RA + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>12 km progressivo: 4 km RL + 4 km RM + 3 km RG + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-24" data-end="2026-08-30" >
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">24 agosto – 30 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 9 × (1' RG-20" + 1' RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km RL + 5 × (100m allungo + 100m recupero RL) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>12 km collinare: percorso collinare continuo a intensità aerobica, senza forzare le salite</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-31" data-end="2026-09-06" >
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>2 km RD + 6 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>Test 3000m facoltativo</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 6 km RL + 5 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>11 km variato: 3 km RL + 3 km RM + 3 km RG + 1 km RL + 1 km RD</p>
-    </div>
-  </details>
-</details>
-<details class="level" data-level="endurance" >
-  <summary>🟪 Endurance 13 km +<div class="chev"></div></summary>
-  <details class="week" data-start="2026-07-20" data-end="2026-07-26" >
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">20 luglio – 26 luglio</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 6 × (2' RG + 2' RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>13 km progressivo: 3 km RL + 4 km RM + 4 km RG + 2 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-07-27" data-end="2026-08-02" >
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 8 × 400m RG-20" rec. 1'30" souplesse + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>3 km RD + 7 km RL + 5 × (100m allungo + 100m recupero RL) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>15 km collinare: percorso collinare continuo a intensità aerobica, senza forzare le salite</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-03" data-end="2026-08-09" >
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">3 agosto – 9 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 20' RM + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 8 km RL + 5 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>10 km corto veloce: 3 km RD + 5 km RG + 1 km RL + 1 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-10" data-end="2026-08-16" >
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">10 agosto – 16 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 3 km RL + 3 km RM + 5 × (100m allungo + 100m recupero RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>10 km RL</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-17" data-end="2026-08-23" >
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">17 agosto – 23 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 5 × 800m RG rec. 2' souplesse + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>3 km RD + 5 km RL + 3 km RA + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>14 km progressivo: 5 km RL + 4 km RM + 3 km RG + 2 km RD</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-24" data-end="2026-08-30" >
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">24 agosto – 30 agosto</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>15' RD + 10 × (1' RG-20" + 1' RL) + 10' RD</p>
-<p><strong>🆎 Mantenimento</strong><br>3 km RD + 7 km RL + 5 × (100m allungo + 100m recupero RL) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>15 km collinare: percorso collinare continuo a intensità aerobica, senza forzare le salite</p>
-    </div>
-  </details>
-  <details class="week" data-start="2026-08-31" data-end="2026-09-06" >
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
-    <div class="week-content">
-<p><strong>🅰️ Scarico</strong><br>3 km RD + 7 km RL + 1 km RD</p>
-<p><strong>👥 Qualità</strong><br>Test 3000m facoltativo</p>
-<p><strong>🆎 Mantenimento</strong><br>2 km RD + 8 km RL + 5 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
-<p><strong>🏁 Fine settimana</strong><br>13 km variato: 3 km RL + 3 km RM + 3 km RG + 2 km RL + 2 km RD</p>
-    </div>
-  </details>
-</details>
+<div class="header"><span class="badge">Q1 • Settembre–Dicembre 2026</span><h1>🏃 Programmi Runner’s School Italia</h1><p><strong>Q1 • 7 settembre – 20 dicembre 2026</strong>: consulta il programma del tuo livello e la settimana di allenamento.</p></div>
+<section class="box"><h2>ℹ️ Come usare questa pagina</h2><p>Apri il tuo livello e consulta la settimana di riferimento. Per spiegazioni sul metodo, scelta del livello e tabelle complete utilizza la guida al programma.</p><a class="info-link" href="https://www.runnerschoolitalia.com/programma-running-settembre-dicembre/" rel="noopener noreferrer" target="_blank">📘 GUIDA AL PROGRAMMA E TABELLE COMPLETE</a></section>
+<details class="level" data-level="L2WIP"><summary>🟨 Work in Progress<div class="chev"></div></summary><details class="week" data-end="2026-09-06" data-start="2026-08-31">
+<summary><span class="week-title current-label">Settimana attuale - pausa estiva</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
+<div class="week-content">
+<p><strong>🅰️ Scarico</strong><br/>30' corsa facile</p>
+<p><strong>👥 Qualità leggera</strong><br/>Test 3000 m facoltativo oppure 30' corsa facile</p>
+<p><strong>🏁 Fine settimana</strong><br/>50–60' corsa facile; 45–50' se è stato effettuato il Test 3000 m</p>
+</div>
+</details><details class="week" data-end="2026-09-13" data-start="2026-09-07"><summary><span class="week-title">Settimana 1</span><span class="week-dates">7 settembre - 13 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 30' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 x (1000m RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (300m RG-10" + 30" recupero soupasse) + 3x (300m RG-20" + 1' recupero spuplasse) + 3x (300m RG-30" + 1'30" recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 6×(3' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 10' corsa facile + 8×(45" corsa impegnata in salita + recupero camminando in discesa) + 5' camminata</p></div></details><details class="week" data-end="2026-09-20" data-start="2026-09-14"><summary><span class="week-title">Settimana 2</span><span class="week-dates">14 settembre - 20 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 30' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (600m RM + 400m RL) + 2 x (600m RG + 400m RL) + 2 x (600m RG-20" + 400m RD) + 10' RD<br/><em class="work-type">lavoro misto</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6 x (100m RG + 100m RG-20" + 100m RG-40" + 1'30" recupero souplasse) + 1 km in progressione da RL a RG-20" + 5' RD<br/><em class="work-type">lavoro veloce medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 5×(4' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 6×(3' corsa impegnata + 2' camminata) + 5' camminata</p></div></details><details class="week" data-end="2026-09-27" data-start="2026-09-21"><summary><span class="week-title">Settimana 3</span><span class="week-dates">21 settembre - 27 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 30' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RA + 2 km RM + 2 km RG + 5' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 5 x (200m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 5×(3' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>30' corsa facile continua</p></div></details><details class="week" data-end="2026-10-04" data-start="2026-09-28"><summary><span class="week-title">Settimana 4</span><span class="week-dates">28 settembre - 4 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 35' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m -oppure 1'- tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 5×(5' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 10' corsa facile + 8×(1' corsa impegnata in salita + recupero camminando in discesa) + 5' camminata</p></div></details><details class="week" data-end="2026-10-11" data-start="2026-10-05"><summary><span class="week-title">Settimana 5</span><span class="week-dates">5 ottobre - 11 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 35' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4× [500 m RA + 500 m RM + 500 m RG + 300 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia corto/medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6x (100m RG + 100m RG-20" + 100 m RG-40" + 2'00" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 4×(7' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 10' corsa facile + 20' corsa impegnata continua + 5' camminata</p></div></details><details class="week" data-end="2026-10-18" data-start="2026-10-12"><summary><span class="week-title">Settimana 6</span><span class="week-dates">12 ottobre - 18 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 35' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (1500m RG + 500m RG-10" + 500m RL) + 10' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 4x (800m tra RG-20" e RG-30" + 3' recupero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 3×(10' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 6×(4' corsa impegnata + 2' camminata) + 5' camminata</p></div></details><details class="week" data-end="2026-10-25" data-start="2026-10-19"><summary><span class="week-title">Settimana 7</span><span class="week-dates">19 ottobre - 25 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 35' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 km RM + 1 km RG + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 5×(4' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>35' corsa facile continua</p></div></details><details class="week" data-end="2026-11-01" data-start="2026-10-26"><summary><span class="week-title">Settimana 8</span><span class="week-dates">26 ottobre - 1 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5x 50-60m allungo facile + 50-60m recupero RD + 8 x (400m tra RG-20" e RG- 40" + 2' recupero souplasse)<br/><em class="work-type">lavoro veloce</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 4×(8' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 10' corsa facile + 10×(1' corsa impegnata in salita + recupero camminando in discesa) + 5' camminata</p></div></details><details class="week" data-end="2026-11-08" data-start="2026-11-02"><summary><span class="week-title">Settimana 9</span><span class="week-dates">2 novembre - 8 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + piramide (500-800- 1200-800-500 RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia corto/medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 10x (100m RG-20" + 100 m RG-40" + 1'30" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 3×(12' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 6×(4' corsa impegnata + 2' corsa facile) + 5' camminata</p></div></details><details class="week" data-end="2026-11-15" data-start="2026-11-09"><summary><span class="week-title">Settimana 10</span><span class="week-dates">9 novembre - 15 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (250 RM + 250m RG + 250m RG- 20" + 250m RG-40" + 3' recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 2×(20' corsa impegnata + 3' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 10' corsa facile + 25' corsa impegnata continua + 5' camminata</p></div></details><details class="week" data-end="2026-11-22" data-start="2026-11-16"><summary><span class="week-title">Settimana 11</span><span class="week-dates">16 novembre - 22 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 km progressione da RL a RG + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 4×(6' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>35' corsa facile continua</p></div></details><details class="week" data-end="2026-11-29" data-start="2026-11-23"><summary><span class="week-title">Settimana 12</span><span class="week-dates">23 novembre - 29 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m oppure 1' tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 4×(9' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 10' corsa facile + 10×(1'30" corsa impegnata in salita + recupero camminando in discesa) + 5' camminata</p></div></details><details class="week" data-end="2026-12-06" data-start="2026-11-30"><summary><span class="week-title">Settimana 13</span><span class="week-dates">30 novembre - 6 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x (500m RG + 300m RL + 200m RG-10") + 10' RD<br/><em class="work-type">lavoro soglia corto/medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (400m RG-20" + 1'30" supolasse + 300m RG-30" + 1'30" souplasse + 200m RG-40" + 1' souplasse + 100m RG-40" + 30" supolasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 3×(13' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>5' camminata + 5×(5' corsa impegnata + 2' corsa facile) + 5' camminata</p></div></details><details class="week" data-end="2026-12-13" data-start="2026-12-07"><summary><span class="week-title">Settimana 14</span><span class="week-dates">7 dicembre - 13 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RM + 3 km RG + 500m RG-10" + 10' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + piramide + 2x (100-200-400-200-100 tra TG-20" e RG-40" + 45" recipero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 2×(20' corsa impegnata + 3' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>COLLINARE 6-7 km oppure 1 km corsa facile + 1 km corsa impegnata + 1 km corsa facile + 1 km corsa impegnata + 1 km corsa facile</p></div></details><details class="week" data-end="2026-12-20" data-start="2026-12-14"><summary><span class="week-title">Settimana 15</span><span class="week-dates">14 dicembre - 20 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>5' camminata 40' corsa faccile + 5' camminata</p><p><strong>👥 Qualità Standard</strong><br/>TEST dei 3000m<br/><em class="work-type">TEST FINALE</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il Work in Progress.</span></p><p><strong>🆎 Mantenimento</strong><br/>5' camminata + 4×(6' corsa impegnata + 2' camminata) + 5' camminata</p><p><strong>🏁 Fine settimana</strong><br/>30'/35' corsa facile continua</p></div></details></details>
+<details class="level" data-level="L2S"><summary>🟦 Sprint 6–8 km<div class="chev"></div></summary><details class="week" data-end="2026-09-06" data-start="2026-08-31">
+<summary><span class="week-title current-label">Settimana attuale - pausa estiva</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
+<div class="week-content">
+<p><strong>🅰️ Scarico</strong><br/>2 km RD + 4 km RL + 1 km RD</p>
+<p><strong>👥 Qualità</strong><br/>Test 3000m facoltativo</p>
+<p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 4 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
+<p><strong>🏁 Fine settimana</strong><br/>8 km variato: 2 km RL + 2 km RM + 2 km RG + 1 km RL + 1 km RD</p>
+</div>
+</details><details class="week" data-end="2026-09-13" data-start="2026-09-07"><summary><span class="week-title">Settimana 1</span><span class="week-dates">7 settembre - 13 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 x (1000m RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (300m RG-10" + 30" recupero soupasse) + 3x (300m RG-20" + 1' recupero spuplasse) + 3x (300m RG-30" + 1'30" recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 3 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 8 km oppure 1 RD + 2 RL + 2 RA + 2 RM + 1 RD</p></div></details><details class="week" data-end="2026-09-20" data-start="2026-09-14"><summary><span class="week-title">Settimana 2</span><span class="week-dates">14 settembre - 20 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (600m RM + 400m RL) + 2 x (600m RG + 400m RL) + 2 x (600m RG-20" + 400m RD) + 10' RD<br/><em class="work-type">lavoro misto</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6 x (100m RG + 100m RG-20" + 100m RG-40" + 1'30" recupero souplasse) + 1 km in progressione da RL a RG-20" + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>1 RD + 5 km RG + 1 RD</p></div></details><details class="week" data-end="2026-09-27" data-start="2026-09-21"><summary><span class="week-title">Settimana 3</span><span class="week-dates">21 settembre - 27 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RA + 2 km RM + 2 km RG + 5' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 5 x (200m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>1 RD + 2×(2 km RM + 500 m RL) + 2 km RD</p></div></details><details class="week" data-end="2026-10-04" data-start="2026-09-28"><summary><span class="week-title">Settimana 4</span><span class="week-dates">28 settembre - 4 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m -oppure 1'- tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m salita + 100 m recupero discesa) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 8–9 km oppure 2 km RD + 2 km RL + 2 km RM + 2 km RG + 1 km RD</p></div></details><details class="week" data-end="2026-10-11" data-start="2026-10-05"><summary><span class="week-title">Settimana 5</span><span class="week-dates">5 ottobre - 11 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4× [500 m RA + 500 m RM + 500 m RG + 300 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia corto/medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6x (100m RG + 100m RG-20" + 100 m RG-40" + 2'00" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 3 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>3 RD + 3 km al meglio + 2 RD</p></div></details><details class="week" data-end="2026-10-18" data-start="2026-10-12"><summary><span class="week-title">Settimana 6</span><span class="week-dates">12 ottobre - 18 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (1500m RG + 500m RG-10" + 500m RL) + 10' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 4x (800m tra RG-20" e RG-30" + 3' recupero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 2 x (1,5 km RG + 500m RG-10" + 1 km RL) + 1 km RD</p></div></details><details class="week" data-end="2026-10-25" data-start="2026-10-19"><summary><span class="week-title">Settimana 7</span><span class="week-dates">19 ottobre - 25 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 km RM + 1 km RG + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>1 RD + 2 RL + 4 km RM + 1 RD</p></div></details><details class="week" data-end="2026-11-01" data-start="2026-10-26"><summary><span class="week-title">Settimana 8</span><span class="week-dates">26 ottobre - 1 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5x 50-60m allungo facile + 50-60m recupero RD + 8 x (400m tra RG-20" e RG- 40" + 2' recupero souplasse)<br/><em class="work-type">lavoro veloce</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m salita + 100 m recupero discesa) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 8–9 km oppure 2 km RD + 2 km RL + 2 km RM +1 km RG + 1 km RG- 10" + 1 km RD</p></div></details><details class="week" data-end="2026-11-08" data-start="2026-11-02"><summary><span class="week-title">Settimana 9</span><span class="week-dates">2 novembre - 8 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + piramide (500-800- 1200-800-500 RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia corto/medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 10x (100m RG-20" + 100 m RG-40" + 1'30" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 3 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 2 x (2,5 km RM + 500m RG + 500m RD) + 1 km RD</p></div></details><details class="week" data-end="2026-11-15" data-start="2026-11-09"><summary><span class="week-title">Settimana 10</span><span class="week-dates">9 novembre - 15 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (250 RM + 250m RG + 250m RG- 20" + 250m RG-40" + 3' recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 6 km al meglio + 1 km RD</p></div></details><details class="week" data-end="2026-11-22" data-start="2026-11-16"><summary><span class="week-title">Settimana 11</span><span class="week-dates">16 novembre - 22 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 km progressione da RL a RG + 10' RD<br/><em class="work-type">scarico</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>1 RD + 2 RL + 4 km RM + 1 RD</p></div></details><details class="week" data-end="2026-11-29" data-start="2026-11-23"><summary><span class="week-title">Settimana 12</span><span class="week-dates">23 novembre - 29 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m oppure 1' tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m salita + 100 m recupero discesa) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>8 km al meglio</p></div></details><details class="week" data-end="2026-12-06" data-start="2026-11-30"><summary><span class="week-title">Settimana 13</span><span class="week-dates">30 novembre - 6 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x (500m RG + 300m RL + 200m RG-10") + 10' RD<br/><em class="work-type">lavoro soglia corto/medio</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (400m RG-20" + 1'30" supolasse + 300m RG-30" + 1'30" souplasse + 200m RG-40" + 1' souplasse + 100m RG-40" + 30" supolasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 3 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 3 x (1000m RG + 500m RG-10" + 500m RD) + 1 km RD</p></div></details><details class="week" data-end="2026-12-13" data-start="2026-12-07"><summary><span class="week-title">Settimana 14</span><span class="week-dates">7 dicembre - 13 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RM + 3 km RG + 500m RG-10" + 10' RD<br/><em class="work-type">lavoro soglia lungo</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + piramide + 2x (100-200-400-200-100 tra TG-20" e RG-40" + 45" recipero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 4 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>COLLINARE 10 km oppure 1 km RD + 1 km RL + 1 km RA + 4 km RM + 1 km RG + 500m RG-20" + 1 km RD</p></div></details><details class="week" data-end="2026-12-20" data-start="2026-12-14"><summary><span class="week-title">Settimana 15</span><span class="week-dates">14 dicembre - 20 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>TEST dei 3000m<br/><em class="work-type">TEST FINALE</em><br/><span class="work-shortening-note">Allenamento accorciato per il livello Sprint.</span></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>1 km RD + 5 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>1 RD + 2 RL + 4 km RM + 1 RD</p></div></details></details>
+<details class="level" data-level="L2M"><summary>🟦 Medio 9–12 km<div class="chev"></div></summary><details class="week" data-end="2026-09-06" data-start="2026-08-31">
+<summary><span class="week-title current-label">Settimana attuale - pausa estiva</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
+<div class="week-content">
+<p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p>
+<p><strong>👥 Qualità</strong><br/>Test 3000m facoltativo</p>
+<p><strong>🆎 Mantenimento</strong><br/>2 km RD + 6 km RL + 5 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
+<p><strong>🏁 Fine settimana</strong><br/>11 km variato: 3 km RL + 3 km RM + 3 km RG + 1 km RL + 1 km RD</p>
+</div>
+</details><details class="week" data-end="2026-09-13" data-start="2026-09-07"><summary><span class="week-title">Settimana 1</span><span class="week-dates">7 settembre - 13 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 x (1000m RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (300m RG-10" + 30" recupero soupasse) + 3x (300m RG-20" + 1' recupero spuplasse) + 3x (300m RG-30" + 1'30" recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 4 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 11 km oppure 2 RD + 2 RL + 3 RA + 3 RM + 1 RD</p></div></details><details class="week" data-end="2026-09-20" data-start="2026-09-14"><summary><span class="week-title">Settimana 2</span><span class="week-dates">14 settembre - 20 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (600m RM + 400m RL) + 2 x (600m RG + 400m RL) + 2 x (600m RG-20" + 400m RD) + 10' RD<br/><em class="work-type">lavoro misto</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6 x (100m RG + 100m RG-20" + 100m RG-40" + 1'30" recupero souplasse) + 1 km in progressione da RL a RG-20" + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 7 km RG + 1 RD</p></div></details><details class="week" data-end="2026-09-27" data-start="2026-09-21"><summary><span class="week-title">Settimana 3</span><span class="week-dates">21 settembre - 27 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RA + 2 km RM + 2 km RG + 5' RD<br/><em class="work-type">scarico</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 5 x (200m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 2×(2 km RM + 1 km RL) + 1 RD</p></div></details><details class="week" data-end="2026-10-04" data-start="2026-09-28"><summary><span class="week-title">Settimana 4</span><span class="week-dates">28 settembre - 4 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m -oppure 1'- tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m salita + 100 m recupero discesa) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 12 km oppure 2 RD + 2 RL + 3 RA + 3 RM + 1 RG + 1 RD</p></div></details><details class="week" data-end="2026-10-11" data-start="2026-10-05"><summary><span class="week-title">Settimana 5</span><span class="week-dates">5 ottobre - 11 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 × [500 m RA + 500 m RM + 500 m RG + 300 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia corto/medio</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6x (100m RG + 100m RG-20" + 100 m RG-40" + 2'00" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 4 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 5 km al meglio + 2 RD</p></div></details><details class="week" data-end="2026-10-18" data-start="2026-10-12"><summary><span class="week-title">Settimana 6</span><span class="week-dates">12 ottobre - 18 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (1500m RG + 500m RG-10" + 500m RL) + 10' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 4x (800m tra RG-20" e RG-30" + 3' recupero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 3×(2 km RM + 500 m RG + 500 m RL) + 1 RD</p></div></details><details class="week" data-end="2026-10-25" data-start="2026-10-19"><summary><span class="week-title">Settimana 7</span><span class="week-dates">19 ottobre - 25 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 km RM + 1 km RG + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 2 RL + 4 km RM + 1 RD</p></div></details><details class="week" data-end="2026-11-01" data-start="2026-10-26"><summary><span class="week-title">Settimana 8</span><span class="week-dates">26 ottobre - 1 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 8 x (400m tra RG-20" e RG- 40" + 2' recupero souplasse)<br/><em class="work-type">lavoro veloce</em></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m salita + 100 m recupero discesa) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 13 km oppure 2 RD + 3 RL + 3 RA + 3 RM + 1 RG + 1 RD</p></div></details><details class="week" data-end="2026-11-08" data-start="2026-11-02"><summary><span class="week-title">Settimana 9</span><span class="week-dates">2 novembre - 8 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + piramide (500-800- 1200-800-500 RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia corto/medio</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 10x (100m RG-20" + 100 m RG-40" + 1'30" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 4 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 3×(2 km RM + 1 km RG + 500 m RL) + 1 RD</p></div></details><details class="week" data-end="2026-11-15" data-start="2026-11-09"><summary><span class="week-title">Settimana 10</span><span class="week-dates">9 novembre - 15 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (250 RM + 250m RG + 250m RG- 20" + 250m RG-40" + 3' recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 8 km al meglio + 1 RD</p></div></details><details class="week" data-end="2026-11-22" data-start="2026-11-16"><summary><span class="week-title">Settimana 11</span><span class="week-dates">16 novembre - 22 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 km progressione da RL a RG + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 2 RL + 4 km RM + 1 RD</p></div></details><details class="week" data-end="2026-11-29" data-start="2026-11-23"><summary><span class="week-title">Settimana 12</span><span class="week-dates">23 novembre - 29 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m oppure 1' tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m salita + 100 m recupero discesa) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>10 km AL MEGLIO</p></div></details><details class="week" data-end="2026-12-06" data-start="2026-11-30"><summary><span class="week-title">Settimana 13</span><span class="week-dates">30 novembre - 6 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x (500m RG + 300m RL + 200m RG-10") + 10' RD<br/><em class="work-type">lavoro soglia corto/medio</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (400m RG-20" + 1'30" supolasse + 300m RG-30" + 1'30" souplasse + 200m RG-40" + 1' souplasse + 100m RG-40" + 30" supolasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 4 km RL + 2 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 3×(1500 m RM + 500 m RG + 500 m RL) + 1 RD</p></div></details><details class="week" data-end="2026-12-13" data-start="2026-12-07"><summary><span class="week-title">Settimana 14</span><span class="week-dates">7 dicembre - 13 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RM + 3 km RG + 500m RG-10" + 10' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + piramide + 2x (100-200-400-200-100 tra TG-20" e RG-40" + 45" recipero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 5 km RL + 5× (100 m allungo + 100 m RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>Collinare 13–14 km oppure 2 RD + 2 RL + 3 RA + 3 RM + 2 RG + 1 RD</p></div></details><details class="week" data-end="2026-12-20" data-start="2026-12-14"><summary><span class="week-title">Settimana 15</span><span class="week-dates">14 dicembre - 20 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>TEST dei 3000m<br/><em class="work-type">TEST FINALE</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km RD + 6 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 RD + 2 RL + 4 km RM + 1 RD</p></div></details></details>
+<details class="level" data-level="L2E"><summary>🟪 Endurance 13 km +<div class="chev"></div></summary><details class="week" data-end="2026-09-06" data-start="2026-08-31">
+<summary><span class="week-title current-label">Settimana attuale - pausa estiva</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
+<div class="week-content">
+<p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p>
+<p><strong>👥 Qualità</strong><br/>Test 3000m facoltativo</p>
+<p><strong>🆎 Mantenimento</strong><br/>2 km RD + 8 km RL + 5 × (100m allungo in salita + recupero in discesa camminando o jogging leggero) + 1 km RD</p>
+<p><strong>🏁 Fine settimana</strong><br/>13 km variato: 3 km RL + 3 km RM + 3 km RG + 2 km RL + 2 km RD</p>
+</div>
+</details><details class="week" data-end="2026-09-13" data-start="2026-09-07"><summary><span class="week-title">Settimana 1</span><span class="week-dates">7 settembre - 13 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 x (1000m RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (300m RG-10" + 30" recupero soupasse) + 3x (300m RG-20" + 1' recupero spuplasse) + 3x (300m RG-30" + 1'30" recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 5 km RL + 3 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>COLLINARE 15 km oppure 2 km RD + 4 km RL-10" + 4 km RA-10" + 4 km RM-10" + 1 km RD</p></div></details><details class="week" data-end="2026-09-20" data-start="2026-09-14"><summary><span class="week-title">Settimana 2</span><span class="week-dates">14 settembre - 20 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (600m RM + 400m RL) + 2 x (600m RG + 400m RL) + 2 x (600m RG-20" + 400m RD) + 10' RD<br/><em class="work-type">lavoro misto</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6 x (100m RG + 100m RG-20" + 100m RG-40" + 1'30" recupero souplasse) + 1 km in progressione da RL a RG-20" + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 5x (100m allungho + 100m recupero RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>3 km RD + 10 km RG + 1 km RD</p></div></details><details class="week" data-end="2026-09-27" data-start="2026-09-21"><summary><span class="week-title">Settimana 3</span><span class="week-dates">21 settembre - 27 settembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RA + 2 km RM + 2 km RG + 5' RD<br/><em class="work-type">scarico</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 5 x (200m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>3 km RD + 2 x (3 km RA + 1 km RL) + 1 km RD</p></div></details><details class="week" data-end="2026-10-04" data-start="2026-09-28"><summary><span class="week-title">Settimana 4</span><span class="week-dates">28 settembre - 4 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x 50-60m allungo facile + 50-60m recupero RD + 12 x (200m oppure 1' tra RG- 20" e RG-40" + 1' recupero souplasse)<br/><em class="work-type">lavoro veloce</em></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km ED + 8 km RL + 5x (100m allungo in salita + 100m recupero in discesa souplasse) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>COLLINARE 16 km oppure 3 km RD + 4 km RL + 4 km RA + 2 km RM + 2 km RG + 1 km RD</p></div></details><details class="week" data-end="2026-10-11" data-start="2026-10-05"><summary><span class="week-title">Settimana 5</span><span class="week-dates">5 ottobre - 11 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 × [500 m RA + 500 m RM + 500 m RG + 300 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia corto/medio</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 6 x (100m RG + 100m RG-20" + 100 m RG-40" + 2'00" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 5 km RL + 3 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>3 km RD + 5 km al meglio + 3 km RD</p></div></details><details class="week" data-end="2026-10-18" data-start="2026-10-12"><summary><span class="week-title">Settimana 6</span><span class="week-dates">12 ottobre - 18 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 x (1500m RG + 500m RG-10" + 500m RL) + 10' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 4 x (800m tra RG-20" e RG-30" + 3' recupero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 5x (100m allungho + 100m recupero RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>LUNGO 17 km - 3 km RD + 3 x (2,5 km RM + 500m RG + 1 km RL) + 2 km RD</p></div></details><details class="week" data-end="2026-10-25" data-start="2026-10-19"><summary><span class="week-title">Settimana 7</span><span class="week-dates">19 ottobre - 25 ottobre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 4 km RM + 1 km RG + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>3 km RD + 3 km RL + 3 km RM + 3 km RD</p></div></details><details class="week" data-end="2026-11-01" data-start="2026-10-26"><summary><span class="week-title">Settimana 8</span><span class="week-dates">26 ottobre - 1 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5x 50-60m allungo facile + 50-60m recupero RD + 8 x (400m tra RG-20" e RG- 40" + 2' recupero souplasse)<br/><em class="work-type">lavoro veloce</em></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km ED + 8 km RL + 5x (100m allungo in salita + 100m recupero in discesa souplasse) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>COLLINARE 18 km oppure 2 km RD + 5 km RL + 5 km RA + 5 km RM + 1 km RD</p></div></details><details class="week" data-end="2026-11-08" data-start="2026-11-02"><summary><span class="week-title">Settimana 9</span><span class="week-dates">2 novembre - 8 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + piramide (500-800- 1200-800-500 RG-10" + 500m RL) + 5' RD<br/><em class="work-type">lavoro soglia corto/medio</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 10x (100m RG-20" + 100 m RG-40" + 1'30" recipero souplasse) + 10' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 5 km RL + 3 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>LUNGO 19 km - 3 km RD + 3 x (3,5 km ritmo mezza + 500m RG + 1 km RL) + 1 km RD</p></div></details><details class="week" data-end="2026-11-15" data-start="2026-11-09"><summary><span class="week-title">Settimana 10</span><span class="week-dates">9 novembre - 15 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL] + 5'/10' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (250 RM + 250m RG + 250m RG- 20" + 250m RG-40" + 3' recupero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 5x (100m allungho + 100m recupero RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 10 km al meglio + 2 km RD</p></div></details><details class="week" data-end="2026-11-22" data-start="2026-11-16"><summary><span class="week-title">Settimana 11</span><span class="week-dates">16 novembre - 22 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 km progressione da RL a RG + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 4 km RL + 4 km RM + 2 km RD</p></div></details><details class="week" data-end="2026-11-29" data-start="2026-11-23"><summary><span class="week-title">Settimana 12</span><span class="week-dates">23 novembre - 29 novembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5x 50-60m allungo facile + 50-60m recupero RD + 5x (800m tra RG-10" e RG-30" + 2'30" recupero souplasse)<br/><em class="work-type">lavoro veloce</em></p><p><strong>🔁 Alternativo</strong><br/>Circuito Potenziamento oppure Allenamento salite<br/><em class="work-type">potenziamento</em></p><p><strong>🆎 Mantenimento</strong><br/>2 km ED + 8 km RL + 5x (100m allungo in salita + 100m recupero in discesa souplasse) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>21 km al meglio</p></div></details><details class="week" data-end="2026-12-06" data-start="2026-11-30"><summary><span class="week-title">Settimana 13</span><span class="week-dates">30 novembre - 6 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 5 x (500m RG + 300m RL + 200m RG-10") + 10' RD<br/><em class="work-type">lavoro soglia corto/medio</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + 3x (400m RG-20" + 1'30" supolasse + 300m RG-30" + 1'30" souplasse + 200m RG-40" + 1' souplasse + 100m RG-40" + 30" supolasse) + 5' RD<br/><em class="work-type">lavoro veloce corto</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 5 km RL + 3 km RA + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>3 km RD + 3 x (1500m RA + 500m RM + 1 km RL) + 2 km RD</p></div></details><details class="week" data-end="2026-12-13" data-start="2026-12-07"><summary><span class="week-title">Settimana 14</span><span class="week-dates">7 dicembre - 13 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>15' RD + 2 km RM + 3 km RG + 500m RG-10" + 10' RD<br/><em class="work-type">lavoro soglia lungo</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 10' andature per tecnica e postura + piramide + 2x (100-200-400-200-100 tra TG-20" e RG-40" + 45" recipero souplasse) + 5' RD<br/><em class="work-type">lavoro veloce medio</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 5x (100m allungho + 100m recupero RL) + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>COLLINARE 20 km oppure 2 km RD + 5 km RL + 6 km RA + 6 km RM + 1 km RD</p></div></details><details class="week" data-end="2026-12-20" data-start="2026-12-14"><summary><span class="week-title">Settimana 15</span><span class="week-dates">14 dicembre - 20 dicembre</span></summary><div class="week-content"><p><strong>🅰️ Scarico</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>👥 Qualità Standard</strong><br/>TEST dei 3000m<br/><em class="work-type">TEST FINALE</em></p><p><strong>🔁 Alternativo</strong><br/>10' RD + 25' andature per tecnica e postura + 10x (100m RG-20" + 200m recupero souplasse/RD) + 10' RD<br/><em class="work-type">scarico</em></p><p><strong>🆎 Mantenimento</strong><br/>3 km RD + 7 km RL + 1 km RD</p><p><strong>🏁 Fine settimana</strong><br/>2 km RD + 4 km RL + 4 km RM + 2 km RD</p></div></details></details>
 <details class="level" data-level="fitwalking">
-  <summary>🟩 Fitwalking L1/L2<div class="chev"></div></summary>
-  <details class="week">
-    <summary><span class="week-title">Settimana 1</span><span class="week-dates">20 luglio – 26 luglio</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>2 km CL + 12 × (1' CV + 1' CL) + 1 km in progressione da CL a CV + 1 km CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>1 km CL + 5 km CM + 1 km CL</p>
-    </div>
-  </details>
-  <details class="week">
-    <summary><span class="week-title">Settimana 2</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>2 km CL + 10 × (2' CV + 1' CL) + 1 km CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CM</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 10 × (1' CV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 5 km in progressione da CL a CV + 1 km CL</p>
-    </div>
-  </details>
-  <details class="week">
-    <summary><span class="week-title">Settimana 3</span><span class="week-dates">3 agosto – 9 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>2 km CL + Tempo Walk (4 km CM) + 1 km CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 2 × (1 km CM + 500 m CL + 1 km CV + 500 m CL) + 1 km CL</p>
-    </div>
-  </details>
-  <details class="week">
-    <summary><span class="week-title">Settimana 4</span><span class="week-dates">10 agosto – 16 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>15' CL + piramide: 1' CV/1' CL – 2' CV/1' CL – 3' CV/2' CL – 4' CV/2' CL – 4' CV/2' CL – 3' CV/2' CL – 2' CV/1' CL – 1' CV/1' CL + 10' CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CM</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 10 × (1' CV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 2 km CM + 1 km CV + 1 km CVV + 1 km CV + 1 km CL</p>
-    </div>
-  </details>
-  <details class="week">
-    <summary><span class="week-title">Settimana 5</span><span class="week-dates">17 agosto – 23 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>15' CL + 7 × (500 m CV + 200 m CL) + 1 km CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 3 km CM + 1 km CV + 1 km CL + 1 km CV + 1 km CL</p>
-    </div>
-  </details>
-  <details class="week">
-    <summary><span class="week-title">Settimana 6</span><span class="week-dates">24 agosto – 30 agosto</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>15' CL + 5' CM + 6 × (3' CV + 2' CL) + 1 km CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CM</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 10 × (1' CV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 4 km CM + 1 km CV + 1 km CL + 1 km CV + 1 km CL</p>
-    </div>
-  </details>
-  <details class="week">
-    <summary><span class="week-title">Settimana 7</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
-    <div class="week-content">
-      <p><strong>👥 Qualità</strong><br>15' CL + 5' CM + 5 × (4' CV + 2' CL) + 1 km CL</p>
-      <p><strong>🅰️ Scarico</strong><br>6 km CL</p>
-      <p><strong>⏱️ Interval</strong><br>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
-      <p><strong>🏁 Fine settimana</strong><br>2 km CL + 6 km CM + 1 km CV + 1 km CL</p>
-    </div>
-  </details>
+<summary>🟩 Fitwalking L1/L2<div class="chev"></div></summary>
+<details class="week">
+<summary><span class="week-title">Settimana 1</span><span class="week-dates">20 luglio – 26 luglio</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>2 km CL + 12 × (1' CV + 1' CL) + 1 km in progressione da CL a CV + 1 km CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CL</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>1 km CL + 5 km CM + 1 km CL</p>
+</div>
+</details>
+<details class="week">
+<summary><span class="week-title">Settimana 2</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>2 km CL + 10 × (2' CV + 1' CL) + 1 km CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CM</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 10 × (1' CV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>2 km CL + 5 km in progressione da CL a CV + 1 km CL</p>
+</div>
+</details>
+<details class="week">
+<summary><span class="week-title">Settimana 3</span><span class="week-dates">3 agosto – 9 agosto</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>2 km CL + Tempo Walk (4 km CM) + 1 km CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CL</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>2 km CL + 2 × (1 km CM + 500 m CL + 1 km CV + 500 m CL) + 1 km CL</p>
+</div>
+</details>
+<details class="week">
+<summary><span class="week-title">Settimana 4</span><span class="week-dates">10 agosto – 16 agosto</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>15' CL + piramide: 1' CV/1' CL – 2' CV/1' CL – 3' CV/2' CL – 4' CV/2' CL – 4' CV/2' CL – 3' CV/2' CL – 2' CV/1' CL – 1' CV/1' CL + 10' CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CM</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 10 × (1' CV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>2 km CL + 2 km CM + 1 km CV + 1 km CVV + 1 km CV + 1 km CL</p>
+</div>
+</details>
+<details class="week">
+<summary><span class="week-title">Settimana 5</span><span class="week-dates">17 agosto – 23 agosto</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>15' CL + 7 × (500 m CV + 200 m CL) + 1 km CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CL</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>2 km CL + 3 km CM + 1 km CV + 1 km CL + 1 km CV + 1 km CL</p>
+</div>
+</details>
+<details class="week">
+<summary><span class="week-title">Settimana 6</span><span class="week-dates">24 agosto – 30 agosto</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>15' CL + 5' CM + 6 × (3' CV + 2' CL) + 1 km CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CM</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 10 × (1' CV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>2 km CL + 4 km CM + 1 km CV + 1 km CL + 1 km CV + 1 km CL</p>
+</div>
+</details>
+<details class="week">
+<summary><span class="week-title">Settimana 7</span><span class="week-dates">31 agosto – 6 settembre</span></summary>
+<div class="week-content">
+<p><strong>👥 Qualità</strong><br/>15' CL + 5' CM + 5 × (4' CV + 2' CL) + 1 km CL</p>
+<p><strong>🅰️ Scarico</strong><br/>6 km CL</p>
+<p><strong>⏱️ Interval</strong><br/>15' CL + 1 km CM + 12 × (30" CVV + 1' CL) + 1 km CM + 1 km CL</p>
+<p><strong>🏁 Fine settimana</strong><br/>2 km CL + 6 km CM + 1 km CV + 1 km CL</p>
+</div>
+</details>
 </details>
 <section class="box"><h2>⛰️ Allenamenti collinari</h2><p>Nei collinari l’obiettivo è mantenere un’intensità aerobica controllata: affronta le salite senza forzare, accorcia il passo e recupera nei tratti più facili. Con caldo elevato riduci ritmo o durata.</p></section>
 </div>
 </div>
-
 <script>
 (function(){
-  const RS_PASSWORD = "RSMAGGIO2026";
+  const RS_PASSWORD = "RSSER26";
   const RS_STORAGE_KEY = "rs_programmi_accesso";
   const lock = document.getElementById('rs-lock');
   const content = document.getElementById('rs-content');
@@ -396,5 +174,4 @@
 })();
 </script>
 
-</body>
-</html>
+</head></html>
