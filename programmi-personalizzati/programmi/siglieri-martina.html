@@ -11,7 +11,37 @@
 .btn{display:inline-flex;text-decoration:none;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:14px;background:var(--soft);font-size:13px}.btn.primary{background:var(--accent);color:#111827;border:0;font-weight:900}.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin:22px 2px 10px}.content{font-size:14px;line-height:1.5}.content p{margin:9px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{border:1px solid var(--border);border-radius:16px;background:var(--soft);padding:12px}.mini.full{grid-column:1/-1}.k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}.v{font-size:14px;line-height:1.35}.note,.alert,.good{margin-top:10px;padding:11px 12px;border-radius:14px;font-size:13px;line-height:1.42}.note{border:1px solid var(--ab);background:var(--as)}.alert{border:1px solid rgba(234,179,8,.35);background:rgba(234,179,8,.08)}.good{border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.08)}
 table{width:100%;border-collapse:collapse;margin-top:7px;border:1px solid var(--border)}th,td{padding:9px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}th{background:rgba(255,255,255,.03)}td{color:var(--muted)}td:first-child{color:var(--text);font-weight:900}details.week{border:1px solid var(--border);border-radius:16px;background:var(--soft);overflow:hidden;margin-top:10px}details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;gap:10px;font-weight:900}summary::-webkit-details-marker{display:none}.dates{font-size:12px;color:var(--muted);text-align:right}.week-content{padding:0 12px 12px;font-size:14px;line-height:1.45}.session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}.session:first-child{border-top:0}.st{font-weight:900;margin-bottom:3px}.sn{color:var(--muted);font-size:13px;margin-top:4px}.race{border-color:rgba(34,197,94,.45)!important;background:rgba(34,197,94,.05)!important}.foot{color:var(--muted);font-size:11px;margin-top:12px}
 #rs-lock{position:fixed;inset:0;z-index:99999;background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);display:flex;align-items:center;justify-content:center;padding:20px}.lock-card{width:min(420px,100%);background:#0b1120;border:1px solid #1f2937;border-radius:22px;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.65);text-align:center}.lock-card h1{font-size:24px}.lock-card p{color:#9ca3af;font-size:14px}.lock-card input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #374151;background:#020617;color:#fff;font-size:16px;margin:10px 0}.lock-card button{width:100%;padding:13px;border:0;border-radius:12px;background:#f97316;color:#111827;font-size:15px;font-weight:800;cursor:pointer}.error{min-height:20px;color:#fca5a5;font-size:13px;margin-top:8px}
+
+.exercise-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.exercise{border:1px solid var(--border);border-radius:16px;background:var(--soft);padding:12px}.exercise h3{font-size:14px;margin:8px 0 5px}.exercise p{font-size:12.5px;color:var(--muted);margin:5px 0;line-height:1.42}.exercise svg{width:100%;height:120px;display:block;background:rgba(255,255,255,.025);border-radius:12px}.exercise .dose{display:inline-block;margin-top:5px;color:#fed7aa;font-weight:800;font-size:12px}.cue{border-left:3px solid var(--accent);padding-left:8px!important;color:var(--text)!important}.routine-steps{counter-reset:step}.routine-step{position:relative;padding:10px 10px 10px 44px;margin:8px 0;border:1px solid var(--border);border-radius:14px;background:var(--soft)}.routine-step:before{counter-increment:step;content:counter(step);position:absolute;left:11px;top:10px;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111827;font-weight:900;font-size:12px}.legend{font-size:12px;color:var(--muted);margin-top:10px}.stick{stroke:#e5e7eb;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;fill:none}.joint{fill:#f97316}.ground{stroke:#4b5563;stroke-width:2}.arrow{stroke:#f97316;stroke-width:3;fill:none;marker-end:url(#arr)}
+@media(max-width:430px){.exercise-grid{grid-template-columns:1fr}}
 @media(max-width:430px){.grid{grid-template-columns:1fr}.mini.full{grid-column:auto}.top,details.week summary{align-items:flex-start;flex-direction:column}.dates{text-align:left}}
+
+/* --- Guida forza didattica v2 --- */
+.exercise-guide{display:grid;gap:18px;margin-top:18px}
+.ex-card{background:#111827;border:1px solid #334155;border-radius:18px;padding:18px;overflow:hidden}
+.ex-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.ex-head h3{margin:0;color:#fff;font-size:1.18rem}
+.ex-dose{white-space:nowrap;background:#f97316;color:#111827;font-weight:800;border-radius:999px;padding:6px 10px;font-size:.86rem}
+.motion{background:#f8fafc;border-radius:14px;padding:8px;margin:10px 0 14px}
+.motion svg{display:block;width:100%;height:auto;max-height:220px}
+.phase-label{font:700 11px Arial,sans-serif;fill:#334155}
+.fig{stroke:#172033;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.joint{fill:#fff;stroke:#172033;stroke-width:4}
+.floor{stroke:#94a3b8;stroke-width:3}
+.move{stroke:#f97316;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.band{stroke:#f97316;stroke-width:6;fill:none}
+.stepbox{fill:#cbd5e1;stroke:#64748b;stroke-width:2}
+.ex-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tipbox{border-radius:12px;padding:12px;background:#0b1220;border:1px solid #273449}
+.tipbox strong{display:block;color:#f8fafc;margin-bottom:6px}
+.tipbox p,.tipbox li{color:#cbd5e1}
+.tipbox ul{margin:6px 0 0;padding-left:18px}
+.feel{border-left:4px solid #22c55e}
+.errors{border-left:4px solid #ef4444}
+.how{border-left:4px solid #38bdf8}
+.rule-big{margin-top:14px;padding:14px;border-radius:14px;background:#24180f;border:1px solid #7c4318;color:#fed7aa}
+@media(max-width:700px){.ex-cols{grid-template-columns:1fr}.ex-head{display:block}.ex-dose{display:inline-block;margin-top:8px}.motion svg{max-height:none}}
+
 </style></head><body>
 <div id="rs-lock"><div class="lock-card"><div style="font-size:42px">🔒</div><h1>Programma personale</h1><p>Siglieri Martina · Settembre–Dicembre 2026</p><input id="rs-password" type="password" placeholder="Password" autocomplete="current-password"><button id="rs-enter">ENTRA</button><div class="error" id="rs-error"></div></div></div>
 <div class="app" id="app" style="display:none">
@@ -20,7 +50,121 @@ table{width:100%;border-collapse:collapse;margin-top:7px;border:1px solid var(--
 <div class="section-label">Scheda atleta</div><div class="card"><div class="grid"><div class="mini"><div class="k">Atleta</div><div class="v">Siglieri Martina</div></div><div class="mini"><div class="k">Allenamenti</div><div class="v">3 uscite running / settimana</div></div><div class="mini"><div class="k">Distanza attuale</div><div class="v">8–12 km</div></div><div class="mini"><div class="k">Ritmo dichiarato</div><div class="v">circa 6’25”/km</div></div><div class="mini"><div class="k">Gara</div><div class="v">Mezza Maratona di Ravenna · 8/11/2026</div></div><div class="mini"><div class="k">Priorità</div><div class="v">Stare meglio e correre con continuità</div></div><div class="mini full"><div class="k">Situazione</div><div class="v">Estate condizionata dalle temperature elevate, con alcune settimane sostituite dal nuoto. Fastidi a ginocchio/bandelletta e tendini dopo la Straferrara. Martina chiede più attenzione a riscaldamento, potenziamento e prevenzione.</div></div></div></div>
 <div class="section-label">Obiettivo del quadrimestre</div><div class="card content"><p><strong>🎯 Priorità assoluta: costruire una Martina più forte e resistente.</strong></p><p>Ravenna resta un obiettivo motivante, ma il risultato cronometrico passa in secondo piano. Il percorso punta prima di tutto a consolidare la continuità, aumentare gradualmente il chilometraggio e inserire un lavoro costante di forza e controllo.</p><p><strong>Ordine delle priorità:</strong><br>1. Continuità senza riacutizzare i fastidi<br>2. Rinforzo di glutei, quadricipiti, polpacci e stabilizzatori<br>3. Aumento progressivo della distanza<br>4. Qualità controllata e tecnica<br>5. Arrivare a Ravenna pronta a gestire 21 km senza inseguire il tempo</p><div class="good"><strong>Ravenna è una tappa, non il punto d’arrivo.</strong> Dopo la gara il quadrimestre continua con recupero, ricostruzione e consolidamento fino al 20 dicembre.</div></div>
 <div class="section-label" id="ritmi">Ritmi indicativi</div><div class="card content"><table><thead><tr><th>Ritmo</th><th>Uso</th><th>Indicazione</th></tr></thead><tbody><tr><td>RD</td><td>Riscaldamento / defaticamento</td><td>7’10”–7’30”/km</td></tr><tr><td>RL</td><td>Lento</td><td>6’55”–7’10”/km</td></tr><tr><td>RA</td><td>Aerobico</td><td>6’40”–6’50”/km</td></tr><tr><td>RM</td><td>Medio / ritmo controllato</td><td>6’20”–6’30”/km</td></tr><tr><td>RG</td><td>Qualità controllata</td><td>6’05”–6’15”/km</td></tr></tbody></table><div class="note"><strong>Ritmi provvisori.</strong> Non derivano da un test recente: servono come riferimento iniziale. In questa fase conta di più la corretta intensità percepita e la risposta del corpo che centrare il secondo al chilometro.</div></div>
-<div class="section-label" id="routine">Riscaldamento e potenziamento</div><div class="card content"><p><strong>🔥 Prima di ogni corsa · 8–10 minuti</strong><br>5’ camminata veloce/corsa molto facile → 10 mobilizzazioni caviglia per lato → 10 slanci frontali + 10 laterali per gamba → 10 squat controllati → 10 ponti glutei → 12 calf raise → 20–30” equilibrio su una gamba per lato.</p><p>Prima della qualità, se non ci sono fastidi: <strong>3 × 60–80 m di allungo progressivo</strong> con recupero camminando.</p><p><strong>💪 Circuito forza · 1 volta/settimana</strong><br>Prime 3 settimane: 2 giri. Dalla settimana 5: 3 giri se ben tollerati.</p><p>• 10–12 squat controllati<br>• 8 split squat per gamba<br>• 12–15 ponti glutei<br>• 12 calf raise per gamba<br>• 10+10 passi laterali con elastico<br>• 8 step-down controllati per gamba<br>• 30” equilibrio monopodalico per lato<br>• 20–30” side plank per lato</p><div class="note"><strong>Recupero:</strong> 30–45” tra gli esercizi e 1’30”–2’ tra i giri. Il circuito deve rinforzare, non lasciare le gambe distrutte.</div><div class="alert"><strong>Regola del programma:</strong> se un fastidio cresce durante la corsa, modifica l’appoggio o rimane nettamente più intenso nelle ore successive, non si aumenta il carico della settimana successiva e va valutato con il professionista di riferimento.</div></div>
+<div class="section-label" id="routine">Riscaldamento e circuito di forza</div>
+<div class="card content">
+<p><strong>🔥 Routine prima della corsa · circa 8–10 minuti</strong></p>
+<div class="routine-steps"><div class="routine-step"><strong>5’ di attivazione</strong><br><span class="muted">Camminata veloce o corsa molto facile: devi soltanto aumentare gradualmente temperatura e mobilità.</span></div><div class="routine-step"><strong>Caviglie</strong><br><span class="muted">10 mobilizzazioni per lato, lente e senza forzare.</span></div><div class="routine-step"><strong>Anche e gambe</strong><br><span class="muted">10 slanci frontali + 10 laterali per gamba, con ampiezza progressiva.</span></div><div class="routine-step"><strong>Attivazione</strong><br><span class="muted">10 squat controllati + 10 ponti glutei + 12 calf raise + 20–30” di equilibrio su una gamba per lato.</span></div><div class="routine-step"><strong>Solo prima della qualità</strong><br><span class="muted">Se non ci sono fastidi: 3 × 60–80 m di allungo progressivo, recuperando camminando.</span></div></div>
+<div class="note"><strong>Obiettivo del riscaldamento:</strong> arrivare alla corsa già mobile e attiva, non stancarsi. Tutto deve essere progressivo e senza dolore.</div>
+</div>
+
+<div class="section-label" id="circuito">Circuito forza · guida passo per passo</div>
+<div class="card content">
+<p><strong>Per Martina l’obiettivo non è “fare palestra”:</strong> questo circuito serve a costruire controllo di piede, caviglia, ginocchio e bacino per accompagnare l’aumento graduale dei chilometri.</p>
+<div class="note"><strong>Quando farlo:</strong> 1 volta a settimana dopo la corsa facile oppure in un momento separato. Settimane 1–3: <strong>2 giri</strong>. Dalla settimana 5: <strong>3 giri solo se recuperi bene e non compaiono fastidi</strong>. Recupera 30–45” tra gli esercizi e 90”–2’ tra i giri.</div>
+<div class="rule-big"><strong>Regola più importante:</strong> fatica muscolare sì, dolore articolare o tendineo no. Se un esercizio provoca dolore netto al ginocchio o ai tendini, non cercare di “superarlo”: interrompilo, riduci escursione/difficoltà e segnalalo.</div>
+<div class="exercise-guide">
+
+<div class="ex-card">
+  <div class="ex-head"><h3>1. Squat controllato</h3><span class="ex-dose">10–12 ripetizioni</span></div>
+  <div class="motion"><svg viewBox="0 0 660 220" aria-label="Squat: posizione iniziale e posizione bassa">
+<defs><marker id="a1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#f97316"/></marker></defs>
+<text class="phase-label" x="90" y="22">1 · PARTENZA</text><text class="phase-label" x="415" y="22">2 · SCENDI</text>
+<line class="floor" x1="35" y1="195" x2="285" y2="195"/><line class="floor" x1="365" y1="195" x2="625" y2="195"/>
+<circle class="joint" cx="160" cy="50" r="16"/><path class="fig" d="M160 67L160 120M160 83L125 105M160 83L195 105M160 120L140 190M160 120L180 190"/>
+<circle class="joint" cx="490" cy="64" r="16"/><path class="fig" d="M486 80L455 126M470 101L430 112M470 101L505 120M455 126L420 148L400 190M455 126L505 145L535 190"/>
+<path class="move" marker-end="url(#a1)" d="M320 65Q330 120 315 160"/><text class="phase-label" x="282" y="190">BACINO INDIETRO ↓</text></svg></div>
+  <div class="ex-cols">
+    <div class="tipbox how"><strong>COME SI FA</strong><ol><li>Piedi poco più stretti o circa alla larghezza delle spalle.</li><li>Porta prima il bacino indietro, poi piega le ginocchia.</li><li>Scendi solo fin dove riesci a mantenere piedi ben appoggiati e ginocchia stabili.</li><li>Risali spingendo il pavimento e stringendo i glutei.</li></ol></div>
+    <div>
+      <div class="tipbox feel"><strong>COSA DEVI SENTIRE</strong><p>Glutei e cosce che lavorano; il movimento deve essere stabile e senza dolore al ginocchio.</p></div>
+      <div class="tipbox errors" style="margin-top:12px"><strong>ERRORI DA EVITARE</strong><ul><li>Ginocchia che cadono verso l’interno.</li><li>Scendere velocemente e rimbalzare in basso.</li><li>Sollevare i talloni o perdere l’appoggio del piede.</li></ul></div>
+    </div>
+  </div>
+</div>
+<div class="ex-card">
+  <div class="ex-head"><h3>2. Split squat</h3><span class="ex-dose">8 ripetizioni per gamba</span></div>
+  <div class="motion"><svg viewBox="0 0 660 220"><defs><marker id="a2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#f97316"/></marker></defs>
+<text class="phase-label" x="85" y="22">1 · POSIZIONE SFALSATA</text><text class="phase-label" x="420" y="22">2 · SCENDI VERTICALE</text>
+<line class="floor" x1="30" y1="195" x2="300" y2="195"/><line class="floor" x1="360" y1="195" x2="630" y2="195"/>
+<circle class="joint" cx="160" cy="48" r="16"/><path class="fig" d="M160 65L160 118M160 82L130 104M160 82L190 104M160 118L120 190M160 118L225 190"/>
+<circle class="joint" cx="490" cy="60" r="16"/><path class="fig" d="M490 77L488 126M488 92L458 112M488 92L518 112M488 126L445 150L420 190M488 126L535 154L565 190"/>
+<path class="move" marker-end="url(#a2)" d="M325 60L325 155"/><text class="phase-label" x="285" y="180">GIÙ ↓</text></svg></div>
+  <div class="ex-cols">
+    <div class="tipbox how"><strong>COME SI FA</strong><ol><li>Metti un piede avanti e uno dietro, come su due binari e non su una linea sola.</li><li>Mantieni il busto alto e il peso distribuito in modo stabile.</li><li>Scendi quasi verticalmente piegando entrambe le ginocchia.</li><li>Spingi soprattutto con la gamba davanti per tornare su.</li></ol></div>
+    <div>
+      <div class="tipbox feel"><strong>COSA DEVI SENTIRE</strong><p>Gluteo e coscia della gamba anteriore. Deve esserci lavoro muscolare, non una fitta articolare.</p></div>
+      <div class="tipbox errors" style="margin-top:12px"><strong>ERRORI DA EVITARE</strong><ul><li>Passo troppo corto, che rende il gesto instabile.</li><li>Ginocchio anteriore che crolla verso l’interno.</li><li>Spingersi con slancio invece di controllare la discesa.</li></ul></div>
+    </div>
+  </div>
+</div>
+<div class="ex-card">
+  <div class="ex-head"><h3>3. Ponte glutei</h3><span class="ex-dose">12–15 ripetizioni</span></div>
+  <div class="motion"><svg viewBox="0 0 660 220"><defs><marker id="a3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#f97316"/></marker></defs>
+<text class="phase-label" x="90" y="22">1 · BACINO A TERRA</text><text class="phase-label" x="420" y="22">2 · STRINGI E SOLLEVA</text>
+<line class="floor" x1="25" y1="190" x2="305" y2="190"/><line class="floor" x1="355" y1="190" x2="635" y2="190"/>
+<circle class="joint" cx="70" cy="165" r="15"/><path class="fig" d="M85 165L150 168L205 168L245 135L270 190M150 168L125 190"/>
+<circle class="joint" cx="400" cy="165" r="15"/><path class="fig" d="M415 165L475 145L535 120L575 145L600 190M475 145L455 190"/>
+<path class="move" marker-end="url(#a3)" d="M315 165Q330 110 355 100"/><text class="phase-label" x="285" y="88">BACINO ↑</text></svg></div>
+  <div class="ex-cols">
+    <div class="tipbox how"><strong>COME SI FA</strong><ol><li>Sdraiati supina con ginocchia piegate e piedi appoggiati.</li><li>Avvicina i talloni abbastanza da poter spingere bene a terra.</li><li>Stringi i glutei e solleva il bacino.</li><li>Fermati 1 secondo in alto e scendi lentamente.</li></ol></div>
+    <div>
+      <div class="tipbox feel"><strong>COSA DEVI SENTIRE</strong><p>Soprattutto glutei. Se senti quasi tutto nella zona lombare, riduci l’altezza e pensa a stringere i glutei.</p></div>
+      <div class="tipbox errors" style="margin-top:12px"><strong>ERRORI DA EVITARE</strong><ul><li>Inarcare molto la schiena per salire più in alto.</li><li>Spingere solo sulle punte dei piedi.</li><li>Aprire o chiudere continuamente le ginocchia.</li></ul></div>
+    </div>
+  </div>
+</div>
+<div class="ex-card">
+  <div class="ex-head"><h3>4. Calf raise monopodalico</h3><span class="ex-dose">10–12 per gamba</span></div>
+  <div class="motion"><svg viewBox="0 0 660 220"><defs><marker id="a4" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#f97316"/></marker></defs>
+<text class="phase-label" x="80" y="22">1 · PIEDE APPOGGIATO</text><text class="phase-label" x="430" y="22">2 · SALI SULLA PUNTA</text>
+<line class="floor" x1="40" y1="195" x2="285" y2="195"/><line class="floor" x1="375" y1="195" x2="620" y2="195"/>
+<circle class="joint" cx="160" cy="48" r="16"/><path class="fig" d="M160 65L160 120M160 83L125 105M160 83L195 105M160 120L150 190M160 120L195 145"/>
+<circle class="joint" cx="495" cy="40" r="16"/><path class="fig" d="M495 57L495 110M495 75L460 98M495 75L530 98M495 110L485 180L510 190M495 110L530 135"/>
+<path class="move" marker-end="url(#a4)" d="M330 165L330 95"/><text class="phase-label" x="300" y="85">SU ↑</text></svg></div>
+  <div class="ex-cols">
+    <div class="tipbox how"><strong>COME SI FA</strong><ol><li>Appoggiati leggermente a un muro o a una sedia per l’equilibrio.</li><li>Solleva un piede e resta sulla gamba che lavora.</li><li>Sali lentamente sulla punta, resta un attimo in alto.</li><li>Scendi ancora più lentamente fino ad appoggiare bene il tallone.</li></ol></div>
+    <div>
+      <div class="tipbox feel"><strong>COSA DEVI SENTIRE</strong><p>Polpaccio che lavora in modo uniforme. Il movimento deve essere fluido e controllato.</p></div>
+      <div class="tipbox errors" style="margin-top:12px"><strong>ERRORI DA EVITARE</strong><ul><li>Fare piccoli rimbalzi veloci.</li><li>Lasciare che la caviglia cada verso l’interno.</li><li>Insistere se compare dolore tendineo: in quel caso interrompi l’esercizio.</li></ul></div>
+    </div>
+  </div>
+</div>
+<div class="ex-card">
+  <div class="ex-head"><h3>5. Passi laterali con elastico</h3><span class="ex-dose">8–10 passi per lato</span></div>
+  <div class="motion"><svg viewBox="0 0 660 220"><defs><marker id="a5" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#f97316"/></marker></defs>
+<text class="phase-label" x="75" y="22">1 · MEZZO SQUAT</text><text class="phase-label" x="425" y="22">2 · PASSO LATERALE</text>
+<line class="floor" x1="30" y1="195" x2="300" y2="195"/><line class="floor" x1="360" y1="195" x2="630" y2="195"/>
+<circle class="joint" cx="160" cy="55" r="16"/><path class="fig" d="M160 72L155 120M155 90L125 110M155 90L185 110M155 120L125 190M155 120L190 190"/><path class="band" d="M125 165Q158 174 190 165"/>
+<circle class="joint" cx="490" cy="55" r="16"/><path class="fig" d="M490 72L485 120M485 90L455 110M485 90L515 110M485 120L435 190M485 120L545 190"/><path class="band" d="M435 165Q490 178 545 165"/>
+<path class="move" marker-end="url(#a5)" d="M300 130L355 130"/><text class="phase-label" x="300" y="115">APRI →</text></svg></div>
+  <div class="ex-cols">
+    <div class="tipbox how"><strong>COME SI FA</strong><ol><li>Metti l’elastico sopra le ginocchia per la versione più semplice.</li><li>Fletti leggermente anche e ginocchia, come in un piccolo squat.</li><li>Fai un passo laterale senza ruotare il busto.</li><li>Avvicina l’altro piede senza togliere completamente tensione all’elastico.</li></ol></div>
+    <div>
+      <div class="tipbox feel"><strong>COSA DEVI SENTIRE</strong><p>Lato dei glutei, soprattutto della gamba che stabilizza. Il bacino deve rimanere fermo.</p></div>
+      <div class="tipbox errors" style="margin-top:12px"><strong>ERRORI DA EVITARE</strong><ul><li>Fare passi troppo grandi.</li><li>Trascinare il piede che segue.</li><li>Ginocchia che si chiudono verso l’interno.</li></ul></div>
+    </div>
+  </div>
+</div>
+<div class="ex-card">
+  <div class="ex-head"><h3>6. Step-down controllato</h3><span class="ex-dose">6–8 per gamba</span></div>
+  <div class="motion"><svg viewBox="0 0 660 220"><defs><marker id="a6" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#f97316"/></marker></defs>
+<text class="phase-label" x="70" y="22">1 · SU GRADINO BASSO</text><text class="phase-label" x="410" y="22">2 · TALLONE VERSO TERRA</text>
+<rect class="stepbox" x="70" y="160" width="170" height="35"/><line class="floor" x1="30" y1="195" x2="300" y2="195"/>
+<circle class="joint" cx="155" cy="45" r="16"/><path class="fig" d="M155 62L155 115M155 80L125 102M155 80L185 102M155 115L140 160M155 115L205 145"/>
+<rect class="stepbox" x="405" y="160" width="120" height="35"/><line class="floor" x1="360" y1="195" x2="630" y2="195"/>
+<circle class="joint" cx="475" cy="58" r="16"/><path class="fig" d="M475 75L470 125M470 92L440 112M470 92L500 112M470 125L450 160M470 125L540 188"/>
+<path class="move" marker-end="url(#a6)" d="M570 105L570 175"/><text class="phase-label" x="535" y="92">LENTO ↓</text></svg></div>
+  <div class="ex-cols">
+    <div class="tipbox how"><strong>COME SI FA</strong><ol><li>Usa un gradino basso: all’inizio bastano circa 10–15 cm.</li><li>Resta in appoggio su una gamba, con l’altra fuori dal gradino.</li><li>Piega lentamente la gamba d’appoggio e porta il tallone libero verso il pavimento.</li><li>Sfiora il terreno e risali mantenendo il ginocchio stabile.</li></ol></div>
+    <div>
+      <div class="tipbox feel"><strong>COSA DEVI SENTIRE</strong><p>Gluteo e coscia della gamba sul gradino; soprattutto devi percepire controllo del ginocchio e del bacino.</p></div>
+      <div class="tipbox errors" style="margin-top:12px"><strong>ERRORI DA EVITARE</strong><ul><li>Usare un gradino troppo alto.</li><li>Lasciare cadere il bacino da un lato.</li><li>Ginocchio che entra verso l’interno. Se non riesci a controllarlo, riduci subito l’escursione.</li></ul></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="note"><strong>Ordine consigliato:</strong> Squat → Split squat → Ponte glutei → Calf raise → Passi laterali → Step-down. La qualità del movimento viene prima del numero di ripetizioni.</div>
+</div>
 <div class="section-label" id="settimane">Programma completo · 15 settimane</div><div class="card content"><p>Tre sedute: <strong>Qualità controllata</strong>, <strong>Facile + forza</strong>, <strong>Fine settimana</strong>. Le distanze crescono volutamente con gradualità.</p>
 <details class="week" open><summary><span>Settimana 1 · Ripartenza</span><span class="dates">7–13 settembre</span></summary><div class="week-content"><div class="session"><div class="st">🔥 Qualità controllata</div>2 km RD + 6 × (2’ RA + 2’ RL) + 1 km RD.<div class="sn">Obiettivo: riattivare il cambio di ritmo senza carico eccessivo.</div></div><div class="session"><div class="st">💪 Facile + forza</div>7 km RL + circuito forza 2 giri.</div><div class="session"><div class="st">🏁 Fine settimana</div>12 km RL, completamente in controllo.</div></div></details>
 <details class="week"><summary><span>Settimana 2 · Costruzione</span><span class="dates">14–20 settembre</span></summary><div class="week-content"><div class="session"><div class="st">🔥 Qualità</div>2 km RD + 4 × (1000 m RG + 500 m RL) + 1 km RD.<div class="sn">RG controllato: non trasformare il lavoro in una prova.</div></div><div class="session"><div class="st">💪 Facile + forza</div>8 km RL + circuito 2 giri.</div><div class="session"><div class="st">🏁 Fine settimana</div>13 km RL.</div></div></details>
@@ -45,18 +189,4 @@ const PAGE_HASH="df125b3e38594a57bf855890ddff6c24d5297e1afb47e9936cff69c0642bcf1
 async function sha256(s){const b=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,'0')).join('')}
 async function unlock(){const p=document.getElementById('rs-password').value;const h=await sha256(p);if(h===PAGE_HASH){document.getElementById('rs-lock').style.display='none';document.getElementById('app').style.display='block';sessionStorage.setItem('rs_martina_ok','1')}else document.getElementById('rs-error').textContent='Password non corretta.'}
 document.getElementById('rs-enter').addEventListener('click',unlock);document.getElementById('rs-password').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});if(sessionStorage.getItem('rs_martina_ok')==='1'){document.getElementById('rs-lock').style.display='none';document.getElementById('app').style.display='block'}
-</script></body></html>label">Promemoria finale</div>
-    <div class="card content">
-      <p><strong>Il freno a mano si toglie un lavoro alla volta.</strong><br>
-        Martina ha già dimostrato continuità e capacità di seguire allenamenti diversificati. Ora l’obiettivo è trasformare questa base in maggiore sicurezza, più brillantezza e una miglior capacità di sostenere ritmi più veloci. Questa estate deve diventare il ponte ideale verso la preparazione specifica della Mezza Maratona di Ravenna.
-      </p>
-      <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
-    </div>
-  </div>
-
-  <script>
-    const PAGE_HASH = "df125b3e38594a57bf855890ddff6c24d5297e1afb47e9936cff69c0642bcf18";
-  </script>
-
-</body>
-</html>
+</script></body></html>
