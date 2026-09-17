@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Davino Jonatha · Programma personalizzato</title>
+<style>
+:root{--bg:#020617;--card:#0b1120;--card2:#050b18;--orange:#f97316;--orange2:#fb923c;--text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;--green:#22c55e;--blue:#38bdf8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);color:var(--text)}
+.app{max-width:760px;margin:auto;padding:18px 14px 50px}.top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.back{color:var(--text);text-decoration:none;font-size:13px}.pill{font-size:12px;padding:8px 10px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.3)}
+.card{background:linear-gradient(180deg,rgba(249,115,22,.055),transparent),var(--card);border:1px solid var(--border);border-radius:20px;padding:17px;box-shadow:0 18px 45px rgba(0,0,0,.45);margin-bottom:12px}
+h1{font-size:21px;margin:0 0 8px}h2{font-size:17px;margin:0 0 10px}h3{font-size:15px;margin:16px 0 7px}.meta,.muted{color:var(--muted);font-size:13px;line-height:1.45}.content{font-size:14px;line-height:1.55}.content p{margin:10px 0}.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin:23px 3px 9px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.mini{background:var(--card2);border:1px solid var(--border);border-radius:15px;padding:12px}.mini .k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.mini .v{font-size:14px;margin-top:5px;line-height:1.35}
+.callout{padding:12px;border-radius:14px;background:rgba(249,115,22,.09);border:1px solid rgba(249,115,22,.3);margin:10px 0}.science{border-left:4px solid var(--orange);padding-left:12px}.goal{font-size:16px;line-height:1.45}
+.btn{display:inline-block;text-decoration:none;background:var(--orange);color:#111827;font-weight:900;padding:10px 13px;border-radius:13px;margin-top:7px}
+details.week{border:1px solid var(--border);border-radius:17px;background:var(--card2);overflow:hidden;margin:10px 0}details.week summary{cursor:pointer;padding:13px;display:flex;justify-content:space-between;gap:10px;font-weight:900}.dates{font-size:12px;color:var(--muted)}.wc{padding:0 13px 13px}.session{border-top:1px solid var(--border);padding:12px 0}.session:first-child{border-top:0}.title{font-weight:900}.why{font-size:13px;color:#cbd5e1;margin-top:7px;padding:9px 10px;border-radius:12px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.16)}.alt{margin-top:8px;padding:9px 10px;border-radius:12px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16);font-size:13px}
+.lock{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at top,rgba(11,17,32,.98),rgba(0,0,0,.99));padding:18px}.lockwrap{max-width:520px;margin:auto}.lock input{width:100%;padding:12px;background:var(--card2);border:1px solid var(--border);border-radius:13px;color:white;margin:10px 0}.err{display:none;color:#fecaca;font-size:13px}.foot{font-size:11px;color:var(--muted)}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.app{padding:14px 10px 40px}h1{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="lock" id="lock"><div class="lockwrap"><div class="card"><h1>🔒 Area riservata</h1><p class="meta">Inserisci la password personale per visualizzare il programma.</p><input id="pw" type="password" placeholder="Password"><a class="btn" href="#" id="unlock">🔓 Sblocca</a><p class="err" id="err">Password errata. Riprova.</p><p class="foot">Programma personale Runner's School Italia.</p></div></div></div>
+
+<div class="app" id="app" style="display:none">
+<div class="top"><a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a><div class="pill">🟧 Runner’s School Italia</div></div>
+
+<div class="card"><h1>📄 Programma personalizzato · Davino Jonatha</h1><p class="meta">Aggiornato: <strong>17 settembre 2026</strong><br>Test iniziale: <strong>19–20 settembre</strong><br>Programma: <strong>21 settembre – 27 dicembre 2026</strong></p><a class="btn" href="#settimane">📅 Vai alle settimane</a></div>
+
+<div class="section-label">Scheda atleta</div>
+<div class="card"><div class="grid">
+<div class="mini"><div class="k">Dati</div><div class="v">1996 · 160 cm · 57 kg</div></div>
+<div class="mini"><div class="k">Corsa</div><div class="v">3 uscite / settimana</div></div>
+<div class="mini"><div class="k">Attività complementare</div><div class="v">Sala pesi · 3 volte / settimana</div></div>
+<div class="mini"><div class="k">Volume attuale</div><div class="v">Uscite abituali fino a circa 10–11 km</div></div>
+<div class="mini"><div class="k">Storico</div><div class="v">In passato 3 uscite da circa 12 km e mezze maratone intorno a 4'30&quot;/km</div></div>
+<div class="mini"><div class="k">Infortunio pregresso</div><div class="v">Distorsione caviglia destra con interessamento legamentoso 6 anni fa, riferita come guarita</div></div>
+<div class="mini" style="grid-column:1/-1"><div class="k">Obiettivo dichiarato</div><div class="v">Imparare un metodo di allenamento duraturo e migliorare progressivamente la velocità sulle distanze che corre abitualmente.</div></div>
+</div></div>
+
+<div class="section-label">Obiettivo del percorso</div>
+<div class="card content">
+<p class="goal"><strong>🎯 Prima continuità e metodo, poi velocità.</strong></p>
+<p>Jonatha ha già corso con buoni livelli in passato, ma negli ultimi due anni la corsa è stata poco regolare. Non dobbiamo quindi ripartire dai ritmi di quattro anni fa né dal passo che oggi tende spontaneamente a tenere nelle sue uscite.</p>
+<p>L'obiettivo di questo blocco è costruire una settimana semplice e ripetibile: <strong>1 scarico + 1 qualità standard + 1 lavoro di fine settimana</strong>. La crescita deve essere sostenibile anche insieme alle tre sedute di sala pesi.</p>
+</div>
+
+<div class="section-label">Prima misuriamo, poi costruiamo</div>
+<div class="card content">
+<div class="science">
+<p><strong>Il dato di circa 4'50&quot;/km sui 10–11 km non viene utilizzato per stabilire i ritmi.</strong> È il passo che Jonatha tende attualmente a tenere nelle uscite abituali, ma da solo non ci permette di capire con precisione dove siano RG, RM, RA, RL e RD.</p>
+<p>Per questo il percorso comincia con il <strong>Test 3000 m nel fine settimana del 19–20 settembre</strong>. Solo dopo il test assegneremo i ritmi di riferimento e inizieremo i lavori strutturati.</p>
+</div>
+<div class="callout"><strong>Principio del programma:</strong> non alleniamo il Jonatha di quattro anni fa e non trasformiamo il 4'50&quot;/km in un ritmo di riferimento. Misuriamo la condizione attuale e costruiamo da quella.</div>
+</div>
+
+<div class="section-label">Test 3000 m · 19–20 settembre</div>
+<div class="card content">
+<p><strong>Riscaldamento:</strong> 15' corsa facile + mobilità + 4–5 allunghi progressivi da 80–100 m con recupero completo.</p>
+<p><strong>Test:</strong> 3000 m al miglior ritmo regolare possibile. Evitare una partenza eccessivamente veloce: l'obiettivo è ottenere un dato rappresentativo della condizione attuale.</p>
+<p><strong>Defaticamento:</strong> 10' corsa molto facile.</p>
+<div class="callout"><strong>Da comunicare dopo il test:</strong> tempo totale e, se disponibili, i tre parziali da 1000 m. Da questi dati verranno aggiornati i ritmi personali prima di eseguire la qualità della settimana 1.</div>
+</div>
+
+<div class="section-label">Ritmi di riferimento</div>
+<div class="card content">
+<p><strong>Da definire dopo il Test 3000 m.</strong></p>
+<div class="grid">
+<div class="mini"><div class="k">RG · Ritmo gara</div><div class="v"><strong>Da definire</strong></div></div>
+<div class="mini"><div class="k">RM · Ritmo medio</div><div class="v"><strong>Da definire</strong></div></div>
+<div class="mini"><div class="k">RA · Ritmo aerobico</div><div class="v"><strong>Da definire</strong></div></div>
+<div class="mini"><div class="k">RL · Ritmo lento</div><div class="v"><strong>Da definire</strong></div></div>
+<div class="mini"><div class="k">RD · Ritmo defaticante</div><div class="v"><strong>Da definire</strong></div></div>
+</div>
+</div>
+
+<div class="section-label">Organizzazione con la sala pesi</div>
+<div class="card content">
+<p>Tre corse e tre sedute di sala pesi significano già <strong>sei stimoli settimanali</strong>. Per questo non aggiungiamo una seconda seduta di corsa impegnativa.</p>
+<p>La qualità di corsa è lo stimolo principale della settimana. Quando possibile, evitare una seduta pesante per le gambe nelle 24 ore precedenti alla qualità e al lavoro più lungo del fine settimana.</p>
+<div class="callout"><strong>La seduta di scarico deve restare davvero facile.</strong> Non serve trasformarla in un medio solo perché le gambe girano bene: recuperare è parte del programma.</div>
+</div>
+
+<div class="section-label">Progressione del fine settimana</div>
+<div class="card content">
+<p>Il programma Endurance standard viene adattato al volume attuale. Jonatha parte da una buona confidenza con i <strong>10–11 km</strong>, ma in questo blocco non abbiamo alcuna necessità di arrivare ai 18–19 km.</p>
+<p>La distanza crescerà gradualmente, con settimane di consolidamento e scarico, fino a raggiungere <strong>15–16 km soltanto nella parte finale</strong>. L'obiettivo non è collezionare chilometri, ma imparare a gestire distanze progressivamente maggiori differenziando correttamente i ritmi.</p>
+</div>
+
+<div class="section-label" id="settimane">Programma · allineato all'Endurance ufficiale</div>
+<div class="card content">
+<p>Dal <strong>21 settembre</strong> Jonatha entra nella <strong>settimana 3 del programma Endurance ufficiale</strong>. Da quel momento Scarico e Qualità Standard seguono esattamente il calendario comune, così può unirsi al collettivo trovando lo stesso allenamento.</p>
+<p>Il <strong>fine settimana mantiene la logica della settimana Endurance</strong>, ma il volume viene adattato alla sua situazione attuale: crescita graduale fino a un massimo di <strong>15–16 km</strong>.</p>
+<div class="callout"><strong>Settimana extra:</strong> dopo la settimana 15 ufficiale recuperiamo la <strong>settimana 1 Endurance</strong>, che Jonatha aveva saltato prima di iniziare. Non anticipiamo o spostiamo gli allenamenti del gruppo durante il quadrimestre.</div>
+<details class="week" open>
+<summary><span>Settimana 1 · Endurance 3</span><span class="dates">21–27 settembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 2 km RA + 2 km RM + 2 km RG + 5' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 11 km</div><div>3 km RD + 2×(2 km RA + 1 km RL) + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> È la settimana di scarico prevista dal programma Endurance ufficiale: perfetta per iniziare dopo il Test 3000 senza forzare.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 2 · Endurance 4</span><span class="dates">28 settembre–4 ottobre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 5×50–60 m allungo facile + 50–60 m recupero RD + 12×(200 m oppure 1' tra RG-20&quot; e RG-40&quot; + 1' recupero souplesse).</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 12 km</div><div>2 km RD + 3 km RL + 3 km RA + 2 km RM + 1 km RG + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Riprendiamo il carico con il lavoro veloce comune al gruppo e un fine settimana ridimensionato sul volume attuale.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 3 · Endurance 5</span><span class="dates">5–11 ottobre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 4×[500 m RA + 500 m RM + 500 m RG + 300 m RL] + 5'/10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 11 km</div><div>3 km RD + 5 km al meglio + 3 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Qualità di soglia corto/medio e fine settimana breve ma impegnato, senza necessità di aumentare la distanza.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 4 · Endurance 6</span><span class="dates">12–18 ottobre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 2×(1500 m RG + 500 m RG-10&quot; + 500 m RL) + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 12 km</div><div>2 km RD + 2×(2,5 km RM + 500 m RG + 1 km RL) + 2 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Manteniamo la struttura del lungo variato Endurance, riducendo una ripetizione rispetto ai 17 km ufficiali.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 5 · Endurance 7</span><span class="dates">19–25 ottobre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 4 km RM + 1 km RG + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 12 km</div><div>3 km RD + 3 km RL + 3 km RM + 3 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Settimana di scarico ufficiale: nessuna crescita del lungo, ma consolidamento.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 6 · Endurance 8</span><span class="dates">26 ottobre–1 novembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 5×50–60 m allungo facile + 50–60 m recupero RD + 8×(400 m tra RG-20&quot; e RG-40&quot; + 2' recupero souplesse).</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 14 km</div><div>2 km RD + 4 km RL + 4 km RA + 3 km RM + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Il collinare/18 km ufficiale viene adattato: stesso principio di progressione aerobica, ma volume coerente con Jonatha.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 7 · Endurance 9</span><span class="dates">2–8 novembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + piramide (500–800–1200–800–500 m a RG-10&quot; + 500 m RL) + 5' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 13 km</div><div>3 km RD + 2×(3 km RM + 500 m RG + 1 km RL) + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Conserviamo il carattere del lungo variato Endurance, ma senza portarlo ai 19 km ufficiali.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 8 · Endurance 10</span><span class="dates">9–15 novembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 3×[500 m RM + 1000 m RG + 500 m RM + 500 m RL] + 5'/10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 14 km</div><div>2 km RD + 10 km al meglio + 2 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Questa seduta coincide già con un volume adatto: resta identica al fine settimana Endurance ufficiale.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 9 · Endurance 11</span><span class="dates">16–22 novembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 5 km progressione da RL a RG + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 12 km</div><div>2 km RD + 4 km RL + 4 km RM + 2 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Settimana di scarico ufficiale: abbassiamo volume e intensità complessiva.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 10 · Endurance 12</span><span class="dates">23–29 novembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 5×50–60 m allungo facile + 50–60 m recupero RD + 5×(800 m tra RG-10&quot; e RG-30&quot; + 2'30&quot; recupero souplesse).</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 15 km</div><div>3 km RD + 5 km RL + 4 km RA + 2 km RM + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Al posto dei 21 km al meglio dell'Endurance, costruiamo un 15 km progressivo: per Jonatha conta crescere senza salto eccessivo.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 11 · Endurance 13</span><span class="dates">30 novembre–6 dicembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 5×(500 m RG + 300 m RL + 200 m RG-10&quot;) + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 14 km</div><div>3 km RD + 3×(1500 m RA + 500 m RM + 1 km RL) + 2 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Il fine settimana ufficiale Endurance è già perfettamente dentro il volume scelto e viene mantenuto.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 12 · Endurance 14</span><span class="dates">7–13 dicembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 2 km RM + 3 km RG + 500 m RG-10&quot; + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 16 km</div><div>2 km RD + 4 km RL + 4 km RA + 4 km RM + 2 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> È il tetto del percorso: adattiamo i 20 km ufficiali mantenendo la progressione dei ritmi ma fermandoci a 16 km.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana 13 · Endurance 15</span><span class="dates">14–20 dicembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>TEST dei 3000 m finale.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 12 km</div><div>2 km RD + 4 km RL + 4 km RM + 2 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Restiamo perfettamente allineati alla settimana finale del gruppo: test conclusivo e fine settimana di scarico.</div></div>
+</div></details>
+<details class="week">
+<summary><span>Settimana extra · recupero Endurance 1</span><span class="dates">21–27 dicembre</span></summary><div class="wc">
+<div class="session"><div class="title">🔵 Scarico</div><div>3 km RD + 7 km RL + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e continuità, senza aggiungere un secondo vero lavoro di qualità.</div></div>
+<div class="session"><div class="title">🔥 Qualità Standard</div><div>15' RD + 4×(1000 m RG-10&quot; + 500 m RL) + 5' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> questo è esattamente il lavoro della settimana Endurance ufficiale, così Jonatha può svolgerlo anche con il gruppo.</div></div>
+<div class="session"><div class="title">🏃 Fine settimana · 15 km</div><div>2 km RD + 4 km RL-10&quot; + 4 km RA-10&quot; + 4 km RM-10&quot; + 1 km RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> Recuperiamo qui la settimana 1 ufficiale, saltata prima dell'ingresso nel programma. In questo modo Jonatha completa anche quel lavoro senza rompere l'allineamento con il gruppo durante tutto il quadrimestre.</div></div>
+</div></details>
+</div>
+</div>
+
+<script>
+const PAGE_HASH="85e8d1f8840b064d01b3ec103e8971733bdc08ffc40f6393997a93037fc0a4c5";
+const key="DavJon.2026";
+const lock=document.getElementById("lock"),app=document.getElementById("app"),err=document.getElementById("err"),pw=document.getElementById("pw");
+function unlock(){if((pw.value||"").trim()===key){lock.style.display="none";app.style.display="block";err.style.display="none"}else err.style.display="block";}
+document.getElementById("unlock").onclick=e=>{e.preventDefault();unlock()};pw.addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
+</script>
+</body>
+</html>
