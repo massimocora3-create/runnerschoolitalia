@@ -66,5 +66,6 @@ window.RS_PROGRAMMI = {
   "8eb16419b34432a7d3ec6abcad38362db4d613bb71a744e94ba6089721373e97": "programmi/mazzoni-manuela.html",
   "018685a482daabcc87decbfbc4e48f7c5a2519d5fb239d67a501234d28296e41": "programmi/iepparello-giovanna.html",
   "c4b9fea93b8a751b92a57f206526e7fbf7882563b9947b4a046bd5e2eec39770": "programmi/saponaro-modesto.html",
-  "85e8d1f8840b064d01b3ec103e8971733bdc08ffc40f6393997a93037fc0a4c5": "programmi/davino-jonatha.html"
+  "85e8d1f8840b064d01b3ec103e8971733bdc08ffc40f6393997a93037fc0a4c5": "programmi/davino-jonatha.html",
+  "34ed82bb36b9b81d9968e054c21c3b965d10a3932b9375db2ab71365f2fa065d": "programmi/odorizzi-sofia.html"
   };
