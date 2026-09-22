@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corticelli Juri & Manzoli Ilaria · Programma personalizzato</title>
+<style>
+:root{--bg:#020617;--card:#0b1120;--card2:#050b18;--orange:#f97316;--text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;--green:#22c55e;--blue:#38bdf8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);color:var(--text)}
+.app{max-width:760px;margin:auto;padding:18px 14px 50px}.top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.back{color:var(--text);text-decoration:none;font-size:13px}.pill{font-size:12px;padding:8px 10px;border-radius:999px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.3)}
+.card{background:linear-gradient(180deg,rgba(249,115,22,.055),transparent),var(--card);border:1px solid var(--border);border-radius:20px;padding:17px;box-shadow:0 18px 45px rgba(0,0,0,.45);margin-bottom:12px}
+h1{font-size:21px;margin:0 0 8px}h2{font-size:17px;margin:0 0 10px}.meta,.muted{color:var(--muted);font-size:13px;line-height:1.45}.content{font-size:14px;line-height:1.55}.content p{margin:10px 0}.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin:23px 3px 9px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.mini{background:var(--card2);border:1px solid var(--border);border-radius:15px;padding:12px}.mini .k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.mini .v{font-size:14px;margin-top:5px;line-height:1.35}.full{grid-column:1/-1}
+.callout{padding:12px;border-radius:14px;background:rgba(249,115,22,.09);border:1px solid rgba(249,115,22,.3);margin:10px 0}.science{border-left:4px solid var(--orange);padding-left:12px}.goal{font-size:16px;line-height:1.45}
+.btn{display:inline-block;text-decoration:none;background:var(--orange);color:#111827;font-weight:900;padding:10px 13px;border-radius:13px;margin-top:7px}
+details.week{border:1px solid var(--border);border-radius:17px;background:var(--card2);overflow:hidden;margin:10px 0}details.week summary{cursor:pointer;padding:13px;display:flex;justify-content:space-between;gap:10px;font-weight:900}.dates{font-size:12px;color:var(--muted)}.wc{padding:0 13px 13px}.session{border-top:1px solid var(--border);padding:12px 0}.session:first-child{border-top:0}.title{font-weight:900}.why{font-size:13px;color:#cbd5e1;margin-top:7px;padding:9px 10px;border-radius:12px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.16)}.note{margin-top:8px;padding:9px 10px;border-radius:12px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16);font-size:13px}
+.lock{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at top,rgba(11,17,32,.98),rgba(0,0,0,.99));padding:18px}.lockwrap{max-width:520px;margin:auto}.lock input{width:100%;padding:12px;background:var(--card2);border:1px solid var(--border);border-radius:13px;color:white;margin:10px 0}.err{display:none;color:#fecaca;font-size:13px}.foot{font-size:11px;color:var(--muted)}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.app{padding:14px 10px 40px}h1{font-size:19px}details.week summary{flex-direction:column}.dates{text-align:left}}
+</style>
+</head>
+<body>
+<div class="lock" id="lock"><div class="lockwrap"><div class="card">
+<h1>🔒 Area riservata</h1>
+<p class="meta">Inserisci la password personale per visualizzare il programma.</p>
+<input id="pw" type="password" placeholder="Password">
+<a class="btn" href="#" id="unlock">🔓 Sblocca</a>
+<p class="err" id="err">Password errata. Riprova.</p>
+<p class="foot">Programma personale Runner's School Italia.</p>
+</div></div></div>
+
+<div class="app" id="app" style="display:none">
+<div class="top"><a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a><div class="pill">🟧 Runner’s School Italia</div></div>
+
+<div class="card">
+<h1>📄 Programma personalizzato · Corticelli Juri & Manzoli Ilaria</h1>
+<p class="meta">Aggiornato: <strong>22 settembre 2026</strong><br>Periodo: <strong>21 settembre – 25 ottobre 2026</strong><br>Obiettivo: <strong>Mezza Maratona di Torino · 25 ottobre 2026</strong></p>
+<a class="btn" href="#settimane">📅 Vai alle settimane</a>
+</div>
+
+<div class="section-label">Scheda atleti</div>
+<div class="card"><div class="grid">
+<div class="mini"><div class="k">Atleti</div><div class="v">Corticelli Juri<br>Manzoli Ilaria</div></div>
+<div class="mini"><div class="k">Frequenza</div><div class="v"><strong>4 uscite / settimana</strong></div></div>
+<div class="mini"><div class="k">Ultima gara</div><div class="v">Mezza Maratona dell'Alzheimer · Cesenatico<br><strong>20 settembre 2026</strong></div></div>
+<div class="mini"><div class="k">Risultato</div><div class="v"><strong>1h49'37"</strong><br>Prima mezza maratona</div></div>
+<div class="mini full"><div class="k">Struttura della settimana</div><div class="v"><strong>Lunedì:</strong> collettivo Alternativo RS · <strong>Mercoledì:</strong> collettivo Standard RS · <strong>Terza uscita:</strong> scarico · <strong>Weekend:</strong> lavoro Endurance / lungo specifico.</div></div>
+</div></div>
+
+<div class="section-label">Obiettivo e logica del percorso</div>
+<div class="card content">
+<p class="goal"><strong>🎯 Arrivare a Torino recuperati, solidi e pronti a correre una seconda mezza con maggiore consapevolezza.</strong></p>
+<p>La preparazione per Cesenatico ha già costruito la base. In cinque settimane non serve ripartire da zero e soprattutto non serve accumulare chilometri solo per “fare volume”. Il lavoro deve trasformare quanto costruito per la prima mezza in una condizione ancora più stabile.</p>
+<div class="science"><p>La prima settimana è volutamente di <strong>recupero post-gara</strong>. Poi riprendiamo la struttura Endurance RS. Il blocco centrale contiene il lavoro più importante a due settimane da Torino; da quel momento il volume scende progressivamente per arrivare alla gara con gambe fresche.</p></div>
+<div class="callout"><strong>Regola fondamentale:</strong> Cesenatico è stata domenica 20 settembre. Se nei primi giorni rimane stanchezza muscolare, il recupero viene prima della tabella. Un allenamento saltato o accorciato questa settimana non compromette Torino.</div>
+</div>
+
+<div class="section-label">Ritmi</div>
+<div class="card content">
+<p>Per questo breve blocco <strong>manteniamo i riferimenti RS già utilizzati nella preparazione di Cesenatico</strong>. Il tempo di 1h49'37" è un'informazione importante, ma non viene usato da solo per riscrivere RG, RM, RA, RL e RD.</p>
+<div class="grid">
+<div class="mini"><div class="k">RG</div><div class="v">Ritmo Gara RS</div></div>
+<div class="mini"><div class="k">RM</div><div class="v">RG + circa 20"/km</div></div>
+<div class="mini"><div class="k">RA</div><div class="v">RG + circa 40–45"/km</div></div>
+<div class="mini"><div class="k">RL</div><div class="v">RG + circa 50–60"/km</div></div>
+<div class="mini full"><div class="k">RD</div><div class="v">RG + circa 1'10"–1'20"/km · ritmo realmente facile e defaticante.</div></div>
+</div>
+</div>
+
+<div class="section-label" id="settimane">Programma · 5 settimane</div>
+<div class="card content">
+<p>La base è il <strong>programma Endurance Runner's School settembre–dicembre 2026</strong>, modificato dove necessario per collegare correttamente le due mezze maratone.</p>
+
+<details class="week" open>
+<summary><span>Settimana 1 · Recupero post Cesenatico</span><span class="dates">21–27 settembre</span></summary>
+<div class="wc">
+<div class="session"><div class="title">🔄 Lunedì · Alternativo RS</div><div>10' RD + 25' andature per tecnica e postura + 5 × (200 m RG-20" + 200 m recupero souplesse/RD) + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> riattivazione, tecnica e brillantezza senza carico importante. Dopo la mezza le frazioni veloci devono essere fluide, non aggressive.</div></div>
+<div class="session"><div class="title">🔥 Mercoledì · Standard RS</div><div>15' RD + 2 km RA + 2 km RM + 2 km RG + 5' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> attraversare progressivamente i ritmi e verificare il recupero. I 2 km a RG <strong>non sono un test</strong>: massimo RG e, se le gambe sono ancora stanche, anche più piano.</div></div>
+<div class="session"><div class="title">🟦 Terza uscita · Scarico</div><div>3 km RD + 5 km RL + 1 km RD · <strong>9 km</strong>.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recupero aerobico e smaltimento della fatica residua.</div></div>
+<div class="session"><div class="title">🌿 Weekend · Recupero</div><div><strong>9–10 km RD/RL</strong>, completamente facili e senza variazioni.</div><div class="note"><strong>Modifica rispetto alla tabella Endurance:</strong> il lavoro previsto nel weekend viene sostituito. A sette giorni dalla prima mezza non abbiamo bisogno di un nuovo stimolo importante.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> chiudere la settimana sentendosi meglio di come la si è iniziata.</div></div>
+</div></details>
+
+<details class="week">
+<summary><span>Settimana 2 · Ripresa del carico</span><span class="dates">28 settembre–4 ottobre</span></summary>
+<div class="wc">
+<div class="session"><div class="title">🔄 Lunedì · Alternativo RS</div><div><strong>Circuito Potenziamento oppure Allenamento salite</strong>, come proposto nel collettivo Runner's School.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> forza, postura e reattività senza aggiungere un secondo lavoro metabolico pesante.</div></div>
+<div class="session"><div class="title">🔥 Mercoledì · Standard RS</div><div>15' RD + 5 × 50–60 m allungo facile con 50–60 m recupero RD + 12 × (200 m oppure 1' tra RG-20" e RG-40" + 1' recupero souplesse).</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> brillantezza e velocità controllata. La qualità del gesto viene prima della velocità assoluta.</div></div>
+<div class="session"><div class="title">🟦 Terza uscita · Scarico</div><div>3 km RD + 7 km RL + 1 km RD · <strong>11 km</strong>.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> assorbire i due collettivi e mantenere volume facile.</div></div>
+<div class="session"><div class="title">🏁 Weekend · Endurance 16 km</div><div>3 km RD + 4 km RL + 4 km RA + 2 km RM + 2 km RG + 1 km RD · <strong>16 km</strong>.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> lungo progressivo controllato. Si parte facili e si arriva al ritmo senza strappi: è il primo vero lavoro specifico dopo Cesenatico.</div></div>
+</div></details>
+
+<details class="week">
+<summary><span>Settimana 3 · Ultimo lungo</span><span class="dates">5–11 ottobre</span></summary>
+<div class="wc">
+<div class="session"><div class="title">🔄 Lunedì · Alternativo RS</div><div>10' RD + 10' andature per tecnica e postura + 6 × (100 m RG + 100 m RG-20" + 100 m RG-40" + 2' recupero souplesse) + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> velocità corta e reattività mantenendo sempre controllo tecnico.</div></div>
+<div class="session"><div class="title">🔥 Mercoledì · Standard RS</div><div>15' RD + 4 × [500 m RA + 500 m RM + 500 m RG + 300 m RL] + 5'/10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> controllo dei cambi di ritmo attorno alla soglia senza accumulare una fatica eccessiva.</div></div>
+<div class="session"><div class="title">🟦 Terza uscita · Scarico</div><div>3 km RD + 6 km RL + 1 km RD · <strong>10 km</strong>.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> recuperare prima del lavoro chiave del blocco.</div></div>
+<div class="session"><div class="title">🔑 Weekend · Ultimo lungo specifico · 17 km</div><div>3 km RD + 3 × (2,5 km RM + 500 m RG + 1 km RL) + 2 km RD · <strong>17 km</strong>.</div><div class="note"><strong>Adattamento specifico Torino:</strong> anticipiamo a questa settimana il lungo Endurance previsto più avanti nella tabella. Siamo a due settimane dalla gara: è il momento giusto per l'ultimo stimolo importante.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> capacità di sostenere RM con brevi passaggi a RG e di tornare a correre bene durante il recupero. Non deve diventare una simulazione di gara.</div></div>
+</div></details>
+
+<details class="week">
+<summary><span>Settimana 4 · Scarico e consolidamento</span><span class="dates">12–18 ottobre</span></summary>
+<div class="wc">
+<div class="session"><div class="title">🔄 Lunedì · Alternativo RS alleggerito</div><div>10' RD + 10' andature per tecnica e postura + <strong>3 × 800 m</strong> tra RG-20" e RG-30" con 3' recupero souplesse + 10' RD.</div><div class="note">Il programma RS ne prevede 4: ne facciamo 3 perché siamo entrati nello scarico verso Torino.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> mantenere brillantezza riducendo il volume.</div></div>
+<div class="session"><div class="title">🔥 Mercoledì · Standard RS</div><div>15' RD + 2 × (1500 m RG + 500 m RG-10" + 500 m RL) + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> ultimo richiamo di soglia lungo. Ritmi precisi e nessuna ricerca del limite.</div></div>
+<div class="session"><div class="title">🟦 Terza uscita · Scarico</div><div>2 km RD + 5 km RL + 1 km RD · <strong>8 km</strong>.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> iniziare realmente a togliere volume.</div></div>
+<div class="session"><div class="title">🌿 Weekend · Richiamo 12 km</div><div>3 km RD + 3 km RL + 3 km RM + 3 km RD · <strong>12 km</strong>.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> mantenere sensibilità al ritmo con un carico nettamente inferiore al lungo precedente. Si deve finire freschi.</div></div>
+</div></details>
+
+<details class="week">
+<summary><span>Settimana 5 · Gara</span><span class="dates">19–25 ottobre</span></summary>
+<div class="wc">
+<div class="session"><div class="title">🔄 Lunedì · Alternativo RS · attivazione</div><div>10' RD + 15'–20' andature facili per tecnica e postura + 6 × (100 m RG-20" + 200 m recupero souplesse/RD) + 10' RD.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> gambe attive senza creare fatica. Tutto deve risultare facile e brillante.</div></div>
+<div class="session"><div class="title">🔥 Mercoledì · Richiamo gara</div><div>15' RD + 3 km RM + 1 km RG + 10' RD.</div><div class="note">Riduciamo il lavoro RS della settimana gara: non serve più costruire condizione, serve conservarla.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> ricordare il ritmo mantenendo un ampio margine.</div></div>
+<div class="session"><div class="title">🟦 Terza uscita · Scarico</div><div><strong>25'–30' RD/RL</strong> + 3–4 allunghi facili da 80–100 m, solo se le gambe sono fresche.</div><div class="why"><strong>🎯 Cosa cerchiamo:</strong> sciogliere le gambe. Nessun chilometro aggiunto “per sicurezza”.</div></div>
+<div class="session"><div class="title">🏁 Domenica 25 ottobre · MEZZA MARATONA DI TORINO</div><div><strong>21,097 km</strong></div><div class="why"><strong>🎯 Gestione:</strong> la seconda mezza arriva appena cinque settimane dopo la prima. L'obiettivo è utilizzare l'esperienza di Cesenatico: partenza controllata, ritmo stabile e valutazione solo nella parte finale. Il cronometro viene dopo la gestione corretta della gara.</div></div>
+</div></details>
+</div>
+
+<div class="section-label">Indicazioni finali</div>
+<div class="card content">
+<p><strong>Quattro allenamenti non significano quattro allenamenti impegnativi.</strong> I due collettivi danno qualità e varietà, lo scarico permette di assorbire il lavoro e il weekend costruisce la componente specifica.</p>
+<p>Il punto chiave del percorso è il <strong>lungo del 10–11 ottobre</strong>. Dopo quel lavoro non cerchiamo più condizione: nelle due settimane successive l'obiettivo è trasformare il lavoro svolto in freschezza.</p>
+<div class="callout"><strong>Se compare stanchezza anomala:</strong> la prima seduta da ridurre o eliminare è quella di scarico aggiuntiva, non si recuperano allenamenti persi incastrandoli nei giorni successivi e non si fanno due sedute impegnative consecutive per “rimettersi in pari”.</div>
+<p class="foot">Runner’s School Italia · Programma personale riservato</p>
+</div>
+</div>
+
+<script>
+const key="CorJur.2026";
+const lock=document.getElementById("lock"),app=document.getElementById("app"),err=document.getElementById("err"),pw=document.getElementById("pw");
+function unlock(){if((pw.value||"").trim()===key){lock.style.display="none";app.style.display="block";err.style.display="none"}else err.style.display="block";}
+document.getElementById("unlock").onclick=e=>{e.preventDefault();unlock()};
+pw.addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
+</script>
+</body>
+</html>
