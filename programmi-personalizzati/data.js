@@ -68,5 +68,6 @@ window.RS_PROGRAMMI = {
   "c4b9fea93b8a751b92a57f206526e7fbf7882563b9947b4a046bd5e2eec39770": "programmi/saponaro-modesto.html",
   "85e8d1f8840b064d01b3ec103e8971733bdc08ffc40f6393997a93037fc0a4c5": "programmi/davino-jonatha.html",
   "34ed82bb36b9b81d9968e054c21c3b965d10a3932b9375db2ab71365f2fa065d": "programmi/odorizzi-sofia.html",
-  "bbe427a179a6a2ac893ecd81c2f11eef223ab90309bac68f94f55f0feae76f6e": "programmi/corticelli-juri.html"
+  "bbe427a179a6a2ac893ecd81c2f11eef223ab90309bac68f94f55f0feae76f6e": "programmi/corticelli-juri.html",
+  "742b344e2a0a606a013bb324ccd247d2b384c52eef720ae47a62136ad2f194a6": "programmi/tagliani-sara.html"
   };
