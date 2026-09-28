@@ -1,229 +1,1014 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Runner’s School Italia – Programma personalizzato</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Runner’s School Italia – Federica Carli</title>
 
-  <style>
-    :root{
-      --bg:#020617;
-      --bg-card:#0b1120;
-      --accent:#f97316;
-      --accent-soft: rgba(249,115,22,0.12);
-      --text:#e5e7eb;
-      --text-muted:#9ca3af;
-      --border:#1f2937;
-      --radius:20px;
-      --shadow:0 18px 45px rgba(0,0,0,.55);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      color:var(--text);
-    }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
-    .back:hover{opacity:1}
-    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
-    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
-    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
-    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
-    .meta b{color:var(--text)}
-    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
-    .btn:hover{opacity:1}
-    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
-    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
-    .content{font-size:14px; line-height:1.45;}
-    .content p{margin:10px 0}
-    .content strong{font-weight:900}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
-    .mini .v{font-size:14px; line-height:1.35}
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
-    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
-    details.week summary::-webkit-details-marker{display:none}
-    .week-title{font-weight:900}
-    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
-    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
-    .week-content p{margin:10px 0}
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
 
-    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
-    .lock .wrap{max-width:520px;margin:0 auto;}
-    .lock .card{padding:16px}
-    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
-    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
-    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
+*{box-sizing:border-box}
 
-    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
-    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
-    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
-    .ritmi-table tbody td{color:var(--text-muted);}
-    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
-    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
-    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
-  </style>
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 16px 28px;
+}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text);
+  opacity:.9;
+  font-size:13px;
+}
+
+.pill{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,.28);
+  color:var(--text);
+  white-space:nowrap;
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(249,115,22,.06),rgba(0,0,0,0)),var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+}
+
+h1{
+  font-size:18px;
+  margin:0 0 6px;
+}
+
+.meta{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.35;
+  margin:0;
+}
+
+.meta b{color:var(--text)}
+
+.btnrow{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#050b18;
+  color:var(--text);
+  font-size:13px;
+}
+
+.btn.primary{
+  background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));
+  border:0;
+  color:#0b1120;
+  font-weight:900;
+}
+
+.section-label{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--text-muted);
+  margin:22px 2px 10px;
+}
+
+.content{
+  font-size:14px;
+  line-height:1.45;
+}
+
+.content p{margin:10px 0}
+.content strong{font-weight:900}
+
+.footnote{
+  margin-top:14px;
+  color:var(--text-muted);
+  font-size:11px;
+  line-height:1.35;
+}
+
+details.week{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#050b18;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+details.week summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+details.week summary::-webkit-details-marker{display:none}
+
+.week-title{font-weight:900}
+
+.week-dates{
+  font-size:12px;
+  color:var(--text-muted);
+  font-weight:700;
+}
+
+.week-content{
+  padding:0 12px 12px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+.week-content p{margin:10px 0}
+
+.lock{
+  position:fixed;
+  inset:0;
+  display:none;
+  background:radial-gradient(circle at top,rgba(11,17,32,.95) 0,rgba(2,6,23,.97) 60%,rgba(0,0,0,.98) 100%);
+  padding:18px 16px;
+  z-index:999;
+}
+
+.lock .wrap{
+  max-width:520px;
+  margin:0 auto;
+}
+
+.lock input{
+  width:100%;
+  margin-top:10px;
+  background:#050b18;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px;
+  color:var(--text);
+  font-size:14px;
+}
+
+.lock .msg{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(239,68,68,.5);
+  background:rgba(239,68,68,.08);
+  display:none;
+  font-size:13px;
+}
+
+.ritmi-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:6px;
+  border:1px solid var(--border);
+}
+
+.ritmi-table th,
+.ritmi-table td{
+  padding:10px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+
+.ritmi-table thead th{
+  background:rgba(255,255,255,.03);
+  font-weight:900;
+}
+
+.ritmi-table tbody td{
+  color:var(--text-muted);
+}
+
+.ritmi-table tbody td:first-child{
+  color:var(--text);
+  font-weight:900;
+}
+
+.note-box{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(249,115,22,.28);
+  background:rgba(249,115,22,.08);
+  font-size:13px;
+  line-height:1.35;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="lock" id="lock" aria-hidden="false">
-    <div class="wrap">
-      <div class="card">
-        <h1>🔒 Area riservata</h1>
-        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+<div class="lock" id="lock" aria-hidden="false">
+  <div class="wrap">
+    <div class="card">
+      <h1>🔒 Area riservata</h1>
+      <p class="meta">Inserisci la password per visualizzare il programma.</p>
 
-        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
-        </div>
+      <input id="pw" type="password" autocomplete="current-password" placeholder="Password"/>
 
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+      <div class="btnrow">
+        <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
+        <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
+      </div>
+
+      <div class="msg" id="lockMsg">Password errata. Riprova.</div>
+
+      <div class="footnote">
+        Nota: non condividere password o link con altre persone.
       </div>
     </div>
   </div>
+</div>
 
-  <div class="app" id="app">
-    <div class="top">
-      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-      <div class="pill">🟧 Runner’s School Italia</div>
-    </div>
+<div class="app" id="app">
 
-    <div class="card">
-      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Carli Federica</span></h1>
-      <p class="meta">Aggiornato: <b>05/09/2026</b><br>
-      Percorso settembre–dicembre su <b>2 uscite principali a settimana</b>.<br>
-      Prima tappa: <b>10 km di Ravenna · 8 novembre</b>. Il percorso prosegue poi fino al 20 dicembre per consolidare distanza, continuità e autonomia.</p>
-      <div class="btnrow"><a class="btn primary" href="#settimane">📅 Vai alle settimane</a></div>
-      <div class="footnote">Questo programma è personale e va adattato alle sensazioni reali settimana dopo settimana.</div>
-    </div>
+<div class="top">
+  <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">
+    ← Programmi personalizzati
+  </a>
+  <div class="pill">🟧 Runner’s School Italia</div>
+</div>
 
-    <div class="section-label">Scheda atleta</div>
-    <div class="card"><div class="grid">
-      <div class="mini"><div class="k">Nome</div><div class="v">Carli Federica</div></div>
-      <div class="mini"><div class="k">Frequenza</div><div class="v"><strong>2 uscite / settimana</strong></div></div>
-      <div class="mini"><div class="k">Distanza attuale</div><div class="v">Circa 5–7 km</div></div>
-      <div class="mini"><div class="k">Riferimento recente</div><div class="v">6 km continui intorno a 8'00&quot;–8'15&quot;/km</div></div>
-      <div class="mini" style="grid-column:1/-1"><div class="k">Obiettivo</div><div class="v">Ritrovare continuità, riuscire a mantenere meglio ritmo e distanza e arrivare alla 10 km di Ravenna dell’8 novembre con una gestione sicura e regolare.</div></div>
-    </div></div>
+<div class="card">
 
-    <div class="section-label">Da dove ripartiamo</div>
-    <div class="card content">
-      <p>Federica <strong>non parte davvero da zero</strong>. Nel precedente percorso aveva già costruito una buona continuità ed era arrivata alla sua prima 10 km. Successivamente, con un periodo di allenamenti più irregolari, ha perso parte della condizione raggiunta.</p>
-      <p>Nel programma precedente avevamo già visto che i lavori molto veloci e il potenziamento erano gli aspetti più difficili da gestire. Per questo oggi non avrebbe senso riprendere da dove avevamo lasciato: serve prima <strong>ricostruire la base</strong>, ma senza trattarla come una principiante assoluta.</p>
-      <p>I dati dell’ultima uscita confermano questa lettura: Federica riesce già a correre circa 6 km consecutivi, ma a ritmi intorno agli 8'/km la frequenza cardiaca tende a salire con il passare dei minuti. Il primo obiettivo non è quindi correre più forte, ma riuscire a correre la stessa distanza con <strong>maggiore controllo e minore fatica</strong>.</p>
-      <div class="note-box">La corsa/camminata rimane uno strumento disponibile nelle giornate difficili o nelle prime uscite più lunghe, ma non sarà la struttura principale: la corsa continua è già presente.</div>
-    </div>
+<h1>📄 Programma personalizzato · Federica Carli</h1>
 
-    <div class="section-label">Il percorso delle 15 settimane</div>
-    <div class="card content">
-      <p><strong>Fase 1 · Ripresa (settimane 1–3).</strong> Ritroviamo regolarità con corsa facile e variazioni molto brevi. Nessuna ricerca della prestazione.</p>
-      <p><strong>Fase 2 · Costruzione (settimane 4–6).</strong> Aumentiamo gradualmente il tempo di corsa e portiamo l’uscita lunga verso 8 km. La qualità resta semplice e controllata.</p>
-      <p><strong>Fase 3 · Verso Ravenna (settimane 7–9).</strong> Arriviamo a 9 km, inseriamo piccoli tratti a ritmo 10 km e poi affrontiamo Ravenna. L’obiettivo principale è completare i 10 km bene e con continuità.</p>
-      <p><strong>Fase 4 · Dopo Ravenna (settimane 10–12).</strong> Recuperiamo dalla gara e trasformiamo ciò che abbiamo costruito in una base stabile.</p>
-      <p><strong>Fase 5 · Consolidamento (settimane 13–15).</strong> Torniamo gradualmente a lavorare anche sulla velocità, mantenendo però la capacità di correre 8–10 km senza che diventino ogni volta una prova speciale.</p>
-      <div class="note-box"><strong>Ravenna è una tappa, non la fine del programma.</strong> Il vero risultato delle 15 settimane sarà rendere Federica più continua, autonoma e capace di gestire con naturalezza le distanze che oggi sente impegnative.</div>
-    </div>
+<p class="meta">
+Aggiornato: <b>28/09/2026</b><br>
+Periodo: <b>7 settembre – 20 dicembre 2026</b> · 15 settimane<br>
+Obiettivo principale: <b>10 km di Ravenna – 8 novembre 2026</b><br>
+Programma di riferimento: <b>Sprint</b>, adattato alla situazione reale di Federica e alla preparazione dei 10 km.
+</p>
 
-    <div class="section-label">Indicazioni sui ritmi</div>
-    <div class="card content">
-      <p>In questa prima fase non useremo i vecchi ritmi come obbligo. Oggi un passo vicino agli 8'/km non sembra ancora un vero lento facile per tutta la durata dell’allenamento.</p>
-      <table class="ritmi-table"><thead><tr><th>Tipo</th><th>Indicazione</th></tr></thead><tbody>
-        <tr><td>Facile / lento</td><td>Indicativamente 8'10&quot;–8'40&quot;/km, anche più piano se serve</td></tr>
-        <tr><td>Controllato</td><td>Circa 7'55&quot;–8'10&quot;/km, solo quando richiesto</td></tr>
-        <tr><td>Brillante</td><td>Brevi tratti a sensazione, senza andare al massimo</td></tr>
-      </tbody></table>
-      <div class="note-box">La regola più importante: nel lento Federica deve sentire di poter continuare. Dopo 2–3 settimane rivaluteremo i riferimenti usando le sensazioni e i dati reali.</div>
-    </div>
+<div class="btnrow">
+<a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+</div>
 
-    <div class="section-label" id="settimane">Programma · 15 settimane</div>
-    <div class="card content">
-      <p>Ogni settimana prevede <strong>2 sedute principali</strong>. Se c’è tempo per una terza attività: 30–45' di camminata attiva oppure corsa/camminata molto facile, senza trasformarla in un altro allenamento impegnativo.</p>
-      <details class="week"><summary><span class="week-title">Settimana 1 · Ripartenza</span><span class="week-dates">7–13 settembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>35–40’ corsa facile. Se necessario: 9’ corsa + 1’ cammino × 4. Nessun obiettivo di passo.</p><p><strong>2️⃣ Seduta</strong><br>6 km corsa facile e continua. Partenza molto tranquilla; ultimi 10’ solo se sta bene leggermente più sciolti.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 2 · Continuità</span><span class="week-dates">14–20 settembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 6 × (1’ brillante + 2’ facile) + 10’ facile. Il minuto brillante deve essere controllato.</p><p><strong>2️⃣ Seduta</strong><br>6,5 km facili. Obiettivo: finire con la sensazione di avere ancora margine.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 3 · Primo consolidamento</span><span class="week-dates">21–27 settembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>40’ totali: 15’ facile + 3 × (4’ controllato + 3’ facile) + corsa facile finale.</p><p><strong>2️⃣ Seduta</strong><br>7 km facili. Se la fatica cresce troppo: 1’ cammino dopo 5 km e poi ripartenza.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 4 · Scarico attivo</span><span class="week-dates">28 settembre–4 ottobre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>35’ corsa facile + 5 × 20” allungo sciolto con 1’20” molto facile.</p><p><strong>2️⃣ Seduta</strong><br>6 km facili, senza progressione. Settimana per assorbire il primo blocco.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 5 · Costruzione</span><span class="week-dates">5–11 ottobre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 4 × (3’ controllato + 2’ facile) + 10’ facile.</p><p><strong>2️⃣ Seduta</strong><br>7,5 km facili. Nessuna accelerazione obbligatoria nel finale.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 6 · Più tempo sulle gambe</span><span class="week-dates">12–18 ottobre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>45’ corsa continua: primi 25’ facili, poi 10’ controllati, ultimi 10’ nuovamente facili.</p><p><strong>2️⃣ Seduta</strong><br>8 km facili. È la seduta principale della settimana: ritmo secondario rispetto alla distanza.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 7 · Verso i 10 km</span><span class="week-dates">19–25 ottobre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 3 × (5’ controllato + 3’ facile) + 10’ facile.</p><p><strong>2️⃣ Seduta</strong><br>8,5 km: primi 7 km facili; ultimi 1,5 km leggermente più brillanti solo se la gestione è buona.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 8 · Specifico leggero</span><span class="week-dates">26 ottobre–1 novembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 3 × 1 km a ritmo sostenibile da 10 km con 3’ corsa molto facile + 10’ defaticamento. Non è un test.</p><p><strong>2️⃣ Seduta</strong><br>9 km facili e regolari. Questa è la prova generale della distanza, non della velocità.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 9 · Ravenna</span><span class="week-dates">2–8 novembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>A inizio settimana: 30–35’ facili + 4 × 30” brillanti con 90” facili. Poi recupero.</p><p><strong>2️⃣ Seduta</strong><br>🏁 10 km di Ravenna · 8 novembre. Partenza prudente, primi km controllati; dalla seconda metà si valuta se aumentare. Obiettivo: correre con continuità e arrivare bene.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 10 · Recupero</span><span class="week-dates">9–15 novembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>30–35’ corsa rigenerante oppure corsa/camminata se le gambe sono ancora stanche.</p><p><strong>2️⃣ Seduta</strong><br>5–6 km facili. Nessun lavoro di qualità: recuperiamo davvero dalla 10 km.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 11 · Ripartiamo dalla nuova base</span><span class="week-dates">16–22 novembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 6 × (2’ controllato + 2’ facile) + 10’ facile.</p><p><strong>2️⃣ Seduta</strong><br>7 km facili, ultimi 10’ in progressione naturale se sta bene.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 12 · Consolidamento</span><span class="week-dates">23–29 novembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>40–45’: 15’ facile + 15’ controllato continuo + corsa facile finale.</p><p><strong>2️⃣ Seduta</strong><br>8 km corsa facile e regolare.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 13 · Qualità semplice</span><span class="week-dates">30 novembre–6 dicembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 5 × 3’ brillante controllato / 2’ facile + 10’ facile.</p><p><strong>2️⃣ Seduta</strong><br>8,5 km facili. L’obiettivo è rendere normale una distanza che a settembre era già impegnativa.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 14 · Ritmo e autonomia</span><span class="week-dates">7–13 dicembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>15’ facile + 2 × 2 km a ritmo controllato con 4’ facili tra i blocchi + 10’ defaticamento.</p><p><strong>2️⃣ Seduta</strong><br>9–10 km corsa facile. Nessun obbligo di progressione.</p></div></details>
-      <details class="week"><summary><span class="week-title">Settimana 15 · Chiusura e verifica</span><span class="week-dates">14–20 dicembre</span></summary><div class="week-content"><p><strong>1️⃣ Seduta</strong><br>40’ progressivi: 15’ facile + 15’ controllato + 10’ un po’ più brillante, sempre senza arrivare al massimo.</p><p><strong>2️⃣ Seduta</strong><br>8–10 km liberi e gestiti in autonomia. L’obiettivo è confrontare sensazioni e controllo con l’inizio del percorso, non cercare il record.</p></div></details>
-      <div class="note-box" style="margin-top:14px"><strong>Gestione del programma.</strong> Se una settimana viene saltata o risulta troppo impegnativa, non recuperiamo gli allenamenti persi comprimendoli: ripartiamo dal punto più adatto. La continuità vale più della singola seduta.</div>
-    </div>
+</div>
 
-  </div>
+
+<div class="section-label">Storico e punto di partenza</div>
+
+<div class="card content">
+
+<p>
+Federica era già stata seguita da Runner’s School e nel precedente percorso era riuscita ad arrivare alla sua
+<strong>prima 10 km</strong>.
+</p>
+
+<p>
+Nei mesi successivi la continuità è diminuita e, al momento del nuovo questionario, la sua percezione era quella
+di dover ricominciare quasi da zero, anche alternando corsa e camminata.
+</p>
+
+<p>
+Le prime uscite hanno però mostrato una situazione migliore di quella immaginata:
+Federica è già in grado di correre continuativamente e il <strong>test dei 3000 m</strong>
+ha dato un’indicazione ancora più importante.
+</p>
+
+<div class="note-box">
+
+<strong>Test 3000 m: 7’03”/km di media</strong><br>
+Parziali: <strong>7’49” · 7’00” · 6’22”</strong>.<br><br>
+
+La fortissima progressione indica che il test non è stato corso in maniera uniforme
+e probabilmente non rappresenta ancora il limite reale.
+
+Per questo impostiamo un <strong>RG iniziale di 7’20”/km</strong>,
+prudente e utile per lavorare bene, da rivalutare con l’evoluzione delle prossime settimane.
+
+</div>
+
+</div>
+
+
+<div class="section-label">Nuova strategia</div>
+
+<div class="card content">
+
+<p>
+Il risultato del test cambia abbastanza l’impostazione iniziale.
+Non ha più senso lavorare come se Federica dovesse semplicemente ricominciare a correre:
+da questo momento utilizziamo il <strong>programma Sprint</strong>.
+</p>
+
+<p>
+Il focus rimane però molto preciso:
+<strong>preparare bene i 10 km di Ravenna dell’8 novembre</strong>.
+</p>
+
+<p>
+Il programma è costruito su <strong>3 uscite settimanali</strong>:
+<strong>Scarico, Qualità e Fine settimana</strong>.
+Questo non significa però che Federica debba necessariamente riuscire a svolgerle tutte ogni settimana.
+</p>
+
+<div class="note-box">
+
+<strong>SE RIESCI A FARE 3 USCITE</strong><br>
+Scarico + Qualità + Fine settimana.<br><br>
+
+<strong>SE RIESCI A FARE 2 USCITE</strong><br>
+Il <strong>Fine settimana rimane sempre</strong>.<br>
+La seconda seduta viene scelta in base alle sensazioni:<br><br>
+
+• <strong>Qualità</strong> se sei fresca, hai recuperato bene e senti buone gambe.<br>
+• <strong>Scarico</strong> se senti stanchezza, affaticamento o semplicemente la necessità di recuperare.<br><br>
+
+Non dobbiamo recuperare gli allenamenti persi e soprattutto non dobbiamo comprimere tre sedute in pochi giorni.
+
+</div>
+
+<p>
+Fino a Ravenna il lavoro del fine settimana sarà il punto fermo della preparazione:
+ci servirà per aumentare progressivamente la capacità di sostenere la distanza dei 10 km.
+</p>
+
+<p>
+La qualità servirà invece per migliorare ritmo ed efficienza,
+mentre lo scarico permetterà di recuperare e assimilare il lavoro svolto.
+</p>
+
+<p>
+Dopo Ravenna il programma continuerà fino alla <strong>15ª settimana</strong>:
+la gara non rappresenta quindi la fine del percorso, ma una tappa importante.
+Le settimane successive serviranno a consolidare quanto costruito
+e a rendere gli <strong>8–10 km una distanza sempre più normale e gestibile</strong>.
+</p>
+
+</div>
+
+
+<div class="section-label">Ritmi di riferimento</div>
+
+<div class="card content">
+
+<table class="ritmi-table">
+
+<thead>
+<tr>
+<th>Sigla</th>
+<th>Significato</th>
+<th>Riferimento</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>RG</td>
+<td>Ritmo gara</td>
+<td>7’20”/km</td>
+</tr>
+
+<tr>
+<td>RM</td>
+<td>Ritmo medio</td>
+<td>7’40”/km</td>
+</tr>
+
+<tr>
+<td>RA</td>
+<td>Ritmo allegro</td>
+<td>8’00”–8’05”/km</td>
+</tr>
+
+<tr>
+<td>RL</td>
+<td>Ritmo lento</td>
+<td>8’10”–8’20”/km</td>
+</tr>
+
+<tr>
+<td>RD</td>
+<td>Riscaldamento / defaticamento</td>
+<td>8’30”–8’40”/km</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="note-box">
+
+Questi ritmi rappresentano un <strong>punto di partenza</strong>, non un vincolo.
+
+Il 6’22” dell’ultimo chilometro del test ci mostra che probabilmente esiste ancora margine,
+ma non avrebbe senso trasformarlo automaticamente in un nuovo ritmo gara.
+
+Vedremo come Federica assimilerà i lavori e aggiorneremo i riferimenti quando avremo dati sufficienti.
+
+</div>
+
+</div>
+
+
+<div class="section-label" id="settimane">Programma · 15 settimane</div>
+
+<div class="card content">
+
+<p>
+<strong>Regola fondamentale:</strong>
+il lavoro del <strong>Fine settimana è sempre la seduta prioritaria</strong>.
+Con 2 uscite scegli tra Qualità e Scarico in base al recupero;
+con 3 uscite svolgi tutte e tre le sedute.
+</p>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 1</span>
+<span class="week-dates">7–13 settembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+5–6 km di corsa facile, senza inseguire il ritmo.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 6 × (200 m RG + 200 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+6 km continui facili. Obiettivo: ritrovare continuità.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 2</span>
+<span class="week-dates">14–20 settembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 3 × (500 m RG + 500 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+6,5–7 km continui, ritmo controllato.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 3</span>
+<span class="week-dates">21–27 settembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Test 3000 m</strong><br>
+Completato a <strong>7’03”/km di media</strong>.<br>
+Parziali: 7’49” – 7’00” – 6’22”.<br>
+Da questo test aggiorniamo ritmi e strategia.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+7 km facili, senza forzare dopo il test.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 4</span>
+<span class="week-dates">28 settembre – 4 ottobre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km RD/RL.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 4 × (400 m RG + 400 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+7,5 km totali, con gli ultimi 1,5 km in progressione controllata verso RA/RM.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 5</span>
+<span class="week-dates">5–11 ottobre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6–7 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 3 × (800 m RG + 400 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+8 km continui facili.<br>
+Focus sulla distanza, non sul passo.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 6</span>
+<span class="week-dates">12–18 ottobre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 3 km alternando 500 m RM / 500 m RG + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+8,5 km con parte centrale regolare a RL/RA.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 7</span>
+<span class="week-dates">19–25 ottobre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6–7 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 5 × (500 m RG + 500 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+9 km facili.<br>
+È il primo vero richiamo vicino alla distanza gara.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 8</span>
+<span class="week-dates">26 ottobre – 1 novembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 2 × (1500 m RG + 500 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+8 km totali con 3 km centrali a ritmo controllato tra RM e RG.<br>
+Nessuna ricerca del limite.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 9</span>
+<span class="week-dates">2–8 novembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+5 km molto facili a inizio settimana.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 4 × 200 m brillanti ma sciolti,
+recupero 200 m lento + 1 km RD.<br>
+Da fare solo se recuperata.
+</p>
+
+<p>
+<strong>🏁 8 NOVEMBRE · 10 KM RAVENNA</strong><br>
+Partenza controllata.
+L’obiettivo è distribuire bene lo sforzo e arrivare negli ultimi chilometri
+ancora capace di correre bene e aumentare eventualmente il ritmo.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 10</span>
+<span class="week-dates">9–15 novembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+4–5 km molto facili oppure riposo se la gara ha lasciato stanchezza.
+</p>
+
+<p>
+<strong>🔥 Qualità</strong><br>
+Nessun lavoro impegnativo.<br>
+Eventualmente 5–6 km facili con 4 allunghi brevi.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+6–7 km facili.<br>
+Settimana di assimilazione post Ravenna.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 11</span>
+<span class="week-dates">16–22 novembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 6 × (300 m RG-20” circa + 300 m recupero lento) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+8 km continui facili.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 12</span>
+<span class="week-dates">23–29 novembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6–7 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 4 km in progressione RL → RA → RM → RG + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+8–9 km regolari, senza obiettivo cronometrico.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 13</span>
+<span class="week-dates">30 novembre – 6 dicembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 4 × (600 m RG + 400 m RL) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+9 km con ultimi 2 km in progressione se le sensazioni sono buone.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 14</span>
+<span class="week-dates">7–13 dicembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6–7 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 2 × (1000 m RM + 1000 m RG) + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+9–10 km continui facili.<br>
+L’obiettivo è rendere questa distanza ormai gestibile.
+</p>
+
+</div>
+</details>
+
+
+<details class="week">
+
+<summary>
+<span class="week-title">Settimana 15</span>
+<span class="week-dates">14–20 dicembre</span>
+</summary>
+
+<div class="week-content">
+
+<p>
+<strong>🟦 Scarico</strong><br>
+6 km facili.
+</p>
+
+<p>
+<strong>🔥 Qualità Sprint</strong><br>
+2 km RD + 3 km progressivi da RA a RG + 1 km RD.
+</p>
+
+<p>
+<strong>🏁 Fine settimana</strong><br>
+10 km liberi e controllati.<br>
+Chiusura del percorso: distanza consolidata, senza obbligo di tempo.
+</p>
+
+</div>
+</details>
+
+
+<p class="footnote">
+Il programma va adattato alle sensazioni reali.
+Dolori persistenti o variazioni importanti dello stato di forma richiedono una modifica del carico.
+</p>
+
+</div>
+</div>
+
 
 <script>
-  const PAGE_HASH = "5458fd000ef8ebc33107b37217aa509aa98847e2d184bfdccacda4d35c92cd2f";
-  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
 
-  const key = "CarFed.2026";
+const PAGE_HASH =
+"5458fd000ef8ebc33107b37217aa509aa98847e2d184bfdccacda4d35c92cd2f";
 
-  const lock = document.getElementById("lock");
-  const app = document.getElementById("app");
-  const unlockBtn = document.getElementById("unlock");
-  const pwInput = document.getElementById("pw");
-  const lockMsg = document.getElementById("lockMsg");
+const STORAGE_KEY =
+"rs_program_unlock_" + PAGE_HASH;
 
-  function showApp() {
-    lock.style.display = "none";
-    lock.setAttribute("aria-hidden", "true");
-    app.style.display = "block";
-    lockMsg.style.display = "none";
-    pwInput.value = "";
-  }
+const key = "CarFed.2026";
 
-  let alreadyUnlocked = false;
-  try {
-    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
-  } catch (e) {
-    alreadyUnlocked = false;
-  }
+const lock = document.getElementById("lock");
+const app = document.getElementById("app");
+const unlockBtn = document.getElementById("unlock");
+const pwInput = document.getElementById("pw");
+const lockMsg = document.getElementById("lockMsg");
 
-  if (alreadyUnlocked) {
+function showApp(){
+
+  lock.style.display = "none";
+  lock.setAttribute("aria-hidden","true");
+
+  app.style.display = "block";
+
+  lockMsg.style.display = "none";
+
+  pwInput.value = "";
+
+}
+
+let alreadyUnlocked = false;
+
+try{
+
+  alreadyUnlocked =
+  (localStorage.getItem(STORAGE_KEY) === "ok");
+
+}catch(e){
+
+  alreadyUnlocked = false;
+
+}
+
+if(alreadyUnlocked){
+
+  showApp();
+
+}else{
+
+  lock.style.display = "block";
+
+  lock.setAttribute("aria-hidden","false");
+
+  app.style.display = "none";
+
+}
+
+function tryUnlock(){
+
+  const inputPassword =
+  pwInput.value.trim();
+
+  if(inputPassword === key){
+
+    try{
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        "ok"
+      );
+
+    }catch(e){}
+
     showApp();
-  } else {
-    lock.style.display = "block";
-    lock.setAttribute("aria-hidden", "false");
-    app.style.display = "none";
+
+  }else{
+
+    lockMsg.style.display = "block";
+
   }
 
-  function tryUnlock() {
-    const inputPassword = pwInput.value.trim();
+}
 
-    if (inputPassword === key) {
-      try {
-        localStorage.setItem(STORAGE_KEY, "ok");
-      } catch (e) {}
+unlockBtn.addEventListener(
+"click",
+function(e){
 
-      showApp();
-    } else {
-      lockMsg.style.display = "block";
-    }
-  }
+  e.preventDefault();
 
-  unlockBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    tryUnlock();
-  });
+  tryUnlock();
 
-  pwInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter") tryUnlock();
-  });
+});
+
+pwInput.addEventListener(
+"keydown",
+function(e){
+
+  if(e.key === "Enter")
+  tryUnlock();
+
+});
+
 </script>
 
 </body>
