@@ -66,13 +66,6 @@
     .alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38;}
     .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95;}
 
-    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border);}
-    .ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
-    .ritmi-table tr:last-child td{border-bottom:0}
-    .ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}
-    .ritmi-table tbody td{color:var(--text-muted)}
-    .ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
-
     details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px;}
     details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;}
     details.week summary::-webkit-details-marker{display:none}
@@ -96,307 +89,387 @@
 
 <body>
 
-  <div class="app" id="app">
-    <div class="top">
-      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-      <div class="pill">🟧 Runner’s School Italia</div>
+<div class="app" id="app">
+
+  <div class="top">
+    <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+    <div class="pill">🟧 Runner’s School Italia</div>
+  </div>
+
+  <div class="card">
+    <h1>📄 Programma personalizzato · Bernaroli Mirko</h1>
+    <p class="meta">
+      Periodo: <b>28 settembre – 6 dicembre 2026</b><br>
+      Aggiornato: <b>29/09/2026</b><br>
+      Coach: <b>Runner’s School Italia</b>
+    </p>
+
+    <div class="tagrow">
+      <span class="tag ok">Preparazione Half Marathon</span>
+      <span class="tag info">3 uscite settimanali</span>
+      <span class="tag warn">Cardinelli · 22 novembre</span>
     </div>
 
-    <div class="card">
-      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Bernaroli Mirko</span></h1>
-      <p class="meta">
-        Periodo: <b>Maggio – Agosto 2026</b><br>
-        Aggiornato: <b id="aggiornatoIl">09/05/2026</b><br>
-        Coach: <b>Runner’s School Italia</b>
-      </p>
-
-      <div class="tagrow">
-        <span class="tag ok">Percorso medio-avanzato</span>
-        <span class="tag info">3 uscite settimanali</span>
-        <span class="tag warn">Focus nuovi stimoli</span>
-      </div>
-
-      <div class="btnrow">
-        <a class="btn primary" href="#settimane">📅 Vai al programma</a>
-        <a class="btn" href="#ritmi">⏱️ Ritmi</a>
-        <a class="btn" href="#note">📝 Note</a>
-      </div>
-
-      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
-    </div>
-
-    <div class="section-label">Scheda atleta</div>
-    <div class="card">
-      <div class="grid">
-        <div class="mini"><div class="k">Atleta</div><div class="v">Bernaroli Mirko</div></div>
-        <div class="mini"><div class="k">Percorso</div><div class="v">Già corre · obiettivo specifico</div></div>
-        <div class="mini"><div class="k">Allenamenti</div><div class="v">3 uscite running / settimana</div></div>
-        <div class="mini"><div class="k">Distanza attuale</div><div class="v">Indicativamente 8–12 km</div></div>
-        <div class="mini"><div class="k">Top 5000 m</div><div class="v">4’37”/km</div></div>
-        <div class="mini"><div class="k">Stato attuale</div><div class="v">Si sente abbastanza allenato</div></div>
-        <div class="mini full">
-          <div class="k">Obiettivo dichiarato</div>
-          <div class="v">
-            Imparare un metodo di allenamento duraturo e cercare di velocizzarsi sulle distanze tra 8 e 12 km.
-          </div>
-        </div>
-        <div class="mini full">
-          <div class="k">Nota personale</div>
-          <div class="v">
-            Mirko veniva da una fase di calo fisico a cui non riusciva a dare una spiegazione. Seguendo il corso con costanza ha recuperato bene, senza problemi o infortuni. Gli esercizi inseriti nel riscaldamento per migliorare cadenza ed efficienza di corsa lo hanno aiutato molto ad aumentare il ritmo gara sui 10 km e a gestire meglio le fasi di lavoro.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-label">Obiettivi del percorso</div>
-    <div class="card content">
-      <p><strong>🎯 Obiettivo principale</strong><br>
-        Cambiare leggermente approccio, dare nuovi stimoli e costruire bene la base prima dell’autunno.
-      </p>
-
-      <p><strong>📌 Obiettivi del periodo</strong><br>
-        • Consolidare il grande recupero fatto nello scorso quadrimestre<br>
-        • Continuare a migliorare efficienza, cadenza e tecnica di corsa<br>
-        • Velocizzarsi sulle distanze intermedie<br>
-        • Gestire meglio i recuperi tra una ripetizione e l’altra<br>
-        • Mantenere continuità sulle 3 uscite settimanali<br>
-        • Costruire una base solida prima degli obiettivi autunnali
-      </p>
-
-      <p><strong>🧭 Punto chiave</strong><br>
-        Mirko ha fatto un percorso davvero eccezionale nello scorso quadrimestre, migliorando tantissimo e seguendo il programma con costanza. Ora serve non fermarsi, ma cambiare leggermente stimolo per continuare a crescere senza appesantire troppo il percorso.
-      </p>
-    </div>
-
-    <div class="section-label">Spiegazione del percorso</div>
-    <div class="card content">
-      <p>
-        Mirko arriva da un quadrimestre molto positivo. All’inizio ha faticato nei lavori veloci, soprattutto nel mantenere il ritmo di recupero tra una ripetizione e l’altra, ma nel tempo la situazione è migliorata nettamente.
-      </p>
-
-      <p>
-        Questo è un segnale importante: non è migliorato solo il ritmo, ma anche la capacità di gestire meglio lo sforzo, recuperare in modo più ordinato e affrontare le sedute di qualità con più controllo.
-      </p>
-
-      <p>
-        In questa nuova fase non dobbiamo stravolgere tutto, ma inserire nuovi stimoli: lavori variati, ripetute miste, corti veloci, collinari e lunghi lenti progressivi. L’obiettivo è rendere il corpo più reattivo, efficiente e pronto per costruire un ottimo autunno.
-      </p>
-
-      <p>
-        Il programma è basato su microcicli di 4 settimane: 3 settimane di carico e 1 settimana di scarico. Nei lavori di qualità si alternano ripetute miste, con recupero attivo e passivo, e lavori variati in soglia. Nelle settimane di scarico i lavori diventano più blandi.
-      </p>
-
-      <p>
-        Nel fine settimana si alternano lavori variati, collinari o lavori di potenziamento, lavori corti e veloci e, nella settimana di scarico, un lungo lento. I lunghi lenti e i collinari cresceranno progressivamente di volume a ogni microciclo.
-      </p>
-
-      <div class="note-box">
-        <strong>Idea guida:</strong> Mirko ha già dimostrato di poter recuperare e migliorare con costanza. Ora dobbiamo usare questa base per renderlo più brillante, più efficiente e più pronto per il prossimo salto.
-      </div>
-    </div>
-
-    <div class="section-label" id="ritmi">Ritmi di riferimento</div>
-    <div class="card content">
-      <table class="ritmi-table" aria-label="Ritmi di riferimento">
-        <thead><tr><th>Sigla</th><th>Significato</th><th>Ritmo</th></tr></thead>
-        <tbody>
-          <tr><td>RG</td><td>Ritmo gara / riferimento</td><td translate="no">4’47”/km circa</td></tr>
-          <tr><td>RM</td><td>Ritmo medio</td><td translate="no">5’07”/km circa</td></tr>
-          <tr><td>RA</td><td>Ritmo allegro</td><td translate="no">5’27”/km circa</td></tr>
-          <tr><td>RL</td><td>Ritmo lento</td><td translate="no">5’37”/km circa</td></tr>
-          <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td translate="no">5’47”/km circa</td></tr>
-        </tbody>
-      </table>
-
-      <div class="note-box">
-        <strong>Calcolo ritmi:</strong> ritmi calcolati partendo dal top sui 5000 m a 4’37”/km. Formula Runner’s School: RG = ritmo test +10”; RM = RG +20”; RA = RM +20”; RL = RA +10”; RD = RL +10”.
-      </div>
-
-      <div class="alert-box">
-        <strong>⚠️ Nota importante:</strong> nei recuperi tra le ripetizioni non bisogna correre troppo forte. Il recupero fatto bene permette di rendere più efficace tutta la seduta.
-      </div>
-    </div>
-
-    <div class="section-label" id="note">Note del coach</div>
-    <div class="card content">
-      <p><strong>📌 Indicazioni chiave</strong><br>
-        • Continua a curare gli esercizi di cadenza ed efficienza nel riscaldamento.<br>
-        • Nei lavori veloci non forzare subito la prima ripetuta: entra nel lavoro progressivamente.<br>
-        • I recuperi devono essere controllati, non una seconda ripetuta mascherata.<br>
-        • Nei collinari guarda meno il passo e più lo sforzo.<br>
-        • Questo blocco serve a costruire bene prima dell’autunno.<br>
-        • La costanza resta il punto più importante del percorso.
-      </p>
-
-      <div class="alert-box">
-        <strong>⚠️ Attenzione:</strong> se dovesse tornare una sensazione di calo fisico anomala, meglio alleggerire subito qualche seduta e valutare il recupero generale.
-      </div>
-    </div>
-
-    <div class="section-label">Struttura settimanale</div>
-    <div class="card content">
-      <div class="grid">
-        <div class="mini"><div class="k">Seduta 1</div><div class="v">Scarico · corsa facile e continuità</div></div>
-        <div class="mini"><div class="k">Seduta 2</div><div class="v">Qualità · ripetute, progressioni e lavori variati</div></div>
-        <div class="mini"><div class="k">Seduta 3</div><div class="v">Fine settimana · variato, collinare, corto veloce o lungo lento</div></div>
-        <div class="mini"><div class="k">Priorità</div><div class="v">Nuovi stimoli, efficienza e base autunnale</div></div>
-      </div>
-    </div>
-
-    <div class="section-label" id="settimane">Programma</div>
-    <div class="card content">
-      <p>Apri la settimana corrispondente e segui le sedute nell’ordine indicato. Il programma è impostato su 3 uscite settimanali: scarico, qualità e fine settimana.</p>
-
-      <details class="week" data-start="2026-05-11" data-end="2026-05-17" open>
-        <summary><span class="week-title">Settimana 1</span><span class="week-dates">11–17 maggio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 1 x (1000m RG-10” + 2’ recupero souplesse) + 2 x (600m RG-20” + 1’30” recupero souplesse) + 5 x (200m RG-30” + 1’ recupero souplesse) + 1 km RD (10,5 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 3 x (1000m RG + 500m RL) + 2 x (500m RG-10” + 500m RL) + 1 km RL (10,5 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-05-18" data-end="2026-05-24">
-        <summary><span class="week-title">Settimana 2</span><span class="week-dates">18–24 maggio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 5000m alternando 1000m RM + 1000m RG + 1000m RM + 1000m RG + 1000m RM + 1000m RG + 2 km RD (10 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 5000m RG corto veloce + 1 km RD (10 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-05-25" data-end="2026-05-31">
-        <summary><span class="week-title">Settimana 3</span><span class="week-dates">25–31 maggio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 4 x (1’ RG + 1’ RM) + 4 x (1’ RG-20” + 1’ RL) + 4 x (1’ RG-40” + 1’ souplesse) + 1 km RD (10 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>10 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-06-01" data-end="2026-06-07">
-        <summary><span class="week-title">Settimana 4 · Scarico</span><span class="week-dates">1–7 giugno</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 4 km RM + 1 km RG + 1 km RD (9 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 10 km RL + 2 km RD (15 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-06-08" data-end="2026-06-14">
-        <summary><span class="week-title">Settimana 5</span><span class="week-dates">8–14 giugno</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 5 x (400m RG-10” + 400m RG-30” + 200m souplesse) + 2 km RD (10 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 2 x (2000m RG + 500m RD) + 2 x (500m RG-10” + 500m RL) + 1 km RD (11 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-06-15" data-end="2026-06-21">
-        <summary><span class="week-title">Settimana 6</span><span class="week-dates">15–21 giugno</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 1000m RG + 2’ souplesse + 800m RG-10” + 2’ souplesse + 600m RG-20” + 2’ souplesse + 400m RG-30” + 2’ souplesse + 2 x (200m RG-40” + 1’ souplesse) + 1 km RD (10 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 3 km al meglio + 3 km RD (10 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-06-22" data-end="2026-06-28">
-        <summary><span class="week-title">Settimana 7</span><span class="week-dates">22–28 giugno</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 4 km RM con allungo di 200m RG ogni 800m + 4 x (200m RG-20” + 200m RD) + 2 km RD (10,5 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>11 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-06-29" data-end="2026-07-05">
-        <summary><span class="week-title">Settimana 8 · Scarico</span><span class="week-dates">29 giugno – 5 luglio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 3 km progressione da RL a RG + 5 x (400m RG + 1’30” RD) + 2 km RD (10 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 7 km RL + 2 km RD (12 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-07-06" data-end="2026-07-12">
-        <summary><span class="week-title">Settimana 9</span><span class="week-dates">6–12 luglio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 10 x (100m RG-30” + 100m souplesse + 100m RG-30” + 200m RL) + 2 km RD (10 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 4 x (1000m RM + 1000m RG) + 1 km RD (12 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-07-13" data-end="2026-07-19">
-        <summary><span class="week-title">Settimana 10</span><span class="week-dates">13–19 luglio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 2 x (1000m RG + 500m RL) + 2 x (1000m RG-15” + 500m RD) + 1 km RD (10 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>12 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-07-20" data-end="2026-07-26">
-        <summary><span class="week-title">Settimana 11</span><span class="week-dates">20–26 luglio</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 3 x (500m RG + 500m RL) + 3 x (500m RG-20” + 500m RD) + 1 km RL (10 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 5000m RG corto veloce + 2 km RD (11 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-07-27" data-end="2026-08-02">
-        <summary><span class="week-title">Settimana 12 · Scarico</span><span class="week-dates">27 luglio – 2 agosto</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 3 km RM + 1 km RG + 2 km RD (9 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 9 km RL + 2 km RD (14 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-08-03" data-end="2026-08-09">
-        <summary><span class="week-title">Settimana 13</span><span class="week-dates">3–9 agosto</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 5 x (200m RG-40” + 1’ recupero souplesse) + 4 x (400m RG-30” + 2’ recupero souplesse) + 3 x (800m RG-20” + 3’ recupero souplesse) + 2 km RD (10 km circa)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>2 km RD + 2 km RL + 3 km RM + 3 km RG + 2 km RD (12 km)</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-08-10" data-end="2026-08-16">
-        <summary><span class="week-title">Settimana 14</span><span class="week-dates">10–16 agosto</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 1 km RL + 1 km RA + 1 km RM + 1 km RG + 1 km RG-10” + 1 km RL + 1 km RD (10 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>14 km collinare. In sostituzione: lavoro su salite urbane o su fondo morbido (sabbia, erba).</div></div>
-        </div>
-      </details>
-
-      <details class="week" data-start="2026-08-17" data-end="2026-08-23">
-        <summary><span class="week-title">Settimana 15</span><span class="week-dates">17–23 agosto</span></summary>
-        <div class="week-content">
-          <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 6 km RL + 1 km RD (8 km)</div></div>
-          <div class="session"><div class="session-title">🔥 Qualità</div><div>2 km RD + 2000m RM + 500m RA + 2000m RG + 500m RL + 2000m RG-10” + 500m RD + 1 km RD (10,5 km)</div></div>
-          <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 5 x (100m allungo + 100m recupero) + 3 km al meglio + 3 km RD (10 km)</div></div>
-        </div>
-      </details>
-
-    </div>
-
-    <div class="section-label">Promemoria finale</div>
-    <div class="card content">
-      <p><strong>Nuovi stimoli, stessa costanza.</strong><br>
-        Mirko ha già dimostrato che con continuità e metodo può recuperare e migliorare molto. Ora il lavoro sarà continuare su questa strada, aggiungendo stimoli diversi, più qualità e più efficienza, per arrivare all’autunno con una base davvero solida.
-      </p>
-      <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
+    <div class="btnrow">
+      <a class="btn primary" href="#settimane">📅 Vai al programma</a>
+      <a class="btn" href="#ritmi">⏱️ Ritmi</a>
+      <a class="btn" href="#note">📝 Note</a>
     </div>
   </div>
 
-  <script>
-    const PAGE_HASH = "46ccd62c529722ef3be367704aa082491faa1ca290ec53ec30d7d47a3cfc12c3";
-  </script>
+  <div class="section-label">Scheda atleta</div>
+
+  <div class="card">
+    <div class="grid">
+      <div class="mini"><div class="k">Atleta</div><div class="v">Bernaroli Mirko</div></div>
+      <div class="mini"><div class="k">Allenamenti</div><div class="v">3 uscite running / settimana</div></div>
+
+      <div class="mini"><div class="k">Distanza abituale</div><div class="v">8–12 km</div></div>
+      <div class="mini"><div class="k">Stato attuale</div><div class="v">Ripresa regolare dopo il calo estivo</div></div>
+
+      <div class="mini full">
+        <div class="k">Primo obiettivo</div>
+        <div class="v">Memorial Cardinelli Half Marathon · 22 novembre 2026 · obiettivo dichiarato 1h45’</div>
+      </div>
+
+      <div class="mini full">
+        <div class="k">Obiettivo successivo</div>
+        <div class="v">Ferrara Half Marathon · 28 febbraio 2027. La preparazione specifica partirà il 7 dicembre.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Impostazione del percorso</div>
+
+  <div class="card content">
+
+    <p><strong>🎯 Prima cosa: fotografare la condizione attuale</strong><br>
+    Prima di impostare i ritmi svolgeremo un <strong>Test 3000 m</strong>. I riferimenti raggiunti prima dell’estate sono utili per conoscere il percorso fatto, ma dopo il calo di agosto non devono diventare automaticamente i ritmi di lavoro di oggi.</p>
+
+    <p><strong>📌 Tre uscite ben definite</strong><br>
+    Il programma sarà costruito su <strong>scarico + qualità + fine settimana</strong>. Non essendoci la quarta uscita di mantenimento, lo scarico avrà generalmente un volume leggermente superiore, circa 10–12 km, mantenendo però intensità facile.</p>
+
+    <p><strong>🔥 Qualità</strong><br>
+    Dopo il test iniziale utilizzeremo i lavori di <strong>Qualità Endurance Standard Runner’s School</strong> della settimana corrispondente.</p>
+
+    <p><strong>🏁 Fine settimana</strong><br>
+    Seguiremo la progressione specifica del programma Cardinelli, con corto veloce, lunghi progressivamente più specifici, settimane di scarico e gara obiettivo.</p>
+
+    <div class="note-box">
+      <strong>Obiettivo 1h45’:</strong> resta il riferimento dichiarato da Mirko, ma sarà il test iniziale e soprattutto l’andamento delle settimane successive a dirci con quali ritmi costruire il percorso e come affrontare la gara.
+    </div>
+  </div>
+
+  <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+
+  <div class="card content">
+    <div class="note-box">
+      <strong>Da definire dopo il Test 3000 m.</strong> Non utilizziamo automaticamente i vecchi ritmi pre-estate. Dopo il test aggiorneremo RG, RM, RA, RL e RD sulla condizione effettiva di Mirko.
+    </div>
+
+    <div class="alert-box">
+      <strong>⚠️ Recuperi:</strong> nei lavori di qualità il recupero deve permettere di eseguire bene la parte veloce. Mirko aveva già segnalato difficoltà nel tenere i ritmi di recupero: non vanno trasformati in un’ulteriore fase di lavoro.
+    </div>
+  </div>
+
+  <div class="section-label" id="note">Note del coach</div>
+
+  <div class="card content">
+    <p>Il mese di agosto ha portato un calo di continuità e a settembre Mirko ha ripreso ad allenarsi con maggiore frequenza, ma con ritmi più lenti rispetto a maggio-giugno. Per questo partiamo da ciò che è oggi, non dal ricordo della forma precedente.</p>
+
+    <p>Dopo la Cardinelli inseriremo una settimana di recupero. Dal 30 novembre al 6 dicembre torneremo per una settimana al programma Runner’s School standard; dal <strong>7 dicembre</strong> inizierà poi il nuovo percorso specifico verso la <strong>Ferrara Half Marathon del 28 febbraio</strong>.</p>
+  </div>
+
+  <div class="section-label" id="settimane">Programma</div>
+
+  <div class="card content">
+
+    <details class="week" open>
+      <summary>
+        <span class="week-title">Settimana 1 · Test iniziale</span>
+        <span class="week-dates">28 settembre – 4 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10 km facili, prevalentemente tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🧪 Test 3000 m</div>
+          <div>15' RD + 5 × (50–60 m allungo facile + 50–60 m recupero RD) + 3000 m al meglio, cercando un ritmo il più possibile regolare + 10' RD.</div>
+
+          <div class="session-note">
+            Il test sostituisce il lavoro di Qualità Standard di questa settimana e serve a definire il punto di partenza attuale.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 16 km</div>
+          <div>Collinare 16 km oppure 3 km RD + 4 km RL + 4 km RA + 4 km RM + 1 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 2</span>
+        <span class="week-dates">5–11 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10–12 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + 4 × (500 m RA + 500 m RM + 500 m RG + 300 m RL) + 5'/10' RD.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · corto veloce</div>
+          <div>3 km RD + 5 km al meglio + 3 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 3</span>
+        <span class="week-dates">12–18 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10–12 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + 2 × (1500 m RG + 500 m RG-10″ + 500 m RL) + 10' RD.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">📈 Fine settimana · lungo 17 km</div>
+          <div>3 km RD + 3 × (2,5 km RM + 500 m RG + 1 km RL) + 2 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 4 · Scarico</span>
+        <span class="week-dates">19–25 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + 4 km RM + 1 km RG + 10' RD.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · scarico</div>
+          <div>3 km RD + 3 km RL + 3 km RM + 3 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 5</span>
+        <span class="week-dates">26 ottobre – 1 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10–12 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + 5 × (50–60 m allungo facile + 50–60 m recupero RD) + 8 × (400 m tra RG-20″ e RG-40″ + 2' recupero souplesse).</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 18 km</div>
+          <div>Collinare 18 km oppure 2 km RD + 5 km RL + 5 km RA + 5 km RM + 1 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 6</span>
+        <span class="week-dates">2–8 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10–12 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + piramide 500–800–1200–800–500 m a RG-10″, con 500 m RL tra le prove + 5' RD.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">📈 Fine settimana · lungo specifico 19 km</div>
+          <div>3 km RD + 3 × (3,5 km ritmo mezza + 500 m RG + 1 km RL) + 1 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 7 · Scarico</span>
+        <span class="week-dates">9–15 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + 3 × (500 m RM + 1000 m RG + 500 m RM + 500 m RL) + 5'/10' RD.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · scarico</div>
+          <div>2 km RD + 4 km RL + 4 km RM + 2 km RD.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">🏁 Settimana 8 · Gara</span>
+        <span class="week-dates">16–22 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>8–10 km molto facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità soft</div>
+          <div>15' RD + 5 km in progressione da RL a RG + 10' RD.</div>
+          <div class="session-note">Settimana gara: eseguirlo in controllo, senza forzare la parte finale.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Memorial Cardinelli Half Marathon</div>
+          <div>21,097 km · primo obiettivo del percorso.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 9 · Recupero post gara</span>
+        <span class="week-dates">23–29 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">♻️ Recupero</div>
+          <div>Settimana dedicata al recupero dopo la mezza. 2–3 uscite facili, senza lavori di qualità, gestite esclusivamente a sensazione e a ritmo RD/RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">📌 Indicazione</div>
+          <div>Nessuna necessità di raggiungere un chilometraggio preciso: la priorità è recuperare bene dalla gara.</div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 10 · Transizione</span>
+        <span class="week-dates">30 novembre – 6 dicembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>10 km facili tra RD e RL.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>15' RD + 5 × (500 m RG + 300 m RL + 200 m RG-10″) + 10' RD.</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana</div>
+          <div>Lavoro di fine settimana previsto dal programma Endurance Standard Runner’s School.</div>
+          <div class="session-note">Dal 7 dicembre inizierà la preparazione specifica per la Ferrara Half Marathon del 28 febbraio.</div>
+        </div>
+
+      </div>
+    </details>
+
+  </div>
+
+  <div class="section-label">Promemoria finale</div>
+
+  <div class="card content">
+    <p><strong>Prima Cardinelli, poi Ferrara.</strong><br>
+    In questa fase lavoriamo esclusivamente per arrivare bene al 22 novembre, partendo da un dato attuale e non dai ritmi pre-estate. Dopo la gara recuperiamo, facciamo una settimana di transizione e dal 7 dicembre inizierà il nuovo blocco verso Ferrara.</p>
+
+    <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
+  </div>
+
+</div>
+
+<script>
+  const PAGE_HASH = "46ccd62c529722ef3be367704aa082491faa1ca290ec53ec30d7d47a3cfc12c3";
+</script>
 
 </body>
 </html>
