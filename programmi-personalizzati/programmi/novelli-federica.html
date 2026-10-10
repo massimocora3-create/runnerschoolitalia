@@ -3,561 +3,865 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Novelli Federica - Runner's School Italia</title>
 
 <style>
-:root {
-  --navy:#10182b;
-  --navy2:#18243c;
+:root{
+  --navy:#101a30;
+  --navy2:#1a2945;
   --yellow:#f4c400;
-  --muted:#b9c5d7;
+  --white:#ffffff;
+  --muted:#b8c6d9;
 }
-* { box-sizing:border-box; }
-body {
+
+*{box-sizing:border-box}
+
+body{
   margin:0;
-  background:#080e1c;
-  color:#f5f7fb;
-  font:16px/1.6 Arial,sans-serif;
+  background:#0a1120;
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
 }
-.app {
-  max-width:940px;
+
+.container{
+  max-width:950px;
   margin:auto;
-  padding:24px 15px 60px;
+  padding:20px 15px 60px;
 }
-.hero {
-  border-left:7px solid var(--yellow);
-  padding:25px;
+
+.header{
   background:var(--navy);
+  border-left:9px solid var(--yellow);
+  padding:30px 25px;
   border-radius:5px;
 }
-.eyebrow {
+
+.logo{
+  font-size:13px;
   color:var(--yellow);
   font-weight:bold;
   letter-spacing:2px;
-  font-size:12px;
-  text-transform:uppercase;
 }
-h1 {
-  font-size:clamp(28px,5vw,44px);
+
+h1{
+  font-size:clamp(30px,5vw,45px);
+  margin:10px 0;
   line-height:1.15;
-  margin:8px 0;
 }
-h2 {
-  font-size:22px;
-  margin:0 0 14px;
+
+h2{
   color:var(--yellow);
+  font-size:23px;
+  margin:0 0 15px;
 }
-h3 { margin:0 0 8px; }
-p { margin:8px 0 12px; }
-.muted { color:var(--muted); }
-.card,.week {
+
+h3{
+  margin:5px 0 10px;
+  font-size:18px;
+}
+
+p{margin:8px 0 12px}
+
+.subtitle{color:var(--muted)}
+
+.card{
   background:var(--navy);
-  border:1px solid #344158;
-  border-radius:12px;
-  padding:21px;
+  padding:22px;
   margin-top:18px;
+  border-radius:12px;
+  border:1px solid #30415d;
 }
-.grid {
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:12px;
 }
-.mini {
-  background:var(--navy2);
-  padding:13px;
-  border-radius:9px;
-}
-.mini b {
-  display:block;
-  color:var(--yellow);
-}
-.notice {
-  border-left:4px solid var(--yellow);
-  background:#273045;
-  padding:13px 16px;
-  margin:14px 0;
-  border-radius:4px;
-}
-.session {
+
+.info{
   background:var(--navy2);
   padding:15px;
-  border-radius:10px;
-  margin:11px 0;
+  border-radius:8px;
 }
-.session strong { color:var(--yellow); }
-.tag {
-  font-size:12px;
+
+.info strong{
   color:var(--yellow);
+  display:block;
+}
+
+.notice{
+  background:#263752;
+  border-left:4px solid var(--yellow);
+  padding:15px;
+  margin:15px 0;
+  border-radius:4px;
+}
+
+.week{
+  background:var(--navy);
+  border:1px solid #344660;
+  border-radius:12px;
+  margin-top:15px;
+  overflow:hidden;
+}
+
+.week summary{
+  cursor:pointer;
+  padding:20px;
+  font-weight:bold;
+  font-size:19px;
+  list-style:none;
+}
+
+.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week summary::after{
+  content:"+";
+  float:right;
+  color:var(--yellow);
+}
+
+.week[open] summary::after{
+  content:"−";
+}
+
+.week[open] summary{
+  color:var(--yellow);
+  border-bottom:1px solid #344660;
+}
+
+.week-content{
+  padding:15px 20px 20px;
+}
+
+.training{
+  background:var(--navy2);
+  padding:16px;
+  border-radius:9px;
+  margin:12px 0;
+}
+
+.training-title{
+  color:var(--yellow);
+  font-size:13px;
   font-weight:bold;
   text-transform:uppercase;
   letter-spacing:1px;
 }
-details summary {
-  cursor:pointer;
-  font-size:19px;
-  font-weight:bold;
-  padding:4px 0;
-}
-details[open] summary { color:var(--yellow); }
-table {
+
+table{
   width:100%;
   border-collapse:collapse;
 }
-th,td {
-  padding:10px;
-  border-bottom:1px solid #344158;
+
+th,td{
+  padding:11px;
+  border-bottom:1px solid #344660;
   text-align:left;
 }
-th { color:var(--yellow); }
-.hidden { display:none; }
-input,button {
-  padding:12px;
-  border-radius:7px;
-  font:inherit;
-}
-input {
-  width:100%;
-  background:#fff;
-  color:#10182b;
-  border:0;
-}
-button {
-  background:var(--yellow);
-  border:0;
-  color:#10182b;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:10px;
-}
-.login {
-  max-width:460px;
-  margin:13vh auto;
-  background:var(--navy);
-  padding:28px;
-  border-radius:14px;
-}
-.footer {
-  color:var(--muted);
-  font-size:13px;
+
+th{color:var(--yellow)}
+
+.footer{
   text-align:center;
   margin-top:35px;
+  color:var(--muted);
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<section id="login" class="login">
-  <div class="eyebrow">Runner's School Italia</div>
-  <h1>Programma riservato</h1>
-  <p>Inserisci la password personale per consultare la scheda.</p>
+<div class="container">
 
-  <form id="loginForm">
-    <label for="password">Password</label>
-    <input id="password" type="password" required>
-    <button type="submit">Accedi al programma</button>
-    <p id="error" style="color:#ffb6b6"></p>
-  </form>
-</section>
+<header class="header">
+<div class="logo">RUNNER'S SCHOOL ITALIA</div>
 
-<main id="program" class="app hidden">
+<h1>NOVELLI FEDERICA</h1>
 
-<header class="hero">
-  <div class="eyebrow">
-    Runner's School Italia · Programma personalizzato
-  </div>
-  <h1>Novelli Federica</h1>
-  <p>Programma Medio · 3 uscite settimanali</p>
-  <p>Dal 12 ottobre 2026</p>
-  <p class="muted">
-    Un percorso per imparare a gestire i ritmi,
-    migliorare sugli 8–12 km e allenarsi con continuità.
-  </p>
+<p>
+PROGRAMMA PERSONALIZZATO · LIVELLO MEDIO
+</p>
+
+<p>
+12 OTTOBRE – 20 DICEMBRE 2026
+</p>
+
+<p class="subtitle">
+3 allenamenti settimanali ·
+Obiettivo: migliorare la velocità sugli 8–12 km
+</p>
 </header>
 
 <section class="card">
-<h2>Il punto di partenza</h2>
+
+<h2>IL NOSTRO PERCORSO</h2>
+
+<p>
+Federica, partiamo dal programma Medio Runner's School
+Italia, adattandolo alle tue caratteristiche e
+ai tuoi obiettivi.
+</p>
+
+<p>
+L'obiettivo non sarà semplicemente correre più
+velocemente, ma imparare a utilizzare correttamente
+i diversi ritmi e costruire un metodo di allenamento
+che possa accompagnarti nel tempo.
+</p>
 
 <div class="grid">
-  <div class="mini">
-    <b>Obiettivo</b>
-    Velocizzarsi sugli 8–12 km
-  </div>
-  <div class="mini">
-    <b>Corsa</b>
-    3 uscite settimanali
-  </div>
-  <div class="mini">
-    <b>Palestra</b>
-    3 sedute di pesi con PT
-  </div>
-  <div class="mini">
-    <b>Metodo</b>
-    Qualità Standard RS + scarico + weekend
-  </div>
+
+<div class="info">
+<strong>QUALITÀ</strong>
+Lavoro Standard Runner's School
 </div>
 
-<p>
-La priorità iniziale non è aumentare molto le distanze,
-ma trovare i ritmi corretti, recuperare bene e dare
-continuità agli allenamenti.
-</p>
+<div class="info">
+<strong>SCARICO</strong>
+8–9 km a ritmi RD e RL
+</div>
 
-<p>
-Partiremo dal programma Medio, adattandolo progressivamente
-alle tue capacità e alle risposte del tuo organismo.
-</p>
+<div class="info">
+<strong>FINE SETTIMANA</strong>
+Allenamento Medio personalizzato
+</div>
+
+<div class="info">
+<strong>PALESTRA</strong>
+3 sedute con personal trainer
+</div>
+
+</div>
 
 <div class="notice">
-<b>Un'attenzione particolare all'osteoporosi.</b>
-Prima di affrontare il test intenso e aumentare i carichi,
-è importante verificare con il medico eventuali limitazioni,
-soprattutto in presenza di precedenti fratture da fragilità.
-Il lavoro in palestra andrà coordinato con quello di corsa.
+<b>Un'attenzione importante:</b>
+considerando l'osteoporosi, sarà fondamentale
+coordinare gli allenamenti di corsa con il
+lavoro in palestra, evitando aumenti improvvisi
+dei carichi. Prima di effettuare test massimali
+o sedute intense è opportuno verificare con
+il medico eventuali limitazioni individuali.
 </div>
+
 </section>
 
 <section class="card">
-<h2>Test iniziale sui 3000 metri</h2>
+
+<h2>TEST INIZIALE DEI 3000 METRI</h2>
 
 <p>
-Per allenarci correttamente abbiamo bisogno di conoscere
-il tuo attuale livello di corsa.
+Prima di iniziare i lavori di qualità abbiamo
+bisogno di individuare i tuoi ritmi di riferimento.
+</p>
+
+<h3>OPZIONE 1 – TEST 10 O 11 OTTOBRE</h3>
+
+<p>
+Puoi effettuare il test sabato 10 oppure
+domenica 11 ottobre, se sei nelle condizioni
+di affrontare uno sforzo intenso.
 </p>
 
 <p>
-Il test ci permetterà di stabilire i ritmi di riferimento
-e di rendere gli allenamenti realmente personalizzati.
+Da lunedì 12 ottobre inizierai il programma
+con i ritmi già calcolati, rispettando
+il recupero necessario dopo il test.
 </p>
 
-<div class="session">
-<strong>OPZIONE A · 10 o 11 ottobre</strong>
+<h3>OPZIONE 2 – TEST NELLA PRIMA SETTIMANA</h3>
+
 <p>
-Puoi effettuare il test sabato 10 oppure domenica
-11 ottobre, se hai il via libera medico per uno sforzo
-intenso e sei sufficientemente riposata.
+Se preferisci, puoi effettuare il test
+nella settimana 12–18 ottobre,
+sostituendolo al lavoro di qualità previsto.
 </p>
-<p>
-Da lunedì 12 ottobre inizierai il programma.
-Il lavoro di qualità sarà effettuato soltanto se
-avrai recuperato completamente dal test.
-</p>
+
+<div class="training">
+
+<div class="training-title">
+COME ESEGUIRE IL TEST
 </div>
 
-<div class="session">
-<strong>OPZIONE B · Settimana 12–18 ottobre</strong>
-<p>
-Puoi effettuare il test durante la prima settimana
-di programma, sostituendolo al lavoro di qualità.
-</p>
-<p>
-In questo caso non dovrai aggiungere altre ripetute.
-</p>
-</div>
+<p>15 minuti RD di riscaldamento</p>
 
-<h3>Come eseguire il test</h3>
+<p>Mobilità articolare e 3–4 allunghi progressivi</p>
 
-<div class="session">
-<p>15 minuti RD di riscaldamento.</p>
-<p>Mobilità articolare e 3–4 allunghi progressivi.</p>
 <p>
-<b>3000 metri</b> su percorso pianeggiante e misurato,
-cercando un'andatura il più possibile regolare.
+<b>3000 metri</b> cercando di mantenere
+un'andatura il più possibile regolare
 </p>
-<p>10 minuti RD di defaticamento.</p>
+
+<p>10 minuti RD di defaticamento</p>
+
 </div>
 
 <p>
-Non partire troppo forte nei primi 500 metri.
-L'obiettivo è riuscire a mantenere uno sforzo elevato
-ma regolare fino alla conclusione.
+Al termine comunicami il tempo totale
+e le sensazioni avute durante il test.
 </p>
 
-<p>
-Al termine comunicaci il tempo totale, gli eventuali
-passaggi chilometrici e le tue sensazioni.
-</p>
-
-<div class="notice">
-Il test non è un esame e non serve a giudicare quanto
-sei veloce. Serve esclusivamente a capire da dove
-partiamo e come impostare correttamente gli allenamenti.
-</div>
 </section>
 
 <section class="card">
-<h2>I tuoi ritmi di allenamento</h2>
+
+<h2>I RITMI DI ALLENAMENTO</h2>
 
 <p>
-Dopo il test inseriremo i ritmi personali da utilizzare
-durante le sedute.
+Una volta effettuato il test inseriremo
+i ritmi personali.
 </p>
 
 <table>
-<tr><th>Ritmo</th><th>Riferimento</th></tr>
-<tr><td>RG</td><td>Da test 3000 m</td></tr>
-<tr><td>RM</td><td>RG + 20"/km</td></tr>
-<tr><td>RA</td><td>RG + 40–45"/km</td></tr>
-<tr><td>RL</td><td>RG + 50–60"/km</td></tr>
-<tr><td>RD</td><td>RG + 1'10"–1'20"/km</td></tr>
+
+<tr>
+<th>RITMO</th>
+<th>RIFERIMENTO</th>
+</tr>
+
+<tr>
+<td>RG</td>
+<td>Passo test + 10–20"/km</td>
+</tr>
+
+<tr>
+<td>RM</td>
+<td>RG + 20"/km</td>
+</tr>
+
+<tr>
+<td>RA</td>
+<td>RG + 40–45"/km</td>
+</tr>
+
+<tr>
+<td>RL</td>
+<td>RG + 50–60"/km</td>
+</tr>
+
+<tr>
+<td>RD</td>
+<td>RG + 1'10"–1'20"/km</td>
+</tr>
+
 </table>
 
-<p class="muted">
-Il RG sarà calcolato secondo il metodo Runner's School
-a partire dal risultato del test sui 3000 metri.
-</p>
 </section>
 
 <section class="card">
-<h2>Le settimane di allenamento</h2>
+<h2>PROGRAMMA DI ALLENAMENTO</h2>
 
 <p>
-Entriamo nel programma Medio già in corso,
-mantenendo i lavori di qualità Standard RS.
+Tre uscite settimanali:
+qualità Standard, scarico e fine settimana.
 </p>
+
+<p>
+Gli allenamenti di qualità seguono la
+tabella ufficiale Medio Runner's School.
+Gli altri lavori sono adattati al tuo livello.
+</p>
+</section>
 
 <details class="week" open>
-<summary>Settimana 4 · 12–18 ottobre</summary>
+<summary>SETTIMANA 6 · 12–18 OTTOBRE</summary>
 
-<div class="session">
-<span class="tag">Uscita 1 · Qualità</span>
-<h3>Test 3000 m oppure Standard RS</h3>
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
 
 <p>
-<b>Se non hai ancora effettuato il test:</b>
-esegui il test seguendo le istruzioni precedenti.
+15' RD +
+2 × (1500 m RG + 500 m RG-10" + 500 m RL)
++ 10' RD
 </p>
 
 <p>
-<b>Se hai già effettuato il test e recuperato:</b>
+Se non hai ancora effettuato il test
+dei 3000 metri, sostituisci questo
+allenamento con il test.
 </p>
 
-<p>15' RD</p>
 <p>
-2 × (1500 m RG + 500 m RG−10" + 500 m RL)
-</p>
-<p>10' RD</p>
-
-<p>
-Se senti ancora affaticamento dopo il test,
-sostituisci questa seduta con un allenamento di scarico.
+Se hai fatto il test nel weekend precedente,
+esegui la qualità solo dopo aver recuperato.
 </p>
 </div>
 
-<div class="session">
-<span class="tag">Uscita 2 · Scarico</span>
-<h3>8–10 km</h3>
+<div class="training">
+<div class="training-title">SCARICO</div>
 
-<p>3 km RD + 6 km RL + 1 km RD.</p>
+<p>2 km RD + 6 km RL + 1 km RD</p>
 
-<p>
-Nella prima settimana puoi limitarti a 8 km
-se avverti un carico complessivo elevato.
-</p>
+<p>Totale 9 km.</p>
 </div>
 
-<div class="session">
-<span class="tag">Uscita 3 · Fine settimana</span>
-<h3>10–12 km</h3>
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
 
 <p>
-Il programma collettivo prevede un collinare
-di 15 km, ma per il momento preferiamo
-mantenere una distanza più vicina alle tue abitudini.
+2 km RD +
+3 × (2 km RM + 500 m RG + 500 m RL)
++ 1 km RD
 </p>
 
 <p>
-Scegli un percorso regolare, senza discese
-tecniche o pendenze impegnative.
+Totale 12 km.
 </p>
+
+</div>
+
 </div>
 </details>
 
 <details class="week">
-<summary>Settimana 5 · 19–25 ottobre</summary>
+<summary>SETTIMANA 7 · 19–25 OTTOBRE</summary>
 
-<div class="session">
-<strong>Qualità Standard RS</strong>
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
 <p>
-Inserire il lavoro esatto della settimana 5
-della tabella Standard, con i nuovi ritmi.
+15' RD + 4 km RM + 1 km RG + 10' RD
 </p>
+
+<p>Settimana di scarico.</p>
 </div>
 
-<div class="session">
-<strong>Scarico</strong>
-<p>8–10 km tra RD e RL.</p>
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+
 </div>
 
-<div class="session">
-<strong>Fine settimana</strong>
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
 <p>
-Allenamento Medio RS, adattato inizialmente
-a 10–12 km.
+2 km RD + 2 km RL + 4 km RM + 1 km RD
 </p>
+
+<p>Totale 9 km.</p>
+</div>
+
 </div>
 </details>
 
 <details class="week">
-<summary>Settimana 6 · 26 ottobre–1 novembre</summary>
+<summary>SETTIMANA 8 · 26 OTTOBRE–1 NOVEMBRE</summary>
 
-<div class="session">
-<strong>Qualità Standard RS</strong>
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
 <p>
-Inserire il lavoro esatto della settimana 6
-della tabella Standard.
+15' RD +
+5 × (50–60 m allungo + 50–60 m recupero RD)
++
+8 × (400 m tra RG-20" e RG-40"
++ 2' recupero souplesse)
 </p>
+
 </div>
 
-<div class="session">
-<strong>Scarico</strong>
-<p>8–10 km RD/RL.</p>
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
 </div>
 
-<div class="session">
-<strong>Fine settimana</strong>
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
 <p>
-Allenamento Medio RS adattato al livello
-effettivamente raggiunto.
+Programma ufficiale:
+collinare 13 km oppure
+2 km RD + 3 km RL + 3 km RA +
+3 km RM + 1 km RG + 1 km RD.
 </p>
+
+<p>
+Per ora preferiamo il percorso in piano,
+eventualmente ridotto a 12 km.
+</p>
+
+</div>
+
 </div>
 </details>
 
 <details class="week">
-<summary>Settimana 7 · 2–8 novembre</summary>
+<summary>SETTIMANA 9 · 2–8 NOVEMBRE</summary>
 
-<div class="session">
-<strong>Settimana di scarico</strong>
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
 <p>
-Riduciamo il carico complessivo secondo
-la struttura 3+1.
+15' RD +
+piramide 500–800–1200–800–500 m
+a RG-10"
+con 500 m RL tra le prove
++ 5' RD
 </p>
+
+</div>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
 <p>
-Il lavoro Standard e quello del fine settimana
-saranno adattati per favorire il recupero.
+2 km RD +
+2 × (2 km RM + 1 km RG + 500 m RL)
++ 1 km RD
 </p>
+
+<p>
+Totale 10 km.
+Versione personalizzata ridotta
+rispetto ai tre blocchi ufficiali.
+</p>
+
+</div>
+
 </div>
 </details>
 
-<div class="notice">
-Le settimane successive alla prima devono ancora
-essere completate con i lavori esatti della
-tabella Standard RS.
+<details class="week">
+<summary>SETTIMANA 10 · 9–15 NOVEMBRE</summary>
+
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
+<p>
+15' RD +
+3 × (500 m RM + 1000 m RG +
+500 m RM + 500 m RL)
++ 5–10' RD
+</p>
+
 </div>
-</section>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
+<p>
+2 km RD + 8 km al meglio + 1 km RD
+</p>
+
+<p>
+Totale 11 km.
+Da affrontare come prova impegnativa
+solo se il recupero e la preparazione
+lo consentono.
+</p>
+
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>SETTIMANA 11 · 16–22 NOVEMBRE</summary>
+
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
+<p>
+15' RD +
+5 km in progressione da RL a RG
++ 10' RD
+</p>
+
+<p>Settimana di scarico.</p>
+</div>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
+<p>
+2 km RD + 2 km RL + 4 km RM + 1 km RD
+</p>
+
+<p>Totale 9 km.</p>
+
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>SETTIMANA 12 · 23–29 NOVEMBRE</summary>
+
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
+<p>
+15' RD +
+5 × (50–60 m allungo +
+50–60 m recupero RD)
++
+12 × (200 m oppure 1'
+tra RG-20" e RG-40"
++ 1' recupero souplesse)
+</p>
+
+</div>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
+<p>
+10 km al meglio
+</p>
+
+<p>
+Prova facoltativa.
+In alternativa:
+2 km RD + 6 km RL + 2 km RD.
+</p>
+
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>SETTIMANA 13 · 30 NOVEMBRE–6 DICEMBRE</summary>
+
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
+<p>
+15' RD +
+5 × (500 m RG + 300 m RL + 200 m RG-10")
++ 10' RD
+</p>
+
+</div>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
+<p>
+2 km RD +
+3 × (1500 m RM + 500 m RG + 500 m RL)
++ 1 km RD
+</p>
+
+<p>Totale 10,5 km.</p>
+
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>SETTIMANA 14 · 7–13 DICEMBRE</summary>
+
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
+<p>
+15' RD +
+2 km RM + 3 km RG +
+500 m RG-10"
++ 10' RD
+</p>
+
+</div>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
+<p>
+2 km RD + 2 km RL +
+3 km RA + 3 km RM +
+1 km RD
+</p>
+
+<p>
+Totale 11 km.
+Versione personalizzata in piano.
+</p>
+
+</div>
+
+</div>
+</details>
+
+<details class="week">
+<summary>SETTIMANA 15 · 14–20 DICEMBRE</summary>
+
+<div class="week-content">
+
+<div class="training">
+<div class="training-title">QUALITÀ STANDARD</div>
+
+<p>
+TEST FINALE DEI 3000 METRI
+</p>
+
+<p>
+Ripetiamo il test iniziale
+per valutare i miglioramenti.
+</p>
+
+</div>
+
+<div class="training">
+<div class="training-title">SCARICO</div>
+
+<p>2 km RD + 6 km RL + 1 km RD</p>
+</div>
+
+<div class="training">
+<div class="training-title">FINE SETTIMANA</div>
+
+<p>
+2 km RD + 2 km RL + 4 km RM + 1 km RD
+</p>
+
+<p>Totale 9 km.</p>
+
+</div>
+
+</div>
+</details>
 
 <section class="card">
-<h2>Consigli per allenarti bene</h2>
 
-<h3>1. Distribuisci correttamente i carichi</h3>
-<p>
-Con tre allenamenti di corsa e tre sedute di palestra,
-il recupero diventa particolarmente importante.
-</p>
-<p>
-Cerca di evitare un allenamento pesante per le gambe
-immediatamente prima della qualità o del test.
-</p>
+<h2>ALCUNI CONSIGLI IMPORTANTI</h2>
 
-<h3>2. Non cercare sempre la velocità</h3>
+<h3>1. NON CERCARE SEMPRE LA VELOCITÀ</h3>
+
 <p>
-Gli allenamenti di scarico hanno una funzione precisa.
-Non devono trasformarsi in un'altra seduta impegnativa.
-</p>
-<p>
-Il miglioramento nasce dall'alternanza tra allenamenti
-stimolanti e recupero.
+Gli allenamenti di scarico sono importanti
+quanto quelli di qualità.
+Servono a recuperare e ad assimilare
+gli stimoli ricevuti.
 </p>
 
-<h3>3. Aumenta gradualmente</h3>
+<h3>2. ORGANIZZA BENE LA PALESTRA</h3>
+
 <p>
-Per il momento non abbiamo bisogno di aumentare
-molto i chilometri.
-</p>
-<p>
-Vogliamo prima migliorare la qualità della corsa
-e la capacità di gestire le distanze che già percorri.
+Tre sedute di corsa e tre di palestra
+rappresentano un impegno importante.
+Cerca di evitare un allenamento pesante
+per le gambe nelle 24–48 ore precedenti
+la qualità.
 </p>
 
-<h3>4. Ascolta i segnali del corpo</h3>
+<h3>3. NON AUMENTARE TROPPO I CHILOMETRI</h3>
+
 <p>
-Un normale affaticamento muscolare può essere
-parte dell'allenamento.
-</p>
-<p>
-Un dolore osseo localizzato, un nuovo dolore
-alla schiena, all'anca o al piede, oppure un dolore
-che peggiora correndo, richiedono invece
-di interrompere la seduta e confrontarsi
-con un professionista sanitario.
+Per il momento lavoriamo principalmente
+sugli 8–12 km.
+Non abbiamo bisogno di aumentare molto
+le distanze per migliorare la velocità.
 </p>
 
-<h3>5. Condividi i tuoi feedback</h3>
+<h3>4. ASCOLTA I SEGNALI DEL CORPO</h3>
+
 <p>
-Dopo il test e le prime due settimane,
-raccontaci come ti sei trovata con gli allenamenti,
+Un normale affaticamento muscolare
+può essere parte dell'allenamento.
+Un dolore osseo localizzato o persistente,
+invece, non deve essere ignorato.
+In questi casi interrompi la corsa
+e confrontati con un professionista sanitario.
+</p>
+
+<h3>5. AGGIORNAMI SUI TUOI PROGRESSI</h3>
+
+<p>
+Dopo il test iniziale e le prime due settimane,
+raccontami come ti sei trovata,
 come recuperi e come riesci a conciliare
-la corsa con la palestra.
-</p>
-<p>
-Queste informazioni saranno importanti per
-rendere il programma sempre più adatto a te.
+corsa e palestra.
 </p>
 
 <div class="notice">
-<b>Il nostro obiettivo:</b>
-non soltanto correre più velocemente,
-ma imparare un metodo di allenamento
-che ti permetta di migliorare nel tempo,
-con continuità e soddisfazione.
+
+<b>IL NOSTRO OBIETTIVO</b>
+
+<p>
+Imparare un metodo di allenamento,
+migliorare gradualmente la velocità
+e soprattutto continuare a correre
+con soddisfazione nel tempo.
+</p>
+
+<b>Sarà bellissimo!</b>
+
 </div>
 
 </section>
 
 <footer class="footer">
-Runner's School Italia · Sarà bellissimo!
+RUNNER'S SCHOOL ITALIA<br>
+PROGRAMMA PERSONALIZZATO NOVELLI FEDERICA<br>
+SETTEMBRE–DICEMBRE 2026
 </footer>
 
-</main>
-
-<script>
-const HASH =
-'12dfb59272e1b7495720bce886d553e2a997827b6eccde373956b0b079765f8f';
-
-async function sha256(s) {
-  const data = new TextEncoder().encode(s);
-  const hash = await crypto.subtle.digest('SHA-256', data);
-
-  return Array.from(new Uint8Array(hash))
-    .map(b => b.toString(16).padStart(2,'0'))
-    .join('');
-}
-
-function show() {
-  document.getElementById('login').classList.add('hidden');
-  document.getElementById('program').classList.remove('hidden');
-}
-
-document.getElementById('loginForm')
-  .addEventListener('submit', async e => {
-    e.preventDefault();
-
-    const value = document.getElementById('password').value;
-
-    try {
-      if (await sha256(value) === HASH) {
-        show();
-      } else {
-        document.getElementById('error').textContent =
-          'Password non corretta.';
-      }
-    } catch(err) {
-      document.getElementById('error').textContent =
-        'Impossibile verificare la password.';
-    }
-  });
-</script>
+</div>
 
 </body>
 </html>
