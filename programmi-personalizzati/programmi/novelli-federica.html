@@ -2,866 +2,1200 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Runner’s School Italia – Novelli Federica</title>
 
-<title>Novelli Federica - Runner's School Italia</title>
+  <style>
+    :root{
+      --bg:#020617;
+      --bg-card:#0b1120;
+      --bg-soft:#050b18;
+      --accent:#f97316;
+      --accent-soft:rgba(249,115,22,0.12);
+      --accent-border:rgba(249,115,22,0.30);
+      --text:#e5e7eb;
+      --text-muted:#9ca3af;
+      --border:#1f2937;
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.55);
+    }
 
-<style>
-:root{
-  --navy:#101a30;
-  --navy2:#1a2945;
-  --yellow:#f4c400;
-  --white:#ffffff;
-  --muted:#b8c6d9;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
-*{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:radial-gradient(
+        circle at top,
+        #0b1120 0,
+        #020617 55%,
+        #000 100%
+      );
+      color:var(--text);
+    }
 
-body{
-  margin:0;
-  background:#0a1120;
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.6;
-}
+    .app{
+      max-width:540px;
+      margin:0 auto;
+      padding:18px 16px 34px;
+    }
 
-.container{
-  max-width:950px;
-  margin:auto;
-  padding:20px 15px 60px;
-}
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
 
-.header{
-  background:var(--navy);
-  border-left:9px solid var(--yellow);
-  padding:30px 25px;
-  border-radius:5px;
-}
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      color:var(--text);
+      opacity:.9;
+      font-size:13px;
+    }
 
-.logo{
-  font-size:13px;
-  color:var(--yellow);
-  font-weight:bold;
-  letter-spacing:2px;
-}
+    .back:hover{opacity:1}
 
-h1{
-  font-size:clamp(30px,5vw,45px);
-  margin:10px 0;
-  line-height:1.15;
-}
+    .pill{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid var(--accent-border);
+      color:var(--text);
+      white-space:nowrap;
+    }
 
-h2{
-  color:var(--yellow);
-  font-size:23px;
-  margin:0 0 15px;
-}
+    .card{
+      background:
+        linear-gradient(
+          180deg,
+          rgba(249,115,22,0.06),
+          rgba(0,0,0,0)
+        ),
+        var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      margin-bottom:14px;
+    }
 
-h3{
-  margin:5px 0 10px;
-  font-size:18px;
-}
+    h1{
+      font-size:19px;
+      line-height:1.18;
+      margin:0 0 8px;
+      letter-spacing:.2px;
+    }
 
-p{margin:8px 0 12px}
+    .meta{
+      color:var(--text-muted);
+      font-size:13px;
+      line-height:1.4;
+      margin:0;
+    }
 
-.subtitle{color:var(--muted)}
+    .meta b,
+    .content strong{
+      color:var(--text);
+      font-weight:900;
+    }
 
-.card{
-  background:var(--navy);
-  padding:22px;
-  margin-top:18px;
-  border-radius:12px;
-  border:1px solid #30415d;
-}
+    .btnrow{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:12px;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:var(--bg-soft);
+      color:var(--text);
+      font-size:13px;
+    }
 
-.info{
-  background:var(--navy2);
-  padding:15px;
-  border-radius:8px;
-}
+    .btn.primary{
+      background:linear-gradient(
+        180deg,
+        rgba(249,115,22,.95),
+        rgba(249,115,22,.75)
+      );
+      border:0;
+      color:#0b1120;
+      font-weight:900;
+    }
 
-.info strong{
-  color:var(--yellow);
-  display:block;
-}
+    .section-label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--text-muted);
+      margin:22px 2px 10px;
+    }
 
-.notice{
-  background:#263752;
-  border-left:4px solid var(--yellow);
-  padding:15px;
-  margin:15px 0;
-  border-radius:4px;
-}
+    .content{
+      font-size:14px;
+      line-height:1.48;
+    }
 
-.week{
-  background:var(--navy);
-  border:1px solid #344660;
-  border-radius:12px;
-  margin-top:15px;
-  overflow:hidden;
-}
+    .content p{margin:10px 0}
 
-.week summary{
-  cursor:pointer;
-  padding:20px;
-  font-weight:bold;
-  font-size:19px;
-  list-style:none;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
 
-.week summary::-webkit-details-marker{
-  display:none;
-}
+    .mini{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:var(--bg-soft);
+      padding:12px;
+    }
 
-.week summary::after{
-  content:"+";
-  float:right;
-  color:var(--yellow);
-}
+    .mini.full{grid-column:1 / -1}
 
-.week[open] summary::after{
-  content:"−";
-}
+    .mini .k{
+      font-size:11px;
+      color:var(--text-muted);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
 
-.week[open] summary{
-  color:var(--yellow);
-  border-bottom:1px solid #344660;
-}
+    .mini .v{
+      font-size:14px;
+      line-height:1.35;
+    }
 
-.week-content{
-  padding:15px 20px 20px;
-}
+    .tagrow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
 
-.training{
-  background:var(--navy2);
-  padding:16px;
-  border-radius:9px;
-  margin:12px 0;
-}
+    .tag{
+      font-size:12px;
+      padding:7px 9px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--bg-soft);
+      color:var(--text-muted);
+    }
 
-.training-title{
-  color:var(--yellow);
-  font-size:13px;
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
+    .tag.ok{
+      border-color:rgba(34,197,94,.35);
+      color:#bbf7d0;
+      background:rgba(34,197,94,.08);
+    }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-}
+    .tag.warn{
+      border-color:rgba(249,115,22,.35);
+      color:#fed7aa;
+      background:rgba(249,115,22,.08);
+    }
 
-th,td{
-  padding:11px;
-  border-bottom:1px solid #344660;
-  text-align:left;
-}
+    .tag.info{
+      border-color:rgba(56,189,248,.35);
+      color:#bae6fd;
+      background:rgba(56,189,248,.08);
+    }
 
-th{color:var(--yellow)}
+    .note-box{
+      margin-top:10px;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--accent-border);
+      background:var(--accent-soft);
+      color:var(--text);
+      font-size:13px;
+      line-height:1.38;
+    }
 
-.footer{
-  text-align:center;
-  margin-top:35px;
-  color:var(--muted);
-  font-size:13px;
-}
-</style>
+    .alert-box{
+      margin-top:10px;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid rgba(239,68,68,.35);
+      background:rgba(239,68,68,.08);
+      color:var(--text);
+      font-size:13px;
+      line-height:1.38;
+    }
+
+    .footnote{
+      margin-top:14px;
+      color:var(--text-muted);
+      font-size:11px;
+      line-height:1.35;
+    }
+
+    .ritmi-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:6px;
+      border:1px solid var(--border);
+    }
+
+    .ritmi-table th,
+    .ritmi-table td{
+      padding:10px;
+      text-align:left;
+      border-bottom:1px solid var(--border);
+      font-size:13px;
+    }
+
+    .ritmi-table tr:last-child td{
+      border-bottom:0;
+    }
+
+    .ritmi-table thead th{
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+    }
+
+    .ritmi-table tbody td{
+      color:var(--text-muted);
+    }
+
+    .ritmi-table tbody td:first-child{
+      color:var(--text);
+      font-weight:900;
+    }
+
+    details.week{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:var(--bg-soft);
+      overflow:hidden;
+      margin-top:10px;
+    }
+
+    details.week summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+    }
+
+    details.week summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .week-dates{
+      font-size:12px;
+      color:var(--text-muted);
+      font-weight:700;
+      text-align:right;
+    }
+
+    .week-content{
+      padding:0 12px 12px;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .session{
+      padding:10px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .session:first-child{
+      border-top:0;
+    }
+
+    .session-title{
+      font-weight:900;
+      margin-bottom:3px;
+    }
+
+    .session-note{
+      color:var(--text-muted);
+      font-size:13px;
+      margin-top:4px;
+    }
+
+    @media(max-width:420px){
+      .grid{grid-template-columns:1fr}
+      .mini.full{grid-column:auto}
+      .top{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      details.week summary{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .week-dates{text-align:left}
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-<header class="header">
-<div class="logo">RUNNER'S SCHOOL ITALIA</div>
+  <div class="top">
+    <a class="back"
+       href="/runnerschoolitalia/programmi-personalizzati/">
+      ← Programmi personalizzati
+    </a>
 
-<h1>NOVELLI FEDERICA</h1>
+    <div class="pill">🟧 Runner’s School Italia</div>
+  </div>
 
-<p>
-PROGRAMMA PERSONALIZZATO · LIVELLO MEDIO
-</p>
+  <!-- INTESTAZIONE -->
 
-<p>
-12 OTTOBRE – 20 DICEMBRE 2026
-</p>
+  <div class="card">
 
-<p class="subtitle">
-3 allenamenti settimanali ·
-Obiettivo: migliorare la velocità sugli 8–12 km
-</p>
-</header>
+    <h1>
+      📄 Programma personalizzato · Novelli Federica
+    </h1>
 
-<section class="card">
+    <p class="meta">
+      Periodo:
+      <b>12 ottobre – 20 dicembre 2026</b><br>
+      Aggiornato:
+      <b>10/10/2026</b><br>
+      Coach:
+      <b>Runner’s School Italia</b>
+    </p>
 
-<h2>IL NOSTRO PERCORSO</h2>
+    <div class="tagrow">
+      <span class="tag ok">Livello Medio</span>
+      <span class="tag info">3 uscite settimanali</span>
+      <span class="tag warn">Obiettivo 8–12 km</span>
+    </div>
 
-<p>
-Federica, partiamo dal programma Medio Runner's School
-Italia, adattandolo alle tue caratteristiche e
-ai tuoi obiettivi.
-</p>
+    <div class="btnrow">
+      <a class="btn primary" href="#settimane">
+        📅 Vai al programma
+      </a>
 
-<p>
-L'obiettivo non sarà semplicemente correre più
-velocemente, ma imparare a utilizzare correttamente
-i diversi ritmi e costruire un metodo di allenamento
-che possa accompagnarti nel tempo.
-</p>
+      <a class="btn" href="#ritmi">
+        ⏱️ Ritmi
+      </a>
 
-<div class="grid">
+      <a class="btn" href="#note">
+        📝 Note
+      </a>
+    </div>
 
-<div class="info">
-<strong>QUALITÀ</strong>
-Lavoro Standard Runner's School
+  </div>
+
+  <!-- SCHEDA ATLETA -->
+
+  <div class="section-label">Scheda atleta</div>
+
+  <div class="card">
+
+    <div class="grid">
+
+      <div class="mini">
+        <div class="k">Atleta</div>
+        <div class="v">Novelli Federica</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Età</div>
+        <div class="v">53 anni</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Allenamenti</div>
+        <div class="v">3 uscite running / settimana</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Distanze attuali</div>
+        <div class="v">8–12 km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Palestra</div>
+        <div class="v">3 sedute con personal trainer</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Test 3000 m</div>
+        <div class="v">Da effettuare</div>
+      </div>
+
+      <div class="mini full">
+        <div class="k">Obiettivo principale</div>
+        <div class="v">
+          Migliorare la velocità sulle distanze
+          abituali e imparare un metodo
+          di allenamento duraturo.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- IMPOSTAZIONE -->
+
+  <div class="section-label">
+    Impostazione del percorso
+  </div>
+
+  <div class="card content">
+
+    <p>
+      <strong>
+        🎯 Partiamo dal Test dei 3000 metri
+      </strong><br>
+      Federica corre già regolarmente, ma non
+      abbiamo ancora un riferimento preciso
+      della sua velocità attuale.
+      Il test ci permetterà di impostare
+      correttamente RG, RM, RA, RL e RD.
+    </p>
+
+    <p>
+      <strong>
+        📈 Migliorare senza aumentare
+        necessariamente le distanze
+      </strong><br>
+      L'obiettivo non è preparare una mezza
+      maratona, ma migliorare la capacità
+      di correre sugli 8–12 km.
+      Utilizzeremo quindi il programma Medio,
+      adattando alcuni lavori del fine settimana
+      per non aumentare inutilmente i chilometri.
+    </p>
+
+    <p>
+      <strong>📌 Struttura settimanale</strong><br>
+      Tre allenamenti:
+      <strong>scarico + qualità + fine settimana</strong>.
+      Il lavoro di qualità segue la programmazione
+      Standard Runner's School.
+    </p>
+
+    <p>
+      <strong>🏋️ Coordinamento con la palestra</strong><br>
+      Federica svolge già tre allenamenti
+      settimanali di sala pesi seguita
+      da un personal trainer.
+      È importante organizzare le sedute
+      in modo da non sovraccaricare
+      eccessivamente le gambe prima
+      degli allenamenti di qualità.
+    </p>
+
+    <div class="alert-box">
+      <strong>⚠️ Attenzione all'osteoporosi</strong><br>
+      Prima dei lavori intensi e del test è
+      opportuno verificare con il medico che
+      conosce il quadro clinico eventuali
+      limitazioni, soprattutto in presenza
+      di precedenti fratture da fragilità.
+      I carichi andranno gestiti con gradualità.
+    </div>
+
+  </div>
+
+  <!-- TEST -->
+
+  <div class="section-label">
+    Test iniziale
+  </div>
+
+  <div class="card content">
+
+    <p>
+      <strong>⏱️ Test dei 3000 metri</strong><br>
+      Possiamo effettuarlo il
+      <strong>10 o 11 ottobre</strong>,
+      oppure durante la prima settimana
+      di programma, sostituendolo
+      all'allenamento di qualità.
+    </p>
+
+    <p>
+      <strong>Come eseguirlo:</strong><br>
+      15' RD di riscaldamento +
+      mobilità articolare +
+      3–4 allunghi progressivi +
+      <strong>3000 m</strong> cercando di
+      mantenere un passo regolare +
+      10' RD di defaticamento.
+    </p>
+
+    <div class="note-box">
+      <strong>📌 Dopo il test</strong><br>
+      Comunicami il tempo totale e,
+      possibilmente, i passaggi al chilometro.
+      Aggiorneremo questa pagina con
+      tutti i ritmi personali.
+    </div>
+
+  </div>
+
+  <!-- RITMI -->
+
+  <div class="section-label" id="ritmi">
+    Ritmi di riferimento
+  </div>
+
+  <div class="card content">
+
+    <table class="ritmi-table">
+      <thead>
+        <tr>
+          <th>Sigla</th>
+          <th>Ritmo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Test 3000</td>
+          <td>Da effettuare</td>
+        </tr>
+        <tr>
+          <td>RG</td>
+          <td>Da definire</td>
+        </tr>
+        <tr>
+          <td>RM</td>
+          <td>Da definire</td>
+        </tr>
+        <tr>
+          <td>RA</td>
+          <td>Da definire</td>
+        </tr>
+        <tr>
+          <td>RL</td>
+          <td>Da definire</td>
+        </tr>
+        <tr>
+          <td>RD</td>
+          <td>Da definire</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong>Ritmi da aggiornare:</strong>
+      dopo il test inseriremo i riferimenti
+      precisi da utilizzare in ogni allenamento.
+      Fino ad allora non bisogna inventare
+      ritmi sulla base delle uscite abituali.
+    </div>
+
+    <div class="alert-box">
+      <strong>⚠️ Recuperi:</strong>
+      quando trovi indicato "souplesse"
+      significa camminare oppure correre
+      molto lentamente, senza cercare
+      di mantenere un ritmo preciso.
+    </div>
+
+  </div>
+
+  <!-- NOTE -->
+
+  <div class="section-label" id="note">
+    Note del coach
+  </div>
+
+  <div class="card content">
+
+    <p>
+      Il punto di partenza è buono:
+      Federica è già abituata a correre
+      distanze comprese tra 8 e 12 km
+      e svolge regolarmente attività
+      di potenziamento.
+    </p>
+
+    <p>
+      Il primo passo sarà imparare a
+      distinguere gli allenamenti di qualità
+      da quelli di scarico.
+      Non tutte le uscite devono essere
+      impegnative: è proprio l'alternanza
+      degli stimoli che permette di migliorare.
+    </p>
+
+    <p>
+      Non cercheremo subito di aumentare
+      i chilometri, ma di migliorare
+      progressivamente la gestione dei ritmi
+      sulle distanze già abituali.
+    </p>
+
+    <p>
+      Sarà importante valutare anche
+      il carico complessivo delle tre
+      sedute settimanali di palestra.
+      In presenza di stanchezza eccessiva
+      sarà preferibile alleggerire un
+      allenamento piuttosto che accumulare
+      fatica inutilmente.
+    </p>
+
+  </div>
+
+  <!-- PROGRAMMA -->
+
+  <div class="section-label" id="settimane">
+    Programma
+  </div>
+
+  <div class="card content">
+
+    <!-- SETTIMANA 1 -->
+
+    <details class="week" open>
+      <summary>
+        <span>Settimana 1 · Test iniziale</span>
+        <span class="week-dates">12–18 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+          <div class="session-note">
+            Totale 9 km. Riducibili a 8 km
+            in caso di affaticamento.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🔥 Qualità / Test 3000 m
+          </div>
+          <div>
+            Se il test è già stato eseguito
+            e il recupero è completo:
+            15' RD +
+            2 × (1500 m RG + 500 m RG-10"
+            + 500 m RL) + 10' RD.
+          </div>
+          <div class="session-note">
+            Se il test non è ancora stato
+            effettuato, sostituire
+            questa seduta con il Test 3000.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 12 km
+          </div>
+          <div>
+            2 km RD +
+            3 × (2 km RM + 500 m RG + 500 m RL)
+            + 1 km RD.
+          </div>
+          <div class="session-note">
+            Valutare il recupero dopo il test
+            prima di affrontare l'intero lavoro.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 2 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 2 · Scarico</span>
+        <span class="week-dates">19–25 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD + 4 km RM + 1 km RG + 10' RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🟢 Fine settimana · 9 km
+          </div>
+          <div>
+            2 km RD + 2 km RL +
+            4 km RM + 1 km RD.
+          </div>
+          <div class="session-note">
+            Settimana di alleggerimento
+            per assimilare il lavoro.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 3 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 3 · Lavoro veloce</span>
+        <span class="week-dates">
+          26 ottobre – 1 novembre
+        </span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD +
+            5 × (50–60 m allungo facile +
+            50–60 m recupero RD) +
+            8 × (400 m tra RG-20" e RG-40"
+            + 2' recupero souplesse).
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 12–13 km
+          </div>
+          <div>
+            2 km RD + 3 km RL + 3 km RA +
+            3 km RM + 1 km RG + 1 km RD.
+          </div>
+          <div class="session-note">
+            Totale 13 km.
+            Eventualmente ridurre a 12 km.
+            Preferire il percorso in piano.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 4 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 4 · Soglia</span>
+        <span class="week-dates">2–8 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD +
+            piramide 500–800–1200–800–500 m
+            a RG-10", con 500 m RL
+            tra le prove + 5' RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 10 km
+          </div>
+          <div>
+            2 km RD +
+            2 × (2 km RM + 1 km RG + 500 m RL)
+            + 1 km RD.
+          </div>
+          <div class="session-note">
+            Versione personalizzata ridotta
+            rispetto ai tre blocchi previsti
+            dalla tabella Medio.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 5 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 5 · Soglia lunga</span>
+        <span class="week-dates">9–15 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD +
+            3 × (500 m RM + 1000 m RG +
+            500 m RM + 500 m RL)
+            + 5'/10' RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 11 km
+          </div>
+          <div>
+            2 km RD + 8 km al meglio + 1 km RD.
+          </div>
+          <div class="session-note">
+            Prova impegnativa da effettuare
+            solo se il recupero e la condizione
+            sono adeguati.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 6 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 6 · Scarico</span>
+        <span class="week-dates">16–22 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD +
+            5 km in progressione da RL a RG
+            + 10' RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🟢 Fine settimana · 9 km
+          </div>
+          <div>
+            2 km RD + 2 km RL +
+            4 km RM + 1 km RD.
+          </div>
+          <div class="session-note">
+            Settimana più leggera
+            per recuperare dal blocco precedente.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 7 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 7 · Lavoro veloce</span>
+        <span class="week-dates">23–29 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD +
+            5 × (50–60 m allungo facile +
+            50–60 m recupero RD) +
+            12 × (200 m oppure 1'
+            tra RG-20" e RG-40"
+            + 1' recupero souplesse).
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 10 km
+          </div>
+          <div>
+            10 km al meglio.
+          </div>
+          <div class="session-note">
+            Se non ci sono le condizioni
+            per una prova impegnativa,
+            sostituire con
+            2 km RD + 6 km RL + 2 km RD.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 8 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 8 · Soglia</span>
+        <span class="week-dates">
+          30 novembre – 6 dicembre
+        </span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD +
+            5 × (500 m RG + 300 m RL +
+            200 m RG-10")
+            + 10' RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 10,5 km
+          </div>
+          <div>
+            2 km RD +
+            3 × (1500 m RM + 500 m RG +
+            500 m RL)
+            + 1 km RD.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 9 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 9 · Soglia lunga</span>
+        <span class="week-dates">7–13 dicembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            15' RD + 2 km RM +
+            3 km RG + 500 m RG-10"
+            + 10' RD.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 Fine settimana · 11 km
+          </div>
+          <div>
+            2 km RD + 2 km RL +
+            3 km RA + 3 km RM + 1 km RD.
+          </div>
+          <div class="session-note">
+            Alternativa personalizzata
+            in piano al collinare
+            previsto dalla tabella Medio.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- SETTIMANA 10 -->
+
+    <details class="week">
+      <summary>
+        <span>Settimana 10 · Test finale</span>
+        <span class="week-dates">14–20 dicembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD.
+          </div>
+          <div class="session-note">
+            Da ridurre se necessario
+            per arrivare recuperata al test.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            ⏱️ Test finale 3000 m
+          </div>
+          <div>
+            15' RD +
+            mobilità e allunghi +
+            TEST 3000 m +
+            10' RD.
+          </div>
+          <div class="session-note">
+            Confrontiamo il risultato
+            con quello iniziale per valutare
+            i miglioramenti.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🟢 Fine settimana · 9 km
+          </div>
+          <div>
+            2 km RD + 2 km RL +
+            4 km RM + 1 km RD.
+          </div>
+          <div class="session-note">
+            Ultima settimana del programma.
+            Priorità al recupero dopo il test.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+  </div>
+
+  <!-- PROMEMORIA -->
+
+  <div class="section-label">
+    Promemoria finale
+  </div>
+
+  <div class="card content">
+
+    <p>
+      <strong>
+        La costanza conta più del singolo allenamento.
+      </strong><br>
+      Il nostro obiettivo è costruire un metodo
+      che permetta di migliorare nel tempo,
+      senza inseguire continuamente
+      il cronometro.
+    </p>
+
+    <p>
+      Le sedute di scarico non devono
+      trasformarsi in allenamenti di qualità.
+      Sono fondamentali per assimilare
+      il lavoro svolto.
+    </p>
+
+    <p>
+      In caso di affaticamento eccessivo,
+      soprattutto considerando i tre
+      allenamenti settimanali in palestra,
+      sarà sempre possibile ridurre
+      il volume della corsa.
+    </p>
+
+    <div class="note-box">
+      <strong>📌 Dopo le prime due settimane</strong><br>
+      Faremo un primo bilancio per capire
+      come vengono assimilati i carichi
+      e se occorre modificare qualche seduta.
+    </div>
+
+    <p>
+      <strong>Sarà bellissimo! 💛</strong>
+    </p>
+
+    <p class="footnote">
+      Runner’s School Italia ·
+      Programma personale riservato
+    </p>
+
+  </div>
+
 </div>
 
-<div class="info">
-<strong>SCARICO</strong>
-8–9 km a ritmi RD e RL
-</div>
-
-<div class="info">
-<strong>FINE SETTIMANA</strong>
-Allenamento Medio personalizzato
-</div>
-
-<div class="info">
-<strong>PALESTRA</strong>
-3 sedute con personal trainer
-</div>
-
-</div>
-
-<div class="notice">
-<b>Un'attenzione importante:</b>
-considerando l'osteoporosi, sarà fondamentale
-coordinare gli allenamenti di corsa con il
-lavoro in palestra, evitando aumenti improvvisi
-dei carichi. Prima di effettuare test massimali
-o sedute intense è opportuno verificare con
-il medico eventuali limitazioni individuali.
-</div>
-
-</section>
-
-<section class="card">
-
-<h2>TEST INIZIALE DEI 3000 METRI</h2>
-
-<p>
-Prima di iniziare i lavori di qualità abbiamo
-bisogno di individuare i tuoi ritmi di riferimento.
-</p>
-
-<h3>OPZIONE 1 – TEST 10 O 11 OTTOBRE</h3>
-
-<p>
-Puoi effettuare il test sabato 10 oppure
-domenica 11 ottobre, se sei nelle condizioni
-di affrontare uno sforzo intenso.
-</p>
-
-<p>
-Da lunedì 12 ottobre inizierai il programma
-con i ritmi già calcolati, rispettando
-il recupero necessario dopo il test.
-</p>
-
-<h3>OPZIONE 2 – TEST NELLA PRIMA SETTIMANA</h3>
-
-<p>
-Se preferisci, puoi effettuare il test
-nella settimana 12–18 ottobre,
-sostituendolo al lavoro di qualità previsto.
-</p>
-
-<div class="training">
-
-<div class="training-title">
-COME ESEGUIRE IL TEST
-</div>
-
-<p>15 minuti RD di riscaldamento</p>
-
-<p>Mobilità articolare e 3–4 allunghi progressivi</p>
-
-<p>
-<b>3000 metri</b> cercando di mantenere
-un'andatura il più possibile regolare
-</p>
-
-<p>10 minuti RD di defaticamento</p>
-
-</div>
-
-<p>
-Al termine comunicami il tempo totale
-e le sensazioni avute durante il test.
-</p>
-
-</section>
-
-<section class="card">
-
-<h2>I RITMI DI ALLENAMENTO</h2>
-
-<p>
-Una volta effettuato il test inseriremo
-i ritmi personali.
-</p>
-
-<table>
-
-<tr>
-<th>RITMO</th>
-<th>RIFERIMENTO</th>
-</tr>
-
-<tr>
-<td>RG</td>
-<td>Passo test + 10–20"/km</td>
-</tr>
-
-<tr>
-<td>RM</td>
-<td>RG + 20"/km</td>
-</tr>
-
-<tr>
-<td>RA</td>
-<td>RG + 40–45"/km</td>
-</tr>
-
-<tr>
-<td>RL</td>
-<td>RG + 50–60"/km</td>
-</tr>
-
-<tr>
-<td>RD</td>
-<td>RG + 1'10"–1'20"/km</td>
-</tr>
-
-</table>
-
-</section>
-
-<section class="card">
-<h2>PROGRAMMA DI ALLENAMENTO</h2>
-
-<p>
-Tre uscite settimanali:
-qualità Standard, scarico e fine settimana.
-</p>
-
-<p>
-Gli allenamenti di qualità seguono la
-tabella ufficiale Medio Runner's School.
-Gli altri lavori sono adattati al tuo livello.
-</p>
-</section>
-
-<details class="week" open>
-<summary>SETTIMANA 6 · 12–18 OTTOBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-2 × (1500 m RG + 500 m RG-10" + 500 m RL)
-+ 10' RD
-</p>
-
-<p>
-Se non hai ancora effettuato il test
-dei 3000 metri, sostituisci questo
-allenamento con il test.
-</p>
-
-<p>
-Se hai fatto il test nel weekend precedente,
-esegui la qualità solo dopo aver recuperato.
-</p>
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-
-<p>Totale 9 km.</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD +
-3 × (2 km RM + 500 m RG + 500 m RL)
-+ 1 km RD
-</p>
-
-<p>
-Totale 12 km.
-</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 7 · 19–25 OTTOBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD + 4 km RM + 1 km RG + 10' RD
-</p>
-
-<p>Settimana di scarico.</p>
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD + 2 km RL + 4 km RM + 1 km RD
-</p>
-
-<p>Totale 9 km.</p>
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 8 · 26 OTTOBRE–1 NOVEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-5 × (50–60 m allungo + 50–60 m recupero RD)
-+
-8 × (400 m tra RG-20" e RG-40"
-+ 2' recupero souplesse)
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-Programma ufficiale:
-collinare 13 km oppure
-2 km RD + 3 km RL + 3 km RA +
-3 km RM + 1 km RG + 1 km RD.
-</p>
-
-<p>
-Per ora preferiamo il percorso in piano,
-eventualmente ridotto a 12 km.
-</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 9 · 2–8 NOVEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-piramide 500–800–1200–800–500 m
-a RG-10"
-con 500 m RL tra le prove
-+ 5' RD
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD +
-2 × (2 km RM + 1 km RG + 500 m RL)
-+ 1 km RD
-</p>
-
-<p>
-Totale 10 km.
-Versione personalizzata ridotta
-rispetto ai tre blocchi ufficiali.
-</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 10 · 9–15 NOVEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-3 × (500 m RM + 1000 m RG +
-500 m RM + 500 m RL)
-+ 5–10' RD
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD + 8 km al meglio + 1 km RD
-</p>
-
-<p>
-Totale 11 km.
-Da affrontare come prova impegnativa
-solo se il recupero e la preparazione
-lo consentono.
-</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 11 · 16–22 NOVEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-5 km in progressione da RL a RG
-+ 10' RD
-</p>
-
-<p>Settimana di scarico.</p>
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD + 2 km RL + 4 km RM + 1 km RD
-</p>
-
-<p>Totale 9 km.</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 12 · 23–29 NOVEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-5 × (50–60 m allungo +
-50–60 m recupero RD)
-+
-12 × (200 m oppure 1'
-tra RG-20" e RG-40"
-+ 1' recupero souplesse)
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-10 km al meglio
-</p>
-
-<p>
-Prova facoltativa.
-In alternativa:
-2 km RD + 6 km RL + 2 km RD.
-</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 13 · 30 NOVEMBRE–6 DICEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-5 × (500 m RG + 300 m RL + 200 m RG-10")
-+ 10' RD
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD +
-3 × (1500 m RM + 500 m RG + 500 m RL)
-+ 1 km RD
-</p>
-
-<p>Totale 10,5 km.</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 14 · 7–13 DICEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-15' RD +
-2 km RM + 3 km RG +
-500 m RG-10"
-+ 10' RD
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD + 2 km RL +
-3 km RA + 3 km RM +
-1 km RD
-</p>
-
-<p>
-Totale 11 km.
-Versione personalizzata in piano.
-</p>
-
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>SETTIMANA 15 · 14–20 DICEMBRE</summary>
-
-<div class="week-content">
-
-<div class="training">
-<div class="training-title">QUALITÀ STANDARD</div>
-
-<p>
-TEST FINALE DEI 3000 METRI
-</p>
-
-<p>
-Ripetiamo il test iniziale
-per valutare i miglioramenti.
-</p>
-
-</div>
-
-<div class="training">
-<div class="training-title">SCARICO</div>
-
-<p>2 km RD + 6 km RL + 1 km RD</p>
-</div>
-
-<div class="training">
-<div class="training-title">FINE SETTIMANA</div>
-
-<p>
-2 km RD + 2 km RL + 4 km RM + 1 km RD
-</p>
-
-<p>Totale 9 km.</p>
-
-</div>
-
-</div>
-</details>
-
-<section class="card">
-
-<h2>ALCUNI CONSIGLI IMPORTANTI</h2>
-
-<h3>1. NON CERCARE SEMPRE LA VELOCITÀ</h3>
-
-<p>
-Gli allenamenti di scarico sono importanti
-quanto quelli di qualità.
-Servono a recuperare e ad assimilare
-gli stimoli ricevuti.
-</p>
-
-<h3>2. ORGANIZZA BENE LA PALESTRA</h3>
-
-<p>
-Tre sedute di corsa e tre di palestra
-rappresentano un impegno importante.
-Cerca di evitare un allenamento pesante
-per le gambe nelle 24–48 ore precedenti
-la qualità.
-</p>
-
-<h3>3. NON AUMENTARE TROPPO I CHILOMETRI</h3>
-
-<p>
-Per il momento lavoriamo principalmente
-sugli 8–12 km.
-Non abbiamo bisogno di aumentare molto
-le distanze per migliorare la velocità.
-</p>
-
-<h3>4. ASCOLTA I SEGNALI DEL CORPO</h3>
-
-<p>
-Un normale affaticamento muscolare
-può essere parte dell'allenamento.
-Un dolore osseo localizzato o persistente,
-invece, non deve essere ignorato.
-In questi casi interrompi la corsa
-e confrontati con un professionista sanitario.
-</p>
-
-<h3>5. AGGIORNAMI SUI TUOI PROGRESSI</h3>
-
-<p>
-Dopo il test iniziale e le prime due settimane,
-raccontami come ti sei trovata,
-come recuperi e come riesci a conciliare
-corsa e palestra.
-</p>
-
-<div class="notice">
-
-<b>IL NOSTRO OBIETTIVO</b>
-
-<p>
-Imparare un metodo di allenamento,
-migliorare gradualmente la velocità
-e soprattutto continuare a correre
-con soddisfazione nel tempo.
-</p>
-
-<b>Sarà bellissimo!</b>
-
-</div>
-
-</section>
-
-<footer class="footer">
-RUNNER'S SCHOOL ITALIA<br>
-PROGRAMMA PERSONALIZZATO NOVELLI FEDERICA<br>
-SETTEMBRE–DICEMBRE 2026
-</footer>
-
-</div>
+<!-- PASSWORD APP RUNNER'S SCHOOL -->
+
+<script>
+  const PAGE_HASH =
+    "12dfb59272e1b7495720bce886d553e2a997827b6eccde373956b0b079765f8f";
+</script>
 
 </body>
 </html>
