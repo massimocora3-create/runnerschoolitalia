@@ -36,14 +36,21 @@
     .back:hover{opacity:1}
     .pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap;}
 
-    .card{background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px;}
+    .card{
+      background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      margin-bottom:14px;
+    }
+
     h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px;}
     .meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0;}
     .meta b,.content strong{color:var(--text);font-weight:900}
 
     .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;opacity:.96;}
-    .btn:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;}
     .btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900;}
 
     .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px;}
@@ -64,9 +71,9 @@
 
     .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38;}
     .alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38;}
-    .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;opacity:.95;}
+    .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;}
 
-    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;overflow:hidden;border-radius:14px;border:1px solid var(--border);}
+    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;border:1px solid var(--border);}
     .ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
     .ritmi-table tr:last-child td{border-bottom:0}
     .ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}
@@ -96,186 +103,973 @@
 
 <body>
 
-  <div class="app" id="app">
-    <div class="top">
-      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-      <div class="pill">🟧 Runner’s School Italia</div>
+<div class="app">
+
+  <div class="top">
+    <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+    <div class="pill">🟧 Runner’s School Italia</div>
+  </div>
+
+  <div class="card">
+    <h1>📄 Programma personalizzato · Gilli Costanza</h1>
+
+    <p class="meta">
+      Periodo: <b>Settembre – Dicembre 2026</b><br>
+      Durata: <b>15 settimane</b><br>
+      Aggiornato dopo: <b>Mezza Maratona di Roma · 18/10/2026</b><br>
+      Coach: <b>Runner’s School Italia</b>
+    </p>
+
+    <div class="tagrow">
+      <span class="tag ok">Percorso Endurance</span>
+      <span class="tag info">3 uscite settimanali</span>
+      <span class="tag warn">Focus: resistenza sulla distanza</span>
     </div>
 
-    <div class="card">
-      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Gilli Costanza</span></h1>
-      <p class="meta">Periodo: <b>7 settembre – 18 ottobre 2026</b><br>Aggiornato: <b>06/09/2026</b><br>Coach: <b>Runner’s School Italia</b></p>
-      <div class="tagrow"><span class="tag ok">Preparazione Half Marathon</span><span class="tag info">3 uscite settimanali</span><span class="tag warn">Roma · 18 ottobre 2026</span></div>
-      <div class="btnrow"><a class="btn primary" href="#settimane">📅 Vai al programma</a><a class="btn" href="#ritmi">⏱️ Ritmi</a><a class="btn" href="#storico">🧭 Storico</a></div>
-      <div class="footnote">Questo programma è personale. Non condividere password o link con altre persone.</div>
+    <div class="btnrow">
+      <a class="btn primary" href="#settimane">📅 Programma</a>
+      <a class="btn" href="#ritmi">⏱️ Ritmi</a>
+      <a class="btn" href="#roma">🏁 Roma</a>
     </div>
 
-    <div class="section-label">Scheda atleta</div>
-    <div class="card"><div class="grid">
-      <div class="mini"><div class="k">Atleta</div><div class="v">Gilli Costanza</div></div>
-      <div class="mini"><div class="k">Disponibilità</div><div class="v">3 uscite running / settimana</div></div>
-      <div class="mini"><div class="k">Distanza attuale</div><div class="v">8–12 km</div></div>
-      <div class="mini"><div class="k">Test 3000 m</div><div class="v">15’47” · 8 settembre 2026<br>Passo medio: 5’16”/km</div></div>
-      <div class="mini"><div class="k">Condizione dichiarata</div><div class="v">Abbastanza allenata, ma in calo a luglio e agosto</div></div>
-      <div class="mini"><div class="k">Obiettivo</div><div class="v">Mezza Maratona di Roma · 18 ottobre 2026</div></div>
-      <div class="mini full"><div class="k">Situazione attuale</div><div class="v">Costanza riesce a correre con continuità, ma in questo momento non si sente particolarmente veloce. Nei mesi più caldi ha sofferto soprattutto i lunghi. Il nuovo blocco parte quindi dalla condizione reale di settembre, senza cercare di recuperare in poche settimane il lavoro perso durante l’estate.</div></div>
-    </div></div>
-
-    <div class="section-label" id="storico">Storico e punto di partenza</div>
-    <div class="card content">
-      <p><strong>📈 Il percorso fatto</strong><br>Nei mesi precedenti Costanza aveva costruito una buona continuità sulle tre uscite settimanali e aveva migliorato in maniera importante i propri riferimenti. Il precedente test sui 3000 m era sceso fino a circa <strong>15’50”</strong>, con un miglioramento di circa 1’30”.</p>
-      <p><strong>🏁 L’esperienza della prima mezza</strong><br>La prima mezza maratona a Rimini non era andata come sperato: il calo intorno al 17° km aveva lasciato un po’ di delusione. Quell’esperienza però ci ha dato un’indicazione molto utile: oltre alla velocità, dobbiamo costruire soprattutto la capacità di <strong>mantenere una corsa efficace nella parte finale</strong> della distanza.</p>
-      <p><strong>☀️ L’estate</strong><br>La fase maggio–agosto era stata pensata per lavorare su brillantezza, forza specifica, cambi di ritmo, collinari e progressivo aumento della resistenza. Luglio e agosto sono però stati meno continui e Costanza ha sofferto in particolare i lunghi con il caldo. Non è un problema da “recuperare” tutto insieme: è semplicemente il dato da cui ripartiamo.</p>
-      <div class="note-box"><strong>Il concetto importante:</strong> non dobbiamo inseguire ciò che non è stato fatto in estate. Le prime sei settimane vanno usate bene per arrivare a Roma con condizione, fiducia e soprattutto energie; dopo la gara avremo altre nove settimane per continuare a costruire senza fretta.</div>
-    </div>
-
-    <div class="section-label">Obiettivo del nuovo blocco</div>
-    <div class="card content">
-      <p><strong>🎯 Roma, ma con un percorso progressivo</strong><br>La gara del 18 ottobre è il primo obiettivo del nuovo percorso di 15 settimane. Le prime sei settimane sono specifiche per la mezza; dopo Roma inseriamo recupero e un nuovo blocco Endurance fino al 20 dicembre, tornando a sviluppare velocità, soglia, forza e resistenza senza restare vincolati alla preparazione gara.</p>
-      <p>Le prime settimane serviranno a <strong>riattivare la velocità e ricostruire il lungo</strong>; il blocco centrale porterà progressivamente verso il lavoro specifico da mezza; le ultime due settimane serviranno a consolidare e poi scaricare.</p>
-      <p>Con sole tre uscite non ci sono chilometri “riempitivi”: ogni seduta ha uno scopo preciso. Una corsa di mantenimento, una seduta di qualità e un lavoro del fine settimana orientato alla gara.</p>
-    </div>
-
-    <div class="section-label" id="ritmi">Ritmi di riferimento</div>
-    <div class="card content">
-      <p><strong>🧪 Test 3000 m · 8 settembre 2026</strong><br>Costanza ha completato il test in <strong>15’47”</strong>, pari a circa <strong>5’16”/km</strong>. Il risultato è praticamente in linea, e leggermente migliore, rispetto al precedente 15’50”: nonostante luglio e agosto meno continui, la base di condizione è rimasta buona. Da questo test impostiamo i nuovi ritmi di riferimento del programma.</p>
-      <table class="ritmi-table"><thead><tr><th>Sigla</th><th>Significato</th><th>Ritmo</th></tr></thead><tbody>
-        <tr><td>RG</td><td>Ritmo gara / riferimento</td><td translate="no"><strong>5’26”/km</strong></td></tr>
-        <tr><td>RM</td><td>Ritmo medio</td><td translate="no"><strong>5’46”/km</strong></td></tr>
-        <tr><td>RA</td><td>Ritmo allegro</td><td translate="no"><strong>6’06”/km</strong></td></tr>
-        <tr><td>RL</td><td>Ritmo lento</td><td translate="no"><strong>6’16”/km</strong></td></tr>
-        <tr><td>RD</td><td>Riscaldamento / defaticamento</td><td translate="no"><strong>6’36”/km</strong></td></tr>
-      </tbody></table>
-      <div class="note-box"><strong>Riferimento aggiornato:</strong> test 3000 m del 08/09/2026 in 15’47” (5’16”/km). I ritmi sono volutamente impostati in modo sostenibile: nelle prossime settimane il dato più importante sarà verificare la capacità di mantenere il lavoro specifico con continuità, soprattutto nei lunghi e nella seconda parte delle sedute.</div>
-    </div>
-
-    <div class="section-label">Come leggere gli allenamenti</div>
-    <div class="card content">
-      <p><strong>🟦 Mantenimento</strong><br>Corsa facile e controllata. Serve a costruire volume, recuperare dalla qualità e mantenere continuità senza aggiungere stanchezza inutile.</p>
-      <p><strong>🔥 Qualità</strong><br>Lavori vicini alla soglia, progressioni e variazioni. Servono a ritrovare brillantezza ed economia di corsa. Devono essere precisi, non massacranti.</p>
-      <p><strong>🏁 Fine settimana</strong><br>È la seduta più specifica per Roma: prima ricostruiamo progressivamente la durata, poi inseriamo blocchi a RM/RG e ritmo mezza. L’obiettivo è imparare a correre bene anche quando le gambe iniziano a essere stanche.</p>
-    </div>
-
-    <div class="section-label" id="settimane">Programma · 15 settimane</div>
-    <div class="card content">
-      <details class="week" open><summary><span class="week-title">Settimana 1 · Ripartenza + Test</span><span class="week-dates">7–13 settembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>2 km RD + 6 km RL + 5 × (100 m allungo sciolto + 100 m RL) + 1 km RD.</div><div class="session-note">Seduta facile: deve lasciare gamba, non stanchezza.</div></div>
-        <div class="session"><div class="session-title">🧪 Qualità · TEST 3000 m</div><div>3 km RD + mobilità e 4 × 100 m progressivi + <strong>3000 m al meglio</strong> + 2 km RD.</div><div class="session-note">Partenza controllata, ritmo il più possibile uniforme. Il risultato diventa il riferimento del nuovo blocco.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · 14 km progressivi</div><div>3 km RD + 6 km RL + 3 km RA + 2 km RD.</div><div class="session-note">Primo obiettivo: tornare a stare sulle gambe con continuità. Nessuna necessità di forzare.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 2 · Costruzione</span><span class="week-dates">14–20 settembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità</div><div>3 km RD + 2 × (1000 m RG + 500 m RL) + 2 × (1000 m RG-15” + 500 m RD) + 1 km RD.</div><div class="session-note">Riattiviamo la capacità di correre forte senza trasformare la seduta in una gara.</div></div>
-        <div class="session"><div class="session-title">⛰️ Fine settimana · 15–16 km collinare</div><div>15–16 km su percorso ondulato, salite corribili e ritmo gestito a sensazione.</div><div class="session-note"><strong>Alternativa in piano:</strong> 2 km RD + 4 km RL-10” + 4 km RA-10” + 4 km RM-10” + 1 km RD. Il collinare lavora su forza e resistenza; l’alternativa mantiene lo stesso principio attraverso la progressione.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 3 · Specifico mezza</span><span class="week-dates">21–27 settembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m RL) + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità endurance</div><div>3 km RD + 4 km RM con 200 m RG ogni 800 m + 4 × (200 m RG-20” + 200 m RD) + 2 km RD.</div><div class="session-note">Un lavoro variato per abituarsi a cambiare ritmo mantenendo sempre controllo.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · Lungo 17 km</div><div>3 km RD + 3 × (2,5 km RM + 500 m RG + 1 km RL) + 2 km RD.</div><div class="session-note">Primo vero lungo specifico: i 500 m a RG arrivano quando c’è già fatica e insegnano a reagire senza andare fuori giri.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 4 · Settimana chiave</span><span class="week-dates">28 settembre – 4 ottobre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 7 km RL + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità specifica</div><div>3 km RD + 2 km RM + 3 × (1 km RG + 500 m RL) + 2 km RD.</div><div class="session-note">Seduta controllata: il lavoro più importante della settimana resta il lungo.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · 18–19 km specifici</div><div><strong>Versione base:</strong> 3 km RD + 3 × (3 km ritmo mezza + 500 m RG + 1 km RL) + 2 km RD.</div><div class="session-note">È l’allenamento chiave del blocco. Se le prime tre settimane sono state assorbite molto bene, si può estendere ogni blocco a 3,5 km ritmo mezza e avvicinarsi ai 19 km della tabella standard. Non serve farlo a tutti i costi.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 5 · Consolidamento</span><span class="week-dates">5–11 ottobre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Recupero</div><div>2 km RD + 6–7 km RL + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Richiamo qualità</div><div>3 km RD + 3 km RM + 1 km RG + 2 km RD.</div><div class="session-note">Volume ridotto: manteniamo brillantezza senza produrre nuova fatica.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · 12 km progressivi</div><div>2 km RD + 4 km RL + 4 km RM + 2 km RD.</div><div class="session-note">Si deve finire con la sensazione di avere ancora margine. Non è più il momento di cercare conferme con allenamenti massacranti.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 6 · Scarico + Gara</span><span class="week-dates">12–18 ottobre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Scarico</div><div>2 km RD + 5 km RL + 1 km RD <strong>(8 km)</strong>.</div><div class="session-note">Corsa molto tranquilla: l’obiettivo è recuperare e mantenere le gambe in movimento.</div></div>
-        <div class="session"><div class="session-title">⚡ Richiamo leggero</div><div>2 km RD + 3 × (500 m RM + 500 m RL) + 4 × (100 m allungo sciolto + 100 m recupero) + 1 km RD <strong>(circa 7 km)</strong>.</div><div class="session-note">Non è un vero lavoro di qualità. Serve soltanto a mantenere un po’ di brillantezza e sensibilità al ritmo senza creare fatica.</div></div>
-        <div class="session"><div class="session-title">🏆 Domenica 18 ottobre · HALF MARATHON ROMA</div><div><strong>21,097 km</strong> · Gara.</div><div class="session-note">Prima parte controllata. La gara vera inizia dopo metà percorso: l’obiettivo è arrivare dal 15° km in avanti ancora capace di correre e non semplicemente di resistere.</div></div>
-        <div class="note-box"><strong>Questa settimana si scarica davvero.</strong> Tutto il lavoro utile per Roma è già stato fatto. Negli ultimi giorni non dobbiamo cercare di migliorare ulteriormente la condizione: dobbiamo assorbire il lavoro delle settimane precedenti e arrivare alla partenza con gambe fresche e voglia di correre.</div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 7 · Recupero post gara</span><span class="week-dates">19–25 ottobre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Recupero</div><div>6–8 km RD/RL molto facili.</div><div class="session-note">Prima uscita solo quando le gambe hanno recuperato bene dalla mezza.</div></div>
-        <div class="session"><div class="session-title">🌿 Corsa facile + mobilità</div><div>2 km RD + 6 km RL + 1 km RD.</div><div class="session-note">Nessun lavoro di qualità: questa settimana serve ad assorbire Roma.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>10–12 km RL in pieno controllo.</div><div class="session-note">Si riparte dalla continuità, senza guardare il cronometro.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 8 · Ripartenza Endurance</span><span class="week-dates">26 ottobre – 1 novembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità · variazioni</div><div>3 km RD + 4 × (1’ RG + 1’ RM) + 4 × (1’ RG-20” + 1’ RL) + 4 × (1’ RG-40” + 1’ souplesse) + 1 km RD.</div><div class="session-note">Torniamo a cambiare ritmo: brillantezza e reattività, senza un grande carico chilometrico.</div></div>
-        <div class="session"><div class="session-title">⛰️ Fine settimana · Collinare 13–14 km</div><div>Percorso ondulato con salite corribili, gestito a sensazione.</div><div class="session-note"><strong>Alternativa in piano:</strong> 2 km RD + 4 km RL-10” + 4 km RA-10” + 3 km RM-10” + 1 km RD.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 9 · Brillantezza</span><span class="week-dates">2–8 novembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m RL) + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità · ritmo crescente</div><div>3 km RD + 1000 m RG + 800 m RG-10” + 600 m RG-20” + 400 m RG-30” + 2 × 200 m RG-40”; recupero 2’ souplesse tra le prove, 1’ dopo i 200 m + 1 km RD.</div><div class="session-note">Lavoro corto e progressivamente più veloce per recuperare brillantezza dopo il blocco mezza.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · Corto veloce</div><div>3 km RD + 5 × (100 m allungo + 100 m recupero) + 5 km RG + 2 km RD.</div><div class="session-note">Ritmo regolare e controllato: non è un 5 km al massimo.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 10 · Scarico</span><span class="week-dates">9–15 novembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Corsa facile</div><div>2 km RD + 7 km RL + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità soft</div><div>3 km RD + 4 km RM + 1 km RG + 1 km RD.</div><div class="session-note">Un richiamo controllato: volume e intensità scendono per assorbire le settimane precedenti.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>3 km RD + 8 km RL + 2 km RD (13 km).</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 11 · Nuovo blocco</span><span class="week-dates">16–22 novembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità · misto soglia</div><div>3 km RD + 5 × (400 m RG-10” + 400 m RG-30” + 200 m souplesse) + 2 km RD.</div><div class="session-note">Alternare due velocità nella stessa ripetuta migliora controllo del ritmo e capacità di reagire.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · Variato 14 km</div><div>3 km RD + 2 × (2000 m RG + 500 m RD) + 3 × (500 m RG-10” + 500 m RL) + 2 km RD.</div><div class="session-note">Stimolo di qualità dentro una seduta endurance, senza la pressione della preparazione gara.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 12 · Forza resistente</span><span class="week-dates">23–29 novembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>2 km RD + 8 km RL + 5 × (100 m allungo in salita + recupero in discesa souplesse) + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità · progressione</div><div>3 km RD + 1 km RL + 1 km RA + 1 km RM + 1 km RG + 1 km RG-10” + 1 km RL + 1 km RD.</div><div class="session-note">Si impara ad aumentare gradualmente l’intensità mantenendo tecnica e controllo.</div></div>
-        <div class="session"><div class="session-title">⛰️ Fine settimana · Collinare 15–16 km</div><div>Percorso ondulato con salite di pendenza variabile.</div><div class="session-note"><strong>Alternativa in piano:</strong> 3 km RD + 4 km RL-10” + 4 km RA-10” + 4 km RM-10” + 1 km RD.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 13 · Soglia e resistenza</span><span class="week-dates">30 novembre – 6 dicembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 7 km RL + 5 × (100 m allungo + 100 m RL) + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità · blocchi</div><div>2 km RD + 2000 m RM + 500 m RA + 2000 m RG + 500 m RL + 2000 m RG-10” + 500 m RD + 1 km RD.</div><div class="session-note">Il ritmo cresce a blocchi: lavoriamo sulla capacità di restare efficaci quando aumenta la fatica.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · Lungo 16–17 km</div><div>3 km RD + 10–11 km RL + 3 km RA.</div><div class="session-note">Richiamo di resistenza generale. Ultimi 3 km più brillanti solo se le sensazioni sono buone.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 14 · Scarico</span><span class="week-dates">7–13 dicembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Corsa facile</div><div>2 km RD + 6 km RL + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità soft</div><div>3 km RD + 3 km progressione da RL a RG + 5 × (400 m RG + 1’30” RD) + 2 km RD.</div><div class="session-note">Seduta dinamica ma non pesante: manteniamo sensibilità ai ritmi durante lo scarico.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana</div><div>12–13 km RL in controllo.</div></div>
-      </div></details>
-
-      <details class="week"><summary><span class="week-title">Settimana 15 · Chiusura ciclo</span><span class="week-dates">14–20 dicembre</span></summary><div class="week-content">
-        <div class="session"><div class="session-title">🟦 Mantenimento</div><div>3 km RD + 5 km RL + 3 km RA + 1 km RD.</div></div>
-        <div class="session"><div class="session-title">🔥 Qualità · richiamo finale</div><div>3 km RD + 3 × (500 m RG + 500 m RL) + 3 × (500 m RG-20” + 500 m RD) + 1 km RL.</div><div class="session-note">Chiudiamo il ciclo con un lavoro variato, brillante ma gestibile.</div></div>
-        <div class="session"><div class="session-title">🏁 Fine settimana · Progressivo 14 km</div><div>3 km RD + 4 km RL + 4 km RA + 2 km RM + 1 km RD.</div><div class="session-note">Ultima seduta del quadrimestre: corsa continua e progressiva, da terminare con controllo e buone sensazioni.</div></div>
-      </div></details>
-    </div>
-
-    <div class="section-label">Dopo Roma · perché continuiamo</div>
-    <div class="card content">
-      <p><strong>Roma è una tappa, non la conclusione.</strong> La settimana successiva alla gara è volutamente molto leggera; poi iniziamo un nuovo blocco Endurance per trasformare il lavoro fatto per la mezza in una base più completa.</p>
-      <p><strong>Dal 26 ottobre cambiano gli stimoli.</strong> Diminuisce la componente specifica da mezza e tornano variazioni, lavori più brillanti, collinari, progressioni e richiami di resistenza. In questo modo continuiamo a migliorare senza trascinare per altre nove settimane la stessa preparazione.</p>
-      <p><strong>I ritmi restano quelli ricavati dal test e dalle sensazioni successive.</strong> Se Roma mostrerà un miglioramento evidente rispetto ai riferimenti di settembre, potremo aggiornare RG e tutti i ritmi collegati prima del secondo blocco.</p>
-      <div class="note-box"><strong>Obiettivo del secondo blocco:</strong> arrivare al 20 dicembre con più velocità, forza e capacità di cambiare ritmo, mantenendo la resistenza costruita per la mezza ma senza accumulare chilometri inutili.</div>
-    </div>
-
-    <div class="section-label">Indicazioni finali del coach</div>
-    <div class="card content">
-      <p><strong>1. Il test serve per essere precisi.</strong> Non dobbiamo decidere i ritmi sulla Costanza di maggio né sulle sensazioni di agosto: misuriamo dove siamo oggi e lavoriamo da lì.</p>
-      <p><strong>2. I lunghi non vanno corsi come gare.</strong> Il loro valore è accumulare tempo sulle gambe e riuscire a inserire ritmo quando compare la fatica.</p>
-      <p><strong>3. Il lungo da 18–19 km non è un esame.</strong> Se la condizione cresce bene lo completiamo nella versione più lunga; altrimenti la versione da 17–18 km è già un ottimo stimolo.</p>
-      <p><strong>4. Nelle ultime due settimane non si recupera più nulla.</strong> Si consolida ciò che abbiamo costruito e si arriva alla partenza fresca.</p>
-      <div class="note-box"><strong>Obiettivo Roma:</strong> non partire pensando al risultato cronometrico. Prima costruiamo una gara regolare e una seconda metà solida. Se Costanza arriva al 15°–17° km ancora in controllo, avremo già trasformato in un punto di forza proprio ciò che a Rimini era stato il momento più difficile.</div>
-      <p class="footnote">Runner’s School Italia · Programma personale riservato</p>
+    <div class="footnote">
+      Questo programma è personale. Non condividere password o link con altre persone.
     </div>
   </div>
 
-  <script>
-    const PAGE_HASH = "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad";
-  </script>
 
-</body>
-</html>
+  <div class="section-label">Scheda atleta</div>
 
-  </script>
+  <div class="card">
+    <div class="grid">
+
+      <div class="mini">
+        <div class="k">Atleta</div>
+        <div class="v">Gilli Costanza</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Disponibilità</div>
+        <div class="v">3 uscite running / settimana</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Livello</div>
+        <div class="v">Già corre · percorso Endurance</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Test 3000 m</div>
+        <div class="v">15'47" · 08/09/2026</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Prima Mezza</div>
+        <div class="v">Rimini · crisi intorno al 17° km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Roma</div>
+        <div class="v">18/10/2026 · circa 2h12'</div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="section-label">Il percorso di Costanza</div>
+
+  <div class="card content">
+
+    <p>
+      Costanza arriva a questo quadrimestre dopo un percorso nel quale ha dimostrato
+      di possedere una buona velocità di base e di poter migliorare in maniera importante
+      quando riesce ad allenarsi con continuità.
+    </p>
+
+    <p>
+      La prima esperienza sulla mezza maratona, a Rimini, aveva però evidenziato
+      una difficoltà importante nella parte finale della gara, con una crisi
+      intorno al 16°-17° km.
+    </p>
+
+    <p>
+      Durante l'estate la continuità è diminuita, soprattutto nei mesi più caldi,
+      nei quali Costanza ha fatto più fatica a portare avanti i lunghi.
+      Per questo la preparazione verso Roma è iniziata con una base chilometrica
+      inferiore rispetto a quella ideale.
+    </p>
+
+    <p>
+      Il test sui <strong>3000 metri dell'8 settembre, concluso in 15'47"</strong>,
+      ha però dato un'indicazione molto positiva: la velocità non era andata persa.
+      Il risultato è stato addirittura leggermente migliore rispetto al precedente
+      15'50".
+    </p>
+
+    <div class="note-box">
+      <strong>Punto chiave:</strong> il limite principale non è la velocità.
+      Il lavoro da fare riguarda soprattutto la capacità di mantenere lo sforzo
+      quando la distanza aumenta.
+    </div>
+
+  </div>
+
+
+  <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+
+  <div class="card content">
+
+    <p>
+      I ritmi sono calcolati sul test dei <strong>3000 m in 15'47"</strong>
+      effettuato l'8 settembre 2026.
+    </p>
+
+    <table class="ritmi-table">
+      <thead>
+        <tr>
+          <th>Sigla</th>
+          <th>Significato</th>
+          <th>Ritmo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>RG</td>
+          <td>Ritmo gara / riferimento</td>
+          <td>5'26"/km</td>
+        </tr>
+
+        <tr>
+          <td>RM</td>
+          <td>Ritmo medio</td>
+          <td>5'46"/km</td>
+        </tr>
+
+        <tr>
+          <td>RA</td>
+          <td>Ritmo allegro</td>
+          <td>6'06"/km</td>
+        </tr>
+
+        <tr>
+          <td>RL</td>
+          <td>Ritmo lento</td>
+          <td>6'16"/km</td>
+        </tr>
+
+        <tr>
+          <td>RD</td>
+          <td>Riscaldamento / defaticamento</td>
+          <td>6'36"/km</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      I ritmi rimangono invariati dopo Roma. Il risultato della gara non indica
+      la necessità di rallentare i riferimenti: dobbiamo cambiare soprattutto
+      il tipo di stimolo e aumentare progressivamente la resistenza.
+    </div>
+
+  </div>
+
+
+  <div class="section-label" id="roma">Mezza Maratona di Roma</div>
+
+  <div class="card content">
+
+    <p>
+      <strong>🏁 Roma · 18 ottobre 2026 · circa 2h12'</strong>
+    </p>
+
+    <p>
+      La gara è stata impostata correttamente. Costanza non è partita troppo forte
+      e la prima parte è stata gestita con criterio.
+    </p>
+
+    <p>
+      Anche alimentazione e idratazione sono state gestite durante la gara,
+      con gel intorno al 7° e al 14° km e acqua ai ristori.
+    </p>
+
+    <p>
+      Il problema è comparso nuovamente intorno al
+      <strong>16°-17° km</strong>: da quel momento è arrivata una crisi importante,
+      fino alla necessità di rallentare molto e fermarsi.
+    </p>
+
+    <p>
+      È un elemento particolarmente significativo perché una situazione simile
+      si era verificata anche nella precedente mezza maratona.
+    </p>
+
+    <div class="alert-box">
+      <strong>📌 Cosa ci ha detto Roma?</strong><br><br>
+
+      Non dobbiamo cercare semplicemente di rendere Costanza più veloce.
+      Il test sui 3000 metri dimostra che la velocità di base c'è.<br><br>
+
+      Dobbiamo invece aumentare la capacità di correre a lungo,
+      rendendo progressivamente normali distanze di 14, 16, 17 e 18 km
+      senza arrivare alla parte finale già in forte difficoltà.
+    </div>
+
+  </div>
+
+
+  <div class="section-label">Cambio di programma dopo Roma</div>
+
+  <div class="card content">
+
+    <p>
+      Il programma iniziale prevedeva, dopo Roma, una maggiore alternanza
+      tra lavori brillanti, corti veloci, collinari e lunghi.
+    </p>
+
+    <p>
+      Quello che è successo in gara ci permette però di essere molto più precisi.
+      Per questo <strong>il programma viene modificato</strong>.
+    </p>
+
+    <p>
+      La qualità infrasettimanale rimane presente, perché è importante continuare
+      a lavorare su tutte le caratteristiche della corsa.
+    </p>
+
+    <p>
+      Il cambiamento principale riguarda invece il
+      <strong>fine settimana</strong>: aumenteremo la continuità dei lavori
+      di endurance e la familiarità con distanze progressivamente più lunghe.
+    </p>
+
+    <p>
+      Non vogliamo però trasformare ogni lungo in una gara.
+      Molti chilometri verranno corsi a <strong>RL 6'16"/km</strong>,
+      proprio per permettere all'organismo di assimilare il volume.
+    </p>
+
+    <p>
+      In altri allenamenti inseriremo invece parti a
+      <strong>RA 6'06"/km</strong> e <strong>RM 5'46"/km</strong>,
+      soprattutto nella seconda parte, per imparare a correre bene
+      quando nelle gambe sono già presenti diversi chilometri.
+    </p>
+
+    <div class="note-box">
+      <strong>Nuovo obiettivo:</strong> arrivare alla fine del quadrimestre
+      con molta più resistenza. Il 16° km non deve più rappresentare
+      l'inizio della crisi, ma diventare una distanza che Costanza conosce,
+      gestisce e riesce a superare con sicurezza.
+    </div>
+
+  </div>
+
+
+  <div class="section-label">Struttura settimanale</div>
+
+  <div class="card content">
+
+    <div class="grid">
+
+      <div class="mini">
+        <div class="k">Seduta 1</div>
+        <div class="v">Scarico · RD / RL</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Seduta 2</div>
+        <div class="v">Qualità Endurance</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Seduta 3</div>
+        <div class="v">Fine settimana · resistenza e tenuta</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Focus</div>
+        <div class="v">Più solidità oltre il 15°-16° km</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-label" id="settimane">Programma · 15 settimane</div>
+
+  <div class="card content">
+
+    <p>
+      Le prime sei settimane hanno portato alla Mezza Maratona di Roma.
+      Dopo la gara inizia una nuova fase costruita sulla base delle indicazioni
+      emerse durante i 21 km.
+    </p>
+
+
+    <!-- SETTIMANA 1 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 1</span>
+        <span class="week-dates">7–13 settembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Test 3000 m</div>
+          <div>
+            3 km RD + 5 x (100 m allungo + 100 m recupero) +
+            3000 m al meglio + 2 km RD.
+          </div>
+          <div class="session-note">
+            Test effettuato l'8 settembre: <strong>15'47"</strong>.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 14 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            9 km RL <strong>6'16"/km</strong> +
+            2 km RA <strong>6'06"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 2 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 2</span>
+        <span class="week-dates">14–20 settembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 7 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance previsto nella settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 15 km</div>
+          <div>
+            3 km RD <strong>6'36"/km</strong> +
+            7 km RL <strong>6'16"/km</strong> +
+            3 km RA <strong>6'06"/km</strong> +
+            1 km RM <strong>5'46"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 3 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 3</span>
+        <span class="week-dates">21–27 settembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>2 km RD + 7 km RL + 1 km RD</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance previsto nella settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 17 km</div>
+          <div>
+            3 km RD <strong>6'36"/km</strong> +
+            3 x (2,5 km RM <strong>5'46"/km</strong> +
+            500 m RG <strong>5'26"/km</strong> +
+            1 km RL <strong>6'16"/km</strong>) +
+            2 km RD <strong>6'36"/km</strong>.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 4 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 4</span>
+        <span class="week-dates">28 settembre – 4 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>2 km RD + 7 km RL + 1 km RD</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance previsto nella settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · lungo specifico</div>
+          <div>
+            3 km RD <strong>6'36"/km</strong> +
+            3 x (3 km RM <strong>5'46"/km</strong> +
+            500 m RG <strong>5'26"/km</strong> +
+            1 km RL <strong>6'16"/km</strong>) +
+            1,5 km RD <strong>6'36"/km</strong>.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 5 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 5</span>
+        <span class="week-dates">5–11 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>2 km RD + 6 km RL + 1 km RD</div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance, riducendo leggermente il carico.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 12 km</div>
+          <div>
+            3 km RD <strong>6'36"/km</strong> +
+            4 km RL <strong>6'16"/km</strong> +
+            3 km RM <strong>5'46"/km</strong> +
+            2 km RD <strong>6'36"/km</strong>.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 6 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 6 · GARA</span>
+        <span class="week-dates">12–18 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            5 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Richiamo leggero</div>
+          <div>
+            2 km RD +
+            3 x (500 m RM <strong>5'46"/km</strong> +
+            500 m RL <strong>6'16"/km</strong>) +
+            4 x (100 m allungo sciolto + 100 m recupero) +
+            1 km RD.
+          </div>
+
+          <div class="session-note">
+            Solo richiamo: nessun lavoro impegnativo. Tutto il lavoro utile
+            per Roma è già stato fatto.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Mezza Maratona di Roma</div>
+          <div>
+            Domenica 18 ottobre · <strong>21,1 km</strong>
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 7 -->
+
+    <details class="week" open>
+      <summary>
+        <span class="week-title">Settimana 7 · Recupero post Roma</span>
+        <span class="week-dates">19–25 ottobre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🔄 Recupero</div>
+          <div>
+            Primi giorni di riposo completo o attività molto leggera.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🟦 Prima corsa</div>
+          <div>
+            Quando le gambe sono recuperate:
+            6–8 km complessivi tra RD <strong>6'36"/km</strong>
+            e RL <strong>6'16"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Nessun obbligo di completare tre uscite.
+            Questa settimana serve esclusivamente ad assorbire la mezza.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana</div>
+          <div>
+            Se completamente recuperata: massimo 8 km RL
+            a circa <strong>6'16"/km</strong>.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 8 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 8 · Ripartenza</span>
+        <span class="week-dates">26 ottobre – 1 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana,
+            senza esasperare i ritmi nella prima settimana completa dopo Roma.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 12 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            9 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            L'obiettivo è riprendere volume senza trasformare l'uscita
+            in un allenamento impegnativo.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 9 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 9</span>
+        <span class="week-dates">2–8 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 7 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 14 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            11 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Ritmo costante e tranquillo. Non accelerare perché le sensazioni
+            sono buone: questa seduta serve ad accumulare chilometri.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 10 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 10</span>
+        <span class="week-dates">9–15 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 7 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 16 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            13 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Allenamento molto importante. Arriviamo nella zona nella quale
+            in gara sono iniziate le difficoltà, ma lo facciamo a ritmo lento
+            e senza pressione cronometrica.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 11 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 11 · Scarico</span>
+        <span class="week-dates">16–22 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro Endurance della settimana gestito senza forzare.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 12 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            5 km RL <strong>6'16"/km</strong> +
+            3 km RA <strong>6'06"/km</strong> +
+            1 km RM <strong>5'46"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Volume ridotto ma finale progressivamente più brillante.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 12 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 12</span>
+        <span class="week-dates">23–29 novembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 7 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 17 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            14 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Altro passaggio fondamentale. L'obiettivo è terminare i 17 km
+            ancora in controllo, senza cercare velocità.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 13 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 13</span>
+        <span class="week-dates">30 novembre – 6 dicembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 7 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 15 km variati</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            7 km RL <strong>6'16"/km</strong> +
+            3 km RA <strong>6'06"/km</strong> +
+            2 km RM <strong>5'46"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Qui il lavoro cambia: dopo 9 km già percorsi iniziamo ad aumentare
+            progressivamente il ritmo. Dobbiamo imparare a correre bene
+            anche quando nelle gambe è già presente fatica.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 14 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 14</span>
+        <span class="week-dates">7–13 dicembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 7 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 18 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            15 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            È il lungo principale del nuovo blocco.
+            Nessuna ricerca del ritmo: l'obiettivo è arrivare al 18° km
+            ancora gestendo bene corsa e sensazioni.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+
+    <!-- SETTIMANA 15 -->
+
+    <details class="week">
+      <summary>
+        <span class="week-title">Settimana 15 · Scarico</span>
+        <span class="week-dates">14–20 dicembre</span>
+      </summary>
+
+      <div class="week-content">
+
+        <div class="session">
+          <div class="session-title">🟦 Scarico</div>
+          <div>
+            2 km RD + 6 km RL + 1 km RD
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità</div>
+          <div>
+            Lavoro di qualità Endurance della settimana in versione soft.
+          </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">🏁 Fine settimana · 12 km</div>
+          <div>
+            2 km RD <strong>6'36"/km</strong> +
+            9 km RL <strong>6'16"/km</strong> +
+            1 km RD <strong>6'36"/km</strong>.
+          </div>
+
+          <div class="session-note">
+            Chiusura del ciclo in scarico. Il lavoro importante è già stato fatto.
+          </div>
+        </div>
+
+      </div>
+    </details>
+
+  </div>
+
+
+  <div class="section-label">Obiettivo del nuovo blocco</div>
+
+  <div class="card content">
+
+    <p>
+      Da Roma in avanti non cerchiamo un 3000 più veloce.
+      Cerchiamo una Costanza capace di portare la propria corsa
+      sempre più lontano.
+    </p>
+
+    <p>
+      La progressione dei fine settimana sarà:
+      <strong>12 → 14 → 16 → scarico → 17 → 15 variato → 18 → scarico.</strong>
+    </p>
+
+    <p>
+      Questo permette di aumentare la distanza senza fare salti eccessivi
+      e soprattutto senza trasformare ogni lungo in un test.
+    </p>
+
+    <div class="note-box">
+      <strong>Il risultato che cerchiamo:</strong><br>
+      arrivare al 16°-17° km e sentire di essere ancora dentro l'allenamento,
+      non alla fine delle proprie possibilità.
+    </div>
+
+    <p class="footnote">
+      Runner’s School Italia · Programma personale riservato
+    </p>
+
+  </div>
+
+</div>
+
+<script>
+  const PAGE_HASH = "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad";
+</script>
+
 </body>
 </html>
