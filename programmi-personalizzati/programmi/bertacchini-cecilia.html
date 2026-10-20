@@ -1,546 +1,800 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Runner’s School Italia – Programma personalizzato</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runner's School Italia - Bertacchini Cecilia</title>
 
-  <style>
-    :root{
-      --bg:#020617;
-      --bg-card:#0b1120;
-      --accent:#f97316;
-      --accent-soft: rgba(249,115,22,0.12);
-      --text:#e5e7eb;
-      --text-muted:#9ca3af;
-      --border:#1f2937;
-      --radius:20px;
-      --shadow:0 18px 45px rgba(0,0,0,.55);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      color:var(--text);
-    }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
-    .back:hover{opacity:1}
-    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap;}
-    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px;}
-    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
-    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
-    .meta b{color:var(--text)}
-    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95;}
-    .btn:hover{opacity:1}
-    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
-    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px;}
-    .content{font-size:14px; line-height:1.45;}
-    .content p{margin:10px 0}
-    .content strong{font-weight:900}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
-    .mini .v{font-size:14px; line-height:1.35}
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-    details.week{border:1px solid var(--border); border-radius:16px; background:#050b18; overflow:hidden; margin-top:10px;}
-    details.week summary{list-style:none; cursor:pointer; padding:12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px; font-weight:900;}
-    details.week summary::-webkit-details-marker{display:none}
-    .week-title{font-weight:900}
-    .week-dates{font-size:12px; color:var(--text-muted); font-weight:700}
-    .week-content{padding:0 12px 12px; font-size:14px; line-height:1.45; color:var(--text);}
-    .week-content p{margin:10px 0}
-
-    /* LOCK */
-    .lock{position:fixed; inset:0; display:none; background: radial-gradient(circle at top, rgba(11,17,32,.95) 0, rgba(2,6,23,.97) 60%, rgba(0,0,0,.98) 100%); padding:18px 16px; z-index:999;}
-    .lock .wrap{max-width:520px;margin:0 auto;}
-    .lock .card{padding:16px}
-    .lock input{width:100%; margin-top:10px; background:#050b18; border:1px solid var(--border); border-radius:14px; padding:12px; color:var(--text); font-size:14px; outline:none;}
-    .lock input:focus{border-color: rgba(249,115,22,0.55); box-shadow: 0 0 0 3px rgba(249,115,22,0.14);}
-    .lock .msg{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(239,68,68,.5); background:rgba(239,68,68,.08); display:none; font-size:13px;}
-
-    /* Ritmi */
-    .ritmi-table{width:100%; border-collapse:collapse; margin-top:6px; overflow:hidden; border-radius:14px; border:1px solid var(--border);}
-    .ritmi-table th,.ritmi-table td{padding:10px 10px; text-align:left; border-bottom:1px solid var(--border); font-size:13px;}
-    .ritmi-table thead th{color:var(--text); background:rgba(255,255,255,0.03); font-weight:900;}
-    .ritmi-table tbody td{color:var(--text-muted);}
-    .ritmi-table tbody td:first-child{color:var(--text); font-weight:900;}
-    .note-box{margin-top:10px; padding:10px 12px; border-radius:14px; border:1px solid rgba(249,115,22,.28); background:rgba(249,115,22,0.08); color:var(--text); font-size:13px; line-height:1.35;}
-    .warn{border:1px solid rgba(239,68,68,.45); background:rgba(239,68,68,.08);}
-  </style>
+<style>
+:root {
+  --bg:#020617;
+  --card:#0b1120;
+  --accent:#facc15;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border:#263244;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:linear-gradient(160deg,#0b1730,#020617 55%,#000);
+  color:var(--text);
+}
+.app {
+  max-width:560px;
+  margin:auto;
+  padding:18px 15px 35px;
+}
+.top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:16px;
+}
+.back {
+  color:var(--muted);
+  text-decoration:none;
+  font-size:13px;
+}
+.pill {
+  color:var(--accent);
+  font-size:12px;
+  font-weight:800;
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:14px;
+}
+.hero {
+  border-left:5px solid var(--accent);
+  background:linear-gradient(130deg,#172644,#0b1120);
+}
+h1 {
+  font-size:23px;
+  margin:8px 0;
+}
+h2 {
+  font-size:18px;
+  margin:0 0 12px;
+  color:var(--accent);
+}
+h3 {
+  font-size:15px;
+  margin:15px 0 7px;
+}
+p,li {
+  font-size:14px;
+  line-height:1.65;
+}
+p { margin:9px 0; }
+ul { padding-left:20px; }
+.small { color:var(--muted);font-size:12px; }
+.highlight {
+  color:var(--accent);
+  font-weight:800;
+}
+.tag {
+  display:inline-block;
+  padding:5px 9px;
+  background:rgba(250,204,21,.1);
+  border:1px solid rgba(250,204,21,.3);
+  border-radius:8px;
+  font-size:11px;
+  font-weight:800;
+  color:var(--accent);
+}
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.mini {
+  background:#050b18;
+  border:1px solid var(--border);
+  padding:12px;
+  border-radius:12px;
+}
+.mini b {
+  display:block;
+  margin-bottom:5px;
+  color:var(--accent);
+}
+.week {
+  background:#050b18;
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-bottom:10px;
+  overflow:hidden;
+}
+.week summary {
+  cursor:pointer;
+  padding:15px;
+  font-weight:800;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.week summary::marker { color:var(--accent); }
+.week-body {
+  padding:0 14px 15px;
+}
+.session {
+  padding:12px;
+  background:#101c30;
+  border-radius:12px;
+  margin-top:10px;
+  border-left:3px solid var(--accent);
+}
+.session b {
+  display:block;
+  margin-bottom:7px;
+}
+.session p { margin:4px 0; }
+.date {
+  color:var(--muted);
+  font-size:11px;
+  font-weight:500;
+}
+.note {
+  background:rgba(250,204,21,.07);
+  border:1px solid rgba(250,204,21,.22);
+  padding:12px;
+  border-radius:12px;
+  margin-top:12px;
+}
+.btn {
+  display:inline-block;
+  background:var(--accent);
+  color:#020617;
+  text-decoration:none;
+  padding:11px 15px;
+  border-radius:10px;
+  font-weight:900;
+  font-size:13px;
+  margin-top:10px;
+}
+.lock {
+  position:fixed;
+  inset:0;
+  z-index:999;
+  background:#020617;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+.lock-card {
+  max-width:420px;
+  width:100%;
+  padding:25px;
+  background:#0b1120;
+  border:1px solid var(--border);
+  border-radius:20px;
+}
+.lock input {
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  background:#020617;
+  border:1px solid var(--border);
+  color:white;
+  font-size:16px;
+  margin:12px 0;
+}
+.lock button {
+  width:100%;
+  border:0;
+  cursor:pointer;
+  padding:13px;
+  background:var(--accent);
+  border-radius:10px;
+  font-weight:900;
+}
+.error {
+  color:#f87171;
+  display:none;
+  font-size:13px;
+}
+.footer {
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  padding:20px;
+}
+@media(max-width:380px) {
+  .grid { grid-template-columns:1fr; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- LOCK OVERLAY -->
-  <div class="lock" id="lock" aria-hidden="false">
-    <div class="wrap">
-      <div class="card">
-        <h1>🔒 Area riservata</h1>
-        <p class="meta">Inserisci la password per visualizzare il programma.</p>
+<div class="lock" id="lock">
+  <div class="lock-card">
+    <div class="pill">RUNNER'S SCHOOL ITALIA</div>
+    <h1>Programma personalizzato</h1>
+    <p>Bertacchini Cecilia</p>
+    <p class="small">
+      Inserisci la tua password personale
+      per visualizzare gli allenamenti.
+    </p>
+    <input id="pw" type="password"
+      placeholder="Password">
+    <button onclick="unlock()">Accedi</button>
+    <p class="error" id="error">
+      Password errata. Riprova.
+    </p>
+  </div>
+</div>
 
-        <input id="pw" type="password" inputmode="text" autocomplete="current-password" placeholder="Password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">🔓 Sblocca</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">← Indietro</a>
-        </div>
+<div class="app" id="app" style="display:none">
 
-        <div class="msg" id="lockMsg">Password errata. Riprova.</div>
-        <div class="footnote">Nota: non condividere password o link con altre persone.</div>
+  <div class="top">
+    <a class="back"
+      href="/runnerschoolitalia/programmi-personalizzati/">
+      ← Programmi personalizzati
+    </a>
+    <span class="pill">RS EST. 2017</span>
+  </div>
+
+  <div class="card hero">
+    <span class="tag">PROGRAMMA PERSONALIZZATO</span>
+    <h1>Bertacchini Cecilia</h1>
+    <p class="small">
+      20 ottobre - 13 dicembre 2026<br>
+      8 settimane · 3 allenamenti settimanali
+    </p>
+
+    <h2>Un passo alla volta, sempre più forte!</h2>
+
+    <p>
+      Ciao Cecilia! Eccoci con un percorso pensato
+      appositamente per te, per le tue esigenze
+      e soprattutto per i tuoi obiettivi.
+    </p>
+
+    <p>
+      La cosa più importante è che tu abbia voglia
+      di continuare a correre, migliorarti e stare bene.
+      Ed è proprio da qui che vogliamo partire!
+    </p>
+
+    <p>
+      Non dobbiamo inseguire risultati impossibili
+      o trasformare ogni allenamento in una fatica.
+      Vogliamo costruire qualcosa che possa
+      accompagnarti nel tempo.
+    </p>
+
+    <p>
+      <strong>
+        Il nostro primo traguardo sarà arrivare
+        a correre 30 minuti consecutivi,
+        migliorando contemporaneamente
+        la qualità e la velocità della tua corsa.
+      </strong>
+    </p>
+
+    <p>
+      E ricorda: non importa quanto velocemente
+      stai correndo oggi. Conta quello che
+      riusciremo a costruire da qui in avanti!
+    </p>
+
+    <a class="btn" href="#settimane">
+      Vai agli allenamenti ↓
+    </a>
+  </div>
+
+  <div class="card">
+    <h2>🎯 I nostri obiettivi</h2>
+
+    <div class="grid">
+      <div class="mini">
+        <b>Continuità</b>
+        Allenarti con regolarità, senza
+        sovraccaricarti.
+      </div>
+      <div class="mini">
+        <b>Resistenza</b>
+        Aumentare gradualmente il tempo
+        di corsa continuativa.
+      </div>
+      <div class="mini">
+        <b>Velocità</b>
+        Abituare le gambe a correre
+        a velocità superiori.
+      </div>
+      <div class="mini">
+        <b>Tecnica</b>
+        Migliorare coordinazione,
+        frequenza dei passi ed efficienza.
       </div>
     </div>
   </div>
 
-  <!-- APP -->
-  <div class="app" id="app">
-    <div class="top">
-      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-      <div class="pill">🟧 Runner’s School Italia</div>
-    </div>
+  <div class="card">
+    <h2>📚 Perché abbiamo scelto questo programma?</h2>
 
-    <div class="card">
-      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Bertacchini Cecilia</span></h1>
-      <p class="meta">
-        Aggiornato: <b id="aggiornatoIl">31/01/2026</b><br>
-        Programmazione gennaio–aprile su <b>2 uscite settimanali</b>:
-        <br>• 1 allenamento di costruzione della durata (corsa lenta + camminata)
-        <br>• 1 allenamento con brevi tratti più brillanti, sempre alternati a camminata.
-        <br><br>
-        Si riparte dopo un periodo di pausa: le prime settimane sono di <b>riattivazione</b>,
-        con molta attenzione ai carichi e all’ascolto del corpo.
-        <br><br>
-        Obiettivo principale del quadrimestre: <b>imparare un metodo di allenamento duraturo</b>,
-        arrivare a correre più a lungo in continuità e, passo dopo passo, <b>velocizzarsi</b> sulle
-        distanze intorno ai 5–7 km.
-      </p>
+    <p>
+      Cecilia, mi hai raccontato che attualmente
+      il tuo ritmo di corsa è piuttosto lento,
+      intorno agli 8 minuti al chilometro,
+      e che vorresti riuscire a velocizzarti.
+    </p>
 
-      <div class="btnrow">
-        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
-      </div>
+    <p>
+      Per migliorare dobbiamo lavorare
+      su due aspetti differenti:
+      <strong>la resistenza e la velocità.</strong>
+    </p>
 
-      <div class="footnote">
-        Nota: questo programma è personale. Non condividere password o link con altre persone.
-      </div>
-    </div>
+    <h3>1. Costruire la resistenza</h3>
+    <p>
+      Una volta alla settimana lavoreremo
+      sulla durata della corsa lenta.
+    </p>
 
-    <div class="section-label">Scheda atleta</div>
-    <div class="card">
-      <div class="grid">
-        <div class="mini">
-          <div class="k">Nome</div>
-          <div class="v">Bertacchini Cecilia</div>
-        </div>
+    <p>
+      Partiremo da 5 minuti di corsa
+      alternati a un minuto di camminata,
+      per arrivare progressivamente a
+      10, 15 e infine 30 minuti consecutivi.
+    </p>
 
-        <div class="mini">
-          <div class="k">Situazione di partenza</div>
-          <div class="v">
-            Ha già seguito un <strong>programma RS partendo da zero</strong> ed è riuscita a portarlo a termine.
-            Ha avuto un breve periodo di stop per qualche “doloretto”, fisiologico per chi parte davvero da zero.
-          </div>
-        </div>
+    <p>
+      La corsa lenta permette di sviluppare
+      la capacità di sostenere lo sforzo,
+      migliorare la resistenza e abituare
+      gradualmente muscoli, tendini
+      e articolazioni alla corsa.
+    </p>
 
-        <div class="mini">
-          <div class="k">Frequenza</div>
-          <div class="v">
-            <strong>1–2 uscite a settimana</strong><br>
-            Distanza abituale fino a <strong>5–7 km</strong> circa, da gestire con calma e progressione.
-          </div>
-        </div>
+    <h3>2. Stimolare la velocità</h3>
+    <p>
+      Nell'altra uscita inseriremo
+      brevi tratti di corsa più veloce,
+      alternati a camminata.
+    </p>
 
-        <div class="mini">
-          <div class="k">Ritmo attuale</div>
-          <div class="v">
-            Passo corsa continua intorno a<br>
-            <strong>8'20"/km</strong> (o anche più lento se serve).<br>
-            Il cronometro è una <strong>informazione</strong>, ma la priorità è tenere
-            il respiro sotto controllo.
-          </div>
-        </div>
+    <p>
+      Questo lavoro serve a farti sperimentare
+      una corsa più brillante, migliorare
+      la coordinazione e abituare le gambe
+      a muoversi più rapidamente.
+    </p>
 
-        <div class="mini">
-          <div class="k">Obiettivi</div>
-          <div class="v">
-            • Imparare un <strong>metodo di allenamento sostenibile</strong> nel tempo<br>
-            • Aumentare la <strong>durata</strong> di corsa continua<br>
-            • Iniziare a <strong>velocizzarsi</strong> sulle distanze 5–7 km senza forzare.
-          </div>
-        </div>
+    <p>
+      Non dovrai sprintare o arrivare
+      completamente senza fiato.
+      L'obiettivo è correre più velocemente
+      del solito, mantenendo però
+      un movimento naturale e controllato.
+    </p>
 
-        <div class="mini warn" style="grid-column:1 / -1;">
-          <div class="k">Logica del percorso</div>
-          <div class="v">
-            Si lavora con <strong>corsa lenta alternata a camminata veloce</strong>, per permettere al corpo
-            di adattarsi senza sovraccarichi. Settimana dopo settimana il tempo di corsa aumenta
-            e la camminata si riduce, mantenendo sempre un margine di controllo. Nessuna
-            seduta va corsa “a tutta”.
-          </div>
-        </div>
-      </div>
-    </div>
+    <h3>3. La tecnica del venerdì</h3>
+    <p>
+      Il collettivo Runner's School del venerdì
+      alle 13:15 sarà il terzo appuntamento
+      della settimana.
+    </p>
 
-    <div class="section-label">Riscaldamento prima di ogni allenamento</div>
-    <div class="card content">
-      <p>
-        Prima di ogni uscita prevedi sempre:
-      </p>
-      <p>
-        • <strong>5–10 minuti di riscaldamento</strong> camminando o correndo molto piano<br>
-        • Qualche <strong>esercizio facile di allungamento</strong> (senza “tirare” troppo)<br>
-        • 2–3 esercizi semplici di <strong>tecnica</strong> (camminata con ginocchia alte, calciata lenta, passi
-          un po’ più lunghi) per “svegliare” le gambe.
-      </p>
-      <div class="note-box">
-        L’obiettivo del riscaldamento non è stancarsi, ma arrivare alla parte centrale
-        dell’allenamento con il corpo pronto e il respiro già un po’ attivato.
-      </div>
-    </div>
+    <p>
+      Lavoreremo sulla tecnica di corsa,
+      sulla coordinazione, sul potenziamento
+      e su qualche stimolo di velocità,
+      sempre adattato alle tue possibilità.
+    </p>
 
-    <div class="section-label">Ritmi di riferimento (versione semplificata)</div>
-    <div class="card content">
-      <p>
-        Con un passo sopra gli <strong>8'00"/km</strong> il punto chiave non è il numero preciso sul GPS,
-        ma come ti senti mentre corri. Usiamo comunque qualche riferimento per capirci:
-      </p>
-
-      <table class="ritmi-table" aria-label="Ritmi di riferimento">
-        <thead>
-          <tr>
-            <th>Sigla</th>
-            <th>Significato</th>
-            <th>Indicazione (circa)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>CL</td>
-            <td>Corsa lenta</td>
-            <td>≈ 8'10"–8'40"/km<br>(ritmo tranquillo, riesci a parlare)</td>
-          </tr>
-          <tr>
-            <td>CV</td>
-            <td>Corsa veloce / brillante</td>
-            <td>più svelta della CL, ma sempre <br>per brevi tratti e senza “morire”</td>
-          </tr>
-          <tr>
-            <td>CAM</td>
-            <td>Camminata veloce</td>
-            <td>Passo energico, ma che ti permette<br>di recuperare bene il fiato</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="note-box">
-        Se in un allenamento ti senti più stanca o il respiro è troppo alto, puoi:
-        <br>• allungare un po’ le <strong>fasi di camminata</strong>
-        <br>• ridurre di 1 ripetizione la parte di corsa
-        <br>• rallentare leggermente la corsa lenta.
-        <br>Il programma va adattato alle sensazioni reali, non il contrario.
-      </div>
-    </div>
-
-    <div class="section-label">Consigli per chi riprende dopo una pausa (ritmi &gt; 8'00"/km)</div>
-    <div class="card content">
-      <p><strong>1. Non avere fretta di “tornare come prima”</strong><br>
-        Dopo uno stop, anche breve, è normale sentirsi più pesanti o affaticati. Il
-        lavoro delle prime settimane è proprio quello di <strong>riaccendere il motore</strong>
-        con calma, non di dimostrare qualcosa al cronometro.
-      </p>
-      <p><strong>2. Il respiro è la tua guida</strong><br>
-        Nelle parti di corsa lenta dovresti riuscire <strong>a parlare a frasi brevi</strong>.
-        Se devi spezzare le frasi perché manca il fiato, rallenta o inserisci
-        qualche passo di camminata in più.
-      </p>
-      <p><strong>3. Ok camminare, non è una sconfitta</strong><br>
-        In questo tipo di lavoro la camminata è <strong>uno strumento di allenamento</strong>, non
-        un “fallimento”. Ti permette di recuperare e ripartire meglio nelle fasi di corsa.
-      </p>
-      <p><strong>4. Dolore diverso da fatica? Fermati</strong><br>
-        Se senti un dolore che <strong>aumenta mentre corri</strong> (non la fatica normale),
-        è meglio fermarsi, camminare e, se serve, chiudere lì l’allenamento.
-        Meglio uno stop di un giorno che uno stop di settimane.
-      </p>
-      <p><strong>5. Costanza prima della velocità</strong><br>
-        La priorità è riuscire a tenere una certa <strong>regolarità settimanale</strong>.
-        Quando l’organismo è abituato a questo ritmo di lavoro, la velocità
-        arriva quasi da sola, senza forzare.
-      </p>
-    </div>
-
-    <div class="section-label" id="settimane">Settimane</div>
-    <div class="card content">
-      <p>
-        Ogni settimana è strutturata su <strong>2 allenamenti</strong>:
-        <br>1️⃣ <b>Allenamento 1</b> – costruzione della durata con corsa lenta + camminata
-        <br>2️⃣ <b>Allenamento 2</b> – lavoro con tratti un po’ più brillanti, sempre alternati a camminata.
-      </p>
-
-      <!-- Settimana 4 -->
-      <details class="week" data-start="2026-02-02" data-end="2026-02-08">
-        <summary>
-          <span class="week-title">Settimana 4</span>
-          <span class="week-dates">2–8 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Riattivazione</strong><br>
-            8 × (3' corsa lenta + 1' camminata veloce)
-          </p>
-          <p><strong>🟧 Allenamento 2 – Riattivazione</strong><br>
-            7 × (4' corsa lenta + 1' camminata veloce)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 5 -->
-      <details class="week" data-start="2026-02-09" data-end="2026-02-15">
-        <summary>
-          <span class="week-title">Settimana 5</span>
-          <span class="week-dates">9–15 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Durata</strong><br>
-            7 × (4' corsa lenta + 1' camminata veloce)
-          </p>
-          <p><strong>🟧 Allenamento 2 – Durata</strong><br>
-            6 × (5' corsa lenta + 1' camminata veloce)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 6 -->
-      <details class="week" data-start="2026-02-16" data-end="2026-02-22">
-        <summary>
-          <span class="week-title">Settimana 6</span>
-          <span class="week-dates">16–22 febbraio</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Durata</strong><br>
-            6 × (5' corsa lenta + 1' camminata veloce)
-          </p>
-          <p><strong>🟧 Allenamento 2 – Durata</strong><br>
-            5 × (6' corsa lenta + 1' camminata veloce)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 7 -->
-      <details class="week" data-start="2026-02-23" data-end="2026-03-01">
-        <summary>
-          <span class="week-title">Settimana 7</span>
-          <span class="week-dates">23 febbraio – 1 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Durata</strong><br>
-            5 × (6' corsa lenta + 1' camminata veloce)
-          </p>
-          <p><strong>🟧 Allenamento 2 – Durata</strong><br>
-            4 × (7' corsa lenta + 1' camminata veloce)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 8 -->
-      <details class="week" data-start="2026-03-02" data-end="2026-03-08">
-        <summary>
-          <span class="week-title">Settimana 8</span>
-          <span class="week-dates">2–8 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Durata</strong><br>
-            3 × (10' corsa lenta + 1' camminata veloce)
-          </p>
-          <p><strong>🟧 Allenamento 2 – Variazioni brevi</strong><br>
-            10' corsa lenta + 10 × (30" corsa veloce + 30" camminata) + 10' corsa lenta
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 9 -->
-      <details class="week" data-start="2026-03-09" data-end="2026-03-15">
-        <summary>
-          <span class="week-title">Settimana 9</span>
-          <span class="week-dates">9–15 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Durata</strong><br>
-            2 × (15' corsa lenta + 2' camminata veloce)
-          </p>
-          <p><strong>🟧 Allenamento 2 – Variazioni brevi</strong><br>
-            10' corsa lenta + 5 × (1' corsa veloce + 1' camminata) + 10' corsa lenta
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 10 -->
-      <details class="week" data-start="2026-03-16" data-end="2026-03-22">
-        <summary>
-          <span class="week-title">Settimana 10</span>
-          <span class="week-dates">16–22 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Corsa continua</strong><br>
-            30' corsa lenta
-          </p>
-          <p><strong>🟧 Allenamento 2 – Lavoro centrale</strong><br>
-            5 × (1' corsa lenta + 1' camminata) + 3 km al meglio + 5 × (1' corsa lenta + 1' camminata)
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 11 -->
-      <details class="week" data-start="2026-03-23" data-end="2026-03-29">
-        <summary>
-          <span class="week-title">Settimana 11</span>
-          <span class="week-dates">23–29 marzo</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Corsa continua</strong><br>
-            35' corsa lenta
-          </p>
-          <p><strong>🟧 Allenamento 2 – Variazioni brevi</strong><br>
-            10' corsa lenta + 10 × (30" corsa veloce + 30" camminata) + 10' corsa lenta
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 12 -->
-      <details class="week" data-start="2026-03-30" data-end="2026-04-05">
-        <summary>
-          <span class="week-title">Settimana 12</span>
-          <span class="week-dates">30 marzo – 5 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Corsa continua</strong><br>
-            40' corsa lenta
-          </p>
-          <p><strong>🟧 Allenamento 2 – Variazioni 1'</strong><br>
-            10' corsa lenta + 5 × (1' corsa veloce + 1' camminata) + 10' corsa lenta
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 13 -->
-      <details class="week" data-start="2026-04-06" data-end="2026-04-12">
-        <summary>
-          <span class="week-title">Settimana 13</span>
-          <span class="week-dates">6–12 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Corsa continua</strong><br>
-            40' corsa lenta
-          </p>
-          <p><strong>🟧 Allenamento 2 – Variazioni 2'</strong><br>
-            10' corsa lenta + 4 × (2' corsa veloce + 1' camminata) + 10' corsa lenta
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 14 -->
-      <details class="week" data-start="2026-04-13" data-end="2026-04-19">
-        <summary>
-          <span class="week-title">Settimana 14</span>
-          <span class="week-dates">13–19 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Corsa continua</strong><br>
-            45' corsa lenta
-          </p>
-          <p><strong>🟧 Allenamento 2 – Variazioni brevi</strong><br>
-            10' corsa lenta + 15 × (30" corsa veloce + 30" camminata) + 10' corsa lenta
-          </p>
-        </div>
-      </details>
-
-      <!-- Settimana 15 -->
-      <details class="week" data-start="2026-04-20" data-end="2026-04-26">
-        <summary>
-          <span class="week-title">Settimana 15</span>
-          <span class="week-dates">20–26 aprile</span>
-        </summary>
-        <div class="week-content">
-          <p><strong>🟦 Allenamento 1 – Corsa continua</strong><br>
-            45' corsa lenta
-          </p>
-          <p><strong>🟧 Allenamento 2 – Lavoro centrale</strong><br>
-            5 × (1' corsa lenta + 1' camminata) + 3 km al meglio + 5 × (1' corsa lenta + 1' camminata)
-          </p>
-        </div>
-      </details>
-
-      <p class="footnote">
-        Le settimane 4–15 seguono la numerazione della programmazione ufficiale del quadrimestre.
-      </p>
+    <div class="note">
+      <strong>Il concetto fondamentale:</strong>
+      non serve correre sempre veloce per
+      diventare più veloci. Serve alternare
+      stimoli differenti e lasciare al corpo
+      il tempo di adattarsi.
     </div>
   </div>
+
+  <div class="card">
+    <h2>⏱️ Perché non trovi ritmi al chilometro?</h2>
+
+    <p>
+      È una scelta precisa.
+    </p>
+
+    <p>
+      In questo momento non abbiamo ancora
+      un riferimento sufficientemente attendibile
+      per stabilire i tuoi ritmi di allenamento.
+    </p>
+
+    <p>
+      Il ritmo che utilizzi abitualmente
+      non rappresenta necessariamente
+      la tua reale capacità di corsa.
+    </p>
+
+    <p>
+      Assegnarti adesso delle velocità precise
+      rischierebbe di farti correre troppo piano
+      nei lavori veloci oppure troppo forte
+      negli allenamenti di durata.
+    </p>
+
+    <p>
+      Per questo, inizialmente, useremo
+      due indicazioni molto semplici.
+    </p>
+
+    <div class="mini">
+      <b>🔵 Corsa lenta (RL)</b>
+      Una corsa tranquilla, con respirazione
+      regolare, che ti permetta di parlare
+      e completare il tempo previsto.
+      Non devi cercare di velocizzarla.
+    </div>
+
+    <div class="mini" style="margin-top:10px">
+      <b>🟡 Corsa veloce</b>
+      Una corsa sensibilmente più rapida
+      rispetto a quella abituale,
+      con passi più brillanti e reattivi.
+      Non uno sprint e mai alla massima velocità.
+    </div>
+
+    <div class="note">
+      <strong>Il GPS per ora è secondario!</strong>
+      Concentrati sulla qualità della corsa,
+      sulle sensazioni e sulla regolarità.
+      I numeri li analizzeremo insieme
+      quando avremo costruito una base migliore.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🚶 Perché inseriamo la camminata?</h2>
+
+    <p>
+      La camminata non è una sconfitta
+      e non significa che non sei capace
+      di correre!
+    </p>
+
+    <p>
+      È uno strumento di allenamento
+      che ci permette di recuperare,
+      mantenere una buona qualità
+      nei tratti di corsa e aumentare
+      progressivamente il lavoro complessivo.
+    </p>
+
+    <p>
+      Con il passare delle settimane
+      aumenteremo il tempo di corsa
+      senza aumentare troppo rapidamente
+      il carico sull'organismo.
+    </p>
+
+    <p>
+      <strong>
+        Il nostro obiettivo è rendere
+        la camminata sempre meno necessaria,
+        non eliminarla a tutti i costi.
+      </strong>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>📅 Come organizzare la settimana</h2>
+
+    <p>
+      Ti propongo questa distribuzione:
+    </p>
+
+    <div class="session">
+      <b>Martedì - Variazioni di velocità</b>
+      Allenamento individuale con brevi
+      tratti veloci alternati a camminata.
+    </div>
+
+    <div class="session">
+      <b>Venerdì - Collettivo Runner's School</b>
+      Ore 13:15. Tecnica, coordinazione,
+      potenziamento e stimoli di velocità.
+    </div>
+
+    <div class="session">
+      <b>Domenica - Corsa lenta e durata</b>
+      Allenamento individuale per costruire
+      progressivamente la corsa continuativa.
+    </div>
+
+    <p class="small">
+      I giorni possono essere modificati
+      in base agli impegni lavorativi.
+      Cerca, quando possibile, di lasciare
+      almeno un giorno di recupero
+      tra gli allenamenti.
+    </p>
+  </div>
+
+  <div class="card" id="settimane">
+    <h2>🏃 Le tue 8 settimane</h2>
+
+    <p>
+      Il programma segue una progressione
+      graduale con una settimana di scarico
+      ogni tre settimane di lavoro.
+    </p>
+
+    <p class="small">
+      Apri ogni settimana per visualizzare
+      gli allenamenti.
+    </p>
+
+    <div id="weeks"></div>
+  </div>
+
+  <div class="card">
+    <h2>💡 Alcuni consigli importanti</h2>
+
+    <h3>Non avere fretta</h3>
+    <p>
+      Se un allenamento risulta troppo
+      impegnativo, possiamo ripeterlo
+      prima di passare al successivo.
+      Non dobbiamo rispettare la progressione
+      a tutti i costi.
+    </p>
+
+    <h3>La regolarità fa la differenza</h3>
+    <p>
+      Due uscite individuali e il collettivo
+      settimanale rappresentano già
+      un'ottima organizzazione.
+      La costanza sarà molto più importante
+      del singolo allenamento.
+    </p>
+
+    <h3>Attenzione ai fastidi</h3>
+    <p>
+      Visto il precedente problema ai tibiali,
+      prestiamo attenzione a eventuali
+      fastidi che dovessero ripresentarsi.
+      Se compare dolore durante la corsa,
+      soprattutto se aumenta, interrompi
+      l'allenamento e avvisami.
+    </p>
+
+    <h3>Non cercare di recuperare gli allenamenti</h3>
+    <p>
+      Se per lavoro o impegni personali
+      perdi un'uscita, non cercare
+      di concentrare tutto nei giorni successivi.
+      Riprendiamo semplicemente il percorso.
+    </p>
+
+    <h3>Ascolta il tuo corpo</h3>
+    <p>
+      È normale avvertire fatica,
+      ma non dobbiamo trasformare
+      ogni uscita in una prova di resistenza.
+      L'allenamento deve lasciarti
+      la voglia di tornare a correre!
+    </p>
+  </div>
+
+  <div class="card hero">
+    <h2>💛 Cecilia, sarà bellissimo!</h2>
+
+    <p>
+      Voglio che tu affronti questo programma
+      con entusiasmo e senza pressioni.
+    </p>
+
+    <p>
+      Non stiamo preparando una gara
+      contro il cronometro.
+      Stiamo lavorando per farti diventare
+      una runner più preparata,
+      più efficiente e più sicura
+      delle tue capacità.
+    </p>
+
+    <p>
+      Ogni piccolo miglioramento conta:
+      qualche minuto di corsa in più,
+      un recupero più rapido,
+      una sensazione di maggiore leggerezza,
+      un passo che diventa naturalmente
+      più brillante.
+    </p>
+
+    <p>
+      E quando arriveremo a correre
+      30 minuti consecutivi, avremo
+      costruito una base importante
+      sulla quale continuare a crescere.
+    </p>
+
+    <p>
+      <strong>
+        Non confrontarti con gli altri.
+        Confrontati con la Cecilia
+        di qualche settimana prima!
+      </strong>
+    </p>
+
+    <p>
+      Io sarò qui per accompagnarti,
+      valutare i tuoi progressi
+      e adattare il programma
+      quando sarà necessario.
+    </p>
+
+    <p class="highlight">
+      Buoni allenamenti e... sarà bellissimo! 💛
+    </p>
+
+    <p><strong>Massimo</strong><br>
+    <span class="small">Runner's School Italia</span></p>
+  </div>
+
+  <div class="footer">
+    RUNNER'S SCHOOL ITALIA · EST. 2017<br>
+    Programma personale - Bertacchini Cecilia
+  </div>
+
+</div>
 
 <script>
-  // --- CONFIG ---
-  // Hash univoco per questa pagina per la chiave di localStorage
-  const PAGE_HASH = "6e1bda64018a6403dc61af851d4b245f8fd5caf44f68f1e7cb44cc7e947aa098";
-  const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+const PAGE_HASH =
+"6e1bda64018a6403dc61af851d4b245f8fd5caf44f68f1e7cb44cc7e947aa098";
 
-  // Password in chiaro per questa pagina
-  const key = "BerCec.2026";
+const STORAGE_KEY = "rs_program_unlock_" + PAGE_HASH;
+const PASSWORD = "BerCec.2026";
 
-  const lock = document.getElementById("lock");
-  const app = document.getElementById("app");
-  const unlockBtn = document.getElementById("unlock");
-  const pwInput = document.getElementById("pw");
-  const lockMsg = document.getElementById("lockMsg");
+function showApp() {
+  document.getElementById("lock").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
 
-  // Mostra contenuto e nasconde il lock
-  function showApp() {
-    lock.style.display = "none";
-    lock.setAttribute("aria-hidden", "true");
-    app.style.display = "block";
-    lockMsg.style.display = "none";
-    pwInput.value = "";
-  }
+function unlock() {
+  const value = document.getElementById("pw").value.trim();
 
-  // Controllo iniziale: se già sbloccato, niente password
-  let alreadyUnlocked = false;
-  try {
-    alreadyUnlocked = (localStorage.getItem(STORAGE_KEY) === "ok");
-  } catch (e) {
-    alreadyUnlocked = false;
-  }
-
-  if (alreadyUnlocked) {
+  if (value === PASSWORD) {
+    try {
+      localStorage.setItem(STORAGE_KEY,"ok");
+    } catch(e) {}
     showApp();
   } else {
-    lock.style.display = "block";
-    lock.setAttribute("aria-hidden", "false");
-    app.style.display = "none";
+    document.getElementById("error").style.display = "block";
   }
+}
 
-  // Verifica password
-  function tryUnlock() {
-    const inputPassword = pwInput.value.trim();
+document.getElementById("pw").addEventListener("keydown",e=>{
+  if(e.key === "Enter") unlock();
+});
 
-    if (inputPassword === key) {
-      try {
-        localStorage.setItem(STORAGE_KEY, "ok");
-      } catch (e) {}
+try {
+  if(localStorage.getItem(STORAGE_KEY)==="ok") showApp();
+} catch(e) {}
 
-      showApp(); // resta sulla stessa pagina
-    } else {
-      lockMsg.style.display = "block";
-    }
-  }
+const weeks = [
+{
+ n:1,
+ date:"20 - 25 ottobre",
+ variation:'10\' corsa lenta + 8 × (30" corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"5 × (5' corsa lenta + 1' camminata)",
+ note:"Partiamo con calma. Nei tratti veloci cerca soprattutto una corsa più brillante, senza forzare."
+},
+{
+ n:2,
+ date:"26 ottobre - 1 novembre",
+ variation:'10\' corsa lenta + 10 × (30" corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"5 × (5' corsa lenta + 1' camminata)",
+ note:"Aumentiamo leggermente le variazioni, mantenendo invariata la durata. Cerchiamo di consolidare il lavoro."
+},
+{
+ n:3,
+ date:"2 - 8 novembre",
+ variation:'10\' corsa lenta + 8 × (45" corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"3 × (10' corsa lenta + 1' camminata)",
+ note:"Primo passo importante: arriviamo a correre 10 minuti consecutivi per tre volte."
+},
+{
+ n:4,
+ date:"9 - 15 novembre",
+ scarico:true,
+ variation:'8\' corsa lenta + 6 × (30" corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"5 × (5' corsa lenta + 1' camminata)",
+ note:"Settimana di scarico. Riduciamo il lavoro per recuperare e consolidare i miglioramenti."
+},
+{
+ n:5,
+ date:"16 - 22 novembre",
+ variation:'10\' corsa lenta + 8 × (1\' corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"3 × (10' corsa lenta + 1' camminata)",
+ note:"Riprendiamo il lavoro. I tratti veloci diventano più lunghi, ma sempre senza sprintare."
+},
+{
+ n:6,
+ date:"23 - 29 novembre",
+ variation:'10\' corsa lenta + 10 × (1\' corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"2 × (15' corsa lenta + 1' camminata)",
+ note:"Un altro passaggio importante: due blocchi di 15 minuti di corsa lenta."
+},
+{
+ n:7,
+ date:"30 novembre - 6 dicembre",
+ variation:'10\' corsa lenta + 8 × (1\'30" corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"30' corsa lenta continuativa",
+ note:"Il nostro primo grande obiettivo! Proviamo i 30 minuti continuativi, senza preoccuparci del ritmo. Se necessario, ripetiamo la settimana precedente."
+},
+{
+ n:8,
+ date:"7 - 13 dicembre",
+ scarico:true,
+ variation:'8\' corsa lenta + 6 × (45" corsa veloce + 1\'30" camminata) + 8\' corsa lenta',
+ duration:"25-30' corsa lenta continuativa",
+ note:"Settimana di scarico e verifica. Valutiamo come sono cambiate le sensazioni, la durata e la naturalezza della corsa."
+}
+];
 
-  // Eventi sui controlli
-  unlockBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    tryUnlock();
-  });
+const container = document.getElementById("weeks");
 
-  pwInput.addEventListener("keydown", function(e){
-    if(e.key === "Enter") tryUnlock();
-  });
+weeks.forEach(w=>{
+  const details=document.createElement("details");
+  details.className="week";
+
+  details.innerHTML=`
+    <summary>
+      <span>
+        Settimana ${w.n}
+        ${w.scarico ? ' · SCARICO' : ''}
+      </span>
+      <span class="date">${w.date}</span>
+    </summary>
+
+    <div class="week-body">
+
+      <div class="session">
+        <b>🟡 Uscita 1 - Variazioni</b>
+        <p>${w.variation}</p>
+      </div>
+
+      <div class="session">
+        <b>🔵 Uscita 2 - Collettivo venerdì</b>
+        <p>
+          Ore 13:15 - Tecnica di corsa,
+          coordinazione, potenziamento
+          e lavori veloci adattati.
+        </p>
+      </div>
+
+      <div class="session">
+        <b>🟢 Uscita 3 - Durata a corsa lenta</b>
+        <p>${w.duration}</p>
+      </div>
+
+      <div class="note">
+        <strong>Indicazione della settimana</strong>
+        <p>${w.note}</p>
+      </div>
+
+    </div>
+  `;
+
+  container.appendChild(details);
+});
 </script>
 
 </body>
 </html>
-
