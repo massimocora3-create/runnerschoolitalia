@@ -21,23 +21,55 @@
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
       background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
       color:var(--text);
     }
 
-    .app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
-    .back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);opacity:.9;font-size:13px;}
+    .app{
+      max-width:540px;
+      margin:0 auto;
+      padding:18px 16px 34px;
+    }
+
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      color:var(--text);
+      opacity:.9;
+      font-size:13px;
+    }
+
     .back:hover{opacity:1}
-    .pill{font-size:12px;padding:8px 10px;border-radius:999px;background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--text);white-space:nowrap;}
+
+    .pill{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid var(--accent-border);
+      white-space:nowrap;
+    }
 
     .card{
-      background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
+      background:
+        linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),
+        var(--bg-card);
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -45,58 +77,242 @@
       margin-bottom:14px;
     }
 
-    h1{font-size:19px;line-height:1.18;margin:0 0 8px;letter-spacing:.2px;}
-    .meta{color:var(--text-muted);font-size:13px;line-height:1.4;margin:0;}
-    .meta b,.content strong{color:var(--text);font-weight:900}
+    h1{
+      font-size:19px;
+      line-height:1.18;
+      margin:0 0 8px;
+      letter-spacing:.2px;
+    }
 
-    .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 12px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font-size:13px;}
-    .btn.primary{background:linear-gradient(180deg,rgba(249,115,22,.95),rgba(249,115,22,.75));border:0;color:#0b1120;font-weight:900;}
+    .meta{
+      color:var(--text-muted);
+      font-size:13px;
+      line-height:1.45;
+      margin:0;
+    }
 
-    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted);margin:22px 2px 10px;}
-    .content{font-size:14px;line-height:1.48;}
-    .content p{margin:10px 0}
+    .meta b,
+    .content strong{
+      color:var(--text);
+      font-weight:900;
+    }
 
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-    .mini{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);padding:12px;}
-    .mini.full{grid-column:1 / -1}
-    .mini .k{font-size:11px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;}
-    .mini .v{font-size:14px;line-height:1.35;}
+    .section-label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--text-muted);
+      margin:22px 2px 10px;
+    }
 
-    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
-    .tag{font-size:12px;padding:7px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted);}
-    .tag.ok{border-color:rgba(34,197,94,.35);color:#bbf7d0;background:rgba(34,197,94,.08)}
-    .tag.warn{border-color:rgba(249,115,22,.35);color:#fed7aa;background:rgba(249,115,22,.08)}
-    .tag.info{border-color:rgba(56,189,248,.35);color:#bae6fd;background:rgba(56,189,248,.08)}
+    .content{
+      font-size:14px;
+      line-height:1.48;
+    }
 
-    .note-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid var(--accent-border);background:var(--accent-soft);color:var(--text);font-size:13px;line-height:1.38;}
-    .alert-box{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(239,68,68,.35);background:rgba(239,68,68,.08);color:var(--text);font-size:13px;line-height:1.38;}
-    .footnote{margin-top:14px;color:var(--text-muted);font-size:11px;line-height:1.35;}
+    .content p{
+      margin:10px 0;
+    }
 
-    .ritmi-table{width:100%;border-collapse:collapse;margin-top:6px;border:1px solid var(--border);}
-    .ritmi-table th,.ritmi-table td{padding:10px;text-align:left;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top;}
-    .ritmi-table tr:last-child td{border-bottom:0}
-    .ritmi-table thead th{color:var(--text);background:rgba(255,255,255,.03);font-weight:900}
-    .ritmi-table tbody td{color:var(--text-muted)}
-    .ritmi-table tbody td:first-child{color:var(--text);font-weight:900;white-space:nowrap}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
 
-    details.week{border:1px solid var(--border);border-radius:16px;background:var(--bg-soft);overflow:hidden;margin-top:10px;}
-    details.week summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:900;}
-    details.week summary::-webkit-details-marker{display:none}
-    .week-title{font-weight:900}
-    .week-dates{font-size:12px;color:var(--text-muted);font-weight:700;text-align:right}
-    .week-content{padding:0 12px 12px;font-size:14px;line-height:1.45;color:var(--text);}
-    .session{padding:10px 0;border-top:1px solid rgba(255,255,255,.06);}
-    .session:first-child{border-top:0}
-    .session-title{font-weight:900;margin-bottom:3px;}
-    .session-note{color:var(--text-muted);font-size:13px;margin-top:4px;}
+    .mini{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:var(--bg-soft);
+      padding:12px;
+    }
 
-    @media (max-width:420px){
+    .mini .k{
+      font-size:11px;
+      color:var(--text-muted);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .mini .v{
+      font-size:14px;
+      line-height:1.35;
+    }
+
+    .tagrow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .tag{
+      font-size:12px;
+      padding:7px 9px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--bg-soft);
+      color:var(--text-muted);
+    }
+
+    .tag.ok{
+      border-color:rgba(34,197,94,.35);
+      color:#bbf7d0;
+      background:rgba(34,197,94,.08);
+    }
+
+    .tag.warn{
+      border-color:rgba(249,115,22,.35);
+      color:#fed7aa;
+      background:rgba(249,115,22,.08);
+    }
+
+    .tag.info{
+      border-color:rgba(56,189,248,.35);
+      color:#bae6fd;
+      background:rgba(56,189,248,.08);
+    }
+
+    .note-box{
+      margin-top:10px;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid var(--accent-border);
+      background:var(--accent-soft);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    .alert-box{
+      margin-top:10px;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid rgba(239,68,68,.35);
+      background:rgba(239,68,68,.08);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    .ritmi-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:6px;
+      border:1px solid var(--border);
+    }
+
+    .ritmi-table th,
+    .ritmi-table td{
+      padding:10px;
+      text-align:left;
+      border-bottom:1px solid var(--border);
+      font-size:13px;
+    }
+
+    .ritmi-table tr:last-child td{
+      border-bottom:0;
+    }
+
+    .ritmi-table thead th{
+      background:rgba(255,255,255,.03);
+      font-weight:900;
+    }
+
+    .ritmi-table tbody td{
+      color:var(--text-muted);
+    }
+
+    .ritmi-table tbody td:first-child{
+      color:var(--text);
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    details.week{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:var(--bg-soft);
+      overflow:hidden;
+      margin-top:10px;
+    }
+
+    details.week summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+    }
+
+    details.week summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .week-title{
+      font-weight:900;
+    }
+
+    .week-dates{
+      font-size:12px;
+      color:var(--text-muted);
+      font-weight:700;
+      text-align:right;
+    }
+
+    .week-content{
+      padding:0 12px 12px;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .session{
+      padding:11px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .session:first-child{
+      border-top:0;
+    }
+
+    .session-title{
+      font-weight:900;
+      margin-bottom:4px;
+    }
+
+    .session-note{
+      color:var(--text-muted);
+      font-size:13px;
+      margin-top:6px;
+    }
+
+    .optional{
+      margin-top:9px;
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px dashed rgba(56,189,248,.35);
+      background:rgba(56,189,248,.06);
+      color:#dbeafe;
+      font-size:13px;
+    }
+
+    .footnote{
+      margin-top:14px;
+      color:var(--text-muted);
+      font-size:11px;
+      line-height:1.4;
+    }
+
+    @media(max-width:420px){
       .grid{grid-template-columns:1fr}
-      .mini.full{grid-column:auto}
-      .top{align-items:flex-start;flex-direction:column}
+      .top{flex-direction:column;align-items:flex-start}
+      details.week summary{
+        flex-direction:column;
+        align-items:flex-start;
+      }
       .week-dates{text-align:left}
-      details.week summary{align-items:flex-start;flex-direction:column}
     }
   </style>
 </head>
@@ -106,9 +322,14 @@
 <div class="app">
 
   <div class="top">
-    <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+    <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">
+      ← Programmi personalizzati
+    </a>
     <div class="pill">🟧 Runner’s School Italia</div>
   </div>
+
+
+  <!-- TESTATA -->
 
   <div class="card">
     <h1>📄 Programma personalizzato · Gilli Costanza</h1>
@@ -122,25 +343,18 @@
 
     <div class="tagrow">
       <span class="tag ok">Percorso Endurance</span>
-      <span class="tag info">3 uscite settimanali</span>
-      <span class="tag warn">Focus: resistenza sulla distanza</span>
-    </div>
-
-    <div class="btnrow">
-      <a class="btn primary" href="#settimane">📅 Programma</a>
-      <a class="btn" href="#ritmi">⏱️ Ritmi</a>
-      <a class="btn" href="#roma">🏁 Roma</a>
-    </div>
-
-    <div class="footnote">
-      Questo programma è personale. Non condividere password o link con altre persone.
+      <span class="tag info">3 uscite + 4ª consigliata</span>
+      <span class="tag warn">Focus: tenuta sulla distanza</span>
     </div>
   </div>
 
 
+  <!-- SCHEDA ATLETA -->
+
   <div class="section-label">Scheda atleta</div>
 
   <div class="card">
+
     <div class="grid">
 
       <div class="mini">
@@ -150,12 +364,7 @@
 
       <div class="mini">
         <div class="k">Disponibilità</div>
-        <div class="v">3 uscite running / settimana</div>
-      </div>
-
-      <div class="mini">
-        <div class="k">Livello</div>
-        <div class="v">Già corre · percorso Endurance</div>
+        <div class="v">3 uscite settimanali + possibile 4ª uscita</div>
       </div>
 
       <div class="mini">
@@ -164,68 +373,77 @@
       </div>
 
       <div class="mini">
-        <div class="k">Prima Mezza</div>
-        <div class="v">Rimini · crisi intorno al 17° km</div>
+        <div class="k">Percorso</div>
+        <div class="v">Endurance · Mezza Maratona</div>
       </div>
 
       <div class="mini">
-        <div class="k">Roma</div>
-        <div class="v">18/10/2026 · circa 2h12'</div>
+        <div class="k">Mezza Rimini</div>
+        <div class="v">2h09' · crisi intorno al 17° km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">Mezza Roma</div>
+        <div class="v">Circa 2h12' · 18/10/2026</div>
       </div>
 
     </div>
+
   </div>
 
+
+  <!-- STORICO -->
 
   <div class="section-label">Il percorso di Costanza</div>
 
   <div class="card content">
 
     <p>
-      Costanza arriva a questo quadrimestre dopo un percorso nel quale ha dimostrato
-      di possedere una buona velocità di base e di poter migliorare in maniera importante
-      quando riesce ad allenarsi con continuità.
+      Costanza ha dimostrato nel tempo di possedere una buona velocità di base
+      e di riuscire a migliorare in maniera importante quando riesce ad allenarsi
+      con continuità.
     </p>
 
     <p>
       La prima esperienza sulla mezza maratona, a Rimini, aveva però evidenziato
       una difficoltà importante nella parte finale della gara, con una crisi
-      intorno al 16°-17° km.
+      intorno al <strong>16°-17° km</strong>.
     </p>
 
     <p>
       Durante l'estate la continuità è diminuita, soprattutto nei mesi più caldi,
       nei quali Costanza ha fatto più fatica a portare avanti i lunghi.
-      Per questo la preparazione verso Roma è iniziata con una base chilometrica
+      La preparazione verso Roma è quindi iniziata con una base chilometrica
       inferiore rispetto a quella ideale.
     </p>
 
     <p>
       Il test sui <strong>3000 metri dell'8 settembre, concluso in 15'47"</strong>,
       ha però dato un'indicazione molto positiva: la velocità non era andata persa.
-      Il risultato è stato addirittura leggermente migliore rispetto al precedente
-      15'50".
     </p>
 
     <div class="note-box">
-      <strong>Punto chiave:</strong> il limite principale non è la velocità.
-      Il lavoro da fare riguarda soprattutto la capacità di mantenere lo sforzo
-      quando la distanza aumenta.
+      <strong>Punto chiave:</strong> Costanza non ha bisogno semplicemente
+      di diventare più veloce. Il lavoro principale deve riguardare la capacità
+      di mantenere una buona corsa quando la distanza e il tempo sulle gambe aumentano.
     </div>
 
   </div>
 
 
-  <div class="section-label" id="ritmi">Ritmi di riferimento</div>
+  <!-- RITMI -->
+
+  <div class="section-label">Ritmi di riferimento</div>
 
   <div class="card content">
 
     <p>
-      I ritmi sono calcolati sul test dei <strong>3000 m in 15'47"</strong>
-      effettuato l'8 settembre 2026.
+      I ritmi di riferimento derivano dal test dei
+      <strong>3000 m in 15'47"</strong>.
     </p>
 
     <table class="ritmi-table">
+
       <thead>
         <tr>
           <th>Sigla</th>
@@ -235,6 +453,7 @@
       </thead>
 
       <tbody>
+
         <tr>
           <td>RG</td>
           <td>Ritmo gara / riferimento</td>
@@ -262,21 +481,25 @@
         <tr>
           <td>RD</td>
           <td>Riscaldamento / defaticamento</td>
-          <td>6'36"/km</td>
+          <td>6'26"/km</td>
         </tr>
+
       </tbody>
+
     </table>
 
     <div class="note-box">
-      I ritmi rimangono invariati dopo Roma. Il risultato della gara non indica
-      la necessità di rallentare i riferimenti: dobbiamo cambiare soprattutto
-      il tipo di stimolo e aumentare progressivamente la resistenza.
+      I ritmi non vengono modificati dopo Roma.
+      Cambia invece il modo in cui vengono utilizzati:
+      più lavoro sulla continuità e sulla capacità di sostenere lo sforzo.
     </div>
 
   </div>
 
 
-  <div class="section-label" id="roma">Mezza Maratona di Roma</div>
+  <!-- ROMA -->
+
+  <div class="section-label">Mezza Maratona di Roma</div>
 
   <div class="card content">
 
@@ -285,133 +508,140 @@
     </p>
 
     <p>
-      La gara è stata impostata correttamente. Costanza non è partita troppo forte
-      e la prima parte è stata gestita con criterio.
+      La gara è stata impostata correttamente.
+      Costanza non è partita troppo forte e la prima parte è stata gestita
+      con criterio.
     </p>
 
     <p>
       Anche alimentazione e idratazione sono state gestite durante la gara,
-      con gel intorno al 7° e al 14° km e acqua ai ristori.
+      con gel intorno al 7° e al 14° km e acqua assunta regolarmente.
     </p>
 
     <p>
-      Il problema è comparso nuovamente intorno al
-      <strong>16°-17° km</strong>: da quel momento è arrivata una crisi importante,
-      fino alla necessità di rallentare molto e fermarsi.
+      Intorno al <strong>16°-17° km</strong> è però arrivata nuovamente
+      una crisi importante, fino alla necessità di rallentare molto
+      e in alcuni momenti fermarsi.
     </p>
 
     <p>
-      È un elemento particolarmente significativo perché una situazione simile
-      si era verificata anche nella precedente mezza maratona.
+      È un elemento particolarmente significativo perché una situazione
+      molto simile si era già verificata nella precedente mezza maratona.
     </p>
 
     <div class="alert-box">
       <strong>📌 Cosa ci ha detto Roma?</strong><br><br>
 
-      Non dobbiamo cercare semplicemente di rendere Costanza più veloce.
-      Il test sui 3000 metri dimostra che la velocità di base c'è.<br><br>
+      Il limite attuale non sembra essere la velocità di base,
+      confermata anche dal test sui 3000 metri.<br><br>
 
-      Dobbiamo invece aumentare la capacità di correre a lungo,
-      rendendo progressivamente normali distanze di 14, 16, 17 e 18 km
-      senza arrivare alla parte finale già in forte difficoltà.
+      Dobbiamo soprattutto aumentare la capacità di mantenere lo sforzo
+      quando la distanza cresce, rendendo progressivamente normali
+      distanze di 14, 16, 17 e 18 km.
     </div>
 
   </div>
 
 
-  <div class="section-label">Cambio di programma dopo Roma</div>
+  <!-- CAMBIO PROGRAMMA -->
+
+  <div class="section-label">Perché cambiamo il programma</div>
 
   <div class="card content">
 
     <p>
-      Il programma iniziale prevedeva, dopo Roma, una maggiore alternanza
-      tra lavori brillanti, corti veloci, collinari e lunghi.
+      Quello che è successo a Roma ci permette di rendere il lavoro
+      delle prossime settimane ancora più specifico.
     </p>
 
     <p>
-      Quello che è successo in gara ci permette però di essere molto più precisi.
-      Per questo <strong>il programma viene modificato</strong>.
+      Nei fine settimana ridurremo la ricerca della prestazione
+      e aumenteremo progressivamente il tempo trascorso sulle gambe.
     </p>
 
     <p>
-      La qualità infrasettimanale rimane presente, perché è importante continuare
-      a lavorare su tutte le caratteristiche della corsa.
+      Molti lunghi saranno quindi corsi prevalentemente a
+      <strong>RL 6'16"/km</strong>: devono servire ad assimilare chilometri,
+      non a dimostrare ogni settimana la propria condizione.
     </p>
 
     <p>
-      Il cambiamento principale riguarda invece il
-      <strong>fine settimana</strong>: aumenteremo la continuità dei lavori
-      di endurance e la familiarità con distanze progressivamente più lunghe.
+      Anche i lavori di qualità vengono modificati.
+      Le ripetute rimangono abbastanza brillanti da rappresentare
+      un vero stimolo di qualità, ma senza esasperare la velocità.
     </p>
 
     <p>
-      Non vogliamo però trasformare ogni lungo in una gara.
-      Molti chilometri verranno corsi a <strong>RL 6'16"/km</strong>,
-      proprio per permettere all'organismo di assimilare il volume.
-    </p>
-
-    <p>
-      In altri allenamenti inseriremo invece parti a
-      <strong>RA 6'06"/km</strong> e <strong>RM 5'46"/km</strong>,
-      soprattutto nella seconda parte, per imparare a correre bene
-      quando nelle gambe sono già presenti diversi chilometri.
+      La differenza principale sarà nel recupero:
+      invece di rallentare molto, Costanza continuerà a correre
+      prevalentemente a <strong>RA 6'06"/km</strong>.
     </p>
 
     <div class="note-box">
-      <strong>Nuovo obiettivo:</strong> arrivare alla fine del quadrimestre
-      con molta più resistenza. Il 16° km non deve più rappresentare
-      l'inizio della crisi, ma diventare una distanza che Costanza conosce,
-      gestisce e riesce a superare con sicurezza.
+      <strong>Qualità vera + recupero attivo.</strong><br><br>
+
+      Vogliamo insegnare all'organismo a continuare a correre bene
+      anche dopo una frazione impegnativa, senza interrompere completamente
+      lo stimolo aerobico.
     </div>
 
   </div>
 
 
-  <div class="section-label">Struttura settimanale</div>
+  <!-- QUARTA USCITA -->
+
+  <div class="section-label">La quarta uscita</div>
 
   <div class="card content">
 
-    <div class="grid">
+    <p>
+      Per migliorare sulle lunghe distanze,
+      <strong>la quarta uscita sarebbe un importante salto di qualità</strong>.
+    </p>
 
-      <div class="mini">
-        <div class="k">Seduta 1</div>
-        <div class="v">Scarico · RD / RL</div>
-      </div>
+    <p>
+      Non è necessario inserirla obbligatoriamente tutte le settimane da subito.
+      Da qui a fine anno possiamo iniziare a provarla e valutare
+      come Costanza reagisce all'aumento della frequenza.
+    </p>
 
-      <div class="mini">
-        <div class="k">Seduta 2</div>
-        <div class="v">Qualità Endurance</div>
-      </div>
+    <p>
+      Il vantaggio è poter aumentare i chilometri settimanali
+      senza dover allungare eccessivamente le altre tre sedute.
+    </p>
 
-      <div class="mini">
-        <div class="k">Seduta 3</div>
-        <div class="v">Fine settimana · resistenza e tenuta</div>
-      </div>
+    <div class="note-box">
+      <strong>4ª uscita facoltativa:</strong><br><br>
 
-      <div class="mini">
-        <div class="k">Focus</div>
-        <div class="v">Più solidità oltre il 15°-16° km</div>
-      </div>
+      6–8 km prevalentemente a <strong>RD 6'26"/km</strong>.<br>
 
+      Se le gambe sono fresche può arrivare gradualmente verso
+      <strong>RL 6'16"/km</strong>.<br><br>
+
+      Deve essere sempre un'uscita facile:
+      <strong>aggiungiamo chilometri, non fatica.</strong>
     </div>
 
   </div>
 
 
-  <div class="section-label" id="settimane">Programma · 15 settimane</div>
+  <!-- PROGRAMMA -->
+
+  <div class="section-label">Programma · 15 settimane</div>
 
   <div class="card content">
 
     <p>
       Le prime sei settimane hanno portato alla Mezza Maratona di Roma.
-      Dopo la gara inizia una nuova fase costruita sulla base delle indicazioni
-      emerse durante i 21 km.
+      Dalla settimana 7 inizia una nuova fase costruita sulle indicazioni
+      emerse durante la gara.
     </p>
 
 
     <!-- SETTIMANA 1 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 1</span>
         <span class="week-dates">7–13 settembre</span>
@@ -421,39 +651,41 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 6 km RL + 1 km RD
-          </div>
+          2 km RD + 6 km RL + 1 km RD.
         </div>
 
         <div class="session">
           <div class="session-title">🔥 Test 3000 m</div>
-          <div>
-            3 km RD + 5 x (100 m allungo + 100 m recupero) +
-            3000 m al meglio + 2 km RD.
-          </div>
+
+          3 km RD +
+          5 × (100 m allungo + 100 m recupero) +
+          3000 m al meglio +
+          2 km RD.
+
           <div class="session-note">
-            Test effettuato l'8 settembre: <strong>15'47"</strong>.
+            Test effettuato l'8 settembre:
+            <strong>15'47"</strong>.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 14 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            9 km RL <strong>6'16"/km</strong> +
-            2 km RA <strong>6'06"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          9 km RL <strong>6'16"/km</strong> +
+          2 km RA <strong>6'06"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 2 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 2</span>
         <span class="week-dates">14–20 settembre</span>
@@ -463,36 +695,47 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 7 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance previsto nella settimana.
+          <div class="session-title">🔥 Qualità · Ripetute lunghe</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          5 × (
+          1000 m a <strong>5'36"/km</strong> +
+          500 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Ripetute regolari, senza trasformare l'ultima nella più veloce.
+            Il recupero a RA fa già parte del lavoro.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 15 km</div>
-          <div>
-            3 km RD <strong>6'36"/km</strong> +
-            7 km RL <strong>6'16"/km</strong> +
-            3 km RA <strong>6'06"/km</strong> +
-            1 km RM <strong>5'46"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          3 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          3 km RA <strong>6'06"/km</strong> +
+          1 km RM <strong>5'46"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 3 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 3</span>
         <span class="week-dates">21–27 settembre</span>
@@ -502,34 +745,49 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>2 km RD + 7 km RL + 1 km RD</div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance previsto nella settimana.
+          <div class="session-title">🔥 Qualità · Ripetute lunghe</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          4 × (
+          1500 m a <strong>5'36"/km</strong> +
+          500 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Aumentiamo la lunghezza della frazione mantenendo
+            il recupero sempre attivo.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 17 km</div>
-          <div>
-            3 km RD <strong>6'36"/km</strong> +
-            3 x (2,5 km RM <strong>5'46"/km</strong> +
-            500 m RG <strong>5'26"/km</strong> +
-            1 km RL <strong>6'16"/km</strong>) +
-            2 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          3 km RD <strong>6'26"/km</strong> +
+          3 × (
+          2,5 km RM <strong>5'46"/km</strong> +
+          500 m RG <strong>5'26"/km</strong> +
+          1 km RL <strong>6'16"/km</strong>
+          ) +
+          2 km RD <strong>6'26"/km</strong>.
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 4 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 4</span>
         <span class="week-dates">28 settembre – 4 ottobre</span>
@@ -539,34 +797,49 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>2 km RD + 7 km RL + 1 km RD</div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance previsto nella settimana.
+          <div class="session-title">🔥 Qualità · Tenuta</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          3 × (
+          2000 m a <strong>5'36"/km</strong> +
+          1000 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Lavoro molto continuo:
+            il recupero a RA non è una pausa ma parte integrante della seduta.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · lungo specifico</div>
-          <div>
-            3 km RD <strong>6'36"/km</strong> +
-            3 x (3 km RM <strong>5'46"/km</strong> +
-            500 m RG <strong>5'26"/km</strong> +
-            1 km RL <strong>6'16"/km</strong>) +
-            1,5 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          3 km RD <strong>6'26"/km</strong> +
+          3 × (
+          3 km RM <strong>5'46"/km</strong> +
+          500 m RG <strong>5'26"/km</strong> +
+          1 km RL <strong>6'16"/km</strong>
+          ) +
+          1,5 km RD <strong>6'26"/km</strong>.
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 5 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 5</span>
         <span class="week-dates">5–11 ottobre</span>
@@ -576,35 +849,48 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>2 km RD + 6 km RL + 1 km RD</div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          6 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance, riducendo leggermente il carico.
+          <div class="session-title">🔥 Qualità · Richiamo</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          5 × (
+          800 m a <strong>5'26"/km</strong> +
+          400 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Riduciamo la lunghezza delle frazioni mantenendo brillantezza
+            in vista dell'avvicinamento alla gara.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 12 km</div>
-          <div>
-            3 km RD <strong>6'36"/km</strong> +
-            4 km RL <strong>6'16"/km</strong> +
-            3 km RM <strong>5'46"/km</strong> +
-            2 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          3 km RD <strong>6'26"/km</strong> +
+          4 km RL <strong>6'16"/km</strong> +
+          3 km RM <strong>5'46"/km</strong> +
+          2 km RD <strong>6'26"/km</strong>.
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 6 -->
 
     <details class="week">
+
       <summary>
-        <span class="week-title">Settimana 6 · GARA</span>
+        <span class="week-title">Settimana 6 · ROMA</span>
         <span class="week-dates">12–18 ottobre</span>
       </summary>
 
@@ -612,43 +898,45 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            5 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          5 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
           <div class="session-title">🔥 Richiamo leggero</div>
-          <div>
-            2 km RD +
-            3 x (500 m RM <strong>5'46"/km</strong> +
-            500 m RL <strong>6'16"/km</strong>) +
-            4 x (100 m allungo sciolto + 100 m recupero) +
-            1 km RD.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +<br>
+          3 × (
+          500 m RM <strong>5'46"/km</strong> +
+          500 m RL <strong>6'16"/km</strong>
+          ) +<br>
+          4 × (100 m allungo sciolto + 100 m RL) +<br>
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            Solo richiamo: nessun lavoro impegnativo. Tutto il lavoro utile
-            per Roma è già stato fatto.
+            Questa settimana si scarica davvero.
+            Tutto il lavoro utile per Roma è già stato fatto.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Mezza Maratona di Roma</div>
-          <div>
-            Domenica 18 ottobre · <strong>21,1 km</strong>
-          </div>
+
+          Domenica 18 ottobre · <strong>21,1 km</strong><br>
+          Risultato: circa <strong>2h12'</strong>.
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 7 -->
 
     <details class="week" open>
+
       <summary>
         <span class="week-title">Settimana 7 · Recupero post Roma</span>
         <span class="week-dates">19–25 ottobre</span>
@@ -658,40 +946,32 @@
 
         <div class="session">
           <div class="session-title">🔄 Recupero</div>
-          <div>
-            Primi giorni di riposo completo o attività molto leggera.
-          </div>
+
+          Riposo completo nei primi giorni o attività molto leggera.
         </div>
 
         <div class="session">
-          <div class="session-title">🟦 Prima corsa</div>
-          <div>
-            Quando le gambe sono recuperate:
-            6–8 km complessivi tra RD <strong>6'36"/km</strong>
-            e RL <strong>6'16"/km</strong>.
-          </div>
+          <div class="session-title">🟦 Corsa di recupero</div>
+
+          Quando le gambe sono recuperate:
+          6–8 km tra RD <strong>6'26"/km</strong>
+          e RL <strong>6'16"/km</strong>.
 
           <div class="session-note">
-            Nessun obbligo di completare tre uscite.
-            Questa settimana serve esclusivamente ad assorbire la mezza.
-          </div>
-        </div>
-
-        <div class="session">
-          <div class="session-title">🏁 Fine settimana</div>
-          <div>
-            Se completamente recuperata: massimo 8 km RL
-            a circa <strong>6'16"/km</strong>.
+            Nessun lavoro di qualità e nessun obbligo di completare tre uscite.
+            Questa settimana serve ad assorbire la mezza.
           </div>
         </div>
 
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 8 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 8 · Ripartenza</span>
         <span class="week-dates">26 ottobre – 1 novembre</span>
@@ -701,40 +981,54 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 6 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          6 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana,
-            senza esasperare i ritmi nella prima settimana completa dopo Roma.
+          <div class="session-title">🔥 Qualità · Ripetute lunghe</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          5 × (
+          1000 m a <strong>5'36"/km</strong> +
+          500 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Le frazioni devono essere brillanti ma regolari.
+            Il recupero a RA mantiene sempre attivo lo stimolo.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 12 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            9 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          9 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            L'obiettivo è riprendere volume senza trasformare l'uscita
-            in un allenamento impegnativo.
+            Ripartiamo dal volume senza cercare velocità.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          6 km RD a circa <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 9 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 9</span>
         <span class="week-dates">2–8 novembre</span>
@@ -744,39 +1038,55 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 7 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana.
+          <div class="session-title">🔥 Qualità · Ripetute lunghe</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          4 × (
+          1500 m a <strong>5'36"/km</strong> +
+          500 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Aumentiamo la durata della frazione mantenendo
+            sempre il recupero attivo.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 14 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            11 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          11 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            Ritmo costante e tranquillo. Non accelerare perché le sensazioni
-            sono buone: questa seduta serve ad accumulare chilometri.
+            Ritmo costante. Non accelerare:
+            qui vogliamo soprattutto accumulare chilometri.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          6 km RD <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 10 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 10</span>
         <span class="week-dates">9–15 novembre</span>
@@ -786,40 +1096,55 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 7 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana.
+          <div class="session-title">🔥 Qualità · Tenuta</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          3 × (
+          2000 m a <strong>5'36"/km</strong> +
+          1000 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            9 km di lavoro praticamente continuo.
+            Il recupero a RA è parte integrante dell'allenamento.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 16 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            13 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          13 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            Allenamento molto importante. Arriviamo nella zona nella quale
-            in gara sono iniziate le difficoltà, ma lo facciamo a ritmo lento
-            e senza pressione cronometrica.
+            Entriamo nella distanza nella quale sono iniziate le difficoltà
+            nelle due mezze, ma senza alcuna ricerca della prestazione.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          6–7 km RD <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 11 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 11 · Scarico</span>
         <span class="week-dates">16–22 novembre</span>
@@ -829,40 +1154,56 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 6 km RL + 1 km RD
+
+          2 km RD <strong>6'26"/km</strong> +
+          6 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
+        </div>
+
+        <div class="session">
+          <div class="session-title">🔥 Qualità · Brillantezza</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          5 × (
+          800 m a <strong>5'26"/km</strong> +
+          400 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Riduciamo il volume delle frazioni ma manteniamo un po'
+            di brillantezza. Tutte le ripetute devono essere regolari.
           </div>
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro Endurance della settimana gestito senza forzare.
-          </div>
-        </div>
+          <div class="session-title">🏁 Fine settimana · 12 km progressivi</div>
 
-        <div class="session">
-          <div class="session-title">🏁 Fine settimana · 12 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            5 km RL <strong>6'16"/km</strong> +
-            3 km RA <strong>6'06"/km</strong> +
-            1 km RM <strong>5'46"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+          2 km RD <strong>6'26"/km</strong> +
+          5 km RL <strong>6'16"/km</strong> +
+          3 km RA <strong>6'06"/km</strong> +
+          1 km RM <strong>5'46"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
             Volume ridotto ma finale progressivamente più brillante.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          6 km RD <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 12 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 12</span>
         <span class="week-dates">23–29 novembre</span>
@@ -872,39 +1213,55 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 7 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana.
+          <div class="session-title">🔥 Qualità · Blocchi lunghi</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          2 × (
+          3000 m a <strong>5'36"/km</strong> +
+          1000 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          2 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Due blocchi lunghi e controllati.
+            Il secondo 3000 deve essere corso con la stessa qualità del primo.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 17 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            14 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          14 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            Altro passaggio fondamentale. L'obiettivo è terminare i 17 km
-            ancora in controllo, senza cercare velocità.
+            L'obiettivo è arrivare alla fine ancora in controllo.
+            Nessuna accelerazione finale obbligatoria.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          6–7 km RD <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 13 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 13</span>
         <span class="week-dates">30 novembre – 6 dicembre</span>
@@ -914,42 +1271,58 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 7 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana.
+          <div class="session-title">🔥 Qualità · Tenuta</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          3 × (
+          2000 m a <strong>5'36"/km</strong> +
+          1000 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Torniamo sul lavoro di tenuta:
+            qualità vera nelle frazioni e recupero sempre attivo.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 15 km variati</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            7 km RL <strong>6'16"/km</strong> +
-            3 km RA <strong>6'06"/km</strong> +
-            2 km RM <strong>5'46"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          3 km RA <strong>6'06"/km</strong> +
+          2 km RM <strong>5'46"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            Qui il lavoro cambia: dopo 9 km già percorsi iniziamo ad aumentare
-            progressivamente il ritmo. Dobbiamo imparare a correre bene
-            anche quando nelle gambe è già presente fatica.
+            Il ritmo aumenta solo nella seconda parte:
+            impariamo a correre bene quando nelle gambe
+            sono già presenti diversi chilometri.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          7 km RD <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 14 -->
 
     <details class="week">
+
       <summary>
         <span class="week-title">Settimana 14</span>
         <span class="week-dates">7–13 dicembre</span>
@@ -959,42 +1332,59 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 7 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          7 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana.
+          <div class="session-title">🔥 Qualità · Ripetute lunghe</div>
+
+          3 km RD <strong>6'26"/km</strong> +<br>
+          3 × (
+          2500 m a <strong>5'36"/km</strong> +
+          1000 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
+
+          <div class="session-note">
+            Lavoro lungo e continuo.
+            Le frazioni restano brillanti, mentre il recupero a RA
+            mantiene sempre attivo lo stimolo aerobico.
           </div>
         </div>
 
         <div class="session">
           <div class="session-title">🏁 Fine settimana · 18 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            15 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          15 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            È il lungo principale del nuovo blocco.
-            Nessuna ricerca del ritmo: l'obiettivo è arrivare al 18° km
-            ancora gestendo bene corsa e sensazioni.
+            Lungo principale del blocco.
+            Nessuna accelerazione finale obbligatoria:
+            vogliamo arrivare al 18° km ancora in gestione.
           </div>
         </div>
 
+        <div class="optional">
+          ⭐ <strong>4ª uscita facoltativa:</strong>
+          6 km RD <strong>6'26"/km</strong>.
+        </div>
+
       </div>
+
     </details>
 
 
     <!-- SETTIMANA 15 -->
 
     <details class="week">
+
       <summary>
-        <span class="week-title">Settimana 15 · Scarico</span>
+        <span class="week-title">Settimana 15 · Castel Maggiore</span>
         <span class="week-dates">14–20 dicembre</span>
       </summary>
 
@@ -1002,61 +1392,92 @@
 
         <div class="session">
           <div class="session-title">🟦 Scarico</div>
-          <div>
-            2 km RD + 6 km RL + 1 km RD
-          </div>
+
+          2 km RD <strong>6'26"/km</strong> +
+          5 km RL <strong>6'16"/km</strong> +
+          1 km RD <strong>6'26"/km</strong>.
         </div>
 
         <div class="session">
-          <div class="session-title">🔥 Qualità</div>
-          <div>
-            Lavoro di qualità Endurance della settimana in versione soft.
-          </div>
-        </div>
+          <div class="session-title">🔥 Qualità · Richiamo pre gara</div>
 
-        <div class="session">
-          <div class="session-title">🏁 Fine settimana · 12 km</div>
-          <div>
-            2 km RD <strong>6'36"/km</strong> +
-            9 km RL <strong>6'16"/km</strong> +
-            1 km RD <strong>6'36"/km</strong>.
-          </div>
+          2 km RD <strong>6'26"/km</strong> +<br>
+          4 × (
+          1000 m a <strong>5'36"/km</strong> +
+          500 m RA <strong>6'06"/km</strong>
+          ) +<br>
+          1 km RD <strong>6'26"/km</strong>.
 
           <div class="session-note">
-            Chiusura del ciclo in scarico. Il lavoro importante è già stato fatto.
+            Ultimo richiamo prima della mezza.
+            Deve finire con la sensazione di poter fare ancora una ripetuta.
           </div>
+        </div>
+
+        <div class="session">
+          <div class="session-title">
+            🏁 20 dicembre · Corrida del Progresso · Castel Maggiore
+          </div>
+
+          <strong>Mezza Maratona · 21,097 km</strong>
+
+          <div class="session-note">
+            Possibile nuovo test sulla distanza.
+            L'obiettivo principale non sarà cercare il tempo
+            fin dai primi chilometri, ma verificare il lavoro fatto
+            sulla tenuta.
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>Il vero test sarà tra il 16° e il 21° km.</strong><br><br>
+
+          Arrivare nel punto in cui a Rimini e Roma era iniziata la crisi
+          e scoprire di avere ancora gambe, controllo e capacità
+          di continuare a correre bene.
         </div>
 
       </div>
+
     </details>
 
   </div>
 
+
+  <!-- OBIETTIVO FINALE -->
 
   <div class="section-label">Obiettivo del nuovo blocco</div>
 
   <div class="card content">
 
     <p>
-      Da Roma in avanti non cerchiamo un 3000 più veloce.
-      Cerchiamo una Costanza capace di portare la propria corsa
-      sempre più lontano.
+      Da Roma in avanti non cerchiamo semplicemente un 3000 più veloce.
     </p>
 
     <p>
-      La progressione dei fine settimana sarà:
-      <strong>12 → 14 → 16 → scarico → 17 → 15 variato → 18 → scarico.</strong>
+      Vogliamo aumentare la <strong>cilindrata</strong> di Costanza:
+      più chilometri assimilati, maggiore continuità dello sforzo,
+      recuperi attivi nei lavori di qualità e una progressione dei lunghi
+      che renda sempre più familiari le distanze oltre i 15 km.
     </p>
 
     <p>
-      Questo permette di aumentare la distanza senza fare salti eccessivi
-      e soprattutto senza trasformare ogni lungo in un test.
+      La progressione principale dei fine settimana sarà:
+      <strong>12 → 14 → 16 → scarico → 17 → 15 variato → 18 km → Mezza.</strong>
+    </p>
+
+    <p>
+      Se riuscirà progressivamente a inserire anche la quarta uscita,
+      potremo aumentare ulteriormente il volume settimanale
+      senza rendere più pesanti le singole sedute.
     </p>
 
     <div class="note-box">
-      <strong>Il risultato che cerchiamo:</strong><br>
-      arrivare al 16°-17° km e sentire di essere ancora dentro l'allenamento,
-      non alla fine delle proprie possibilità.
+      <strong>Il risultato che cerchiamo:</strong><br><br>
+
+      arrivare al 16°-17° km e sentire di essere ancora dentro
+      l'allenamento o dentro la gara,
+      <strong>non alla fine delle proprie possibilità.</strong>
     </div>
 
     <p class="footnote">
@@ -1067,8 +1488,10 @@
 
 </div>
 
+
 <script>
-  const PAGE_HASH = "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad";
+  const PAGE_HASH =
+    "54f14f2a8e8d242f22bdc97d4ef4ed3abfd1a7c3027f180e0ef34f2474be49ad";
 </script>
 
 </body>
