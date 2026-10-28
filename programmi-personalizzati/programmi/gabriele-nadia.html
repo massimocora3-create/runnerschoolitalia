@@ -1,331 +1,929 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Runner’s School Italia – Programma personalizzato</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --bg:#020617;
-      --bg-card:#0b1120;
-      --accent:#f97316;
-      --accent-soft: rgba(249,115,22,0.12);
-      --text:#e5e7eb;
-      --text-muted:#9ca3af;
-      --border:#1f2937;
-      --radius:20px;
-      --shadow:0 18px 45px rgba(0,0,0,.55);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      color:var(--text);
-    }
-    .app{max-width:520px;margin:0 auto;padding:18px 16px 28px;display:none;}
-    .wrap{max-width:520px;margin:0 auto;padding:18px 16px 28px;}
-    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .back{display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--text); opacity:.9; font-size:13px;}
-    .back:hover{opacity:1}
-    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:var(--accent-soft); border:1px solid rgba(249,115,22,.28); color:var(--text); white-space:nowrap; display:inline-flex; width:max-content;}
-    .card{background: linear-gradient(180deg, rgba(249,115,22,0.06), rgba(0,0,0,0)) , var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; margin-bottom:14px;}
-    h1{font-size:18px;margin:0 0 6px;letter-spacing:.2px}
-    .meta{color:var(--text-muted); font-size:13px; line-height:1.35; margin:0}
-    .meta b{color:var(--text)}
-    .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#050b18; color:var(--text); font-size:13px; opacity:.95; cursor:pointer;}
-    .btn:hover{opacity:1}
-    .btn.primary{background:linear-gradient(180deg, rgba(249,115,22,0.95), rgba(249,115,22,0.75)); border:0; color:#0b1120; font-weight:900;}
-    .section-label{font-size:13px; text-transform:uppercase; letter-spacing:.16em; color:var(--text-muted); margin:22px 2px 10px; text-align:center;}
-    .content{font-size:14px; line-height:1.45;}
-    .content p{margin:10px 0}
-    .content strong{font-weight:900}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%;}
-    .mini{border:1px solid var(--border); border-radius:16px; background:#050b18; padding:12px;}
-    .mini .k{font-size:11px; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px;}
-    .mini .v{font-size:14px; line-height:1.35}
-    .footnote{margin-top:14px; color:var(--text-muted); font-size:11px; line-height:1.35; opacity:.95;}
-    table{width:100%; border-collapse:collapse; font-size:13px; overflow:hidden; border-radius:14px;}
-    th,td{border:1px solid var(--border); padding:9px; text-align:left; vertical-align:top;}
-    th{background:#050b18; color:var(--text); font-weight:800;}
-    td{color:var(--text-muted)}
-    td:first-child{color:var(--text); font-weight:800;}
-    .note-box{margin-top:12px; border:1px solid rgba(249,115,22,.28); background:var(--accent-soft); border-radius:14px; padding:12px; color:var(--text); font-size:13px; line-height:1.4;}
-    details.week{border:1px solid var(--border); border-radius:18px; background:#050b18; margin:10px 0; overflow:hidden;}
-    details.week summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:10px; padding:14px; align-items:center;}
-    details.week summary::-webkit-details-marker{display:none;}
-    .week-title{font-weight:900; color:var(--text);}
-    .week-dates{font-size:12px; color:var(--text-muted); text-align:right;}
-    .week-content{border-top:1px solid var(--border); padding:2px 14px 14px; font-size:14px; line-height:1.45; text-align:center;}
-    .week-content p{margin:12px 0;}
-    input{width:100%; margin-top:14px; padding:12px 14px; border-radius:14px; border:1px solid var(--border); background:#020617; color:var(--text); font-size:15px;}
-    .msg{margin-top:12px; color:#fecaca; font-size:13px;}
-  </style>
+<title>Runner’s School Italia – Gabriele Nadia · Reggio Emilia Marathon</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-card:#0b1120;
+  --accent:#f97316;
+  --accent-soft:rgba(249,115,22,0.12);
+  --text:#e5e7eb;
+  --text-muted:#9ca3af;
+  --border:#1f2937;
+  --radius:20px;
+  --shadow:0 18px 45px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  color:var(--text);
+}
+
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 16px 40px;
+  display:none;
+}
+
+.wrap{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 16px 28px;
+}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--text);
+  opacity:.9;
+  font-size:13px;
+}
+
+.pill{
+  font-size:12px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid rgba(249,115,22,.28);
+  color:var(--text);
+  white-space:nowrap;
+}
+
+.card{
+  background:
+    linear-gradient(180deg,rgba(249,115,22,.06),rgba(0,0,0,0)),
+    var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:19px;
+  margin:0 0 8px;
+}
+
+h2{
+  font-size:15px;
+  margin:0 0 10px;
+  color:var(--accent);
+}
+
+.meta{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.45;
+  margin:0;
+}
+
+.meta b{color:var(--text)}
+
+.section-label{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--text-muted);
+  margin:22px 2px 10px;
+  text-align:center;
+}
+
+.content{
+  font-size:14px;
+  line-height:1.5;
+}
+
+.content p{
+  margin:10px 0;
+}
+
+.content strong{
+  color:var(--text);
+  font-weight:900;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.mini{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#050b18;
+  padding:12px;
+}
+
+.mini .k{
+  font-size:11px;
+  color:var(--text-muted);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.mini .v{
+  font-size:14px;
+  line-height:1.35;
+}
+
+.note-box{
+  margin-top:12px;
+  border:1px solid rgba(249,115,22,.28);
+  background:var(--accent-soft);
+  border-radius:14px;
+  padding:12px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.success-box{
+  margin-top:12px;
+  border:1px solid rgba(34,197,94,.30);
+  background:rgba(34,197,94,.08);
+  border-radius:14px;
+  padding:12px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.45;
+}
+
+details.week{
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#050b18;
+  margin:10px 0;
+  overflow:hidden;
+}
+
+details.week summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px;
+  align-items:center;
+}
+
+details.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week-title{
+  font-weight:900;
+  color:var(--text);
+}
+
+.week-dates{
+  font-size:12px;
+  color:var(--text-muted);
+  text-align:right;
+}
+
+.week-content{
+  border-top:1px solid var(--border);
+  padding:4px 14px 14px;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.session{
+  margin-top:14px;
+  padding-bottom:13px;
+  border-bottom:1px solid rgba(31,41,55,.8);
+}
+
+.session:last-child{
+  border-bottom:0;
+  padding-bottom:0;
+}
+
+.session-title{
+  font-weight:900;
+  color:var(--text);
+  margin-bottom:5px;
+}
+
+.session-text{
+  color:var(--text-muted);
+}
+
+.why{
+  margin-top:6px;
+  font-size:12px;
+  color:var(--text-muted);
+}
+
+.why strong{
+  color:var(--text);
+}
+
+.footnote{
+  margin-top:14px;
+  color:var(--text-muted);
+  font-size:11px;
+  line-height:1.4;
+}
+
+input{
+  width:100%;
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#020617;
+  color:var(--text);
+  font-size:15px;
+}
+
+.btnrow{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#050b18;
+  color:var(--text);
+  font-size:13px;
+  cursor:pointer;
+}
+
+.btn.primary{
+  background:linear-gradient(
+    180deg,
+    rgba(249,115,22,.95),
+    rgba(249,115,22,.75)
+  );
+  border:0;
+  color:#0b1120;
+  font-weight:900;
+}
+
+.msg{
+  margin-top:12px;
+  color:#fecaca;
+  font-size:13px;
+}
+</style>
 </head>
 
 <body>
-  <div id="lock" style="display:block;">
-    <div class="wrap">
-      <div class="card">
-        <div class="pill">🔒 Area riservata allievo</div>
-        <h1 style="margin-top:10px">Inserisci la password</h1>
-        <p class="meta">
-          Prima volta: può essere richiesta anche se sei entrato dalla pagina principale.
-          Poi non verrà più chiesta su questo dispositivo.
-        </p>
-        <input id="pw" type="password" placeholder="Password…" autocomplete="current-password" />
-        <div class="btnrow">
-          <a class="btn primary" href="#" id="unlock">Entra</a>
-          <a class="btn" href="/runnerschoolitalia/programmi-personalizzati/">Torna indietro</a>
-        </div>
-        <div class="msg" id="lockMsg" style="display:none;">
-          Password errata. Riprova.
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="app" id="app">
-    <div class="top">
-      <a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-      <div class="pill">🟧 Runner’s School Italia</div>
-    </div>
-
+<!-- ACCESSO -->
+<div id="lock" style="display:block;">
+  <div class="wrap">
     <div class="card">
-      <h1>📄 Programma personalizzato · <span id="nomeAllievo">Gabriele Nadia</span></h1>
+      <div class="pill">🔒 Area riservata allievo</div>
+
+      <h1 style="margin-top:10px">Inserisci la password</h1>
+
       <p class="meta">
-        Aggiornato: <b id="aggiornatoIl">18/06/2026</b><br>
-        Regola base: rispetta intensità e recuperi. Se compare dolore “strano”, stop e scrivimi.
+        Prima volta: può essere richiesta anche se sei entrata
+        dalla pagina principale. Poi non verrà più chiesta
+        su questo dispositivo.
       </p>
+
+      <input
+        id="pw"
+        type="password"
+        placeholder="Password…"
+        autocomplete="current-password"
+      >
 
       <div class="btnrow">
-        <a class="btn primary" href="#settimane">📅 Vai alle settimane</a>
+        <a class="btn primary" href="#" id="unlock">Entra</a>
+        <a class="btn"
+           href="/runnerschoolitalia/programmi-personalizzati/">
+           Torna indietro
+        </a>
       </div>
 
-      <div class="footnote">
-        Nota: questo programma è personale. Non condividere password o link con altre persone.
+      <div class="msg" id="lockMsg" style="display:none;">
+        Password errata. Riprova.
       </div>
-    </div>
-
-    <div class="section-label">Scheda atleta</div>
-    <div class="card">
-      <div class="grid">
-        <div class="mini">
-          <div class="k">Dati</div>
-          <div class="v">1980 · 160 cm · 52,5 kg</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Allenamenti</div>
-          <div class="v">3 uscite running / settimana</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Livello</div>
-          <div class="v">Medio</div>
-        </div>
-
-        <div class="mini">
-          <div class="k">Altri sport</div>
-          <div class="v">Nuoto</div>
-        </div>
-
-        <div class="mini" style="grid-column:1 / -1;">
-          <div class="k">Miglior ritmo 5 km</div>
-          <div class="v">5'10"</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-label">Obiettivi del periodo</div>
-    <div class="card content">
-      <p><strong>📌 Prima fase verso la Maratona di Parma</strong><br>
-        • Costruire una solida base aerobica prima dell'inizio della preparazione specifica per la Maratona di Parma del 18 ottobre 2026.<br>
-        • Incrementare gradualmente il chilometraggio settimanale fino a circa 45 km, senza aumentare eccessivamente il carico.<br>
-        • Mantenere tre allenamenti settimanali ben distribuiti: una seduta di scarico, una seduta di qualità e un lungo progressivo in Zona 2 nel fine settimana.<br>
-        • Migliorare l'efficienza aerobica e innalzare progressivamente la soglia aerobica attraverso lavori controllati e continui.<br>
-        • Arrivare alla settimana del 27 luglio pronta per iniziare la preparazione specifica della maratona.
-      </p>
-    </div>
-
-    <div class="section-label">Ritmi di riferimento</div>
-    <div class="card content">
-      <table class="ritmi-table" aria-label="Ritmi di riferimento">
-        <thead>
-          <tr>
-            <th>Vela</th>
-            <th>Significato</th>
-            <th>Ritmo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>RG</td>
-            <td>Ritmo gara</td>
-            <td>5'10"</td>
-          </tr>
-          <tr>
-            <td>RM</td>
-            <td>Ritmo medio</td>
-            <td>5'30"</td>
-          </tr>
-          <tr>
-            <td>RA</td>
-            <td>Ritmo allegro</td>
-            <td>5'50"</td>
-          </tr>
-          <tr>
-            <td>RL</td>
-            <td>Ritmo lento</td>
-            <td>6'00"</td>
-          </tr>
-          <tr>
-            <td>RD</td>
-            <td>Riscaldamento / Defaticamento</td>
-            <td>6'10"</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="note-box" id="ritmiNote">
-        Nei lunghi in Zona 2 il riferimento principale resta l'intensità aerobica controllata: ritmo facile, respirazione gestibile e sensazione di poter proseguire a lungo.
-      </div>
-    </div>
-
-    <div class="section-label" id="settimane">Settimane di allenamento</div>
-
-    <!-- Settimana 7 -->
-    <details class="week" data-start="2026-06-22" data-end="2026-06-28" open>
-      <summary>
-        <span class="week-title">Settimana 7</span>
-        <span class="week-dates">22–28 giugno</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
-        <p><strong>🔥 Qualità</strong><br>3 km RD + 6 km RM con allungo di 200m RG ogni 800m + 4 x (200m RG-20" + 200m RD) + 2 km RD (12,5 km circa)</p>
-        <p><strong>🏁 Fine settimana</strong><br>Allenamento Z2 12 km</p>
-      </div>
-    </details>
-
-    <!-- Settimana 8 -->
-    <details class="week" data-start="2026-06-29" data-end="2026-07-05">
-      <summary>
-        <span class="week-title">Settimana 8</span>
-        <span class="week-dates">29 giugno – 5 luglio</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 7 km RL + 1 km RD (10 km)</p>
-        <p><strong>🔥 Qualità</strong><br>3 km RD + 3 km progressione da RL a RG + 5 x (400m RG + 1'30" RD) + 2 km RD (10 km circa)</p>
-        <p><strong>🏁 Fine settimana</strong><br>Allenamento Z2 14 km</p>
-      </div>
-    </details>
-
-    <!-- Settimana 9 -->
-    <details class="week" data-start="2026-07-06" data-end="2026-07-12">
-      <summary>
-        <span class="week-title">Settimana 9</span>
-        <span class="week-dates">6–12 luglio</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-        <p><strong>🔥 Qualità</strong><br>3 km RD + 12 x (100m RG-30" + 100m souplesse + 100m RG-30" + 200m RL) + 2 km RD (11 km circa)</p>
-        <p><strong>🏁 Fine settimana</strong><br>Allenamento Z2 16 km</p>
-      </div>
-    </details>
-
-    <!-- Settimana 10 -->
-    <details class="week" data-start="2026-07-13" data-end="2026-07-19">
-      <summary>
-        <span class="week-title">Settimana 10</span>
-        <span class="week-dates">13–19 luglio</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 8 km RL + 1 km RD (11 km)</p>
-        <p><strong>🔥 Qualità</strong><br>3 km RD + 2 x (1000m RA + 500m RL) + 2 x (1000m RM + 500m RD) + 2 km RD (11 km)</p>
-        <p><strong>🏁 Fine settimana</strong><br>Allenamento Z2 18 km</p>
-      </div>
-    </details>
-
-    <!-- Settimana 11 -->
-    <details class="week" data-start="2026-07-20" data-end="2026-07-26">
-      <summary>
-        <span class="week-title">Settimana 11</span>
-        <span class="week-dates">20–26 luglio</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>🟦 Scarico</strong><br>2 km RD + 9 km RL + 1 km RD (12 km)</p>
-        <p><strong>🔥 Qualità</strong><br>3 km RD + 3 x (500m RG + 500m RL) + 3 x (500m RG-20" + 500m RD) + 2 km RL (11 km circa)</p>
-        <p><strong>🏁 Fine settimana</strong><br>Allenamento Z2 20 km</p>
-      </div>
-    </details>
-
-    <!-- Settimana 12 -->
-    <details class="week" data-start="2026-07-27" data-end="2026-08-02">
-      <summary>
-        <span class="week-title">Settimana 12</span>
-        <span class="week-dates">27 luglio – 2 agosto</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>🏁 Inizio preparazione Parma</strong><br>Da questa settimana inizia la preparazione specifica per la Maratona di Parma del 18 ottobre 2026.</p>
-      </div>
-    </details>
-
-    <!-- Settimana 13 -->
-    <details class="week" data-start="2026-08-03" data-end="2026-08-09">
-      <summary>
-        <span class="week-title">Settimana 13</span>
-        <span class="week-dates">3–9 agosto</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>Programma in aggiornamento</strong><br>Settimana da definire nella preparazione specifica per Parma.</p>
-      </div>
-    </details>
-
-    <!-- Settimana 14 -->
-    <details class="week" data-start="2026-08-10" data-end="2026-08-16">
-      <summary>
-        <span class="week-title">Settimana 14</span>
-        <span class="week-dates">10–16 agosto</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>Programma in aggiornamento</strong><br>Settimana da definire nella preparazione specifica per Parma.</p>
-      </div>
-    </details>
-
-    <!-- Settimana 15 -->
-    <details class="week" data-start="2026-08-17" data-end="2026-08-23">
-      <summary>
-        <span class="week-title">Settimana 15</span>
-        <span class="week-dates">17–23 agosto</span>
-      </summary>
-      <div class="week-content">
-        <p><strong>Programma in aggiornamento</strong><br>Settimana da definire nella preparazione specifica per Parma.</p>
-      </div>
-    </details>
-
-    <div class="footnote">
-      Programma personalizzato Runner’s School Italia · Gabriele Nadia
     </div>
   </div>
+</div>
 
-  <script>
-    const PAGE_HASH = "51343dbed57943f8236b82abd051566bb4438ac8605674ad6c4d117dd0dcdc52"; // Codice della pagina
-    const lock = document.getElementById("lock");
-    const app = document.getElementById("app");
-    const key = "GabNad.2026"; // Password
 
-    document.getElementById("unlock").onclick = function(e) {
-      e.preventDefault();
-      const inputPassword = document.getElementById("pw").value;
-      if (inputPassword === key) {
-        lock.style.display = "none";
-        app.style.display = "block";
-      } else {
-        document.getElementById("lockMsg").style.display = "block";
-      }
-    };
-  </script>
+<!-- APP -->
+<div class="app" id="app">
+
+  <div class="top">
+    <a class="back"
+       href="/runnerschoolitalia/programmi-personalizzati/">
+       ← Programmi personalizzati
+    </a>
+
+    <div class="pill">🟧 Runner’s School Italia</div>
+  </div>
+
+
+  <!-- HEADER -->
+  <div class="card">
+
+    <h1>🏃‍♀️ Gabriele Nadia · Parma → Reggio Emilia</h1>
+
+    <p class="meta">
+      Aggiornato: <b>28/10/2026</b><br>
+      Prossimo obiettivo:
+      <b>Maratona di Reggio Emilia · 13 dicembre 2026</b>
+    </p>
+
+    <div class="success-box">
+      🏅 <strong>Parma Marathon conclusa in 4h06'</strong><br>
+      Nuovo miglior tempo personale, migliorando di circa
+      2 minuti il precedente risultato di Padova.
+    </div>
+
+  </div>
+
+
+  <!-- OBIETTIVO -->
+  <div class="section-label">Il nuovo percorso</div>
+
+  <div class="card content">
+
+    <h2>🎯 Da Parma a Reggio Emilia</h2>
+
+    <p>
+      Parma rappresenta già un punto di partenza molto importante:
+      <strong>42,195 km corsi e portati a termine in 4h06'</strong>,
+      migliorando ancora il personale.
+    </p>
+
+    <p>
+      L'obiettivo delle prossime settimane non è quindi costruire
+      una nuova preparazione da zero e nemmeno cercare di recuperare
+      in poche settimane i minuti mancati al sub 4 ore.
+    </p>
+
+    <p>
+      Abbiamo già una base maratona completa nelle gambe.
+      Adesso dobbiamo soprattutto
+      <strong>recuperare Parma, assimilare il lavoro fatto,
+      ritrovare brillantezza e mantenere la resistenza</strong>
+      senza accumulare inutilmente altra fatica.
+    </p>
+
+    <div class="note-box">
+      <strong>📌 Principio fondamentale</strong><br>
+      Tra due maratone così ravvicinate il recupero è parte
+      integrante dell'allenamento. Fare di più non significa
+      necessariamente arrivare più preparati: a Reggio vogliamo
+      arrivare con la condizione di Parma ancora presente,
+      ma con gambe nuovamente fresche.
+    </div>
+
+  </div>
+
+
+  <!-- RITMI -->
+  <div class="section-label">Ritmi di riferimento</div>
+
+  <div class="card">
+
+    <div class="grid">
+
+      <div class="mini">
+        <div class="k">RG</div>
+        <div class="v">5'10"/km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">RM</div>
+        <div class="v">5'30"/km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">RA</div>
+        <div class="v">5'50"/km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">RL</div>
+        <div class="v">6'00"/km</div>
+      </div>
+
+      <div class="mini" style="grid-column:1/-1;">
+        <div class="k">RD</div>
+        <div class="v">6'10"/km o più lento se necessario</div>
+      </div>
+
+    </div>
+
+    <div class="note-box">
+      I ritmi restano quelli utilizzati durante la preparazione.
+      Nelle sedute RD/RL, soprattutto nelle prime settimane dopo
+      Parma, conta prima di tutto il recupero:
+      <strong>nessuna necessità di forzare per rispettare
+      il secondo al chilometro.</strong>
+    </div>
+
+  </div>
+
+
+  <!-- SETTIMANE -->
+  <div class="section-label">Programma di allenamento</div>
+
+
+  <!-- TRANSIZIONE -->
+  <details class="week" open>
+
+    <summary>
+      <span class="week-title">Recupero post Parma</span>
+      <span class="week-dates">28 ottobre – 1 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">♻️ Recupero</div>
+        <div class="session-text">
+          2–3 uscite molto tranquille da 6–9 km tra RD e RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana</div>
+        <div class="session-text">
+          10–12 km RD/RL.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        continuare a recuperare completamente la Maratona di Parma.
+        Nessun lavoro di qualità e nessuna necessità di raggiungere
+        un chilometraggio preciso.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 2-8 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 1 · Ripartenza</span>
+      <span class="week-dates">2–8 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD + piramide
+          <strong>
+            (500–800–1200–800–500 m a RG-10"
+            + 500 m RL)
+          </strong>
+          + 5' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          3 km RD + 5 km RL + 3 km RA + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 16 km</div>
+        <div class="session-text">
+          2 km RD + 10 km RL + 2 km RM + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        prima settimana nuovamente strutturata.
+        Riprendiamo qualità e volume senza cercare ancora
+        un vero lungo.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 9-15 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 2 · Costruzione</span>
+      <span class="week-dates">9–15 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–12 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          <strong>
+            3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL]
+          </strong>
+          + 5'/10' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          3 km RD + 7 km RL +
+          5 × (100 m allungo + 100 m recupero RL)
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 20 km</div>
+        <div class="session-text">
+          2 km RD + 8 km RL +
+          3 × (2 km RM + 1 km RL)
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        torniamo gradualmente su una distanza più importante,
+        inserendo ritmo ma senza trasformare il weekend
+        in un lunghissimo.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 16-22 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 3 · Scarico</span>
+      <span class="week-dates">16–22 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          <strong>5 km in progressione da RL a RG</strong>
+          + 10' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 16 km</div>
+        <div class="session-text">
+          2 km RD + 8 km RL + 4 km RM + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        settimana di assimilazione prima dell'ultimo blocco
+        realmente importante verso Reggio.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 23-29 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 4 · Ultimo lungo</span>
+      <span class="week-dates">23–29 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          5 × (50–60 m allungo facile + 50–60 m recupero RD)
+          +
+          <strong>
+            5 × (800 m tra RG-10" e RG-30"
+            + 2'30" recupero souplesse)
+          </strong>.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          2 km RD + 8 km RL +
+          5 × (100 m allungo in salita
+          + 100 m recupero in discesa souplesse)
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Ultimo lungo · 28 km</div>
+        <div class="session-text">
+          3 km RD + 7 km RL +
+          <strong>
+            4 × (3 km RM + 1 km RL)
+          </strong>
+          + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        questo è l'unico vero lungo del blocco tra Parma e Reggio.
+        Non serve tornare a 32–34 km: la resistenza dei 42 km
+        è già stata costruita e Parma stessa rappresenta
+        il lunghissimo più importante.
+      </div>
+
+      <div class="note-box">
+        <strong>⚠️ Importante:</strong>
+        il lungo deve essere concluso con controllo.
+        Non è un test per il sub 4 ore e non va trasformato
+        in una gara.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 30 NOV - 6 DIC -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 5 · Inizio scarico</span>
+      <span class="week-dates">30 novembre – 6 dicembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          9–10 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          <strong>
+            5 × (500 m RG + 300 m RL + 200 m RG-10")
+          </strong>
+          + 10' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          2 km RD + 5 km RL + 2 km RA + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 14 km</div>
+        <div class="session-text">
+          2 km RD + 8 km RL + 2 km RM + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        il lavoro è ormai fatto.
+        Manteniamo gli stimoli ma iniziamo a ridurre
+        nettamente il carico per recuperare completamente
+        il lungo della settimana precedente.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- SETTIMANA GARA -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">🏁 Settimana Gara</span>
+      <span class="week-dates">7–13 dicembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          7–8 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">⚡ Richiamo soft</div>
+        <div class="session-text">
+          2 km RD + 3 km RA +
+          <strong>
+            4 × (100 m in progressione + 100 m souplesse)
+          </strong>
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Eventuale terza uscita</div>
+        <div class="session-text">
+          20–25' RD/RL oppure riposo completo,
+          in base alle sensazioni.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">
+          🏁 Domenica 13 dicembre
+        </div>
+        <div class="session-text">
+          <strong>Maratona di Reggio Emilia · 42,195 km</strong>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Questa settimana niente qualità.</strong><br>
+        Il richiamo serve esclusivamente a mantenere
+        brillantezza e sensibilità nella corsa.
+        Deve terminare con la sensazione di avere ancora
+        molta energia nelle gambe.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- NOTA FINALE -->
+  <div class="section-label">Verso Reggio Emilia</div>
+
+  <div class="card content">
+
+    <h2>💪 Non dobbiamo ricominciare da capo</h2>
+
+    <p>
+      Il risultato di Parma non deve essere letto come un obiettivo
+      fallito: <strong>4h06' rappresenta comunque un nuovo personale</strong>
+      e conferma che il percorso fatto ha prodotto un miglioramento.
+    </p>
+
+    <p>
+      I sei minuti che separano Nadia dalle quattro ore
+      non si recuperano aumentando improvvisamente il carico
+      nelle poche settimane disponibili.
+    </p>
+
+    <p>
+      A Reggio proveremo invece a presentarci con
+      <strong>la stessa resistenza costruita per Parma,
+      ma con maggiore freschezza</strong>.
+      Saranno recupero, regolarità e corretta gestione della gara
+      a dirci quanto potremo avvicinarci al prossimo traguardo.
+    </p>
+
+    <div class="note-box">
+      <strong>Una regola fino a Reggio:</strong><br>
+      se compare stanchezza muscolare anomala o il recupero
+      da Parma richiede più tempo del previsto,
+      si riduce il carico senza problemi.
+      In questo blocco arrivare riposati vale più
+      di qualsiasi chilometro aggiunto.
+    </div>
+
+    <div class="footnote">
+      Programma personalizzato Runner’s School Italia ·
+      Gabriele Nadia
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const PAGE_HASH =
+"51343dbed57943f8236b82abd051566bb4438ac8605674ad6c4d117dd0dcdc52";
+
+const key = "GabNad.2026";
+
+const lock = document.getElementById("lock");
+const app = document.getElementById("app");
+
+document.getElementById("unlock").onclick = function(e){
+
+  e.preventDefault();
+
+  const inputPassword =
+    document.getElementById("pw").value;
+
+  if(inputPassword === key){
+
+    lock.style.display = "none";
+    app.style.display = "block";
+
+  }else{
+
+    document.getElementById("lockMsg").style.display = "block";
+
+  }
+};
+
+document.getElementById("pw").addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Enter"){
+      document.getElementById("unlock").click();
+    }
+
+  }
+);
+
+</script>
+
 </body>
 </html>
