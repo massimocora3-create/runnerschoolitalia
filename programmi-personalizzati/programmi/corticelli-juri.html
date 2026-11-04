@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corticelli Juri · Programma personalizzato</title>
 
 <style>
@@ -10,342 +10,384 @@
   --bg:#020617;
   --card:#0b1120;
   --inner:#050b18;
-  --orange:#f97316;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
   --border:#1f2937;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --orange:#f97316;
   --green:#22c55e;
   --yellow:#facc15;
   --blue:#38bdf8;
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+  background:#020617;
   color:var(--text);
-  min-height:100vh;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55;
 }
-.app{
+
+.wrap{
   max-width:760px;
-  margin:auto;
-  padding:18px 14px 70px;
+  margin:0 auto;
+  padding:18px 14px 60px;
 }
-a{color:inherit}
+
 .back{
   display:inline-block;
-  margin-bottom:14px;
   color:#cbd5e1;
   text-decoration:none;
   font-size:14px;
+  margin-bottom:14px;
 }
-.pill{
-  display:inline-block;
-  padding:5px 10px;
-  border-radius:999px;
-  background:rgba(249,115,22,.12);
-  border:1px solid rgba(249,115,22,.35);
-  color:var(--orange);
-  font-size:12px;
-  font-weight:800;
-}
-.hero,.card{
+
+.card{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:20px;
-  box-shadow:0 18px 45px rgba(0,0,0,.35);
-}
-.hero{
-  padding:20px;
-  margin-bottom:18px;
-}
-.hero h1{
-  margin:12px 0 8px;
-  font-size:26px;
-  line-height:1.15;
-}
-.hero p{
-  margin:5px 0;
-  color:var(--muted);
-  line-height:1.5;
-}
-.btn{
-  display:inline-block;
-  margin-top:14px;
-  padding:11px 16px;
-  border-radius:12px;
-  background:var(--orange);
-  color:#111827;
-  text-decoration:none;
-  font-weight:900;
-  font-size:13px;
-}
-.section-label{
-  margin:25px 4px 10px;
-  color:var(--orange);
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  font-size:12px;
-  font-weight:900;
-}
-.card{
-  padding:16px;
+  padding:18px;
   margin-bottom:14px;
 }
+
+.hero{
+  background:linear-gradient(145deg,#0b1120,#050b18);
+}
+
+.pill{
+  display:inline-block;
+  background:rgba(249,115,22,.12);
+  border:1px solid rgba(249,115,22,.35);
+  color:var(--orange);
+  border-radius:999px;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:800;
+}
+
+h1{
+  font-size:25px;
+  line-height:1.15;
+  margin:12px 0 8px;
+}
+
+.hero-meta{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.button{
+  display:inline-block;
+  margin-top:12px;
+  background:var(--orange);
+  color:#111827;
+  padding:10px 15px;
+  border-radius:11px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:900;
+}
+
+.section-title{
+  color:var(--orange);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin:25px 4px 9px;
+}
+
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
 }
-.mini{
+
+.info{
   background:var(--inner);
   border:1px solid var(--border);
   border-radius:14px;
   padding:12px;
 }
-.mini.full{grid-column:1/-1}
-.k{
+
+.info.full{
+  grid-column:1/-1;
+}
+
+.label{
   color:var(--muted);
-  font-size:11px;
   text-transform:uppercase;
   letter-spacing:.05em;
-  margin-bottom:5px;
+  font-size:11px;
+  margin-bottom:4px;
 }
-.v{
-  font-size:14px;
-  line-height:1.45;
-}
-.content{
-  line-height:1.6;
+
+.value{
   font-size:14px;
 }
-.content p:first-child{margin-top:0}
-.content p:last-child{margin-bottom:0}
-.goal{
-  font-size:16px;
-  color:#fff;
+
+.text{
+  font-size:14px;
 }
-.callout,.science,.note,.why{
-  border-radius:13px;
-  padding:11px 12px;
-  margin-top:10px;
+
+.text p:first-child{margin-top:0}
+.text p:last-child{margin-bottom:0}
+
+.highlight{
+  background:rgba(249,115,22,.08);
+  border:1px solid rgba(249,115,22,.28);
+  border-radius:14px;
+  padding:12px;
+  margin:12px 0;
 }
-.callout{
-  background:rgba(249,115,22,.09);
-  border:1px solid rgba(249,115,22,.3);
-}
-.science{
-  background:rgba(56,189,248,.07);
+
+.bluebox{
+  background:rgba(56,189,248,.06);
   border:1px solid rgba(56,189,248,.22);
+  border-radius:14px;
+  padding:12px;
+  margin:12px 0;
 }
+
 details.week{
-  background:var(--inner);
+  background:var(--card);
   border:1px solid var(--border);
-  border-radius:16px;
-  margin:11px 0;
+  border-radius:18px;
+  margin-bottom:12px;
   overflow:hidden;
 }
+
 details.week summary{
   list-style:none;
   cursor:pointer;
-  padding:15px;
+  padding:15px 16px;
+  font-weight:900;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
+  gap:10px;
 }
-details.week summary::-webkit-details-marker{display:none}
-.dates{
+
+details.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.date{
   color:var(--muted);
   font-size:12px;
   font-weight:600;
-  text-align:right;
 }
-.wc{
+
+.week-content{
   padding:0 12px 12px;
 }
-.session{
-  background:#020617;
-  border:1px solid #172033;
+
+.workout{
+  background:var(--inner);
+  border:1px solid var(--border);
   border-radius:14px;
   padding:13px;
   margin-top:9px;
-  line-height:1.55;
   font-size:14px;
 }
-.title{
+
+.workout-title{
   font-weight:900;
-  color:#fff;
   margin-bottom:7px;
-}
-.why{
-  background:rgba(34,197,94,.07);
-  border:1px solid rgba(34,197,94,.2);
-  color:#d1fae5;
-}
-.note{
-  background:rgba(250,204,21,.06);
-  border:1px solid rgba(250,204,21,.2);
-  color:#fef3c7;
-}
-.test{
-  border-color:rgba(249,115,22,.55);
-  box-shadow:inset 0 0 0 1px rgba(249,115,22,.08);
-}
-.long{
-  border-color:rgba(56,189,248,.45);
-}
-.race{
-  border-color:rgba(34,197,94,.55);
-  box-shadow:inset 0 0 25px rgba(34,197,94,.05);
-}
-.foot{
-  margin-top:25px !important;
-  color:var(--muted);
-  text-align:center;
-  font-size:12px;
-}
-@media(max-width:600px){
-  .grid{grid-template-columns:1fr}
-  .mini.full{grid-column:auto}
-  .hero h1{font-size:22px}
-  details.week summary{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-  .dates{text-align:left}
+  color:#fff;
 }
 
-/* LOCK */
-#rs-lock{
+.why{
+  margin-top:10px;
+  padding:10px 11px;
+  background:rgba(34,197,94,.06);
+  border:1px solid rgba(34,197,94,.20);
+  border-radius:11px;
+  color:#d1fae5;
+}
+
+.note{
+  margin-top:10px;
+  padding:10px 11px;
+  background:rgba(250,204,21,.06);
+  border:1px solid rgba(250,204,21,.20);
+  border-radius:11px;
+  color:#fef3c7;
+}
+
+.keywork{
+  border-color:rgba(56,189,248,.45);
+}
+
+.testwork{
+  border-color:rgba(249,115,22,.55);
+}
+
+.racework{
+  border-color:rgba(34,197,94,.55);
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:25px;
+}
+
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .info.full{grid-column:auto}
+  h1{font-size:22px}
+
+  details.week summary{
+    flex-direction:column;
+  }
+}
+
+/* ACCESSO */
+#lock{
   position:fixed;
   inset:0;
-  z-index:99999;
-  background:radial-gradient(circle at top,#0b1120 0,#020617 55%,#000 100%);
+  z-index:9999;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
+  background:#020617;
 }
-.lock-card{
+
+.lockbox{
   width:min(420px,100%);
   background:#0b1120;
   border:1px solid #1f2937;
   border-radius:22px;
-  padding:26px;
-  box-shadow:0 20px 60px rgba(0,0,0,.65);
+  padding:25px;
   text-align:center;
 }
-.lock-card h1{
-  margin:5px 0 8px;
-  font-size:24px;
-}
-.lock-card p{
-  color:#9ca3af;
-  font-size:14px;
-}
-.lock-card input{
+
+.lockbox input{
   width:100%;
-  padding:13px 14px;
-  border-radius:12px;
+  margin:12px 0;
+  padding:13px;
+  border-radius:11px;
   border:1px solid #374151;
   background:#020617;
   color:#fff;
   font-size:16px;
-  margin:10px 0;
 }
-.lock-card button{
+
+.lockbox button{
   width:100%;
-  padding:13px;
   border:0;
-  border-radius:12px;
+  border-radius:11px;
+  padding:13px;
   background:#f97316;
   color:#111827;
-  font-size:15px;
   font-weight:900;
   cursor:pointer;
 }
+
 #error{
-  min-height:20px;
-  margin-top:8px;
   color:#fca5a5;
+  min-height:20px;
   font-size:13px;
+  margin-top:8px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="rs-lock">
-  <div class="lock-card">
-    <div style="font-size:42px">🔒</div>
-    <h1>Area riservata</h1>
-    <p>Inserisci la password personale per visualizzare il programma.</p>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">ENTRA</button>
+<!-- ACCESSO -->
+<div id="lock">
+  <div class="lockbox">
+    <div style="font-size:40px">🔒</div>
+    <h2>Area riservata</h2>
+    <p style="color:#94a3b8;font-size:14px">
+      Inserisci la password personale per accedere al programma.
+    </p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
+
+    <button onclick="unlock()">ENTRA</button>
+
     <div id="error"></div>
   </div>
 </div>
 
-<div class="app" id="content" style="display:none">
 
-<a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
+<div class="wrap" id="page" style="display:none">
 
-<div class="hero">
+<a class="back" href="/runnerschoolitalia/programmi-personalizzati/">
+← Programmi personalizzati
+</a>
+
+
+<!-- TESTATA -->
+<div class="card hero">
+
   <span class="pill">🟧 Runner's School Italia</span>
 
   <h1>📄 Programma personalizzato · Corticelli Juri</h1>
 
-  <p>
+  <div class="hero-meta">
     Aggiornato: <strong>4 novembre 2026</strong><br>
     Periodo: <strong>2 novembre – 13 dicembre 2026</strong><br>
-    Obiettivo: <strong>Mezza Maratona di Reggio Emilia · 13 dicembre 2026</strong>
-  </p>
+    Obiettivo: <strong>Mezza Maratona di Reggio Emilia</strong>
+  </div>
 
-  <a class="btn" href="#settimane">📅 Vai alle settimane</a>
+  <a href="#programma" class="button">
+    📅 Vai alle settimane
+  </a>
+
 </div>
 
 
-<div class="section-label">Scheda atleta</div>
+<!-- SCHEDA -->
+<div class="section-title">Scheda atleta</div>
 
 <div class="card">
   <div class="grid">
 
-    <div class="mini">
-      <div class="k">Atleta</div>
-      <div class="v"><strong>Corticelli Juri</strong></div>
+    <div class="info">
+      <div class="label">Atleta</div>
+      <div class="value"><strong>Corticelli Juri</strong></div>
     </div>
 
-    <div class="mini">
-      <div class="k">Frequenza</div>
-      <div class="v"><strong>4 uscite / settimana</strong></div>
+    <div class="info">
+      <div class="label">Uscite</div>
+      <div class="value"><strong>4 a settimana</strong></div>
     </div>
 
-    <div class="mini">
-      <div class="k">Prima Mezza</div>
-      <div class="v">
-        Cesenatico · 20/09/2026<br>
+    <div class="info">
+      <div class="label">Mezza di Cesenatico</div>
+      <div class="value">
+        20 settembre 2026<br>
         <strong>1h49'37"</strong>
       </div>
     </div>
 
-    <div class="mini">
-      <div class="k">Ultima Mezza</div>
-      <div class="v">
-        Torino · 25/10/2026<br>
+    <div class="info">
+      <div class="label">Mezza di Torino</div>
+      <div class="value">
+        25 ottobre 2026<br>
         <strong>1h48'20"</strong>
       </div>
     </div>
 
-    <div class="mini full">
-      <div class="k">Struttura della settimana</div>
-      <div class="v">
-        <strong>Lunedì:</strong> Qualità Alternativo Ferrara Runner's School<br>
-        <strong>Mercoledì:</strong> Qualità Standard Ferrara Runner's School<br>
-        <strong>Venerdì:</strong> Scarico<br>
-        <strong>Weekend:</strong> lavoro specifico / lungo
+    <div class="info full">
+      <div class="label">Nuovo obiettivo</div>
+      <div class="value">
+        <strong>Mezza Maratona di Reggio Emilia</strong><br>
+        Consolidare il percorso fatto e capire se abbiamo ancora
+        margine per migliorare il tempo ottenuto a Torino.
       </div>
     </div>
 
@@ -353,573 +395,828 @@ details.week summary::-webkit-details-marker{display:none}
 </div>
 
 
-<div class="section-label">Obiettivo e logica del percorso</div>
+<!-- SPIEGAZIONE -->
+<div class="section-title">Da Torino a Reggio Emilia</div>
 
-<div class="card content">
+<div class="card text">
 
-  <p class="goal">
-    <strong>🎯 Arrivare a Reggio Emilia sfruttando tutto il lavoro già costruito e provando a fare un ulteriore passo avanti sulla distanza.</strong>
-  </p>
+<p>
+A Torino è arrivato un altro piccolo ma importante passo avanti:
+<strong>1h48'20"</strong>, migliorando di poco più di un minuto
+il tempo della prima mezza corsa a Cesenatico.
+</p>
 
-  <p>
-    Torino ha dato un'altra conferma positiva: <strong>1h48'20"</strong>,
-    migliorando di poco più di un minuto il tempo ottenuto nella prima mezza
-    di Cesenatico.
-  </p>
+<p>
+Questo significa che il lavoro fatto fino ad oggi sta dando
+continuità ai risultati. Adesso non dobbiamo ripartire da zero:
+abbiamo già una buona base e possiamo utilizzare queste settimane
+per consolidarla e aggiungere qualche stimolo più specifico.
+</p>
 
-  <p>
-    Questa volta abbiamo davanti quasi sei settimane e possiamo quindi
-    costruire un percorso più completo. Non dobbiamo ripartire da zero:
-    la base c'è già. Dobbiamo cercare di consolidarla, aggiungere qualche
-    stimolo specifico e soprattutto capire quanto margine abbiamo ancora.
-  </p>
+<div class="bluebox">
+La struttura della settimana sarà molto chiara:
+<strong>lunedì Qualità Alternativo</strong> con la Ferrara Runner's School,
+<strong>mercoledì Qualità Standard</strong>,
+<strong>venerdì scarico</strong> e nel
+<strong>weekend il lavoro specifico</strong> costruito in funzione
+della mezza.
+</div>
 
-  <div class="science">
-    Il lunedì e il mercoledì continueremo a sfruttare gli allenamenti
-    collettivi della Ferrara Runner's School. Il venerdì sarà dedicato
-    allo scarico, mentre il weekend diventerà il momento principale
-    per il lavoro specifico sulla mezza.
-  </div>
+<div class="highlight">
+<strong>⚠️ Regola importante per il lunedì</strong><br><br>
 
-  <div class="callout">
-    <strong>Una regola importante per il lunedì:</strong><br>
-    il lavoro Alternativo si fa se il lungo del weekend è stato recuperato bene.
-    Se invece ci sono ancora gambe pesanti o stanchezza muscolare,
-    <strong>l'Alternativo viene sostituito con uno scarico RD/RL.</strong>
-    Non dobbiamo completare a tutti i costi ogni seduta: dobbiamo riuscire
-    ad assimilare bene il lavoro.
-  </div>
+Il lavoro Alternativo non deve diventare un obbligo.
+
+Se il lavoro del weekend ha lasciato stanchezza muscolare,
+gambe pesanti o non è ancora stato completamente recuperato,
+<strong>il lunedì sostituiamo l'Alternativo con 7–9 km RD/RL.</strong>
+
+Meglio recuperare completamente e fare bene il lavoro del mercoledì
+piuttosto che accumulare stanchezza.
+</div>
 
 </div>
 
 
-<div class="section-label">Prima cosa: verifichiamo i ritmi</div>
+<!-- RITMI -->
+<div class="section-title">Ritmi di riferimento</div>
 
-<div class="card content">
+<div class="card text">
 
-  <p>
-    Prima di stabilire definitivamente i ritmi per Reggio Emilia voglio
-    avere un dato aggiornato sulla condizione attuale.
-  </p>
+<p>
+Per i primi allenamenti continuiamo ad utilizzare i riferimenti
+che abbiamo usato fino alla Mezza di Torino.
+</p>
 
-  <p>
-    Per questo <strong>domenica 8 novembre faremo un Test sui 10 km</strong>.
-    La mezza di Torino ci dice molto sulla tenuta, ma il 10 km ci permetterà
-    di capire meglio il livello attuale e soprattutto se abbiamo margine
-    per alzare ulteriormente l'asticella.
-  </p>
+<p>
+Questa volta però abbiamo la possibilità di fare subito
+una verifica più precisa della condizione.
+</p>
 
-  <div class="callout">
-    <strong>Dopo il Test 10 km</strong> aggiorneremo
-    <strong>RG, RM, RA, RL e RD</strong> e definiremo anche il
-    <strong>Ritmo Mezza</strong> da utilizzare nei lavori specifici
-    del 15 e del 29 novembre.
-  </div>
+<div class="highlight">
+<strong>🏁 DOMENICA 8 NOVEMBRE · TEST 10 KM</strong><br><br>
 
-  <p>
-    Fino a quel momento continuiamo quindi ad utilizzare i riferimenti
-    già utilizzati nella preparazione di Torino.
-  </p>
+Il test sarà corso al meglio e ci servirà per capire
+il valore attuale di Juri su una distanza più corta.
+
+Dal risultato aggiorneremo:
+
+<strong>RG · RM · RA · RL · RD</strong>
+
+e soprattutto definiremo il nuovo
+<strong>Ritmo Mezza</strong> da utilizzare nei lavori specifici.
+</div>
+
+<p>
+Per questo motivo non voglio ancora fissare sulla carta
+un obiettivo cronometrico per Reggio Emilia.
+
+Prima facciamo parlare il test, poi capiremo quanto possiamo
+essere ambiziosi.
+</p>
 
 </div>
 
 
-<div class="section-label" id="settimane">Programma · 6 settimane</div>
+<!-- PROGRAMMA -->
+<div class="section-title" id="programma">
+Programma · 6 settimane
+</div>
 
 
 <!-- SETTIMANA 1 -->
-
 <details class="week" open>
+
 <summary>
-  <span>Settimana 1 · Facciamo il punto</span>
-  <span class="dates">2–8 novembre</span>
+  <span>Settimana 1 · Test 10 km</span>
+  <span class="date">2–8 novembre</span>
 </summary>
 
-<div class="wc">
+<div class="week-content">
 
-  <div class="session">
-    <div class="title">🔄 Lunedì · Qualità Alternativo</div>
 
+<div class="workout">
+
+  <div class="workout-title">
+    🔄 Lunedì · Qualità Alternativo
+  </div>
+
+  <strong>
     10' RD + 10' andature per tecnica e postura +
-    <strong>10 × (100 m RG-20" + 100 m RG-40" + 1'30" recupero souplesse)</strong>
-    + 10' RD.
+    10 × (100 m RG-20" + 100 m RG-40" + 1'30" recupero souplesse) +
+    10' RD
+  </strong>
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      brillantezza e velocità corta, senza trasformare il lavoro
-      in qualcosa di eccessivamente impegnativo.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    velocità corta e brillantezza mantenendo una buona qualità
+    di corsa in tutte le prove.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🔥 Mercoledì · Qualità Standard</div>
 
+<div class="workout">
+
+  <div class="workout-title">
+    🔥 Mercoledì · Qualità Standard
+  </div>
+
+  <strong>
     15' RD +
-    <strong>piramide 500 – 800 – 1200 – 800 – 500 m a RG-10"</strong>
-    con <strong>500 m RL</strong> tra le prove +
-    5' RD.
+    500 m RG-10" + 500 m RL +
+    800 m RG-10" + 500 m RL +
+    1200 m RG-10" + 500 m RL +
+    800 m RG-10" + 500 m RL +
+    500 m RG-10" +
+    5' RD
+  </strong>
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      un buon lavoro di soglia corto/medio mantenendo regolarità
-      durante tutta la piramide.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    un lavoro di soglia corto/medio, con una piramide che ci permette
+    di lavorare sul ritmo senza avere una singola prova troppo lunga.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🟦 Venerdì · Scarico</div>
 
-    <strong>8 km RD/RL.</strong>
+<div class="workout">
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      muovere le gambe e arrivare fresco al test.
-    </div>
+  <div class="workout-title">
+    🟦 Venerdì · Scarico
   </div>
 
+  <strong>8 km RD/RL</strong>
 
-  <div class="session test">
-    <div class="title">🏁 Domenica 8 novembre · TEST 10 KM</div>
-
-    <strong>
-      2 km RD + 10 km AL MEGLIO + 1–2 km RD
-    </strong>
-
-    <div class="note">
-      <strong>Nessun obiettivo cronometrico prestabilito.</strong><br>
-      Voglio un 10 km corso realmente al meglio ma gestito bene.
-      Non serve partire a tutta per poi perdere ritmo nella seconda parte.
-    </div>
-
-    <div class="why">
-      <strong>🎯 Perché facciamo questo test:</strong>
-      vogliamo una fotografia precisa della condizione attuale.
-      Dal risultato ricaveremo i nuovi ritmi di riferimento e capiremo
-      anche quale può essere un obiettivo realistico per Reggio Emilia.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    recuperare e arrivare con gambe fresche al test.
   </div>
+
+</div>
+
+
+<div class="workout testwork">
+
+  <div class="workout-title">
+    🏁 Domenica 8 novembre · TEST 10 KM
+  </div>
+
+  <strong>
+    2 km RD + 10 km AL MEGLIO + 1–2 km RD
+  </strong>
+
+  <div class="note">
+    <strong>Nessun tempo imposto.</strong><br>
+    Voglio un test corso realmente al meglio ma gestito bene.
+    Non partire troppo forte: dobbiamo avere un dato attendibile
+    su tutti i 10 km.
+  </div>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    capire il valore attuale dopo Torino e verificare se abbiamo
+    margine per alzare ulteriormente l'obiettivo sulla mezza.
+
+    Il risultato servirà per aggiornare tutti i ritmi
+    delle settimane successive.
+  </div>
+
+</div>
+
 
 </div>
 </details>
 
 
 <!-- SETTIMANA 2 -->
-
 <details class="week">
+
 <summary>
-  <span>Settimana 2 · Primo lungo specifico</span>
-  <span class="dates">9–15 novembre</span>
+  <span>Settimana 2 · Lavoro specifico</span>
+  <span class="date">9–15 novembre</span>
 </summary>
 
-<div class="wc">
+<div class="week-content">
 
-  <div class="session">
-    <div class="title">🔄 Lunedì · Qualità Alternativo</div>
 
-    10' RD + 10' andature per tecnica e postura +
-    <strong>
-      3 × (250 m RM + 250 m RG + 250 m RG-20" +
-      250 m RG-40" + 3' recupero souplesse)
-    </strong>
-    + 5' RD.
+<div class="workout">
 
-    <div class="note">
-      Il giorno prima abbiamo fatto il Test 10 km.
-      <strong>Questo allenamento si fa solamente se il test è stato recuperato bene.</strong>
-      In caso contrario viene sostituito con uno scarico RD/RL.
-    </div>
+  <div class="workout-title">
+    🔄 Lunedì · Qualità Alternativo
   </div>
 
+  <strong>
+    10' RD + 10' andature +
+    3 × (
+    250 m RM +
+    250 m RG +
+    250 m RG-20" +
+    250 m RG-40" +
+    3' recupero souplesse
+    ) +
+    5' RD
+  </strong>
 
-  <div class="session">
-    <div class="title">🔥 Mercoledì · Qualità Standard</div>
+  <div class="note">
+    Arriviamo dal Test 10 km della domenica.
 
+    <strong>
+    Se le gambe non hanno recuperato completamente:
+    7–9 km RD/RL al posto dell'Alternativo.
+    </strong>
+  </div>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    un lavoro progressivo all'interno di ogni blocco,
+    passando da RM fino alla parte più veloce.
+  </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🔥 Mercoledì · Qualità Standard
+  </div>
+
+  <strong>
     15' RD +
-    <strong>
-      3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL]
-    </strong>
-    + 5'/10' RD.
+    3 × (
+    500 m RM +
+    1000 m RG +
+    500 m RM +
+    500 m RL
+    ) +
+    5'/10' RD
+  </strong>
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      lavoro di soglia lungo e capacità di mantenere qualità
-      anche all'interno di blocchi abbastanza prolungati.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    un lavoro di soglia lungo, mantenendo continuità nei cambi
+    di ritmo all'interno dei tre blocchi.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🟦 Venerdì · Scarico</div>
 
-    <strong>8–9 km RD/RL.</strong>
+<div class="workout">
+
+  <div class="workout-title">
+    🟦 Venerdì · Scarico
   </div>
 
+  <strong>8–9 km RD/RL</strong>
 
-  <div class="session long">
-    <div class="title">🔑 Domenica 15 novembre · Lungo specifico · 19 km</div>
-
-    <strong>
-      3 km RD +
-      3 × (3,5 km Ritmo Mezza + 500 m RG + 1 km RL) +
-      1 km RD
-    </strong>
-
-    <div class="note">
-      Questo allenamento viene mantenuto in questa forma anche per
-      poterlo svolgere <strong>in compagnia durante il collettivo</strong>.
-    </div>
-
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      iniziamo il lavoro veramente specifico per la mezza.
-      Tanti chilometri a Ritmo Mezza, brevi passaggi a RG e recupero
-      sempre attivo a RL. È un allenamento importante,
-      ma non deve diventare una gara.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    recuperare bene perché domenica arriva il primo vero
+    lavoro specifico per la mezza.
   </div>
+
+</div>
+
+
+<div class="workout keywork">
+
+  <div class="workout-title">
+    🔑 Domenica 15 novembre · Lungo specifico · 19 km
+  </div>
+
+  <strong>
+    3 km RD +
+    3 × (
+    3,5 km Ritmo Mezza +
+    500 m RG +
+    1 km RL
+    ) +
+    1 km RD
+  </strong>
+
+  <div class="note">
+    Questo lavoro coincide con il collettivo del 15 novembre:
+    in questo modo Juri potrà svolgerlo in compagnia.
+  </div>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    è il primo vero lavoro specifico verso Reggio Emilia.
+
+    In ogni blocco corriamo 3,5 km a Ritmo Mezza e,
+    invece di rallentare subito, aggiungiamo 500 m a RG.
+    Solo dopo recuperiamo con 1 km a RL.
+
+    Vogliamo accumulare tanti chilometri di qualità,
+    ma senza trasformare l'allenamento in una gara.
+  </div>
+
+</div>
+
 
 </div>
 </details>
 
 
 <!-- SETTIMANA 3 -->
-
 <details class="week">
+
 <summary>
-  <span>Settimana 3 · Assimiliamo il lavoro</span>
-  <span class="dates">16–22 novembre</span>
+  <span>Settimana 3 · Assimilazione</span>
+  <span class="date">16–22 novembre</span>
 </summary>
 
-<div class="wc">
+<div class="week-content">
 
-  <div class="session">
-    <div class="title">🔄 Lunedì · Qualità Alternativo</div>
 
-    10' RD + 25' andature per tecnica e postura +
-    <strong>
-      10 × (100 m RG-20" + 200 m recupero souplesse/RD)
-    </strong>
-    + 10' RD.
+<div class="workout">
 
-    <div class="note">
-      Arriviamo dal lungo specifico di 19 km:
-      <strong>se le gambe non hanno recuperato bene, si sostituisce
-      con scarico RD/RL.</strong>
-    </div>
+  <div class="workout-title">
+    🔄 Lunedì · Qualità Alternativo
   </div>
 
+  <strong>
+    10' RD +
+    25' andature per tecnica e postura +
+    10 × (100 m RG-20" + 200 m recupero souplesse/RD) +
+    10' RD
+  </strong>
 
-  <div class="session">
-    <div class="title">🔥 Mercoledì · Qualità Standard</div>
+  <div class="note">
+    Arriviamo dal lungo specifico di 19 km.
 
+    Se le gambe sono ancora pesanti:
+    <strong>7–9 km RD/RL al posto dell'Alternativo.</strong>
+  </div>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    brillantezza senza aggiungere un grande carico metabolico.
+  </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🔥 Mercoledì · Qualità Standard
+  </div>
+
+  <strong>
     15' RD +
-    <strong>5 km in progressione da RL a RG</strong>
-    + 10' RD.
+    5 km in progressione da RL a RG +
+    10' RD
+  </strong>
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      una settimana leggermente più leggera per assimilare il carico
-      precedente senza perdere qualità.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    questa è una settimana più leggera.
+    Manteniamo qualità ma lasciamo spazio all'assimilazione
+    del lungo precedente.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🟦 Venerdì · Scarico</div>
 
-    <strong>8–9 km RD/RL.</strong>
+<div class="workout">
+
+  <div class="workout-title">
+    🟦 Venerdì · Scarico
   </div>
 
+  <strong>8–9 km RD/RL</strong>
 
-  <div class="session">
-    <div class="title">🌿 Weekend · 14 km</div>
-
-    <strong>
-      3 km RD + 4 km RL + 4 km RA + 2 km RM + 1 km RD
-    </strong>
-
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      continuità aerobica e una progressione graduale,
-      senza aggiungere troppo carico prima dell'ultimo lungo.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    recupero e volume aerobico senza aggiungere stress.
   </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🌿 Domenica 22 novembre · Progressivo · 14 km
+  </div>
+
+  <strong>
+    3 km RD +
+    4 km RL +
+    4 km RA +
+    2 km RM +
+    1 km RD
+  </strong>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    continuità aerobica e progressione senza arrivare ai ritmi
+    più impegnativi.
+
+    Questa settimana deve permetterci soprattutto di arrivare
+    nelle condizioni migliori all'ultimo lungo del 29 novembre.
+  </div>
+
+</div>
+
 
 </div>
 </details>
 
 
 <!-- SETTIMANA 4 -->
-
 <details class="week">
+
 <summary>
   <span>Settimana 4 · Ultimo lungo</span>
-  <span class="dates">23–29 novembre</span>
+  <span class="date">23–29 novembre</span>
 </summary>
 
-<div class="wc">
+<div class="week-content">
 
-  <div class="session">
-    <div class="title">🔄 Lunedì · Qualità Alternativo</div>
 
-    <strong>Circuito Potenziamento oppure Allenamento salite</strong>,
-    come previsto dal collettivo.
+<div class="workout">
 
-    <div class="note">
-      Vale sempre la stessa regola:
-      se il weekend precedente non è stato completamente recuperato,
-      sostituire con scarico RD/RL.
-    </div>
+  <div class="workout-title">
+    🔄 Lunedì · Qualità Alternativo
   </div>
 
+  <strong>
+    Circuito Potenziamento oppure Allenamento salite
+  </strong>
 
-  <div class="session">
-    <div class="title">🔥 Mercoledì · Qualità Standard</div>
+  <div class="note">
+    Anche qui vale la nostra regola:
+    se il weekend non è stato completamente recuperato,
+    <strong>7–9 km RD/RL.</strong>
+  </div>
 
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    forza e reattività senza aggiungere un altro lavoro
+    prolungato di corsa veloce.
+  </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🔥 Mercoledì · Qualità Standard
+  </div>
+
+  <strong>
     15' RD +
-    5 × 50–60 m allungo facile con 50–60 m recupero RD +
-    <strong>
-      5 × (800 m tra RG-10" e RG-30" + 2'30" recupero souplesse)
-    </strong>.
+    5 × (50–60 m allungo facile + 50–60 m recupero RD) +
+    5 × (
+    800 m tra RG-10" e RG-30" +
+    2'30" recupero souplesse
+    )
+  </strong>
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      velocità e brillantezza, mantenendo recuperi completi
-      prima dell'ultimo lungo importante.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    velocità e brillantezza.
+
+    Il recupero deve essere completo: la souplesse può essere
+    fatta anche camminando se necessario.
+    Ci interessa la qualità degli 800, non accorciare il recupero.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🟦 Venerdì · Scarico</div>
 
-    <strong>7–8 km RD/RL.</strong>
+<div class="workout">
+
+  <div class="workout-title">
+    🟦 Venerdì · Scarico
   </div>
 
+  <strong>7–8 km RD/RL</strong>
 
-  <div class="session long">
-    <div class="title">🔑 Domenica 29 novembre · ULTIMO LUNGO · 19 km</div>
-
-    <strong>
-      3 km RD +
-      4 km RL +
-      5 km RA +
-      5 km Ritmo Mezza +
-      1 km RG +
-      1 km RD
-    </strong>
-
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      questo è il lavoro chiave finale della preparazione.
-      I 5 km a Ritmo Mezza arrivano dopo 12 km già corsi:
-      vogliamo quindi imparare a mantenere il ritmo specifico
-      quando le gambe iniziano già ad essere affaticate.
-      Il km finale a RG completa il lavoro senza trasformarlo
-      in una mezza corsa al massimo.
-    </div>
-
-    <div class="note">
-      <strong>Da questo momento il lavoro è fatto.</strong><br>
-      Nelle due settimane successive non dobbiamo più aumentare
-      la condizione: dobbiamo arrivare a Reggio Emilia
-      con tutto il lavoro assimilato e gambe fresche.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    arrivare fresco all'ultimo lungo importante.
   </div>
+
+</div>
+
+
+<div class="workout keywork">
+
+  <div class="workout-title">
+    🔑 Domenica 29 novembre · ULTIMO LUNGO · 19 km
+  </div>
+
+  <strong>
+    3 km RD +
+    4 km RL +
+    5 km RA +
+    5 km Ritmo Mezza +
+    1 km RG +
+    1 km RD
+  </strong>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    questo è il lavoro chiave finale.
+
+    I primi 12 km costruiscono progressivamente la fatica.
+    A quel punto arrivano i 5 km a Ritmo Mezza:
+    è proprio qui che vogliamo verificare la capacità
+    di trovare e mantenere il ritmo gara con chilometri
+    già nelle gambe.
+
+    Chiudiamo con 1 km a RG e poi 1 km RD.
+  </div>
+
+  <div class="note">
+    <strong>Questo è l'ultimo lungo della preparazione.</strong>
+
+    Mancano due settimane alla gara.
+    Da questo momento non dobbiamo più costruire volume:
+    dobbiamo assimilare tutto il lavoro fatto.
+  </div>
+
+</div>
+
 
 </div>
 </details>
 
 
 <!-- SETTIMANA 5 -->
-
 <details class="week">
+
 <summary>
-  <span>Settimana 5 · Iniziamo lo scarico</span>
-  <span class="dates">30 novembre – 6 dicembre</span>
+  <span>Settimana 5 · Scarico</span>
+  <span class="date">30 novembre – 6 dicembre</span>
 </summary>
 
-<div class="wc">
+<div class="week-content">
 
-  <div class="session">
-    <div class="title">🔄 Lunedì · Qualità Alternativo</div>
 
-    10' RD + 10' andature per tecnica e postura +
-    <strong>
-      3 × (
-      400 m RG-20" + 1'30" souplesse +
-      300 m RG-30" + 1'30" souplesse +
-      200 m RG-40" + 1' souplesse +
-      100 m RG-40" + 30" souplesse)
-    </strong>
-    + 5' RD.
+<div class="workout">
 
-    <div class="note">
-      <strong>Attenzione:</strong> arriviamo dall'ultimo lungo di 19 km.
-      Questo Alternativo si fa esclusivamente se il recupero è completo.
-      Altrimenti: <strong>scarico RD/RL.</strong>
-    </div>
+  <div class="workout-title">
+    🔄 Lunedì · Qualità Alternativo
   </div>
 
+  <strong>
+    10' RD +
+    10' andature +
+    3 × (
+    400 m RG-20" + 1'30" souplesse +
+    300 m RG-30" + 1'30" souplesse +
+    200 m RG-40" + 1' souplesse +
+    100 m RG-40" + 30" souplesse
+    ) +
+    5' RD
+  </strong>
 
-  <div class="session">
-    <div class="title">🔥 Mercoledì · Qualità Standard</div>
+  <div class="note">
+    Questo lavoro arriva il giorno dopo l'ultimo lungo.
 
+    <strong>
+    Si esegue solamente in caso di recupero completo.
+    </strong>
+
+    In caso contrario: <strong>7–9 km RD/RL.</strong>
+  </div>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    velocità corta e brillantezza.
+    Se però c'è ancora fatica dal lungo, recuperare
+    ci dà più beneficio che aggiungere un'altra qualità.
+  </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🔥 Mercoledì · Qualità Standard
+  </div>
+
+  <strong>
     15' RD +
-    <strong>
-      5 × (500 m RG + 300 m RL + 200 m RG-10")
-    </strong>
-    + 10' RD.
+    5 × (
+    500 m RG +
+    300 m RL +
+    200 m RG-10"
+    ) +
+    10' RD
+  </strong>
 
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      mantenere soglia e reattività mentre iniziamo
-      a diminuire il carico generale.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    mantenere attivi RG e soglia mentre iniziamo
+    a ridurre il carico complessivo.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🟦 Venerdì · Scarico</div>
 
-    <strong>7–8 km RD/RL.</strong>
+<div class="workout">
+
+  <div class="workout-title">
+    🟦 Venerdì · Scarico
   </div>
 
+  <strong>7–8 km RD/RL</strong>
 
-  <div class="session">
-    <div class="title">🌿 Domenica 6 dicembre · Richiamo · 12 km</div>
-
-    <strong>
-      2 km RD + 4 km RL + 4 km RM + 2 km RD
-    </strong>
-
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      mantenere sensibilità al ritmo senza creare fatica.
-      Si deve finire questo allenamento con margine,
-      con la sensazione di avere ancora corsa nelle gambe.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    recuperare completamente e continuare a far scendere
+    il carico.
   </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🌿 Domenica 6 dicembre · Richiamo · 12 km
+  </div>
+
+  <strong>
+    2 km RD +
+    4 km RL +
+    4 km RM +
+    2 km RD
+  </strong>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    mantenere sensibilità al ritmo senza creare nuova fatica.
+
+    I 4 km a RM sono sufficienti per dare uno stimolo,
+    ma l'allenamento deve finire con margine e con la sensazione
+    di avere ancora corsa nelle gambe.
+  </div>
+
+</div>
+
 
 </div>
 </details>
 
 
 <!-- SETTIMANA 6 -->
-
 <details class="week">
+
 <summary>
-  <span>Settimana 6 · Gara!</span>
-  <span class="dates">7–13 dicembre</span>
+  <span>Settimana 6 · Gara</span>
+  <span class="date">7–13 dicembre</span>
 </summary>
 
-<div class="wc">
+<div class="week-content">
 
-  <div class="session">
-    <div class="title">🔄 Lunedì · Attivazione / Scarico</div>
 
-    Questa settimana <strong>non ci interessa completare integralmente
-    il lavoro Alternativo del collettivo</strong>.
+<div class="workout">
 
-    <div class="note">
-      Faremo un lavoro molto ridotto oppure direttamente uno
-      <strong>scarico RD/RL</strong> in base alle sensazioni.
-      A sei giorni dalla gara la priorità assoluta è la freschezza.
-    </div>
+  <div class="workout-title">
+    🔄 Lunedì · Attivazione
   </div>
 
+  <strong>
+    7 km RD/RL +
+    4 × (100 m allungo + 100 m souplesse)
+  </strong>
 
-  <div class="session">
-    <div class="title">🔥 Mercoledì · Ultimo richiamo</div>
-
-    <strong>
-      15' RD + 2 km RM + 2 km RG + 10' RD
-    </strong>
-
-    <div class="note">
-      Riduciamo volutamente il lavoro Standard previsto dal programma
-      generale. In settimana gara non dobbiamo più costruire nulla.
-    </div>
-
-    <div class="why">
-      <strong>🎯 Cosa cerchiamo:</strong>
-      ricordare alle gambe i ritmi senza lasciare fatica.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    muovere le gambe e mantenere brillantezza.
+    Questa settimana non facciamo l'Alternativo completo:
+    la priorità è arrivare freschi alla gara.
   </div>
 
+</div>
 
-  <div class="session">
-    <div class="title">🟦 Venerdì · Ultimo scarico</div>
 
-    <strong>
-      25'–30' RD/RL + 3–4 allunghi facili da 80–100 m
-    </strong>
+<div class="workout">
 
-    <div class="note">
-      Gli allunghi si fanno solamente se le gambe sono fresche.
-    </div>
+  <div class="workout-title">
+    🔥 Mercoledì · Ultimo richiamo
   </div>
 
+  <strong>
+    15' RD +
+    2 km RM +
+    2 km RG +
+    10' RD
+  </strong>
 
-  <div class="session race">
-    <div class="title">🏁 Domenica 13 dicembre · MEZZA MARATONA DI REGGIO EMILIA</div>
-
-    <strong>21,097 km</strong>
-
-    <div class="why">
-      <strong>🎯 Obiettivo e strategia gara:</strong>
-      li definiremo dopo il Test 10 km dell'8 novembre
-      e li confermeremo attraverso i lavori specifici
-      del 15 e del 29 novembre.
-    </div>
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    ricordare alle gambe i ritmi senza lasciare alcuna fatica.
+    Deve terminare con la sensazione di poter continuare.
   </div>
+
+</div>
+
+
+<div class="workout">
+
+  <div class="workout-title">
+    🟦 Venerdì · Ultimo scarico
+  </div>
+
+  <strong>
+    25'–30' RD/RL +
+    3–4 × 80–100 m allungo facile
+  </strong>
+
+  <div class="note">
+    Gli allunghi si fanno solamente se le gambe sono fresche.
+    A 48 ore dalla gara non dobbiamo recuperare nulla.
+  </div>
+
+  <div class="why">
+    <strong>🎯 Cosa cerchiamo:</strong>
+    sciogliere le gambe e arrivare alla domenica
+    con tanta voglia di correre.
+  </div>
+
+</div>
+
+
+<div class="workout racework">
+
+  <div class="workout-title">
+    🏁 Domenica 13 dicembre · MEZZA MARATONA DI REGGIO EMILIA
+  </div>
+
+  <strong>21,097 km</strong>
+
+  <div class="why">
+    <strong>🎯 Strategia gara:</strong>
+
+    ritmo e obiettivo cronometrico verranno definiti
+    dopo il Test 10 km dell'8 novembre e verificati
+    attraverso i lavori specifici del 15 e del 29 novembre.
+
+    Prima raccogliamo i dati, poi decidiamo quanto
+    possiamo essere ambiziosi.
+  </div>
+
+</div>
+
 
 </div>
 </details>
 
 
-<div class="section-label">I punti chiave</div>
+<!-- NOTE FINALI -->
+<div class="section-title">Indicazioni finali</div>
 
-<div class="card content">
+<div class="card text">
 
-  <p>
-    <strong>1. Il Test 10 km dell'8 novembre</strong><br>
-    sarà il primo vero punto di verifica. Da lì aggiorneremo tutti
-    i ritmi e capiremo quanto possiamo essere ambiziosi a Reggio Emilia.
-  </p>
+<p>
+Il primo punto importante sarà il
+<strong>Test 10 km dell'8 novembre</strong>.
+Da lì avremo finalmente un riferimento aggiornato
+per tutti i ritmi.
+</p>
 
-  <p>
-    <strong>2. Il lungo del 15 novembre</strong><br>
-    sarà il primo grande lavoro specifico a Ritmo Mezza.
-  </p>
+<p>
+Il <strong>15 novembre</strong> inizieremo il vero lavoro
+specifico sulla mezza con i 19 km del collettivo.
+</p>
 
-  <p>
-    <strong>3. Il lungo del 29 novembre</strong><br>
-    sarà l'ultimo vero allenamento importante della preparazione,
-    esattamente a due settimane dalla gara.
-  </p>
+<p>
+Il <strong>29 novembre</strong>, esattamente due settimane
+prima della gara, faremo l'ultimo lungo da 19 km.
+Quello sarà l'ultimo vero grande stimolo della preparazione.
+</p>
 
-  <p>
-    <strong>4. Le ultime due settimane</strong><br>
-    servono ad assimilare il lavoro fatto. Non dobbiamo cercare
-    altri miglioramenti all'ultimo momento: dobbiamo presentarci
-    sulla linea di partenza freschi e con voglia di correre.
-  </p>
+<p>
+Da quel momento il volume scenderà:
+il lavoro sarà ormai fatto e dovremo solamente permettere
+all'organismo di assimilarlo.
+</p>
 
-  <div class="callout">
-    <strong>Ricorda:</strong>
-    quattro allenamenti non significano quattro allenamenti impegnativi.
-    Il venerdì serve per recuperare e anche il lunedì può diventare
-    scarico quando il lavoro del weekend non è stato ancora assorbito.
-    È la continuità del percorso che ci farà arrivare bene alla gara,
-    non il singolo allenamento.
-  </div>
+<div class="highlight">
+<strong>La regola più importante di tutto il programma:</strong><br><br>
 
-  <p class="foot">
-    Runner's School Italia · Programma personale riservato
-  </p>
+il lunedì non dobbiamo avere paura di sostituire la Qualità
+Alternativo con uno scarico quando il weekend è stato impegnativo.
+
+Non perdiamo un allenamento:
+<strong>stiamo semplicemente scegliendo lo stimolo giusto
+in base al recupero.</strong>
+</div>
+
+<div class="footer">
+Runner's School Italia · Programma personale riservato
+</div>
 
 </div>
 
@@ -928,33 +1225,44 @@ details.week summary::-webkit-details-marker{display:none}
 
 <script>
 (function(){
-  const key = "CorJur.2026";
-  const storageKey = "rs_corticelli_juri_2026";
 
-  const lock = document.getElementById("rs-lock");
-  const content = document.getElementById("content");
-  const input = document.getElementById("password");
-  const error = document.getElementById("error");
+  const key="CorJur.2026";
+  const storageKey="rs_corticelli_juri";
 
-  window.checkPassword = function(){
-    if(input.value === key){
+  const lock=document.getElementById("lock");
+  const page=document.getElementById("page");
+  const password=document.getElementById("password");
+  const error=document.getElementById("error");
+
+  window.unlock=function(){
+
+    if(password.value===key){
+
       localStorage.setItem(storageKey,"ok");
+
       lock.style.display="none";
-      content.style.display="block";
+      page.style.display="block";
+
     }else{
+
       error.textContent="Password non corretta.";
-      input.select();
+      password.select();
+
     }
+
   };
 
-  input.addEventListener("keydown",function(e){
-    if(e.key === "Enter") checkPassword();
+  password.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){
+      unlock();
+    }
   });
 
-  if(localStorage.getItem(storageKey) === "ok"){
+  if(localStorage.getItem(storageKey)==="ok"){
     lock.style.display="none";
-    content.style.display="block";
+    page.style.display="block";
   }
+
 })();
 </script>
 
