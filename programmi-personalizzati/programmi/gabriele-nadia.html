@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Runner’s School Italia – Programma personalizzato Borgatti Benedetta</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Runner’s School Italia – Gabriele Nadia · Reggio Emilia Marathon</title>
 
 <style>
 :root{
   --bg:#020617;
   --bg-card:#0b1120;
-  --bg-soft:#050b18;
   --accent:#f97316;
   --accent-soft:rgba(249,115,22,0.12);
-  --accent-border:rgba(249,115,22,0.30);
   --text:#e5e7eb;
   --text-muted:#9ca3af;
   --border:#1f2937;
@@ -21,7 +20,6 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -30,7 +28,18 @@ body{
   color:var(--text);
 }
 
-.app{max-width:540px;margin:0 auto;padding:18px 16px 34px;}
+.app{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 16px 40px;
+  display:none;
+}
+
+.wrap{
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 16px 28px;
+}
 
 .top{
   display:flex;
@@ -55,11 +64,15 @@ body{
   padding:8px 10px;
   border-radius:999px;
   background:var(--accent-soft);
-  border:1px solid var(--accent-border);
+  border:1px solid rgba(249,115,22,.28);
+  color:var(--text);
+  white-space:nowrap;
 }
 
 .card{
-  background:linear-gradient(180deg,rgba(249,115,22,0.06),rgba(0,0,0,0)),var(--bg-card);
+  background:
+    linear-gradient(180deg,rgba(249,115,22,.06),rgba(0,0,0,0)),
+    var(--bg-card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
@@ -68,22 +81,32 @@ body{
 }
 
 h1{
-  font-size:20px;
+  font-size:19px;
   margin:0 0 8px;
+}
+
+h2{
+  font-size:15px;
+  margin:0 0 10px;
+  color:var(--accent);
 }
 
 .meta{
   color:var(--text-muted);
   font-size:13px;
   line-height:1.45;
+  margin:0;
 }
 
+.meta b{color:var(--text)}
+
 .section-label{
-  font-size:12px;
+  font-size:13px;
   text-transform:uppercase;
   letter-spacing:.16em;
   color:var(--text-muted);
   margin:22px 2px 10px;
+  text-align:center;
 }
 
 .content{
@@ -95,6 +118,11 @@ h1{
   margin:10px 0;
 }
 
+.content strong{
+  color:var(--text);
+  font-weight:900;
+}
+
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -104,514 +132,797 @@ h1{
 .mini{
   border:1px solid var(--border);
   border-radius:16px;
-  background:var(--bg-soft);
+  background:#050b18;
   padding:12px;
 }
 
-.mini.full{
-  grid-column:1 / -1;
-}
-
-.k{
+.mini .k{
   font-size:11px;
   color:var(--text-muted);
+  letter-spacing:.12em;
   text-transform:uppercase;
   margin-bottom:6px;
 }
 
-.v{
+.mini .v{
   font-size:14px;
   line-height:1.35;
 }
 
-.tagrow{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.tag{
-  font-size:12px;
-  padding:7px 9px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:var(--bg-soft);
-}
-
-.tag.ok{
-  border-color:rgba(34,197,94,.35);
-  color:#bbf7d0;
-}
-
-.tag.info{
-  border-color:rgba(56,189,248,.35);
-  color:#bae6fd;
-}
-
-.tag.warn{
-  border-color:rgba(249,115,22,.35);
-  color:#fed7aa;
-}
-
 .note-box{
   margin-top:12px;
-  padding:12px;
-  border-radius:14px;
-  border:1px solid var(--accent-border);
+  border:1px solid rgba(249,115,22,.28);
   background:var(--accent-soft);
+  border-radius:14px;
+  padding:12px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.45;
 }
 
-.alert-box{
+.success-box{
   margin-top:12px;
-  padding:12px;
+  border:1px solid rgba(34,197,94,.30);
+  background:rgba(34,197,94,.08);
   border-radius:14px;
-  border:1px solid rgba(239,68,68,.35);
-  background:rgba(239,68,68,.08);
+  padding:12px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.45;
 }
 
 details.week{
   border:1px solid var(--border);
-  border-radius:16px;
-  background:var(--bg-soft);
+  border-radius:18px;
+  background:#050b18;
+  margin:10px 0;
   overflow:hidden;
-  margin-top:10px;
 }
 
 details.week summary{
-  list-style:none;
   cursor:pointer;
-  padding:12px;
+  list-style:none;
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:10px;
-  font-weight:900;
+  padding:14px;
+  align-items:center;
 }
 
-details.week summary::-webkit-details-marker{display:none}
+details.week summary::-webkit-details-marker{
+  display:none;
+}
+
+.week-title{
+  font-weight:900;
+  color:var(--text);
+}
+
+.week-dates{
+  font-size:12px;
+  color:var(--text-muted);
+  text-align:right;
+}
 
 .week-content{
-  padding:0 12px 12px;
+  border-top:1px solid var(--border);
+  padding:4px 14px 14px;
   font-size:14px;
-  line-height:1.45;
+  line-height:1.5;
 }
 
 .session{
-  padding:10px 0;
-  border-top:1px solid rgba(255,255,255,.06);
+  margin-top:14px;
+  padding-bottom:13px;
+  border-bottom:1px solid rgba(31,41,55,.8);
 }
 
-.session:first-child{border-top:0}
+.session:last-child{
+  border-bottom:0;
+  padding-bottom:0;
+}
 
 .session-title{
   font-weight:900;
-  margin-bottom:4px;
+  color:var(--text);
+  margin-bottom:5px;
 }
 
-.small{
+.session-text{
+  color:var(--text-muted);
+}
+
+.why{
+  margin-top:6px;
   font-size:12px;
   color:var(--text-muted);
 }
 
-@media (max-width:420px){
-  .grid{grid-template-columns:1fr;}
+.why strong{
+  color:var(--text);
+}
+
+.footnote{
+  margin-top:14px;
+  color:var(--text-muted);
+  font-size:11px;
+  line-height:1.4;
+}
+
+input{
+  width:100%;
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#020617;
+  color:var(--text);
+  font-size:15px;
+}
+
+.btnrow{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#050b18;
+  color:var(--text);
+  font-size:13px;
+  cursor:pointer;
+}
+
+.btn.primary{
+  background:linear-gradient(
+    180deg,
+    rgba(249,115,22,.95),
+    rgba(249,115,22,.75)
+  );
+  border:0;
+  color:#0b1120;
+  font-weight:900;
+}
+
+.msg{
+  margin-top:12px;
+  color:#fecaca;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
-<div class="app">
 
-<div class="top">
-<a class="back" href="/runnerschoolitalia/programmi-personalizzati/">← Programmi personalizzati</a>
-<div class="pill">🟧 Runner’s School Italia</div>
+<!-- ACCESSO -->
+<div id="lock" style="display:block;">
+  <div class="wrap">
+    <div class="card">
+      <div class="pill">🔒 Area riservata allievo</div>
+
+      <h1 style="margin-top:10px">Inserisci la password</h1>
+
+      <p class="meta">
+        Prima volta: può essere richiesta anche se sei entrata
+        dalla pagina principale. Poi non verrà più chiesta
+        su questo dispositivo.
+      </p>
+
+      <input
+        id="pw"
+        type="password"
+        placeholder="Password…"
+        autocomplete="current-password"
+      >
+
+      <div class="btnrow">
+        <a class="btn primary" href="#" id="unlock">Entra</a>
+        <a class="btn"
+           href="/runnerschoolitalia/programmi-personalizzati/">
+           Torna indietro
+        </a>
+      </div>
+
+      <div class="msg" id="lockMsg" style="display:none;">
+        Password errata. Riprova.
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="card">
-<h1>📄 Programma personalizzato · Borgatti Benedetta</h1>
 
-<p class="meta">
-Periodo: <b>2 – 29 novembre 2026</b><br>
-Obiettivo: <b>Mezza Maratona di Torino</b><br>
-Data gara: <b>Domenica 29 novembre 2026</b><br>
-Coach: <b>Runner’s School Italia</b>
-</p>
+<!-- APP -->
+<div class="app" id="app">
 
-<div class="tagrow">
-<span class="tag ok">Obiettivo 21,097 km</span>
-<span class="tag info">4 uscite settimanali</span>
-<span class="tag warn">Post maratona</span>
+  <div class="top">
+    <a class="back"
+       href="/runnerschoolitalia/programmi-personalizzati/">
+       ← Programmi personalizzati
+    </a>
+
+    <div class="pill">🟧 Runner’s School Italia</div>
+  </div>
+
+
+  <!-- HEADER -->
+  <div class="card">
+
+    <h1>🏃‍♀️ Gabriele Nadia · Parma → Reggio Emilia</h1>
+
+    <p class="meta">
+      Aggiornato: <b>28/10/2026</b><br>
+      Prossimo obiettivo:
+      <b>Maratona di Reggio Emilia · 13 dicembre 2026</b>
+    </p>
+
+    <div class="success-box">
+      🏅 <strong>Parma Marathon conclusa in 4h06'</strong><br>
+      Nuovo miglior tempo personale, migliorando di circa
+      2 minuti il precedente risultato di Padova.
+    </div>
+
+  </div>
+
+
+  <!-- OBIETTIVO -->
+  <div class="section-label">Il nuovo percorso</div>
+
+  <div class="card content">
+
+    <h2>🎯 Da Parma a Reggio Emilia</h2>
+
+    <p>
+      Parma rappresenta già un punto di partenza molto importante:
+      <strong>42,195 km corsi e portati a termine in 4h06'</strong>,
+      migliorando ancora il personale.
+    </p>
+
+    <p>
+      L'obiettivo delle prossime settimane non è quindi costruire
+      una nuova preparazione da zero e nemmeno cercare di recuperare
+      in poche settimane i minuti mancati al sub 4 ore.
+    </p>
+
+    <p>
+      Abbiamo già una base maratona completa nelle gambe.
+      Adesso dobbiamo soprattutto
+      <strong>recuperare Parma, assimilare il lavoro fatto,
+      ritrovare brillantezza e mantenere la resistenza</strong>
+      senza accumulare inutilmente altra fatica.
+    </p>
+
+    <div class="note-box">
+      <strong>📌 Principio fondamentale</strong><br>
+      Tra due maratone così ravvicinate il recupero è parte
+      integrante dell'allenamento. Fare di più non significa
+      necessariamente arrivare più preparati: a Reggio vogliamo
+      arrivare con la condizione di Parma ancora presente,
+      ma con gambe nuovamente fresche.
+    </div>
+
+  </div>
+
+
+  <!-- RITMI -->
+  <div class="section-label">Ritmi di riferimento</div>
+
+  <div class="card">
+
+    <div class="grid">
+
+      <div class="mini">
+        <div class="k">RG</div>
+        <div class="v">5'10"/km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">RM</div>
+        <div class="v">5'30"/km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">RA</div>
+        <div class="v">5'50"/km</div>
+      </div>
+
+      <div class="mini">
+        <div class="k">RL</div>
+        <div class="v">6'00"/km</div>
+      </div>
+
+      <div class="mini" style="grid-column:1/-1;">
+        <div class="k">RD</div>
+        <div class="v">6'10"/km o più lento se necessario</div>
+      </div>
+
+    </div>
+
+    <div class="note-box">
+      I ritmi restano quelli utilizzati durante la preparazione.
+      Nelle sedute RD/RL, soprattutto nelle prime settimane dopo
+      Parma, conta prima di tutto il recupero:
+      <strong>nessuna necessità di forzare per rispettare
+      il secondo al chilometro.</strong>
+    </div>
+
+  </div>
+
+
+  <!-- SETTIMANE -->
+  <div class="section-label">Programma di allenamento</div>
+
+
+  <!-- TRANSIZIONE -->
+  <details class="week" open>
+
+    <summary>
+      <span class="week-title">Recupero post Parma</span>
+      <span class="week-dates">28 ottobre – 1 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">♻️ Recupero</div>
+        <div class="session-text">
+          2–3 uscite molto tranquille da 6–9 km tra RD e RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana</div>
+        <div class="session-text">
+          10–12 km RD/RL.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        continuare a recuperare completamente la Maratona di Parma.
+        Nessun lavoro di qualità e nessuna necessità di raggiungere
+        un chilometraggio preciso.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 2-8 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 1 · Ripartenza</span>
+      <span class="week-dates">2–8 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD + piramide
+          <strong>
+            (500–800–1200–800–500 m a RG-10"
+            + 500 m RL)
+          </strong>
+          + 5' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          3 km RD + 5 km RL + 3 km RA + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 16 km</div>
+        <div class="session-text">
+          2 km RD + 10 km RL + 2 km RM + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        prima settimana nuovamente strutturata.
+        Riprendiamo qualità e volume senza cercare ancora
+        un vero lungo.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 9-15 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 2 · Costruzione</span>
+      <span class="week-dates">9–15 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–12 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          <strong>
+            3 × [500 m RM + 1000 m RG + 500 m RM + 500 m RL]
+          </strong>
+          + 5'/10' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          3 km RD + 7 km RL +
+          5 × (100 m allungo + 100 m recupero RL)
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 20 km</div>
+        <div class="session-text">
+          2 km RD + 8 km RL +
+          3 × (2 km RM + 1 km RL)
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        torniamo gradualmente su una distanza più importante,
+        inserendo ritmo ma senza trasformare il weekend
+        in un lunghissimo.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 16-22 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 3 · Scarico</span>
+      <span class="week-dates">16–22 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          <strong>5 km in progressione da RL a RG</strong>
+          + 10' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 16 km</div>
+        <div class="session-text">
+          2 km RD + 8 km RL + 4 km RM + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        settimana di assimilazione prima dell'ultimo blocco
+        realmente importante verso Reggio.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 23-29 NOVEMBRE -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 4 · Ultimo lungo</span>
+      <span class="week-dates">23–29 novembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          10–11 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          5 × (50–60 m allungo facile + 50–60 m recupero RD)
+          +
+          <strong>
+            5 × (800 m tra RG-10" e RG-30"
+            + 2'30" recupero souplesse)
+          </strong>.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          2 km RD + 8 km RL +
+          5 × (100 m allungo in salita
+          + 100 m recupero in discesa souplesse)
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Ultimo lungo · 28 km</div>
+        <div class="session-text">
+          3 km RD + 7 km RL +
+          <strong>
+            4 × (3 km RM + 1 km RL)
+          </strong>
+          + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        questo è l'unico vero lungo del blocco tra Parma e Reggio.
+        Non serve tornare a 32–34 km: la resistenza dei 42 km
+        è già stata costruita e Parma stessa rappresenta
+        il lunghissimo più importante.
+      </div>
+
+      <div class="note-box">
+        <strong>⚠️ Importante:</strong>
+        il lungo deve essere concluso con controllo.
+        Non è un test per il sub 4 ore e non va trasformato
+        in una gara.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- 30 NOV - 6 DIC -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">Settimana 5 · Inizio scarico</span>
+      <span class="week-dates">30 novembre – 6 dicembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          9–10 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔥 Qualità · Endurance Standard</div>
+        <div class="session-text">
+          15' RD +
+          <strong>
+            5 × (500 m RG + 300 m RL + 200 m RG-10")
+          </strong>
+          + 10' RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Mantenimento</div>
+        <div class="session-text">
+          2 km RD + 5 km RL + 2 km RA + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🏁 Fine settimana · 14 km</div>
+        <div class="session-text">
+          2 km RD + 8 km RL + 2 km RM + 2 km RD.
+        </div>
+      </div>
+
+      <div class="why">
+        <strong>🎯 Obiettivo:</strong>
+        il lavoro è ormai fatto.
+        Manteniamo gli stimoli ma iniziamo a ridurre
+        nettamente il carico per recuperare completamente
+        il lungo della settimana precedente.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- SETTIMANA GARA -->
+  <details class="week">
+
+    <summary>
+      <span class="week-title">🏁 Settimana Gara</span>
+      <span class="week-dates">7–13 dicembre</span>
+    </summary>
+
+    <div class="week-content">
+
+      <div class="session">
+        <div class="session-title">🟢 Scarico</div>
+        <div class="session-text">
+          7–8 km RD/RL.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">⚡ Richiamo soft</div>
+        <div class="session-text">
+          2 km RD + 3 km RA +
+          <strong>
+            4 × (100 m in progressione + 100 m souplesse)
+          </strong>
+          + 1 km RD.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">🔵 Eventuale terza uscita</div>
+        <div class="session-text">
+          20–25' RD/RL oppure riposo completo,
+          in base alle sensazioni.
+        </div>
+      </div>
+
+      <div class="session">
+        <div class="session-title">
+          🏁 Domenica 13 dicembre
+        </div>
+        <div class="session-text">
+          <strong>Maratona di Reggio Emilia · 42,195 km</strong>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Questa settimana niente qualità.</strong><br>
+        Il richiamo serve esclusivamente a mantenere
+        brillantezza e sensibilità nella corsa.
+        Deve terminare con la sensazione di avere ancora
+        molta energia nelle gambe.
+      </div>
+
+    </div>
+  </details>
+
+
+  <!-- NOTA FINALE -->
+  <div class="section-label">Verso Reggio Emilia</div>
+
+  <div class="card content">
+
+    <h2>💪 Non dobbiamo ricominciare da capo</h2>
+
+    <p>
+      Il risultato di Parma non deve essere letto come un obiettivo
+      fallito: <strong>4h06' rappresenta comunque un nuovo personale</strong>
+      e conferma che il percorso fatto ha prodotto un miglioramento.
+    </p>
+
+    <p>
+      I sei minuti che separano Nadia dalle quattro ore
+      non si recuperano aumentando improvvisamente il carico
+      nelle poche settimane disponibili.
+    </p>
+
+    <p>
+      A Reggio proveremo invece a presentarci con
+      <strong>la stessa resistenza costruita per Parma,
+      ma con maggiore freschezza</strong>.
+      Saranno recupero, regolarità e corretta gestione della gara
+      a dirci quanto potremo avvicinarci al prossimo traguardo.
+    </p>
+
+    <div class="note-box">
+      <strong>Una regola fino a Reggio:</strong><br>
+      se compare stanchezza muscolare anomala o il recupero
+      da Parma richiede più tempo del previsto,
+      si riduce il carico senza problemi.
+      In questo blocco arrivare riposati vale più
+      di qualsiasi chilometro aggiunto.
+    </div>
+
+    <div class="footnote">
+      Programma personalizzato Runner’s School Italia ·
+      Gabriele Nadia
+    </div>
+
+  </div>
+
 </div>
 
-<div class="note-box">
-Venezia è andata molto bene e soprattutto ci ha dato la conferma che il lavoro fatto negli ultimi mesi
-ha raggiunto l'obiettivo che ci eravamo dati: <strong>costruire resistenza e riuscire a correre bene anche
-quando i chilometri iniziano a pesare.</strong><br><br>
-Adesso però cambiamo obiettivo e di conseguenza deve cambiare anche il tipo di lavoro.
-La prossima gara è una mezza e abbiamo davanti poche settimane: non dobbiamo costruire tutto da capo,
-dobbiamo cercare di prendere la resistenza costruita per Venezia e <strong>rimetterci dentro un po' di velocità.</strong>
-</div>
-</div>
-
-<div class="section-label">Da Venezia a Torino</div>
-
-<div class="card content">
-
-<p>
-La prima cosa importante è questa: <strong>non dobbiamo dimenticare che veniamo da una maratona.</strong>
-Dal 25 ottobre ad oggi abbiamo fatto solo scarico proprio per dare al fisico il tempo di recuperare.
-Le sensazioni possono essere buone, ma una maratona lascia comunque un carico importante e non avrebbe avuto
-alcun senso ripartire subito con lavori impegnativi.
-</p>
-
-<p>
-Ora possiamo però iniziare una fase diversa.
-Durante la preparazione di Venezia avevamo volutamente limitato i lavori molto veloci.
-Abbiamo utilizzato soprattutto ritmi controllati e recuperi attivi perché in quel momento il nostro obiettivo
-principale non era aumentare la velocità, ma riuscire a <strong>trasferire le qualità già presenti sulla lunga distanza.</strong>
-</p>
-
-<p>
-Adesso, preparando una mezza, possiamo tornare a spingere qualcosa in più.
-Nei lavori di qualità troveremo quindi anche ritmi più veloci di RG e, quando aumenterà la velocità,
-utilizzeremo anche recuperi più completi in <strong>souplesse</strong>.
-</p>
-
-<p>
-Non significa che da qui a Torino dobbiamo correre sempre forte.
-Anzi: le altre uscite devono rimanere realmente di scarico.
-Abbiamo poche settimane e non abbiamo bisogno di aggiungere stanchezza inutile.
-<strong>Qualità quando è il momento di fare qualità, piano quando dobbiamo recuperare.</strong>
-</p>
-
-</div>
-
-<div class="section-label">Test 10 km · 8 novembre</div>
-
-<div class="card content">
-
-<p>
-Domenica faremo un <strong>test sui 10 km</strong>.
-Avremmo potuto utilizzare il classico test sui 3000 metri, ma in questo momento preferisco una distanza più lunga.
-</p>
-
-<p>
-Il motivo è semplice: il nostro prossimo obiettivo è una mezza maratona e mi interessa capire non soltanto
-quanto riusciamo a correre forte per pochi chilometri, ma soprattutto <strong>quale velocità riusciamo a sostenere
-oggi su una distanza già significativa.</strong>
-</p>
-
-<p>
-Il test ci servirà quindi per due cose: aggiornare i ritmi di riferimento dopo tutta la preparazione di Venezia
-e iniziare a capire quale potrà essere un <strong>Ritmo Mezza realistico per Torino.</strong>
-</p>
-
-<div class="note-box">
-<strong>Importante:</strong> il test va corso bene e con regolarità.
-Non serve partire fortissimo nei primi chilometri.
-Meglio arrivare nella seconda parte ancora in grado di spingere e vedere cosa riusciamo realmente a fare
-negli ultimi 3–4 km.
-</div>
-
-</div>
-
-<div class="section-label">Ritmi di riferimento</div>
-
-<div class="card content">
-
-<div class="grid">
-<div class="mini"><div class="k">RG</div><div class="v"><strong>Da aggiornare</strong></div></div>
-<div class="mini"><div class="k">RM</div><div class="v"><strong>Da aggiornare</strong></div></div>
-<div class="mini"><div class="k">RA</div><div class="v"><strong>Da aggiornare</strong></div></div>
-<div class="mini"><div class="k">RL</div><div class="v"><strong>Da aggiornare</strong></div></div>
-<div class="mini"><div class="k">RD</div><div class="v"><strong>Da aggiornare</strong></div></div>
-<div class="mini"><div class="k">Ritmo Mezza</div><div class="v"><strong>Da definire</strong></div></div>
-</div>
-
-<div class="note-box">
-I nuovi ritmi verranno inseriti dopo il <strong>test sui 10 km dell'8 novembre</strong>.
-Per il primo lavoro di qualità utilizziamo ancora i riferimenti attuali.
-</div>
-
-</div>
-
-<div class="section-label">Come lavoreremo</div>
-
-<div class="card content">
-
-<p>
-<strong>🔥 Qualità</strong><br>
-Rispetto alla preparazione maratona torniamo gradualmente a correre più forte.
-Partiamo con i 400 metri, passeremo poi ai 1000 e successivamente a un lavoro continuo in progressione.
-Pochi lavori, ma ognuno con uno scopo preciso.
-</p>
-
-<p>
-<strong>🟢 Scarico</strong><br>
-Le altre uscite rimangono prevalentemente da <strong>8–10 km RD</strong>.
-Non devono diventare medi o progressivi perché ci sentiamo bene.
-Servono a recuperare e a permetterci di fare bene gli allenamenti che contano.
-</p>
-
-<p>
-<strong>🏁 Fine settimana</strong><br>
-Non dobbiamo ricostruire una progressione di lunghi: veniamo da 42 km.
-Faremo il test sui 10 km, poi il 15 novembre avremo l'ultimo allenamento realmente importante da 19 km.
-Da quel momento inizieremo già ad alleggerire.
-</p>
-
-<div class="note-box">
-Il programma è volutamente corto.
-Tra Venezia e Torino ci sono soltanto cinque settimane e la prima è servita quasi completamente per recuperare.
-Non dobbiamo cercare di infilare dentro tutto: dobbiamo scegliere bene gli stimoli che ci servono.
-</div>
-
-</div>
-
-<div class="section-label">Programma</div>
-
-<div class="card content">
-
-<details class="week" open>
-<summary>Settimana 1 · 2–8 novembre <span class="small">Ripartenza + Test</span></summary>
-<div class="week-content">
-
-<div class="session">
-<div class="session-title">🔥 Qualità · 400 m</div>
-<div>
-3 km RD +
-<strong>4 × (400 m RG-10"/20" + 400 m RL)</strong> +
-<strong>4 × (400 m RG-30"/40" + 2'00" souplesse)</strong> +
-3 km RD.
-</div>
-<div class="small" style="margin-top:6px;">
-Prima parte controllata con recupero attivo. Nella seconda parte aumentiamo la velocità e aumentiamo anche il recupero:
-qui voglio che i 400 siano corsi bene, senza trascinarsi stanchezza da una prova alla successiva.
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🟢 Scarico</div>
-<div>8–10 km RD.</div>
-</div>
-
-<div class="session">
-<div class="session-title">🟢 Scarico</div>
-<div>8–10 km RD.</div>
-<div class="small" style="margin-top:6px;">
-Da fare realmente piano. Se le gambe sono ancora stanche dalla maratona si può tranquillamente accorciare.
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🏁 Weekend · TEST 10 KM</div>
-<div>
-2 km RD + 4 × (100 m allungo + 100 m RL) +
-<strong>TEST 10 KM</strong> +
-1 km RD.
-</div>
-<div class="small" style="margin-top:6px;">
-Test regolare, senza partire fuori ritmo. Il risultato servirà per aggiornare tutti i riferimenti
-e definire il possibile Ritmo Mezza.
-</div>
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>Settimana 2 · 9–15 novembre <span class="small">Settimana chiave</span></summary>
-<div class="week-content">
-
-<div class="session">
-<div class="session-title">🟢 Scarico</div>
-<div>8–10 km RD.</div>
-</div>
-
-<div class="session">
-<div class="session-title">🔥 Qualità · 1000 m</div>
-<div>
-3 km RD +
-<strong>2 × (1000 m RG-10" + 500 m RL)</strong> +
-<strong>2 × (1000 m RG-20" + 2'30" souplesse)</strong> +
-2 km RD.
-</div>
-<div class="small" style="margin-top:6px;">
-Anche qui il concetto è lo stesso: nei primi 1000 recuperiamo correndo, nei due più veloci ci prendiamo
-un recupero maggiore per riuscire a mantenere una buona qualità.
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🟢 Scarico + allunghi</div>
-<div>
-8–10 km RD + 5 × (100 m allungo + 100 m RL).
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🏁 Domenica 15 novembre · Lungo specifico 19 km</div>
-<div>
-<strong>3 km RD</strong> +
-<strong>3 × (3,5 km Ritmo Mezza + 500 m RG + 1 km RL)</strong> +
-<strong>1 km RD</strong>.
-</div>
-
-<div class="small" style="margin-top:6px;">
-Totale 19 km. Questo sarà l'ultimo allenamento veramente importante prima di Torino.
-I 3,5 km vanno corsi al Ritmo Mezza stabilito dopo il test, i 500 m a RG servono a cambiare passo
-anche con un po' di fatica nelle gambe e il km a RL permette di recuperare continuando a correre.
-</div>
-
-<div class="note-box">
-<strong>Questo non è un test gara.</strong>
-Il Ritmo Mezza deve essere quello stabilito, senza anticiparlo perché ci sentiamo bene.
-L'obiettivo è completare bene tutti e tre i blocchi, soprattutto l'ultimo.
-</div>
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>Settimana 3 · 16–22 novembre <span class="small">Specificità + scarico</span></summary>
-<div class="week-content">
-
-<div class="session">
-<div class="session-title">🟢 Scarico</div>
-<div>8–10 km RD.</div>
-</div>
-
-<div class="session">
-<div class="session-title">🔥 Qualità · Progressione</div>
-<div>
-<strong>3 km RD + 6 km in progressione da RL a RG-10" + 2 km RD.</strong>
-</div>
-<div class="small" style="margin-top:6px;">
-Dopo 400 e 1000 cambiamo tipo di stimolo.
-Qui non ci sono recuperi: partiamo controllati e aumentiamo gradualmente fino a chiudere l'ultima parte brillante.
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🟢 Scarico + allunghi</div>
-<div>
-8–10 km RD + 5 × (100 m allungo + 100 m RL).
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🏁 Weekend · Scarico</div>
-<div>
-<strong>10–12 km RD/RL</strong>, corsa continua e tranquilla.
-</div>
-<div class="small" style="margin-top:6px;">
-A una settimana dalla gara non dobbiamo più costruire niente.
-L'obiettivo è recuperare il lavoro fatto e iniziare ad arrivare freschi.
-</div>
-</div>
-
-</div>
-</details>
-
-<details class="week">
-<summary>Settimana 4 · 23–29 novembre <span class="small">Settimana gara</span></summary>
-<div class="week-content">
-
-<div class="session">
-<div class="session-title">🟢 Scarico</div>
-<div>6–8 km RD.</div>
-</div>
-
-<div class="session">
-<div class="session-title">🔥 Richiamo</div>
-<div>
-<strong>3 km RD + 10 × (200 m RG + 200 m RL) + 2 km RD.</strong>
-</div>
-<div class="small" style="margin-top:6px;">
-Allenamento facile. I 200 servono soltanto a muovere le gambe e mantenere brillantezza.
-Non devono diventare ripetute tirate.
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🔵 Pre-gara</div>
-<div>
-5–6 km RD + 3 × 100 m allungo.
-</div>
-<div class="small" style="margin-top:6px;">
-Se le gambe non sono fresche si può tranquillamente accorciare o sostituire con riposo.
-</div>
-</div>
-
-<div class="session">
-<div class="session-title">🏁 Domenica 29 novembre · MEZZA MARATONA DI TORINO</div>
-<div>
-<strong>21,097 km.</strong><br>
-Il ritmo gara verrà definito dopo il test sui 10 km e verificato definitivamente dopo il lungo specifico del 15 novembre.
-</div>
-</div>
-
-</div>
-</details>
-
-</div>
-
-<div class="section-label">Il senso di queste quattro settimane</div>
-
-<div class="card content">
-
-<p>
-Venezia ci ha lasciato una base di resistenza importante e non avrebbe senso cercare di costruirne altra
-in così poco tempo.
-</p>
-
-<p>
-Quello che possiamo fare invece è utilizzare queste settimane per <strong>tornare gradualmente a correre più forte</strong>,
-senza perdere quello che abbiamo costruito.
-</p>
-
-<p>
-Per questo il programma segue una sequenza molto semplice:
-<strong>400 veloci → test 10 km → 1000 → lungo specifico → progressione → scarico → gara.</strong>
-</p>
-
-<p>
-Non ci sono tanti allenamenti di qualità perché non servono.
-Il rischio più grande, a così poca distanza dalla maratona, sarebbe voler recuperare tutto insieme e arrivare a Torino
-con ancora stanchezza nelle gambe.
-</p>
-
-<div class="note-box">
-<strong>L'obiettivo di queste settimane:</strong> arrivare a Torino con la resistenza costruita per Venezia,
-ma con gambe più fresche, più veloci e più abituate ai ritmi della mezza.
-</div>
-
-</div>
-
-<div class="section-label">Promemoria</div>
-
-<div class="card content">
-
-<p>
-<strong>Le giornate facili devono essere facili.</strong><br>
-Se in una seduta di scarico il passo viene più lento del previsto non succede assolutamente nulla.
-In questo momento conta molto di più arrivare bene alla qualità e recuperare completamente il lavoro precedente.
-</p>
-
-<p>
-Dopo il test del 10 km aggiorneremo i ritmi e avremo un primo riferimento per Torino.
-Il lungo del 15 novembre sarà poi l'ultimo controllo importante:
-<strong>da lì in avanti non cercheremo più condizione, cercheremo freschezza.</strong>
-</p>
-
-</div>
-
-</div>
 
 <script>
-const PAGE_HASH = "251549d65f294ad3105e5f83c6e774edff7d4b5397c2ff473830a686a6ba3354";
+
+const PAGE_HASH =
+"51343dbed57943f8236b82abd051566bb4438ac8605674ad6c4d117dd0dcdc52";
+
+const key = "GabNad.2026";
+
+const lock = document.getElementById("lock");
+const app = document.getElementById("app");
+
+document.getElementById("unlock").onclick = function(e){
+
+  e.preventDefault();
+
+  const inputPassword =
+    document.getElementById("pw").value;
+
+  if(inputPassword === key){
+
+    lock.style.display = "none";
+    app.style.display = "block";
+
+  }else{
+
+    document.getElementById("lockMsg").style.display = "block";
+
+  }
+};
+
+document.getElementById("pw").addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Enter"){
+      document.getElementById("unlock").click();
+    }
+
+  }
+);
+
 </script>
 
 </body>
